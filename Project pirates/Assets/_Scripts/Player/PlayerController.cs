@@ -58,9 +58,8 @@ public class PlayerController : MonoBehaviour
     {
         if (_isMoving)
         {
-            _moveVector = Vector2.MoveTowards(_moveVector, _moveInput, _playerSettings.MovementSnapSpeed);
-            Vector3 newPos = transform.position + new Vector3(_moveVector.x, 0, _moveVector.y) * _playerSettings.MovementSpeed * Time.deltaTime;
-            _rigidbody.MovePosition(newPos);
+            Vector3 newPos =transform.TransformDirection(new Vector3(_moveInput.x, 0, _moveInput.y));
+            _rigidbody.MovePosition(transform.position + newPos * _playerSettings.MovementSpeed * Time.deltaTime);
         }
     }
     private void HandleLook()
@@ -79,7 +78,7 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             _lookInputDelta = context.ReadValue<Vector2>();
-            Debug.Log(_lookInputDelta);
+            
         }
         else if (context.canceled)
         {

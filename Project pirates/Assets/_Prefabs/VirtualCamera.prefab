@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 6368791032227502821}
+  m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 15
   verticalSpeed: 15
-  clampAngle: 80
+  clampAngle: 40
 --- !u!114 &160378985
 MonoBehaviour:
   m_ObjectHideFlags: 0
