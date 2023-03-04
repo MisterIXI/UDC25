@@ -29,7 +29,7 @@ public class FrustumCulling : MonoBehaviour
         }
     }
 
-    private bool CheckForCameraFrustum()
+    public bool CheckForCameraFrustum()
     {
         Vector3 bounds = _meshRenderer.bounds.extents;
         // for each corner of the object's bounding box
