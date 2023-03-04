@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     }
     private void SubscribeToInput()
     {
-        // InputManager.OnLook += OnLookInput;
+        InputManager.OnLook += OnLookInput;
         InputManager.OnMove += OnMoveInput;
     }
     private void FixedUpdate()
