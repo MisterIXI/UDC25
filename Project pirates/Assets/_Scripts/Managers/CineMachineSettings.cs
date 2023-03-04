@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using Cinemachine;
+using UnityEngine;
 
 public class CineMachineSettings : CinemachineExtension
 {
@@ -19,15 +19,19 @@ public class CineMachineSettings : CinemachineExtension
     {
         if (vcam.Follow)
         {
-            if(stage == CinemachineCore.Stage.Aim)
+            if (stage == CinemachineCore.Stage.Aim)
             {
-                // Debug.Log(playercontroller.GetDelta());
-                if (startingRotation == null) startingRotation = transform.localRotation.eulerAngles;
-                Vector2 deltaInput = playercontroller.GetDelta();
-                startingRotation.x += deltaInput.x * verticalSpeed * Time.deltaTime;
-                startingRotation.y += deltaInput.y * horizontalSpeed * Time.deltaTime;
-                startingRotation.y = Mathf.Clamp(startingRotation.y, -clampAngle, -clampAngle);
-                state.RawOrientation = Quaternion.Euler(-startingRotation.y, startingRotation.x, 0f);
+                if (playercontroller != null)
+                {
+
+                    Debug.Log(playercontroller.GetDelta());
+                    if (startingRotation == null) startingRotation = transform.localRotation.eulerAngles;
+                    Vector2 deltaInput = playercontroller.GetDelta();
+                    startingRotation.x += deltaInput.x * verticalSpeed * Time.deltaTime;
+                    startingRotation.y += deltaInput.y * horizontalSpeed * Time.deltaTime;
+                    startingRotation.y = Mathf.Clamp(startingRotation.y, -clampAngle, -clampAngle);
+                    state.RawOrientation = Quaternion.Euler(-startingRotation.y, startingRotation.x, 0f);
+                }
             }
         }
     }
