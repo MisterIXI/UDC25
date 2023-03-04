@@ -12,6 +12,12 @@ public class FrustumCullingTest : MonoBehaviour
         _meshRenderer = GetComponent<MeshRenderer>();
     }
 
+    private void OnDestroy()
+    {
+        _frustumCulling.OnEnterCameraFrustum -= OnEnterCameraFrustum;
+        _frustumCulling.OnExitCameraFrustum -= OnExitCameraFrustum;
+    }
+
     private void OnEnterCameraFrustum()
     {
         Debug.Log("OnEnterCameraFrustum");
