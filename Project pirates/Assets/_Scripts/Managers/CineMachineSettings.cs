@@ -24,12 +24,12 @@ public class CineMachineSettings : CinemachineExtension
                 if (playercontroller != null)
                 {
 
-                    Debug.Log(playercontroller.GetDelta());
+                    // Debug.Log(playercontroller.GetDelta());
                     if (startingRotation == null) startingRotation = transform.localRotation.eulerAngles;
                     Vector2 deltaInput = playercontroller.GetDelta();
                     startingRotation.x += deltaInput.x * verticalSpeed * Time.deltaTime;
                     startingRotation.y += deltaInput.y * horizontalSpeed * Time.deltaTime;
-                    startingRotation.y = Mathf.Clamp(startingRotation.y, -clampAngle, -clampAngle);
+                    startingRotation.y = Mathf.Clamp(startingRotation.y, -clampAngle, clampAngle);
                     state.RawOrientation = Quaternion.Euler(-startingRotation.y, startingRotation.x, 0f);
                 }
             }
