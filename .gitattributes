@@ -1,0 +1,6 @@
+* !text !filter !merge !diff
+*.wav !text !filter !merge !diff
+*.png !text !filter !merge !diff
+*.blend !text !filter !merge !diff
+*.blend1 !text !filter !merge !diff
+*.asset !text !filter !merge !diff
