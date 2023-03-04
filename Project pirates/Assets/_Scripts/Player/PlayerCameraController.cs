@@ -19,7 +19,6 @@ public class PlayerCameraController : MonoBehaviour
         }
         Instance = this;
         _virtualCamera = GetComponent<CinemachineVirtualCamera>();
-        _inputProvider = GetComponent<CinemachineInputProvider>();
         _pov = GetComponent<CinemachinePOV>();
         _cameraTransform = Camera.main.transform;
     }
@@ -31,11 +30,8 @@ public class PlayerCameraController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(_inputProvider.enabled)
-        {
             _playerTransform.forward = Vector3.ProjectOnPlane(_cameraTransform.forward, Vector3.up);
             
 
-        }
     }
 }

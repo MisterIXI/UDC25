@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6368791032142397756}
   - component: {fileID: 6368791032142397731}
-  - component: {fileID: 6368791032142397730}
   - component: {fileID: 6368791032142397757}
   m_Layer: 0
   m_Name: cm
@@ -46,68 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6368791032142397730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6368791032142397759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9beda531928fc40968802117a5d256, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RecenterTarget: 0
-  m_VerticalAxis:
-    Value: 0
-    m_SpeedMode: 0
-    m_MaxSpeed: 100
-    m_AccelTime: 0.01
-    m_DecelTime: 0.01
-    m_InputAxisName: Mouse Y
-    m_InputAxisValue: 0
-    m_InvertInput: 1
-    m_MinValue: -70
-    m_MaxValue: 70
-    m_Wrap: 0
-    m_Recentering:
-      m_enabled: 0
-      m_WaitTime: 1
-      m_RecenteringTime: 2
-      m_LegacyHeadingDefinition: -1
-      m_LegacyVelocityFilterStrength: -1
-  m_VerticalRecentering:
-    m_enabled: 0
-    m_WaitTime: 1
-    m_RecenteringTime: 2
-    m_LegacyHeadingDefinition: -1
-    m_LegacyVelocityFilterStrength: -1
-  m_HorizontalAxis:
-    Value: 0
-    m_SpeedMode: 0
-    m_MaxSpeed: 100
-    m_AccelTime: 0.01
-    m_DecelTime: 0.01
-    m_InputAxisName: Mouse X
-    m_InputAxisValue: 0
-    m_InvertInput: 0
-    m_MinValue: -180
-    m_MaxValue: 180
-    m_Wrap: 1
-    m_Recentering:
-      m_enabled: 0
-      m_WaitTime: 1
-      m_RecenteringTime: 2
-      m_LegacyHeadingDefinition: -1
-      m_LegacyVelocityFilterStrength: -1
-  m_HorizontalRecentering:
-    m_enabled: 0
-    m_WaitTime: 1
-    m_RecenteringTime: 2
-    m_LegacyHeadingDefinition: -1
-    m_LegacyVelocityFilterStrength: -1
-  m_ApplyBeforeBody: 0
 --- !u!114 &6368791032142397757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +69,7 @@ GameObject:
   - component: {fileID: 6368791032227502821}
   - component: {fileID: 6368791032227502820}
   - component: {fileID: 6368791032227502826}
+  - component: {fileID: 160378985}
   m_Layer: 0
   m_Name: VirtualCamera
   m_TagString: Untagged
@@ -174,7 +112,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 6368791032227502821}
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
@@ -205,6 +143,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7f038e6692e2b46bce11de9732b822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 10
-  verticalSpeed: 10
+  horizontalSpeed: 15
+  verticalSpeed: 15
   clampAngle: 80
+--- !u!114 &160378985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6368791032227502822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca4f0f4ea40835c40a879a66f5793186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
