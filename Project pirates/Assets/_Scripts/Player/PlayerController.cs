@@ -79,13 +79,21 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             _lookInputDelta = context.ReadValue<Vector2>();
+            Debug.Log(_lookInputDelta);
         }
         else if (context.canceled)
         {
             _lookInputDelta = Vector2.zero;
         }
     }
-
+    public Vector2 GetDelta(){
+        if(_lookInputDelta != null)
+        {
+            return _lookInputDelta;
+        }else{
+            return Vector2.zero;
+        }
+    }
     private void OnMoveInput(InputAction.CallbackContext context)
     {
         if (context.performed)
