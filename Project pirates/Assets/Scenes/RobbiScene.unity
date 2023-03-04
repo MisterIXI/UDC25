@@ -1356,6 +1356,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VirtualCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 6368791032227502826, guid: 36abb26a47c04a54da8df69adcac8531,
+        type: 3}
+      propertyPath: clampAngle
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36abb26a47c04a54da8df69adcac8531, type: 3}
 --- !u!1001 &8748542178450524421
