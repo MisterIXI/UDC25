@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b55601880db35409e72ec10367d879, type: 3}
+  m_Name: PlayerSettings
+  m_EditorClassIdentifier: 
+  <CloneScriptableObjectOnStart>k__BackingField: 1
+  <MasterVolume>k__BackingField: 0.3
+  <MusicVolume>k__BackingField: 1
+  <SfxVolume>k__BackingField: 1
+  <MouseLookSensitivity>k__BackingField: 1
+  <GamepadLookSensitivity>k__BackingField: 1
+  <InvertYAxis>k__BackingField: 0
+  <MovementSpeed>k__BackingField: 10
+  <MovementSnapSpeed>k__BackingField: 1
+  <CameraMinX>k__BackingField: 1
+  <CameraMaxX>k__BackingField: 1
