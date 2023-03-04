@@ -23,6 +23,5 @@ public class PlayerSettings : ScriptableObject
     [field: SerializeField] public float CameraMinX { get; private set; } = 1f;
     [field: SerializeField] public float CameraMaxX { get; private set; } = 1f;
 
-    [HideInInspector] public event Action<string> OnSettingChanged;
 
 }
