@@ -12,12 +12,23 @@ public class MenuMain : MenuBase
         base.Initialize();
         AddListeners();
         if (Application.platform == RuntimePlatform.WebGLPlayer)
-            _buttonQuit.interactable = false;
+            DisableQuitButton();
 #if UNITY_EDITOR
-        _buttonQuit.interactable = false;
+        DisableQuitButton();
 #endif
     }
-
+    protected virtual void DisableQuitButton()
+    {
+        _buttonQuit.interactable = false;
+        Button bottomButton = _buttonCredits;
+        Button topButton = _buttonStartOrResume;
+        var topNav = topButton.navigation;
+        topNav.selectOnUp = bottomButton;
+        topButton.navigation = topNav;
+        var bottomNav = bottomButton.navigation;
+        bottomNav.selectOnDown = topButton;
+        bottomButton.navigation = bottomNav;
+    }
     public override void SetSelection()
     {
         _buttonStartOrResume.Select();

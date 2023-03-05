@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidbody;
     [field: SerializeField] public Transform FollowTarget { get; private set; }
     private bool _isMoving = true;
+    private bool _isOnLadder;
+    private bool _snappedToLadder;
     public bool IsMoving
     {
         get => _isMoving;
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
     {
         InputManager.OnLook += OnLookInput;
         InputManager.OnMove += OnMoveInput;
+        InputManager.OnClimb += OnClimbInput;
     }
     private void FixedUpdate()
     {
@@ -55,11 +58,16 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMove()
     {
-        if (_isMoving)
+        Vector3 newPos = Vector3.zero;
+        if (_isMoving && !_snappedToLadder)
         {
-            Vector3 newPos =transform.TransformDirection(new Vector3(_moveInput.x, 0, _moveInput.y));
-            _rigidbody.MovePosition(transform.position + newPos * _playerSettings.MovementSpeed * Time.deltaTime);
+            newPos = transform.TransformDirection(new Vector3(_moveInput.x, 0, _moveInput.y));
         }
+        else if (_isMoving && _snappedToLadder)
+        {
+            newPos = transform.TransformDirection(new Vector3(0, _moveInput.y,0));
+        }
+        _rigidbody.MovePosition(transform.position + newPos * _playerSettings.MovementSpeed * Time.deltaTime);
     }
     private void HandleLook()
     {
@@ -71,6 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         InputManager.OnLook -= OnLookInput;
         InputManager.OnMove -= OnMoveInput;
+        InputManager.OnClimb -= OnClimbInput;
     }
     private void OnLookInput(InputAction.CallbackContext context)
     {
@@ -104,9 +113,46 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnClimbInput(InputAction.CallbackContext context)
+    {
+        if (context.performed && _isOnLadder)
+        {
+            _snappedToLadder = !_snappedToLadder;
+            if (_snappedToLadder)
+            {
+                _rigidbody.useGravity = false;
+            }
+            else
+            {
+                _rigidbody.useGravity = true;
+            }
+            Debug.Log("snap to ladder: " + _snappedToLadder);
+        }
+    }
+
     private void OnDestroy()
     {
         if (Instance == this) Instance = null;
         UnsubscribeFromInput();
+    }
+
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("Ladder"))
+        {
+            _isOnLadder = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag.Equals("Ladder"))
+        {
+            _isOnLadder = false;
+            _snappedToLadder = false;
+            _rigidbody.useGravity = true;
+        }
     }
 }
