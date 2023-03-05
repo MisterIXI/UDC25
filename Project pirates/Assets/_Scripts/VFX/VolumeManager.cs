@@ -10,6 +10,7 @@ public class VolumeManager : MonoBehaviour
     private Vignette _vignette;
     private Bloom _bloom;
     private DepthOfField _depthOfField;
+    private ColorAdjustments _colorAdjustments;
     private void Awake()
     {
         if (Instance != null)
@@ -31,8 +32,43 @@ public class VolumeManager : MonoBehaviour
         {
             Debug.LogError("Motion Blur not found");
         }
+        if (!_volume.profile.TryGet(out _colorAdjustments))
+        {
+            Debug.LogError("Color Adjustments not found");
+        }
+        GameManager.OnGameStateChanged += OnGameStateChanged;
     }
 
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= OnGameStateChanged;
+    }
+    private void OnGameStateChanged(GameState oldState, GameState newState)
+    {
+        if (newState == GameState.Paused)
+        {
+            SwitchOnPause(true);
+        }
+        else if (oldState == GameState.Paused)
+        {
+            SwitchOnPause(false);
+        }
+    }
+    private void SwitchOnPause(bool isPaused)
+    {
+        if (isPaused)
+        {
+            SetVignetteStatus(true);
+            SetDepthOfFieldStatus(true);
+            SetColorAdjustmentsStatus(true);
+        }
+        else
+        {
+            SetVignetteStatus(false);
+            SetDepthOfFieldStatus(false);
+            SetColorAdjustmentsStatus(false);
+        }
+    }
     public static void SetVignetteStatus(bool status)
     {
         if (Instance._vignette != null)
@@ -54,6 +90,14 @@ public class VolumeManager : MonoBehaviour
         if (Instance._depthOfField != null)
         {
             Instance._depthOfField.active = status;
+        }
+    }
+
+    public static void SetColorAdjustmentsStatus(bool status)
+    {
+        if (Instance._colorAdjustments != null)
+        {
+            Instance._colorAdjustments.active = status;
         }
     }
 }

@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public static Gamestate CurrentGameState { get; private set; }
-    public static event Action<Gamestate, Gamestate> OnGameStateChanged;
-    public static bool IsGameActiveAndPlaying => CurrentGameState == Gamestate.InGame;
+    public static GameState CurrentGameState { get; private set; }
+    public static event Action<GameState, GameState> OnGameStateChanged;
+    public static bool IsGameActiveAndPlaying => CurrentGameState == GameState.InGame;
     [field: SerializeField] public bool StartInMenu { get; private set; } = false;
     private void Awake()
     {
@@ -23,27 +23,29 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         if (StartInMenu)
-            SwitchToGameState(Gamestate.MainMenu);
+            SwitchToGameState(GameState.MainMenu);
         else
-            SwitchToGameState(Gamestate.InGame);
+            SwitchToGameState(GameState.InGame);
     }
 
-    public static void SwitchToGameState(Gamestate newState)
+    public static void SwitchToGameState(GameState newState)
     {
         OnGameStateChanged?.Invoke(CurrentGameState, newState);
         CurrentGameState = newState;
     }
-    private void OnGameStateChange(Gamestate oldState, Gamestate newState)
+    private void OnGameStateChange(GameState oldState, GameState newState)
     {
         // timescale
         switch (newState)
         {
-            case Gamestate.InGame:
+            case GameState.InGame:
                 Time.timeScale = 1;
+                Cursor.lockState = CursorLockMode.Locked;
                 break;
-            case Gamestate.MainMenu:
-            case Gamestate.Paused:
-            case Gamestate.GameOver:
+            case GameState.MainMenu:
+            case GameState.Paused:
+            case GameState.GameOver:
+                Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0;
                 break;
             default:
@@ -52,7 +54,7 @@ public class GameManager : MonoBehaviour
     }
 }
 
-public enum Gamestate
+public enum GameState
 {
     MainMenu,
     InGame,
