@@ -30,14 +30,18 @@ public class MenuMain : MenuBase
         _buttonCredits.onClick.AddListener(OnCredits);
         _buttonQuit.onClick.AddListener(OnQuit);
     }
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
-        if (GameManager.CurrentGameState != Gamestate.MainMenu)
-            GameManager.SwitchToGameState(Gamestate.MainMenu);
+        Debug.Log("MenuMain.OnEnable");
+        if (GameManager.CurrentGameState != GameState.MainMenu)
+            GameManager.SwitchToGameState(GameState.MainMenu);
     }
     protected virtual void OnStartOrResume()
     {
         // start game
+        //TODO: replace with actual start game
+        GameManager.SwitchToGameState(GameState.InGame);
+        MenuManager.ShowMenu(MenuType.HUD);
     }
 
     private void OnSettings()

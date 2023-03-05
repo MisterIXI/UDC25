@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _lookVector = Vector2.zero;
-        Cursor.lockState = CursorLockMode.Locked;
     }
     private void SubscribeToInput()
     {

@@ -6,7 +6,7 @@ public class MenuPause : MenuMain
     protected override void OnStartOrResume()
     {
         // resume game
-        GameManager.SwitchToGameState(Gamestate.InGame);
+        GameManager.SwitchToGameState(GameState.InGame);
         MenuManager.ShowMenu(MenuType.HUD);
     }
     override protected void AddListeners()
@@ -14,11 +14,14 @@ public class MenuPause : MenuMain
         base.AddListeners();
         _buttonMenu.onClick.AddListener(OnMenu);
     }
-
+    protected override void OnEnable()
+    {
+        // do nothing
+    }
     private void OnMenu()
     {
         // go to main menu
-        GameManager.SwitchToGameState(Gamestate.MainMenu);
+        GameManager.SwitchToGameState(GameState.MainMenu);
         MenuManager.ShowMenu(MenuType.Main);
     }
 }

@@ -24,6 +24,7 @@ public class InputManager : MonoBehaviour
     public static event Action<CallbackContext> OnLook;
     public static event Action<CallbackContext> OnMove;
     public static event Action<CallbackContext> OnInteract;
+    public static event Action<CallbackContext> OnPauseGame;
 
     private void OnLookInput(CallbackContext context)
     {
@@ -40,6 +41,11 @@ public class InputManager : MonoBehaviour
         OnInteract?.Invoke(context);
     }
 
+    private void OnPauseGameInput(CallbackContext context)
+    {
+        OnPauseGame?.Invoke(context);
+    }
+
     private void SubscribeToInput()
     {
         _playerInput.actions["Look"].started += OnLookInput;
@@ -53,6 +59,10 @@ public class InputManager : MonoBehaviour
         _playerInput.actions["Interact"].started += OnInteractInput;
         _playerInput.actions["Interact"].performed += OnInteractInput;
         _playerInput.actions["Interact"].canceled += OnInteractInput;
+
+        _playerInput.actions["PauseGame"].started += OnPauseGameInput;
+        _playerInput.actions["PauseGame"].performed += OnPauseGameInput;
+        _playerInput.actions["PauseGame"].canceled += OnPauseGameInput;
     }
 
     private void UnsubscribeFromInput()
@@ -68,6 +78,10 @@ public class InputManager : MonoBehaviour
         _playerInput.actions["Interact"].started -= OnInteractInput;
         _playerInput.actions["Interact"].performed -= OnInteractInput;
         _playerInput.actions["Interact"].canceled -= OnInteractInput;
+
+        _playerInput.actions["PauseGame"].started -= OnPauseGameInput;
+        _playerInput.actions["PauseGame"].performed -= OnPauseGameInput;
+        _playerInput.actions["PauseGame"].canceled -= OnPauseGameInput;
     }
     private void OnDestroy()
     {

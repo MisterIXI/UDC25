@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MenuManager : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         InitializeMenus();
+        SubscribeToInput();
         ShowMenu(MenuType.Main);
     }
     private void InitializeMenus()
@@ -45,6 +47,23 @@ public class MenuManager : MonoBehaviour
         }
         else // fall back to previous menu
             Instance.SetActiveOnMenu(_currentMenu, true);
+    }
+
+    public void OnPauseGameInput(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (GameManager.CurrentGameState == GameState.InGame)
+            {
+                ShowMenu(MenuType.Pause);
+                GameManager.SwitchToGameState(GameState.Paused);
+            }
+            else if (GameManager.CurrentGameState == GameState.Paused)
+            {
+                ShowMenu(MenuType.HUD);
+                GameManager.SwitchToGameState(GameState.InGame);
+            }
+        }
     }
 
     public static void ShowPreviousMenu()
@@ -81,6 +100,19 @@ public class MenuManager : MonoBehaviour
                 return false;
         }
         return true;
+    }
+
+    private void SubscribeToInput()
+    {
+        InputManager.OnPauseGame += OnPauseGameInput;
+    }
+    private void UnsubscribeFromInput()
+    {
+        InputManager.OnPauseGame -= OnPauseGameInput;
+    }
+    private void OnDestroy()
+    {
+        UnsubscribeFromInput();
     }
 }
 
