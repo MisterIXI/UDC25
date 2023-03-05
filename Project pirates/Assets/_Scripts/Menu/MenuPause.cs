@@ -14,6 +14,18 @@ public class MenuPause : MenuMain
         base.AddListeners();
         _buttonMenu.onClick.AddListener(OnMenu);
     }
+    protected override void DisableQuitButton()
+    {
+        _buttonQuit.interactable = false;
+        Button bottomButton = _buttonMenu;
+        Button topButton = _buttonStartOrResume;
+        var topNav = topButton.navigation;
+        topNav.selectOnUp = bottomButton;
+        topButton.navigation = topNav;
+        var bottomNav = bottomButton.navigation;
+        bottomNav.selectOnDown = topButton;
+        bottomButton.navigation = bottomNav;
+    }
     protected override void OnEnable()
     {
         // do nothing

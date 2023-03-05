@@ -17,7 +17,7 @@ public class MenuMain : MenuBase
         DisableQuitButton();
 #endif
     }
-    private void DisableQuitButton()
+    protected virtual void DisableQuitButton()
     {
         _buttonQuit.interactable = false;
         Button bottomButton = _buttonCredits;
