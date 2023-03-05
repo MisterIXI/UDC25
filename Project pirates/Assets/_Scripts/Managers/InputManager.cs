@@ -24,7 +24,9 @@ public class InputManager : MonoBehaviour
     public static event Action<CallbackContext> OnLook;
     public static event Action<CallbackContext> OnMove;
     public static event Action<CallbackContext> OnInteract;
-    public static event Action<CallbackContext> OnPauseGame;
+
+    public static event Action<CallbackContext> OnClimb;
+
 
     private void OnLookInput(CallbackContext context)
     {
@@ -40,6 +42,11 @@ public class InputManager : MonoBehaviour
     {
         OnInteract?.Invoke(context);
     }
+    private void OnClimbInput(CallbackContext context)
+    {
+        OnClimb?.Invoke(context);
+    }
+
 
     private void OnPauseGameInput(CallbackContext context)
     {
@@ -60,9 +67,11 @@ public class InputManager : MonoBehaviour
         _playerInput.actions["Interact"].performed += OnInteractInput;
         _playerInput.actions["Interact"].canceled += OnInteractInput;
 
-        _playerInput.actions["PauseGame"].started += OnPauseGameInput;
-        _playerInput.actions["PauseGame"].performed += OnPauseGameInput;
-        _playerInput.actions["PauseGame"].canceled += OnPauseGameInput;
+
+        _playerInput.actions["Climb"].started += OnClimbInput;
+        _playerInput.actions["Climb"].performed += OnClimbInput;
+        _playerInput.actions["Climb"].canceled += OnClimbInput;
+
     }
 
     private void UnsubscribeFromInput()
@@ -79,9 +88,11 @@ public class InputManager : MonoBehaviour
         _playerInput.actions["Interact"].performed -= OnInteractInput;
         _playerInput.actions["Interact"].canceled -= OnInteractInput;
 
-        _playerInput.actions["PauseGame"].started -= OnPauseGameInput;
-        _playerInput.actions["PauseGame"].performed -= OnPauseGameInput;
-        _playerInput.actions["PauseGame"].canceled -= OnPauseGameInput;
+
+        _playerInput.actions["Climb"].started -= OnClimbInput;
+        _playerInput.actions["Climb"].performed -= OnClimbInput;
+        _playerInput.actions["Climb"].canceled -= OnClimbInput;
+
     }
     private void OnDestroy()
     {

@@ -33,9 +33,11 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "PauseGame",
+
+                    "name": "Climb",
                     "type": "Button",
-                    "id": "aa905991-7179-430c-9ab4-d8b14e6cf609",
+                    "id": "03d20bd6-4e37-4a1c-b01f-caf7134842d3",
+
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -232,12 +234,25 @@
                 },
                 {
                     "name": "",
-                    "id": "0794acda-3c49-4c2e-8d07-8fb37c1b7d7b",
-                    "path": "<Keyboard>/escape",
+
+                    "id": "1896e714-008d-486f-985d-efa70f39e8c0",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "PauseGame",
+                    "action": "Climb",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "369efa35-543d-488b-8f0f-3b877c481a11",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Climb",
+
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
