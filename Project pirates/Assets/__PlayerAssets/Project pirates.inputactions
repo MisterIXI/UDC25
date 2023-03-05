@@ -33,11 +33,18 @@
                     "initialStateCheck": false
                 },
                 {
-
                     "name": "Climb",
                     "type": "Button",
                     "id": "03d20bd6-4e37-4a1c-b01f-caf7134842d3",
-
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PauseGame",
+                    "type": "Button",
+                    "id": "f4cbe3d7-c4c2-4209-8c67-2a9b49619e04",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -234,7 +241,6 @@
                 },
                 {
                     "name": "",
-
                     "id": "1896e714-008d-486f-985d-efa70f39e8c0",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -252,7 +258,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Climb",
-
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6ab80aac-3af2-4477-9819-dc352a7f5f87",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "PauseGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "06694bff-1859-4626-b56c-ea4262d152b2",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PauseGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
