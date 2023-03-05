@@ -14,6 +14,17 @@ public class MenuSettings : MenuBase
     {
         base.Initialize();
         AddListeners();
+        SetValuesFromSettings();
+    }
+    private void SetValuesFromSettings()
+    {
+        _sliderMasterVolume.value = SettingsManager.PlayerSettings.MasterVolume;
+        _sliderMusicVolume.value = SettingsManager.PlayerSettings.MusicVolume;
+        _sliderSFXVolume.value = SettingsManager.PlayerSettings.SfxVolume;
+        _toggleYInvert.isOn = SettingsManager.PlayerSettings.InvertYAxis;
+        _sliderMouseSense.value = SettingsManager.PlayerSettings.MouseLookSensitivity;
+        _sliderGamepadSense.value = SettingsManager.PlayerSettings.GamepadLookSensitivity;
+        _toggleYInvert.isOn = SettingsManager.PlayerSettings.InvertYAxis;
     }
     private void AddListeners()
     {
