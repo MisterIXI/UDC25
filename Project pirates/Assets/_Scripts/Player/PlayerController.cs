@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _lookVector = Vector2.zero;
-        Cursor.lockState = CursorLockMode.Locked;
     }
     private void SubscribeToInput()
     {
@@ -87,7 +86,7 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             _lookInputDelta = context.ReadValue<Vector2>();
-            
+            // Debug.Log(_lookInputDelta);
         }
         else if (context.canceled)
         {
