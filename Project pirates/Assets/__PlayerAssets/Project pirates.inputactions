@@ -33,9 +33,18 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Climb",
+                    "type": "Button",
+                    "id": "03d20bd6-4e37-4a1c-b01f-caf7134842d3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "PauseGame",
                     "type": "Button",
-                    "id": "aa905991-7179-430c-9ab4-d8b14e6cf609",
+                    "id": "f4cbe3d7-c4c2-4209-8c67-2a9b49619e04",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -232,11 +241,44 @@
                 },
                 {
                     "name": "",
-                    "id": "0794acda-3c49-4c2e-8d07-8fb37c1b7d7b",
+                    "id": "1896e714-008d-486f-985d-efa70f39e8c0",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Climb",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "369efa35-543d-488b-8f0f-3b877c481a11",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Climb",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6ab80aac-3af2-4477-9819-dc352a7f5f87",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "PauseGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "06694bff-1859-4626-b56c-ea4262d152b2",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "PauseGame",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -605,11 +647,22 @@
                 },
                 {
                     "name": "",
+                    "id": "1c2016a9-ecf2-4ea9-815d-8fc922f778da",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9e92bb26-7e3b-4ec4-b06b-3c8f8e498ddc",
                     "path": "*/{Submit}",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
+                    "groups": "Gamepad;Touch;Joystick;XR",
                     "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
