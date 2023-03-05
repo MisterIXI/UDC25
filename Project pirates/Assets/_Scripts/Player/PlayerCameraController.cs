@@ -30,8 +30,6 @@ public class PlayerCameraController : MonoBehaviour
 
     private void FixedUpdate()
     {
-            _playerTransform.forward = Vector3.ProjectOnPlane(_cameraTransform.forward, Vector3.up);
-            
-
+        _playerTransform.forward = Vector3.ProjectOnPlane(_cameraTransform.forward, Vector3.up);
     }
 }
