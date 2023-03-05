@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             _lookInputDelta = context.ReadValue<Vector2>();
-            Debug.Log(_lookInputDelta);
+            // Debug.Log(_lookInputDelta);
         }
         else if (context.canceled)
         {
