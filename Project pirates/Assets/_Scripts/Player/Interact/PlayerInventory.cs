@@ -14,7 +14,7 @@ public class PlayerInventory : MonoBehaviour
             trans.SetParent(null);
             trans.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             trans.gameObject.layer = 0;
-            trans.position = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 2));
+            trans.position = newObj.transform.position;
         }
 
         newObj.transform.SetParent(inventory.transform);
