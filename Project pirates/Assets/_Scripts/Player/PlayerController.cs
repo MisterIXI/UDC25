@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
             if (_snappedToLadder)
             {
                 _rigidbody.useGravity = false;
+                _rigidbody.velocity = Vector3.zero;
             }
             else
             {
