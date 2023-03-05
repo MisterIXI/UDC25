@@ -55,20 +55,20 @@ public class LevelGraphView : GraphView
     }
     public LevelNode CreateAndAddNode(string nodeName, string GUID, Rect position, AnchorList anchorList)
     {
-        var levelNode = CreateLevelNode(nodeName);
-        levelNode.GUID = GUID;
+        var levelNode = CreateLevelNode(nodeName, GUID);
         levelNode.SetPosition(position);
         levelNode.anchorList = anchorList;
         AddElement(levelNode);
+        UpdateOutputCount(levelNode, anchorList);
         return levelNode;
     }
 
-    private LevelNode CreateLevelNode(string nodeName)
+    private LevelNode CreateLevelNode(string nodeName, string GUID = null)
     {
         var levelNode = new LevelNode
         {
             title = nodeName,
-            GUID = System.Guid.NewGuid().ToString()
+            GUID = GUID == null ? System.Guid.NewGuid().ToString() : GUID
         };
 
 
@@ -99,7 +99,7 @@ public class LevelGraphView : GraphView
         {
             if (startPort != port && startPort.node != port.node)
             {
-                if (port.direction == startPort.direction)
+                if (port.direction != startPort.direction)
                     compatiblePorts.Add(port);
             }
         });

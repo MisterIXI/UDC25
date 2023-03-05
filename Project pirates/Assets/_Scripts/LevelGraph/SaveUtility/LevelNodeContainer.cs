@@ -8,5 +8,5 @@ using UnityEngine;
 public class LevelNodeContainer : ScriptableObject
 {
     public List<LevelNodeData> levelNodeData = new List<LevelNodeData>();
-    public List<LevelNodeLinkData> levelNodeLinkData = new List<LevelNodeLinkData>();
+    public Dictionary<string,List<LevelNodeLinkData>> levelNodeLinkDataDictionary = new Dictionary<string, List<LevelNodeLinkData>>();
 }

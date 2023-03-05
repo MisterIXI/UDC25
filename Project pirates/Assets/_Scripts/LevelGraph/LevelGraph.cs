@@ -60,9 +60,20 @@ public class LevelGraph : EditorWindow
         var fileField = new ObjectField("Source File")
         {
             objectType = typeof(LevelNodeContainer),
-            value = Selection.activeObject,
+            value = Selection.activeObject is LevelNodeContainer ? Selection.activeObject : null,
             allowSceneObjects = false
         };
+        _currentContainer = (LevelNodeContainer)fileField.value;
+        var saveButton = new Button(() => SaveOrLoad(true))
+        {
+            text = "Save"
+        };
+        toolbar.Add(saveButton);
+        var loadButton = new Button(() => SaveOrLoad(false))
+        {
+            text = "Load"
+        };
+        toolbar.Add(loadButton);
         fileField.RegisterValueChangedCallback(evt =>
         { _currentContainer = (LevelNodeContainer)evt.newValue; });
         toolbar.Add(fileField);
@@ -80,9 +91,9 @@ public class LevelGraph : EditorWindow
 
     private void SaveOrLoad(bool save)
     {
-        if (string.IsNullOrEmpty(_fileName))
+        if (_currentContainer == null)
         {
-            EditorUtility.DisplayDialog("Invalid file name", "Please enter a valid file name", "OK");
+            EditorUtility.DisplayDialog("No file selected", "Please select a file to save or load", "OK");
             return;
         }
         var saveUtility = GraphSaveUtility.GetInstance(_graphView);
@@ -92,6 +103,14 @@ public class LevelGraph : EditorWindow
         }
         else
         {
+            var nodelist = _graphView.nodes.ToList();
+            if (nodelist.Count > 0)
+            {
+                if (!EditorUtility.DisplayDialog("Load Graph", "Loading a graph will delete the current one, are you sure?", "Yes", "No"))
+                    return;
+                _graphView.DeleteElements(nodelist);
+            }
+
             saveUtility.LoadGraph(_currentContainer);
         }
     }
