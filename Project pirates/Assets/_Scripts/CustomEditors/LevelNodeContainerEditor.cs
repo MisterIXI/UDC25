@@ -8,7 +8,8 @@ public class LevelNodeContainerEditor : Editor
     {
         if (GUILayout.Button("Open LevelGraph Window"))
         {
-            LevelGraph.ShowWindow(target as NodeContainer);
+            var levelGraphWindow = LevelGraph.ShowWindow(target as NodeContainer);
+            
         }
         base.OnInspectorGUI();
     }
