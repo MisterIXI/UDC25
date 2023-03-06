@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class takeCapsule : MonoBehaviour, IInteractable
 {
-    public GameObject _player;
+    private PlayerInventory inventory;
+
+    private void Start() {
+        inventory = PlayerController.Instance.GetComponent<PlayerInventory>();
+    }
+
     public string Data()
     {
         return "Take Capsule";
@@ -12,6 +17,6 @@ public class takeCapsule : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        _player.GetComponent<PlayerInventory>().TakeObject(gameObject);
+        inventory.TakeObject(gameObject);
     }
 }
