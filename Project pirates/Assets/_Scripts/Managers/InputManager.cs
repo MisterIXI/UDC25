@@ -48,7 +48,6 @@ public class InputManager : MonoBehaviour
         OnClimb?.Invoke(context);
     }
 
-
     private void OnPauseGameInput(CallbackContext context)
     {
         OnPauseGame?.Invoke(context);
