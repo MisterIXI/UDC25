@@ -18,23 +18,23 @@ public class GraphSaveUtility
     {
         var levelNodeContainer = ScriptableObject.CreateInstance<LevelNodeContainer>();
         var levelNodeDatas = new List<LevelNodeData>();
-        var levelND_Dict = new Dictionary<string, List<LevelNodeLinkData>>();
+        var levelNodeLinkDatas = new List<LevelNodeLinkData>();
         foreach (var node in _targetGraphView.nodes)
         {
             var levelNode = node as LevelNode;
             levelNodeDatas.Add(new LevelNodeData
             {
                 GUID = levelNode.GUID,
+                DisplayName = levelNode.title,
                 position = levelNode.GetPosition(),
                 anchorList = levelNode.anchorList
             });
-            levelND_Dict.Add(levelNode.GUID, new List<LevelNodeLinkData>());
             foreach (var port in levelNode.outputContainer.Children())
             {
                 var outputPort = port as Port;
                 foreach (Edge edge in outputPort.connections)
                 {
-                    levelND_Dict[levelNode.GUID].Add(new LevelNodeLinkData
+                    levelNodeLinkDatas.Add(new LevelNodeLinkData
                     {
                         BaseNodeGUID = levelNode.GUID,
                         BasePortName = outputPort.portName,
@@ -45,13 +45,13 @@ public class GraphSaveUtility
             }
         }
         container.levelNodeData = levelNodeDatas;
-        container.levelNodeLinkDataDictionary = levelND_Dict;
+        container.levelNodeLinkData = levelNodeLinkDatas;
     }
 
     public void LoadGraph(LevelNodeContainer container)
     {
         var levelNodeDatas = container.levelNodeData;
-        var levelNodeLinkDatas = container.levelNodeLinkDataDictionary;
+        var levelNodeLinkDatas = container.levelNodeLinkData;
         Dictionary<string, LevelNode> levelNodeDict = new Dictionary<string, LevelNode>();
         foreach (LevelNodeData nodeData in levelNodeDatas)
         {
@@ -60,7 +60,7 @@ public class GraphSaveUtility
         }
         foreach (LevelNode node in levelNodeDict.Values)
         {
-            List<LevelNodeLinkData> levelNodeLinkData = levelNodeLinkDatas[node.GUID];
+            List<LevelNodeLinkData> levelNodeLinkData = levelNodeLinkDatas.Where(x => x.BaseNodeGUID == node.GUID).ToList();
             foreach (var linkData in levelNodeLinkData)
             {
                 Port outputPort = node.outputContainer.Children().First(x => x is Port && ((Port)x).portName == linkData.BasePortName) as Port;

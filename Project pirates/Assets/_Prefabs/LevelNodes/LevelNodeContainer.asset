@@ -12,5 +12,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25852f35264acc8458c5464e61d06901, type: 3}
   m_Name: LevelNodeContainer
   m_EditorClassIdentifier: 
-  levelNodeDatas: []
-  levelNodeLinkDatas: []
+  levelNodeData:
+  - DisplayName: LevelNode
+    GUID: 117a8a49-f2ce-474b-86c7-d0bbb659293e
+    position:
+      serializedVersion: 2
+      x: 107
+      y: 128
+      width: 201
+      height: 145
+    anchorList: {fileID: 752673514857426478, guid: 34a6f97a4b61b6745b978e953ddb4ff3,
+      type: 3}
+  - DisplayName: LevelNode
+    GUID: a5e70dac-e8f0-4f41-b5e1-a848aba6dd0f
+    position:
+      serializedVersion: 2
+      x: 490
+      y: 214
+      width: 201
+      height: 145
+    anchorList: {fileID: 752673514857426478, guid: 34a6f97a4b61b6745b978e953ddb4ff3,
+      type: 3}
+  - DisplayName: LevelNode
+    GUID: e9d79612-86a7-43d0-b9d0-0e18d2e1834c
+    position:
+      serializedVersion: 2
+      x: 176
+      y: 273
+      width: 201
+      height: 145
+    anchorList: {fileID: 752673514857426478, guid: 34a6f97a4b61b6745b978e953ddb4ff3,
+      type: 3}
+  - DisplayName: LevelNode
+    GUID: 1366d692-8ac3-48eb-9bdb-2ccb44c8b069
+    position:
+      serializedVersion: 2
+      x: 513
+      y: 2
+      width: 201
+      height: 145
+    anchorList: {fileID: 752673514857426478, guid: 34a6f97a4b61b6745b978e953ddb4ff3,
+      type: 3}
+  levelNodeLinkData:
+  - BaseNodeGUID: 117a8a49-f2ce-474b-86c7-d0bbb659293e
+    BasePortName: Anchor A
+    TargetNodeGUID: 1366d692-8ac3-48eb-9bdb-2ccb44c8b069
+    TargetPortName: Anchor C
+  - BaseNodeGUID: 117a8a49-f2ce-474b-86c7-d0bbb659293e
+    BasePortName: Anchor B
+    TargetNodeGUID: 1366d692-8ac3-48eb-9bdb-2ccb44c8b069
+    TargetPortName: Anchor A
+  - BaseNodeGUID: 117a8a49-f2ce-474b-86c7-d0bbb659293e
+    BasePortName: Anchor C
+    TargetNodeGUID: e9d79612-86a7-43d0-b9d0-0e18d2e1834c
+    TargetPortName: Anchor B
+  - BaseNodeGUID: a5e70dac-e8f0-4f41-b5e1-a848aba6dd0f
+    BasePortName: Anchor A
+    TargetNodeGUID: 1366d692-8ac3-48eb-9bdb-2ccb44c8b069
+    TargetPortName: Anchor B
+  - BaseNodeGUID: e9d79612-86a7-43d0-b9d0-0e18d2e1834c
+    BasePortName: Anchor B
+    TargetNodeGUID: a5e70dac-e8f0-4f41-b5e1-a848aba6dd0f
+    TargetPortName: Anchor A
+  - BaseNodeGUID: 1366d692-8ac3-48eb-9bdb-2ccb44c8b069
+    BasePortName: Anchor C
+    TargetNodeGUID: 117a8a49-f2ce-474b-86c7-d0bbb659293e
+    TargetPortName: Anchor B
