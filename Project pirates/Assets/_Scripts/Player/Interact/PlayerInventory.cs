@@ -19,7 +19,7 @@ public class PlayerInventory : MonoBehaviour
         inventory = new GameObject("Inventory");
         inventory.tag = "Inventory";
         inventory.transform.SetParent(mainCamera.transform);
-        inventory.transform.localPosition = new Vector3(-0.55f, -0.275f, 1);
+        inventory.transform.localPosition = new Vector3(-0.55f, -0.275f, 1); //change this for size and position of items
     }
 
 
@@ -28,7 +28,7 @@ public class PlayerInventory : MonoBehaviour
         if (item != null && animate == true)
         {   
             item.transform.localPosition = Vector3.Lerp(item.transform.localPosition, Vector3.zero, Time.deltaTime * 4);
-            item.transform.rotation = Camera.main.transform.rotation;
+            item.transform.rotation = Camera.main.transform.rotation;   // change this for rotation of items
 
             if (item.transform.localPosition == Vector3.zero)
             {
