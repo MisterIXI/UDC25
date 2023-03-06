@@ -8,13 +8,22 @@ public class LevelGraph : EditorWindow
     private LevelGraphView _graphView;
     private string _fileName = "New Graph";
     private LevelNodeContainer _currentContainer;
+    private ObjectField _fileField;
     [MenuItem("Project pirates/LevelGraph")]
-    private static void ShowWindow()
+    public static void ShowWindow()
+    {
+        ShowWindow(null);
+    }
+
+    public static void ShowWindow(LevelNodeContainer container)
     {
         var window = GetWindow<LevelGraph>();
         window.titleContent = new GUIContent("LevelGraph");
         window.Show();
+        if (container != null)
+            window.InitWithContainer(container);
     }
+
 
     private void OnGUI()
     {
@@ -41,7 +50,14 @@ public class LevelGraph : EditorWindow
         _graphView.StretchToParentSize();
         rootVisualElement.Add(_graphView);
     }
-
+    private void InitWithContainer(LevelNodeContainer container)
+    {
+        _currentContainer = container;
+        _fileName = container.name;
+        ClearGraph();
+        GraphSaveUtility.GetInstance(_graphView).LoadGraph(container);
+        _fileField.SetValueWithoutNotify(container);
+    }
     private void GenerateToolBar()
     {
         var toolbar = new Toolbar();
@@ -60,9 +76,13 @@ public class LevelGraph : EditorWindow
         var fileField = new ObjectField("Source File")
         {
             objectType = typeof(LevelNodeContainer),
-            value = Selection.activeObject is LevelNodeContainer ? Selection.activeObject : null,
+            value = Selection.activeObject is LevelNodeContainer ? Selection.activeObject : _currentContainer,
             allowSceneObjects = false
         };
+        fileField.RegisterValueChangedCallback(evt =>
+        { _currentContainer = (LevelNodeContainer)evt.newValue; });
+        toolbar.Add(fileField);
+        _fileField = fileField;
         _currentContainer = (LevelNodeContainer)fileField.value;
         var saveButton = new Button(() => SaveOrLoad(true))
         {
@@ -74,9 +94,11 @@ public class LevelGraph : EditorWindow
             text = "Load"
         };
         toolbar.Add(loadButton);
-        fileField.RegisterValueChangedCallback(evt =>
-        { _currentContainer = (LevelNodeContainer)evt.newValue; });
-        toolbar.Add(fileField);
+        var debugButton = new Button(() => _graphView.nodes.ToList().ForEach(n => { n.RefreshExpandedState(); n.RefreshPorts(); }))
+        {
+            text = "Debug"
+        };
+        toolbar.Add(debugButton);
         rootVisualElement.Add(toolbar);
     }
     private void GenerateMiniMap()
@@ -108,10 +130,16 @@ public class LevelGraph : EditorWindow
             {
                 if (!EditorUtility.DisplayDialog("Load Graph", "Loading a graph will delete the current one, are you sure?", "Yes", "No"))
                     return;
-                _graphView.DeleteElements(nodelist);
+                ClearGraph();
             }
 
             saveUtility.LoadGraph(_currentContainer);
         }
+    }
+
+    public void ClearGraph()
+    {
+        _graphView.DeleteElements(_graphView.nodes.ToList());
+        _graphView.DeleteElements(_graphView.edges.ToList());
     }
 }

@@ -17,32 +17,9 @@ public class LevelGraphView : GraphView
         this.AddManipulator(new SelectionDragger());
         this.AddManipulator(new RectangleSelector());
 
-
-        var grid = new GridBackground();
-        Insert(0, grid);
-        grid.StretchToParentSize();
+        CreateGridBackground();
 
 
-        AddElement(GenerateEntryPointNode());
-    }
-
-    private LevelNode GenerateEntryPointNode()
-    {
-        var node = new LevelNode
-        {
-            title = "Entry Point",
-            GUID = System.Guid.NewGuid().ToString(),
-            EntryPoint = true
-        };
-        var generatedPort = GeneratePort(node, Direction.Output);
-        generatedPort.portName = "Next";
-        node.outputContainer.Add(generatedPort);
-
-        node.RefreshExpandedState();
-        node.RefreshPorts();
-
-        node.SetPosition(new Rect(100, 200, 100, 150));
-        return node;
     }
 
     private Port GeneratePort(LevelNode node, Direction portDirection, Port.Capacity capacity = Port.Capacity.Single)
@@ -57,9 +34,12 @@ public class LevelGraphView : GraphView
     {
         var levelNode = CreateLevelNode(nodeName, GUID);
         levelNode.SetPosition(position);
-        levelNode.anchorList = anchorList;
-        AddElement(levelNode);
         UpdateOutputCount(levelNode, anchorList);
+        levelNode.anchorList = anchorList;
+        levelNode.RefreshExpandedState();
+        levelNode.RefreshPorts();
+        levelNode.mainContainer.Q<ObjectField>().value = anchorList;
+        AddElement(levelNode);
         return levelNode;
     }
 
@@ -90,7 +70,12 @@ public class LevelGraphView : GraphView
         levelNode.SetPosition(new Rect(Vector2.zero, defaultNodeSize));
         return levelNode;
     }
-
+    public void CreateGridBackground()
+    {
+        var grid = new GridBackground();
+        Insert(0, grid);
+        grid.StretchToParentSize();
+    }
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
     {
         var compatiblePorts = new List<Port>();
