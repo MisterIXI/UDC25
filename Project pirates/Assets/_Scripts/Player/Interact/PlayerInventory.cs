@@ -5,24 +5,18 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    private GameObject inventory;
+    GameObject inventory;
     private GameObject item;
     private Camera mainCamera;
 
 
     private void Start() 
     {
-        inventory = GameObject.FindGameObjectWithTag("Inventory");
         mainCamera = Camera.main;
 
-        foreach  (Transform trans in inventory.transform)   // clears inventory at start
-        {
-            trans.position = inventory.transform.position;
-            trans.SetParent(null);
-        }        
-
-        // inventory.transform.SetParent(mainCamera.transform);
-        
+        inventory = new GameObject("Inventory");
+        inventory.transform.SetParent(mainCamera.transform);
+        inventory.transform.localPosition = new Vector3(-0.55f, -0.275f, 1);
     }
 
 
