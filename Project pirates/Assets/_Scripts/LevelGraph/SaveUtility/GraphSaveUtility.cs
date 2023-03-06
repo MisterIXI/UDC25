@@ -14,57 +14,97 @@ public class GraphSaveUtility
             _targetGraphView = graphView
         };
     }
-    public void SaveGraph(LevelNodeContainer container)
+    public void SaveGraph(NodeContainer container)
     {
-        var levelNodeContainer = ScriptableObject.CreateInstance<LevelNodeContainer>();
+        var NodeLinks = new List<NodeLinkData>();
         var levelNodeDatas = new List<LevelNodeData>();
-        var levelNodeLinkDatas = new List<LevelNodeLinkData>();
-        foreach (var node in _targetGraphView.nodes)
+        var decisionNodeDatas = new List<DecisionNodeData>();
+        var linkNodeDatas = new List<LinkNodeData>();
+        foreach (BaseNode node in _targetGraphView.nodes)
         {
-            var levelNode = node as LevelNode;
-            levelNodeDatas.Add(new LevelNodeData
+            if (node is LevelNode)
             {
-                GUID = levelNode.GUID,
-                DisplayName = levelNode.title,
-                position = levelNode.GetPosition(),
-                anchorList = levelNode.anchorList
-            });
-            foreach (var port in levelNode.outputContainer.Children())
+                var levelNode = node as LevelNode;
+                levelNodeDatas.Add(new LevelNodeData
+                {
+                    GUID = levelNode.GUID,
+                    DisplayName = levelNode.title,
+                    position = levelNode.GetPosition(),
+                    anchorList = levelNode.anchorList
+                });
+            }
+            else if (node is DecisionNode)
+            {
+                var decisionNode = node as DecisionNode;
+                decisionNodeDatas.Add(new DecisionNodeData
+                {
+                    GUID = decisionNode.GUID,
+                    DisplayName = decisionNode.title,
+                    position = decisionNode.GetPosition(),
+                    flagName = decisionNode.flagName
+                });
+            }
+            else if (node is LinkNode)
+            {
+                var linkNode = node as LinkNode;
+                linkNodeDatas.Add(new LinkNodeData
+                {
+                    GUID = linkNode.GUID,
+                    DisplayName = linkNode.title,
+                    position = linkNode.GetPosition(),
+                    container = linkNode.container
+                });
+            }
+            foreach (var port in node.outputContainer.Children())
             {
                 var outputPort = port as Port;
                 foreach (Edge edge in outputPort.connections)
                 {
-                    levelNodeLinkDatas.Add(new LevelNodeLinkData
+                    NodeLinks.Add(new NodeLinkData
                     {
-                        BaseNodeGUID = levelNode.GUID,
+                        BaseNodeGUID = node.GUID,
                         BasePortName = outputPort.portName,
-                        TargetNodeGUID = ((LevelNode)edge.input.node).GUID,
+                        TargetNodeGUID = ((BaseNode)edge.input.node).GUID,
                         TargetPortName = ((Port)edge.input).portName
                     });
                 }
             }
         }
         container.levelNodeData = levelNodeDatas;
-        container.levelNodeLinkData = levelNodeLinkDatas;
+        container.decisionNodeData = decisionNodeDatas;
+        container.linkNodeData = linkNodeDatas;
+        container.NodeLinkData = NodeLinks;
     }
 
-    public void LoadGraph(LevelNodeContainer container)
+    public void LoadGraph(NodeContainer container)
     {
         var levelNodeDatas = container.levelNodeData;
-        var levelNodeLinkDatas = container.levelNodeLinkData;
-        Dictionary<string, LevelNode> levelNodeDict = new Dictionary<string, LevelNode>();
+        var decisionNodeDatas = container.decisionNodeData;
+        var linkNodeDatas = container.linkNodeData;
+        var nodeLinkDatas = container.NodeLinkData;
+        Dictionary<string, BaseNode> nodeDict = new Dictionary<string, BaseNode>();
         foreach (LevelNodeData nodeData in levelNodeDatas)
         {
-            var levelNode = _targetGraphView.CreateAndAddNode(nodeData.DisplayName, nodeData.GUID, nodeData.position, nodeData.anchorList);
-            levelNodeDict.Add(nodeData.GUID, levelNode);
+            var levelNode = _targetGraphView.CreateAndAddLevelNode(nodeData.DisplayName, nodeData.GUID, nodeData.position, nodeData.anchorList);
+            nodeDict.Add(nodeData.GUID, levelNode);
         }
-        foreach (LevelNode node in levelNodeDict.Values)
+        foreach (DecisionNodeData nodeData in decisionNodeDatas)
         {
-            List<LevelNodeLinkData> levelNodeLinkData = levelNodeLinkDatas.Where(x => x.BaseNodeGUID == node.GUID).ToList();
-            foreach (var linkData in levelNodeLinkData)
+            var decisionNode = _targetGraphView.CreateAndAddDecisionNode(nodeData.DisplayName, nodeData.GUID, nodeData.position, nodeData.flagName);
+            nodeDict.Add(nodeData.GUID, decisionNode);
+        }
+        foreach (LinkNodeData nodeData in linkNodeDatas)
+        {
+            var linkNode = _targetGraphView.CreateAndAddLinkNode(nodeData.DisplayName, nodeData.GUID, nodeData.position, nodeData.container);
+            nodeDict.Add(nodeData.GUID, linkNode);
+        }
+        foreach (BaseNode node in nodeDict.Values)
+        {
+            List<NodeLinkData> nodeLinkData = nodeLinkDatas.Where(x => x.BaseNodeGUID == node.GUID).ToList();
+            foreach (var linkData in nodeLinkData)
             {
                 Port outputPort = node.outputContainer.Children().First(x => x is Port && ((Port)x).portName == linkData.BasePortName) as Port;
-                Port inputPort = levelNodeDict[linkData.TargetNodeGUID].inputContainer.Children().First(x => x is Port && ((Port)x).portName == linkData.TargetPortName) as Port;
+                Port inputPort = nodeDict[linkData.TargetNodeGUID].inputContainer.Children().First(x => x is Port && ((Port)x).portName == linkData.TargetPortName) as Port;
                 var tempEdge = new Edge
                 {
                     output = outputPort,
@@ -75,7 +115,7 @@ public class GraphSaveUtility
                 _targetGraphView.Add(tempEdge);
             }
         }
-        foreach (LevelNode node in _targetGraphView.nodes.ToList())
+        foreach (BaseNode node in _targetGraphView.nodes.ToList())
         {
             node.RefreshExpandedState();
             node.RefreshPorts();
