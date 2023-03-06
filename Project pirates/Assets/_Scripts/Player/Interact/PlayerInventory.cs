@@ -17,6 +17,7 @@ public class PlayerInventory : MonoBehaviour
         mainCamera = Camera.main;
 
         inventory = new GameObject("Inventory");
+        inventory.tag = "Inventory";
         inventory.transform.SetParent(mainCamera.transform);
         inventory.transform.localPosition = new Vector3(-0.55f, -0.275f, 1);
     }
