@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -18,8 +19,6 @@ public class LevelGraphView : GraphView
         this.AddManipulator(new RectangleSelector());
 
         CreateGridBackground();
-
-
     }
 
     private Port GeneratePort(Node node, Direction portDirection, Port.Capacity capacity = Port.Capacity.Single)

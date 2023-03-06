@@ -15,13 +15,23 @@ public class LevelGraph : EditorWindow
         ShowWindow(null);
     }
 
-    public static void ShowWindow(NodeContainer container)
+    public static LevelGraph ShowWindow(NodeContainer container)
     {
         var window = GetWindow<LevelGraph>();
         window.titleContent = new GUIContent("LevelGraph");
         window.Show();
+        if(window.hasUnsavedChanges && window._graphView.nodes.ToList().Count > 0)
+        {
+            // prompt for save
+            if (EditorUtility.DisplayDialog(window.saveChangesMessage, "Save changes?", "Yes", "No"))
+            {
+                window.SaveChanges();
+            }
+        }
+
         if (container != null)
             window.InitWithContainer(container);
+        return window;
     }
 
 
@@ -49,6 +59,29 @@ public class LevelGraph : EditorWindow
         };
         _graphView.StretchToParentSize();
         rootVisualElement.Add(_graphView);
+        _graphView.graphViewChanged += OnGraphViewChanged;
+        saveChangesMessage = "Do you want to save changes to " + _fileName + "?";
+
+    }
+    public override void SaveChanges()
+    {
+        SaveOrLoad(true);
+    }
+    private GraphViewChange OnGraphViewChanged(GraphViewChange change)
+    {
+        Debug.Log("OnGraphViewChanged");
+        // print all changes
+        change.edgesToCreate?.ForEach(x => Debug.Log("Edge to create: " + x));
+        change.elementsToRemove?.ForEach(x => Debug.Log("Element to remove: " + x));
+        change.movedElements?.ForEach(x => Debug.Log("Element to move: " + x));
+        Debug.Log("Destination: " + change.moveDelta);
+        Debug.Log("Counts: " + change.edgesToCreate?.Count + " | " + change.elementsToRemove?.Count + " | " + change.movedElements?.Count);
+        Debug.Log("HasUnsavedChanges: " + hasUnsavedChanges);
+
+        // check if anything important changed
+        if (change.elementsToRemove?.Count > 0 || change.edgesToCreate?.Count > 0 || change.movedElements?.Count > 0)
+            hasUnsavedChanges = true;
+        return change;
     }
     private void InitWithContainer(NodeContainer container)
     {
@@ -57,6 +90,7 @@ public class LevelGraph : EditorWindow
         ClearGraph();
         GraphSaveUtility.GetInstance(_graphView).LoadGraph(container);
         _fileField.SetValueWithoutNotify(container);
+        hasUnsavedChanges = false;
     }
     private void GenerateToolBar()
     {
@@ -132,6 +166,7 @@ public class LevelGraph : EditorWindow
         if (save)
         {
             saveUtility.SaveGraph(_currentContainer);
+            hasUnsavedChanges = false;
         }
         else
         {
@@ -144,6 +179,7 @@ public class LevelGraph : EditorWindow
             }
 
             saveUtility.LoadGraph(_currentContainer);
+            hasUnsavedChanges = false;
         }
     }
 
