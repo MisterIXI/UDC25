@@ -6,16 +6,15 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     GameObject inventory;
-   
+    public Vector3 destItemRotation;
+    public float rubberbandForce;
+    public float rotationSpeed;
     private Camera mainCamera;
     private GameObject item;
-    private bool animate = false;
-
 
     private void Start() 
     {
         mainCamera = Camera.main;
-
         inventory = new GameObject("Inventory");
         inventory.tag = "Inventory";
         inventory.transform.SetParent(mainCamera.transform);
@@ -25,18 +24,31 @@ public class PlayerInventory : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        if (item != null && animate == true)
-        {   
-            item.transform.localPosition = Vector3.Lerp(item.transform.localPosition, Vector3.zero, Time.deltaTime * 4);
-            item.transform.rotation = Camera.main.transform.rotation;   // change this for rotation of items
-
-            if (item.transform.localPosition == Vector3.zero)
-            {
-                animate = false;
-            }
+        if (item != null)
+        {
+            MoveObject();
+            Vector3 startRot = item.transform.localEulerAngles;   
+                    Vector3 currentAngle = new Vector3(
+            Mathf.LerpAngle(startRot.x, destItemRotation.x, Time.fixedDeltaTime * rotationSpeed),
+            Mathf.LerpAngle(startRot.y, destItemRotation.y, Time.fixedDeltaTime * rotationSpeed),
+            Mathf.LerpAngle(startRot.z, destItemRotation.z, Time.fixedDeltaTime * rotationSpeed));
+            item.transform.localEulerAngles = currentAngle;
         }
     }
 
+    private void MoveObject()
+    {
+        if (Vector3.Distance(item.transform.position, inventory.transform.position) > 0.1f)
+        { 
+            Vector3 moveDirection = (inventory.transform.position - item.transform.position);
+            item.GetComponent<Rigidbody>().AddForce(moveDirection * rubberbandForce);
+        }
+
+        if(Vector3.Distance(item.transform.position, inventory.transform.position) > 5f)
+        {
+            item.transform.position = inventory.transform.position;
+        }
+    }
 
     public void TakeObject(GameObject newObj)
     {
@@ -45,14 +57,13 @@ public class PlayerInventory : MonoBehaviour
         foreach  (Transform trans in inventory.transform)
         {
             trans.gameObject.GetComponent<Collider>().enabled = true;
-            trans.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             // trans.position = item.transform.position;
             trans.SetParent(null);
         }
-
-        newObj.GetComponent<Collider>().enabled = false;
-        newObj.GetComponent<Rigidbody>().isKinematic = true;
+        newObj.GetComponent<Rigidbody>().useGravity = false;
+        newObj.GetComponent<Rigidbody>().drag = 10;
+        newObj.GetComponent<Rigidbody>().angularDrag = 3;
         item.transform.SetParent(inventory.transform);
-        animate = true;
     }
+
 }
