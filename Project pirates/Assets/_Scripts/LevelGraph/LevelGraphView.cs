@@ -62,14 +62,16 @@ public class LevelGraphView : GraphView
         return decisionNode;
     }
 
-    public LinkNode CreateAndAddLinkNode(string nodeName, string GUID, Rect position, NodeContainer container)
+    public LinkNode CreateAndAddLinkNode(string nodeName, string GUID, Rect position, NodeContainer container, bool isEntryPoint = false)
     {
         var linkNode = CreateLinkNode(nodeName, GUID);
         linkNode.SetPosition(position);
         linkNode.container = container;
+        linkNode.IsEntryPoint = isEntryPoint;
         linkNode.RefreshExpandedState();
         linkNode.RefreshPorts();
         linkNode.mainContainer.Q<ObjectField>().value = container;
+        linkNode.mainContainer.Q<Toggle>().value = isEntryPoint;
         AddElement(linkNode);
         return linkNode;
     }
@@ -146,11 +148,23 @@ public class LevelGraphView : GraphView
             value = null,
             allowSceneObjects = false
         };
+
         containerField.RegisterValueChangedCallback(evt =>
         {
             linkNode.container = (NodeContainer)evt.newValue;
         });
         linkNode.mainContainer.Add(containerField);
+        var entryBoolField = new Toggle
+        {
+            name = "IsEntryPoint",
+            label = "IsEntryPoint",
+            value = false
+        };
+        entryBoolField.RegisterValueChangedCallback(evt =>
+        {
+            linkNode.IsEntryPoint = evt.newValue;
+        });
+        linkNode.mainContainer.Add(entryBoolField);
         var inputPort = GeneratePort(linkNode, Direction.Input, Port.Capacity.Single);
         var outputPort = GeneratePort(linkNode, Direction.Output, Port.Capacity.Single);
         inputPort.portName = "Link";
@@ -185,6 +199,8 @@ public class LevelGraphView : GraphView
 
     public void UpdateOutputCount(LevelNode levelNode, AnchorList anchorlist)
     {
+        if (anchorlist == null)
+            return;
         int anchorCount = anchorlist.anchors.Count;
         levelNode.outputContainer.Clear();
         levelNode.inputContainer.Clear();
