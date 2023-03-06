@@ -21,13 +21,13 @@ public class FrustumCullingTeleport : MonoBehaviour
         _frustumCulling.OnEnterCameraFrustum -= SelectNextTeleportPos;
         _frustumCulling.OnExitCameraFrustum -= FrustumTeleport;
     }
-
+    
 
     public void FrustumTeleport()
     {
         currentPos = newPos;
         transform.position = currentPos;
-        while (_frustumCulling.CheckForCameraFrustum())
+        while (_frustumCulling.IsCurrentlyInCameraFrustum())
         {
             currentPos = newPos;
             transform.position = currentPos;
