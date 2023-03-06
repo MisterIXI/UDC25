@@ -38,7 +38,7 @@ public class PlayerInventory : MonoBehaviour
         {
             trans.gameObject.GetComponent<Collider>().enabled = true;
             trans.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-            trans.position = item.transform.position;
+            // trans.position = item.transform.position;
             trans.SetParent(null);
         }
 
