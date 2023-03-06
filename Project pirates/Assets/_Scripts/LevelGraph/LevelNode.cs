@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEditor.Experimental.GraphView;
-public class LevelNode : Node
+public class LevelNode : BaseNode
 {
-    public string GUID;
     public AnchorList anchorList;
     public bool EntryPoint;
 }

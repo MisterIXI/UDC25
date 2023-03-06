@@ -1,14 +1,14 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(LevelNodeContainer))]
+[CustomEditor(typeof(NodeContainer))]
 public class LevelNodeContainerEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         if (GUILayout.Button("Open LevelGraph Window"))
         {
-            LevelGraph.ShowWindow(target as LevelNodeContainer);
+            LevelGraph.ShowWindow(target as NodeContainer);
         }
         base.OnInspectorGUI();
     }

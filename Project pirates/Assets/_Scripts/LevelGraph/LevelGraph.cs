@@ -7,7 +7,7 @@ public class LevelGraph : EditorWindow
 {
     private LevelGraphView _graphView;
     private string _fileName = "New Graph";
-    private LevelNodeContainer _currentContainer;
+    private NodeContainer _currentContainer;
     private ObjectField _fileField;
     [MenuItem("Project pirates/LevelGraph")]
     public static void ShowWindow()
@@ -15,7 +15,7 @@ public class LevelGraph : EditorWindow
         ShowWindow(null);
     }
 
-    public static void ShowWindow(LevelNodeContainer container)
+    public static void ShowWindow(NodeContainer container)
     {
         var window = GetWindow<LevelGraph>();
         window.titleContent = new GUIContent("LevelGraph");
@@ -50,7 +50,7 @@ public class LevelGraph : EditorWindow
         _graphView.StretchToParentSize();
         rootVisualElement.Add(_graphView);
     }
-    private void InitWithContainer(LevelNodeContainer container)
+    private void InitWithContainer(NodeContainer container)
     {
         _currentContainer = container;
         _fileName = container.name;
@@ -62,11 +62,21 @@ public class LevelGraph : EditorWindow
     {
         var toolbar = new Toolbar();
 
-        var nodeCreateButton = new Button(() => _graphView.CreateNode("LevelNode"))
+        var nodeCreateButton = new Button(() => _graphView.CreateNode())
         {
             text = "Create Node"
         };
         toolbar.Add(nodeCreateButton);
+        var decisionCreateButton = new Button(() => _graphView.CreateDecisionNode())
+        {
+            text = "Create Decision"
+        };
+        toolbar.Add(decisionCreateButton);
+        var linkCreateButton = new Button(() => _graphView.CreateLinkNode())
+        {
+            text = "Create Link"
+        };
+        toolbar.Add(linkCreateButton);
         var referenceField = new ObjectField
         {
             objectType = typeof(AnchorList),
@@ -75,15 +85,15 @@ public class LevelGraph : EditorWindow
         };
         var fileField = new ObjectField("Source File")
         {
-            objectType = typeof(LevelNodeContainer),
-            value = Selection.activeObject is LevelNodeContainer ? Selection.activeObject : _currentContainer,
+            objectType = typeof(NodeContainer),
+            value = Selection.activeObject is NodeContainer ? Selection.activeObject : _currentContainer,
             allowSceneObjects = false
         };
         fileField.RegisterValueChangedCallback(evt =>
-        { _currentContainer = (LevelNodeContainer)evt.newValue; });
+        { _currentContainer = (NodeContainer)evt.newValue; });
         toolbar.Add(fileField);
         _fileField = fileField;
-        _currentContainer = (LevelNodeContainer)fileField.value;
+        _currentContainer = (NodeContainer)fileField.value;
         var saveButton = new Button(() => SaveOrLoad(true))
         {
             text = "Save"
