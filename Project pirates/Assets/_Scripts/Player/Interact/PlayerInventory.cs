@@ -20,6 +20,9 @@ public class PlayerInventory : MonoBehaviour
             trans.position = inventory.transform.position;
             trans.SetParent(null);
         }        
+
+        // inventory.transform.SetParent(mainCamera.transform);
+        
     }
 
 
@@ -27,10 +30,7 @@ public class PlayerInventory : MonoBehaviour
     {
         if (item != null)
         {   
-            Vector3 targetPos = mainCamera.ScreenToWorldPoint(new Vector3(0.3f,0.3f,1));
-
-            item.transform.position = Vector3.Lerp(item.transform.position, targetPos, Time.deltaTime * 10);
-
+            item.transform.localPosition = Vector3.Lerp(item.transform.localPosition, Vector3.zero, Time.deltaTime * 4);
             item.transform.rotation = Camera.main.transform.rotation;
         }
     }
