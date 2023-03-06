@@ -5,21 +5,49 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
+    private GameObject inventory;
+    private GameObject item;
+    private Camera mainCamera;
+
+
+    private void Start() 
+    {
+        inventory = GameObject.FindGameObjectWithTag("Inventory");
+        mainCamera = Camera.main;
+
+        foreach  (Transform trans in inventory.transform)   // clears inventory at start
+        {
+            trans.position = inventory.transform.position;
+            trans.SetParent(null);
+        }        
+    }
+
+
+    private void FixedUpdate() 
+    {
+        if (item != null)
+        {   
+            item.transform.position = mainCamera.ScreenToWorldPoint(new Vector3(0.3f,0.3f,1)); // change to lerp
+            
+            item.transform.rotation = Camera.main.transform.rotation; // maybe make rotation better
+        }
+    }
+
+
     public void TakeObject(GameObject newObj)
     {
-        GameObject inventory = GameObject.FindGameObjectWithTag("Inventory");
+        item = newObj;
 
         foreach  (Transform trans in inventory.transform)
         {
-            trans.SetParent(null);
+            trans.gameObject.GetComponent<Collider>().enabled = true;
             trans.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-            trans.position = newObj.transform.position;
+            trans.position = item.transform.position;
+            trans.SetParent(null);
         }
 
-        newObj.transform.SetParent(inventory.transform);
+        newObj.GetComponent<Collider>().enabled = false;
         newObj.GetComponent<Rigidbody>().isKinematic = true;
-
-        newObj.transform.localPosition = new Vector3 (0,0,0);
-        newObj.transform.localRotation = Quaternion.Euler(0,4,4);
+        item.transform.SetParent(inventory.transform);
     }
 }
