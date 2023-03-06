@@ -6,8 +6,10 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     GameObject inventory;
-    private GameObject item;
+   
     private Camera mainCamera;
+    private GameObject item;
+    private bool animate = false;
 
 
     private void Start() 
@@ -22,10 +24,15 @@ public class PlayerInventory : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        if (item != null)
+        if (item != null && animate == true)
         {   
             item.transform.localPosition = Vector3.Lerp(item.transform.localPosition, Vector3.zero, Time.deltaTime * 4);
             item.transform.rotation = Camera.main.transform.rotation;
+
+            if (item.transform.localPosition == Vector3.zero)
+            {
+                animate = false;
+            }
         }
     }
 
@@ -45,5 +52,6 @@ public class PlayerInventory : MonoBehaviour
         newObj.GetComponent<Collider>().enabled = false;
         newObj.GetComponent<Rigidbody>().isKinematic = true;
         item.transform.SetParent(inventory.transform);
+        animate = true;
     }
 }
