@@ -1,6 +1,6 @@
 using System;
 [Serializable]
-public class LevelNodeLinkData
+public class NodeLinkData
 {
     public string BaseNodeGUID;
     public string BasePortName;
