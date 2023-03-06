@@ -27,9 +27,11 @@ public class PlayerInventory : MonoBehaviour
     {
         if (item != null)
         {   
-            item.transform.position = mainCamera.ScreenToWorldPoint(new Vector3(0.3f,0.3f,1)); // change to lerp
-            
-            item.transform.rotation = Camera.main.transform.rotation; // maybe make rotation better
+            Vector3 targetPos = mainCamera.ScreenToWorldPoint(new Vector3(0.3f,0.3f,1));
+
+            item.transform.position = Vector3.Lerp(item.transform.position, targetPos, Time.deltaTime * 10);
+
+            item.transform.rotation = Camera.main.transform.rotation;
         }
     }
 
