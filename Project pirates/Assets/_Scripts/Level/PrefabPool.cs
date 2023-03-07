@@ -39,12 +39,35 @@ public class PrefabPool : MonoBehaviour
             return null;
         }
         AnchorList anchorList = prefabPool[guid];
-        Vector3 offset = anchorList.anchors.First(x => x.name == portName).transform.localPosition;
+        anchorList.transform.rotation = Quaternion.Euler(0, anchorList.LevelNodeData.YRotation, 0);
+        Vector3 offset = anchorList.anchors.First(x => x.name == portName).transform.position - anchorList.transform.position;
         anchorList.transform.position = position - offset;
         anchorList.gameObject.SetActive(true);
         return anchorList;
     }
-
+    public static bool TryDespawningAnchorList(string guid)
+    {
+        var prefabPool = Instance._prefabPool;
+        if (!prefabPool.ContainsKey(guid))
+        {
+            Debug.LogError("GUID not found in prefab pool");
+            return false;
+        }
+        if (!prefabPool[guid].gameObject.activeSelf)
+        {
+            Debug.LogWarning($"Tried despawning already inactive object: {guid}");
+            return false;
+        }
+        if (!prefabPool[guid].anchors.Any(x => x.FrustumCulling.IsCurrentlyVisible))
+        {// If none of the anchors are visible, despawn the object
+            DespawnAnchorList(guid);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     public static void DespawnAnchorList(string guid)
     {
         var prefabPool = Instance._prefabPool;
