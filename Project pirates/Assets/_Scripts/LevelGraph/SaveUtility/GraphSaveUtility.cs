@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -79,6 +80,8 @@ public class GraphSaveUtility
         container.decisionNodeData = decisionNodeDatas;
         container.linkNodeData = linkNodeDatas;
         container.NodeLinkData = NodeLinks;
+        EditorUtility.SetDirty(container);
+        AssetDatabase.SaveAssetIfDirty(container);
     }
 
     public void LoadGraph(NodeContainer container)
