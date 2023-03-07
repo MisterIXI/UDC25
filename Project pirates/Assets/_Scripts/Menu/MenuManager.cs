@@ -27,7 +27,10 @@ public class MenuManager : MonoBehaviour
     {
         InitializeMenus();
         SubscribeToInput();
-        ShowMenu(MenuType.Main);
+        if (GameManager.Instance.StartInMenu)
+            ShowMenu(MenuType.Main);
+        else
+            ShowMenu(MenuType.HUD);
     }
     private void InitializeMenus()
     {
