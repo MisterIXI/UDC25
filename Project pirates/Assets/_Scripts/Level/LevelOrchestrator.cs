@@ -10,8 +10,8 @@ public class LevelOrchestrator : MonoBehaviour
     public NodeContainer CurrentContainer { get; private set; }
     private LevelNodeData CurrentNode;
     private HashSet<FrustumCulling> subscribedCullingObjects = new HashSet<FrustumCulling>();
-    private Dictionary<FrustumCulling, string> cullingToGUID = new Dictionary<FrustumCulling, string>();
-    private string previousNodeGUID;
+    private Dictionary<FrustumCulling, string> spawnedObjects = new Dictionary<FrustumCulling, string>();
+    private HashSet<string> GUIDsWaitingForDespawn = new HashSet<string>();
     private void Awake()
     {
         if (Instance != null)
@@ -29,13 +29,19 @@ public class LevelOrchestrator : MonoBehaviour
         CurrentAnchorList = FindObjectOfType<AnchorList>();
         if (CurrentAnchorList == null)
             Debug.LogError("AnchorList not found, please add the entrypoint to the scene");
-        CurrentNode = StartContainer.GetEntryNode().TryGetConnectedNode(StartContainer);
-        CurrentContainer = CurrentNode.NodeContainer;
     }
     private void Start()
     {
+        SetAnchorListInitial(CurrentAnchorList);
         UpdateSubscriptions();
         FlagManager.OnFlagSet += OnFlagsChanged;
+    }
+    private void SetAnchorListInitial(AnchorList anchorList)
+    {
+        CurrentAnchorList = anchorList;
+        CurrentNode = CurrentAnchorList.LevelNodeData;
+        CurrentContainer = CurrentNode.NodeContainer;
+        UpdateSubscriptions();
     }
     public static void SetNewAnchorList(AnchorList anchorList, FrustumCulling frustumCulling)
     {
@@ -46,23 +52,21 @@ public class LevelOrchestrator : MonoBehaviour
     {
         Debug.Log($"SetNewAnchorListPrivate {anchorList.name} from {frustumCulling.name}");
         string guid = CurrentAnchorList.LevelNodeData.GUID;
+        List<string> oldGUIDs = spawnedObjects.Values.Where(x => x != guid && x != anchorList.LevelNodeData.GUID).ToList();
         CurrentAnchorList = anchorList;
         CurrentNode = CurrentAnchorList.LevelNodeData;
         CurrentContainer = CurrentNode.NodeContainer;
+        UnsubscribeFromAnchors();
+        spawnedObjects.Add(frustumCulling, guid);
         UpdateSubscriptions();
-        cullingToGUID.Add(frustumCulling, guid);
-        if (!String.IsNullOrEmpty(previousNodeGUID))
-        {
-            PrefabPool.DespawnAnchorList(previousNodeGUID);
-        }
-        previousNodeGUID = guid;
+        GUIDsWaitingForDespawn.UnionWith(oldGUIDs);
+        CheckForNodeDespawn();
     }
     /// <summary>
     /// Discover all nodes from the currentNode and Link them in the cu
     /// </summary>
     private void UpdateSubscriptions()
     {
-        UnsubscribeFromAnchors();
         SubscribeToAnchors(CurrentAnchorList);
         foreach (var frustumCulling in subscribedCullingObjects)
         {
@@ -72,6 +76,7 @@ public class LevelOrchestrator : MonoBehaviour
     private void OnFrustumCullingChange(FrustumCulling frustumCulling, bool visible)
     {
         CheckNodeForSpawn(frustumCulling);
+        CheckForNodeDespawn();
     }
     private void OnFlagsChanged(string flagName, bool value)
     {
@@ -79,6 +84,7 @@ public class LevelOrchestrator : MonoBehaviour
         {
             CheckNodeForSpawn(frustumCulling);
         }
+        CheckForNodeDespawn();
     }
 
     private void CheckNodeForSpawn(FrustumCulling frustumCulling)
@@ -86,17 +92,16 @@ public class LevelOrchestrator : MonoBehaviour
         LevelNodeData nextNode = CurrentAnchorList.LevelNodeData.GetNextLevelNodeFromPortName(frustumCulling.name);
         if (nextNode == null)
             return;
-        if (cullingToGUID.ContainsKey(frustumCulling))
+        if (spawnedObjects.ContainsKey(frustumCulling))
         { // if object is spawned here
-            if (cullingToGUID[frustumCulling] != nextNode.GUID)
+            if (spawnedObjects[frustumCulling] != nextNode.GUID)
             { // if the object is not the one that should be spawned here
                 if (!frustumCulling.IsCurrentlyVisible)
                 { // if is allowed to switch objects
-                    Debug.Log($"11Spawn {nextNode.GUID} at {frustumCulling.name} and dictentry: {cullingToGUID[frustumCulling]}");
-                    PrefabPool.DespawnAnchorList(cullingToGUID[frustumCulling]);
+                    PrefabPool.DespawnAnchorList(spawnedObjects[frustumCulling]);
                     string targetPortName = CurrentNode.GetOutGoingNodeLinks().First(x => x.BasePortName == frustumCulling.name).TargetPortName;
                     PrefabPool.SpawnAnchorListAtPosition(nextNode.GUID, targetPortName, frustumCulling.transform.position);
-                    cullingToGUID[frustumCulling] = nextNode.GUID;
+                    spawnedObjects[frustumCulling] = nextNode.GUID;
                 }
             }
         }
@@ -104,14 +109,23 @@ public class LevelOrchestrator : MonoBehaviour
         { // currently no object spawned here
             if (!frustumCulling.IsCurrentlyVisible)
             { // if is allowed to spawn object
-                Debug.Log($"22Spawn {nextNode.GUID} at {frustumCulling.name}");
                 string targetPortName = CurrentNode.GetOutGoingNodeLinks().First(x => x.BasePortName == frustumCulling.name).TargetPortName;
                 PrefabPool.SpawnAnchorListAtPosition(nextNode.GUID, targetPortName, frustumCulling.transform.position);
-                cullingToGUID.Add(frustumCulling, nextNode.GUID);
+                spawnedObjects.Add(frustumCulling, nextNode.GUID);
             }
         }
     }
 
+    private void CheckForNodeDespawn()
+    {
+        List<string> guids = new List<string>();
+        foreach (var guid in GUIDsWaitingForDespawn)
+        {
+            if (PrefabPool.TryDespawningAnchorList(guid))
+                guids.Add(guid);
+        }
+        guids.ForEach(x => GUIDsWaitingForDespawn.Remove(x));
+    }
     private void SubscribeToAnchors(AnchorList anchorList)
     {
         foreach (GeometryAnchor anchor in anchorList.anchors)
@@ -127,7 +141,7 @@ public class LevelOrchestrator : MonoBehaviour
         {
             cullingObj.OnCameraFrustumStatusChangedWithSelf -= OnFrustumCullingChange;
         }
-        cullingToGUID.Clear();
+        spawnedObjects.Clear();
         subscribedCullingObjects.Clear();
     }
 }

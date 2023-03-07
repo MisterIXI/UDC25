@@ -60,6 +60,7 @@ MonoBehaviour:
       height: 0
     NodeContainer: {fileID: 0}
     anchorList: {fileID: 0}
+    YRotation: 0
 --- !u!1 &7674082676607546897
 GameObject:
   m_ObjectHideFlags: 0
