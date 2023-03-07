@@ -7,13 +7,21 @@ public abstract class FrustumCulling : MonoBehaviour
     public bool IsCurrentlyVisible { get; protected set; }
     public event Action OnEnterCameraFrustum;
     public event Action OnExitCameraFrustum;
+    [field: SerializeField] protected bool _useCenterForOcclusion = true;
+    [field: SerializeField] protected bool _useCornersForOcclusion = true;
+    [field: SerializeField] protected bool _extraPointsInMiddle = false;
+    [field: SerializeField] protected bool _extraPointsOnEdges = false;
     public event Action<FrustumCulling, bool> OnCameraFrustumStatusChangedWithSelf;
     protected Camera _camera;
+    private const int CORNERBUFFERMAXSIZE = 1 + 8 + 8 + 12;
+    public int CornerBufferSize => (_useCenterForOcclusion ? 1 : 0) + (_useCornersForOcclusion ? 8 : 0) + (_extraPointsInMiddle ? 8 : 0) + (_extraPointsOnEdges ? 12 : 0);
+    private Vector3[] _cornerBuffer = new Vector3[CORNERBUFFERMAXSIZE];
     protected virtual void Start()
     {
         _camera = Camera.main;
         OnEnterCameraFrustum += () => OnCameraFrustumStatusChangedWithSelf?.Invoke(this, true);
         OnExitCameraFrustum += () => OnCameraFrustumStatusChangedWithSelf?.Invoke(this, false);
+
     }
 
     protected virtual void Update()
@@ -34,6 +42,54 @@ public abstract class FrustumCulling : MonoBehaviour
         }
     }
     abstract public bool IsCurrentlyInCameraFrustum();
+    protected virtual Vector3[] GetAllTargetPoints(Bounds bounds)
+    {
+        int iterator = 0;
+        Vector3 extents = bounds.extents;
+        Vector3 center = bounds.center;
+        if (_useCenterForOcclusion)
+            _cornerBuffer[iterator++] = center;
+        if (_useCornersForOcclusion)
+        {
+            // each corner of the bounding box
+            for (int i = 0; i < 8; i++)
+            {
+                Vector3 corner = bounds.center + new Vector3((i & 1) == 0 ? extents.x : -extents.x,
+                    (i & 2) == 0 ? extents.y : -extents.y,
+                    (i & 4) == 0 ? extents.z : -extents.z);
+                _cornerBuffer[iterator++] = corner;
+            }
+        }
+        // each corner of the bounding box, but inset by half
+        if (_extraPointsInMiddle)
+        {
+            Vector3 boundExtentsHalf = extents / 2;
+            for (int i = 0; i < 8; i++)
+            {
+                Vector3 corner = bounds.center + new Vector3((i & 1) == 0 ? boundExtentsHalf.x : -boundExtentsHalf.x,
+                    (i & 2) == 0 ? boundExtentsHalf.y : -boundExtentsHalf.y,
+                    (i & 4) == 0 ? boundExtentsHalf.z : -boundExtentsHalf.z);
+                _cornerBuffer[iterator++] = corner;
+            }
+        }
+        // middle of each edge of the bounding box, points are moved clockwise
+        if (_extraPointsOnEdges)
+        {
+            _cornerBuffer[iterator++] = center + new Vector3(0, -extents.y, -extents.z);
+            _cornerBuffer[iterator++] = center + new Vector3(0, -extents.y, extents.z);
+            _cornerBuffer[iterator++] = center + new Vector3(extents.x, 0, -extents.z);
+            _cornerBuffer[iterator++] = center + new Vector3(extents.x, 0, extents.z);
+            _cornerBuffer[iterator++] = center + new Vector3(0, extents.y, -extents.z);
+            _cornerBuffer[iterator++] = center + new Vector3(0, extents.y, extents.z);
+            _cornerBuffer[iterator++] = center + new Vector3(-extents.x, 0, -extents.z);
+            _cornerBuffer[iterator++] = center + new Vector3(-extents.x, 0, extents.z);
+            _cornerBuffer[iterator++] = center + new Vector3(-extents.x, -extents.y, 0);
+            _cornerBuffer[iterator++] = center + new Vector3(extents.x, -extents.y, 0);
+            _cornerBuffer[iterator++] = center + new Vector3(-extents.x, extents.y, 0);
+            _cornerBuffer[iterator++] = center + new Vector3(extents.x, extents.y, 0);
+        }
+        return _cornerBuffer;
+    }
     protected virtual bool CheckBoundsForCameraFrustum(Bounds bounds, Camera camera)
     {
         // check center of bounding box
@@ -41,19 +97,17 @@ public abstract class FrustumCulling : MonoBehaviour
             return true;
         // for each corner of the object's bounding box
         Vector3 boundExtents = bounds.extents;
-        for (int i = 0; i < 8; i++)
+        Vector3[] corners = GetAllTargetPoints(bounds);
+        for (int i = 0; i < CornerBufferSize; i++)
         {
-            Vector3 corner = transform.position + new Vector3((i & 1) == 0 ? boundExtents.x : -boundExtents.x,
-                (i & 2) == 0 ? boundExtents.y : -boundExtents.y,
-                (i & 4) == 0 ? boundExtents.z : -boundExtents.z);
             // if the corner is inside the camera's frustum, the object is visible
-            if (IsPosInCameraFrustum(corner, camera))
+            if (IsPosInCameraFrustum(corners[i], camera))
                 return true;
         }
         return false;
     }
 
-    private bool IsPosInCameraFrustum(Vector3 position, Camera camera)
+    protected bool IsPosInCameraFrustum(Vector3 position, Camera camera)
     {
         Vector3 frustumPos = camera.WorldToViewportPoint(position);
         return frustumPos.x > 0 && frustumPos.x < 1 && frustumPos.y > 0 && frustumPos.y < 1 && frustumPos.z > 0;

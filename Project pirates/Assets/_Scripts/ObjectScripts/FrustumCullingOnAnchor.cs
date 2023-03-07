@@ -12,10 +12,10 @@ public class FrustumCullingOnAnchor : FrustumCulling
     }
     public override bool IsCurrentlyInCameraFrustum()
     {
-        return CheckBoundsForCameraFrustum(_geometryAnchor.AnchorBounds, _camera);
+        return CheckBoundsForCameraFrustum(_geometryAnchor.WorldSpaceAnchorBounds, _camera);
     }
     protected override void Update()
     {
-        UpdateFrustumState(_geometryAnchor.AnchorBounds, _camera);
+        UpdateFrustumState(_geometryAnchor.WorldSpaceAnchorBounds, _camera);
     }
 }

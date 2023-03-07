@@ -16,9 +16,48 @@ public class GeometryAnchor : MonoBehaviour
         }
     }
     public string AnchorName => name;
-    [field: SerializeField] public Bounds AnchorBounds { get; private set; }
+    [field: SerializeField] private Collider _collider;
+    // private Collider Collider => _collider ?? (_collider = GetComponent<Collider>());
+    public Bounds LocalAnchorBounds
+    {
+        get
+        {
+            Bounds bounds = _anchorBounds;
+            if (LinkAnchorBoundsWithCollider)
+            {
+                bounds = _collider.bounds;
+                bounds.center -= transform.position;
+            }
+            return bounds;
+        }
+    }
+    public Bounds WorldSpaceAnchorBounds
+    {
+        get
+        {
+            Bounds bounds = _collider.bounds;
+            if (!LinkAnchorBoundsWithCollider)
+            {
+                bounds = _anchorBounds;
+                bounds.center += transform.position;
+            }
+            return bounds;
+        }
+    }
+    [HideInInspector][field: SerializeField] private Bounds _anchorBounds;
     [field: SerializeField] public bool DrawBoundGizmo { get; private set; }
+    [field: SerializeField] public bool LinkAnchorBoundsWithCollider { get; private set; } = true;
     [HideInInspector] public AnchorList AnchorList;
+
+    private void Start()
+    {
+        // _collider = GetComponent<Collider>();
+        // if (_collider == null)
+        // {
+        //     Debug.LogError("No Collider found on GeometryAnchor! Disabling GeometryAnchor...");
+        //     gameObject.SetActive(false);
+        // }
+    }
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log($"Player entered {AnchorName}");
@@ -28,12 +67,21 @@ public class GeometryAnchor : MonoBehaviour
             LevelOrchestrator.SetNewAnchorList(AnchorList, FrustumCulling);
         }
     }
+    [ContextMenu("DebugPrintColliderBounds")]
+    private void DebugPrintColliderBounds()
+    {
+        Debug.Log($"Collider Bounds: {WorldSpaceAnchorBounds}");
+
+    }
     private void OnDrawGizmos()
     {
         if (DrawBoundGizmo)
         {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireCube(AnchorBounds.center + transform.position, AnchorBounds.size);
+            if (!FrustumCulling.IsCurrentlyVisible)
+                Gizmos.color = Color.blue;
+            else
+                Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(WorldSpaceAnchorBounds.center, WorldSpaceAnchorBounds.size);
         }
     }
 }
