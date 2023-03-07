@@ -5,5 +5,5 @@ using UnityEngine;
 public class LinkNodeData : BaseNodeData
 {
     public NodeContainer container;
-
+    public bool IsEntryPoint;
 }

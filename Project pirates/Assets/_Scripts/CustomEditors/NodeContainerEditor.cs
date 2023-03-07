@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(NodeContainer))]
-public class LevelNodeContainerEditor : Editor
+public class NodeContainerEditor : Editor
 {
     public override void OnInspectorGUI()
     {
