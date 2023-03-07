@@ -69,14 +69,14 @@ public class LevelGraph : EditorWindow
     }
     private GraphViewChange OnGraphViewChanged(GraphViewChange change)
     {
-        Debug.Log("OnGraphViewChanged");
-        // print all changes
-        change.edgesToCreate?.ForEach(x => Debug.Log("Edge to create: " + x));
-        change.elementsToRemove?.ForEach(x => Debug.Log("Element to remove: " + x));
-        change.movedElements?.ForEach(x => Debug.Log("Element to move: " + x));
-        Debug.Log("Destination: " + change.moveDelta);
-        Debug.Log("Counts: " + change.edgesToCreate?.Count + " | " + change.elementsToRemove?.Count + " | " + change.movedElements?.Count);
-        Debug.Log("HasUnsavedChanges: " + hasUnsavedChanges);
+        // Debug.Log("OnGraphViewChanged");
+        // // print all changes
+        // change.edgesToCreate?.ForEach(x => Debug.Log("Edge to create: " + x));
+        // change.elementsToRemove?.ForEach(x => Debug.Log("Element to remove: " + x));
+        // change.movedElements?.ForEach(x => Debug.Log("Element to move: " + x));
+        // Debug.Log("Destination: " + change.moveDelta);
+        // Debug.Log("Counts: " + change.edgesToCreate?.Count + " | " + change.elementsToRemove?.Count + " | " + change.movedElements?.Count);
+        // Debug.Log("HasUnsavedChanges: " + hasUnsavedChanges);
 
         // check if anything important changed
         if (change.elementsToRemove?.Count > 0 || change.edgesToCreate?.Count > 0 || change.movedElements?.Count > 0)

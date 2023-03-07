@@ -3,5 +3,5 @@ using UnityEditor.Experimental.GraphView;
 public class LevelNode : BaseNode
 {
     public AnchorList anchorList;
-    public bool EntryPoint;
+    public float YRotation;
 }
