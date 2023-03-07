@@ -5,4 +5,5 @@ using UnityEngine;
 public class LevelNodeData : BaseNodeData
 {
     public AnchorList anchorList;
+    public float YRotation;
 }

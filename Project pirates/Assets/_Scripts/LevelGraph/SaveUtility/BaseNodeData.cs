@@ -7,4 +7,5 @@ public class BaseNodeData
     public string DisplayName;
     public string GUID;
     public Rect position;
+    public NodeContainer NodeContainer;
 }

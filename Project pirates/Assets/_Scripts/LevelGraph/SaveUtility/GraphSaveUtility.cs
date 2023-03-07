@@ -30,7 +30,9 @@ public class GraphSaveUtility
                     GUID = levelNode.GUID,
                     DisplayName = levelNode.title,
                     position = levelNode.GetPosition(),
-                    anchorList = levelNode.anchorList
+                    anchorList = levelNode.anchorList,
+                    NodeContainer = container,
+                    YRotation = levelNode.YRotation
                 });
             }
             else if (node is DecisionNode)
@@ -41,7 +43,8 @@ public class GraphSaveUtility
                     GUID = decisionNode.GUID,
                     DisplayName = decisionNode.title,
                     position = decisionNode.GetPosition(),
-                    flagName = decisionNode.flagName
+                    flagName = decisionNode.flagName,
+                    NodeContainer = container
                 });
             }
             else if (node is LinkNode)
@@ -52,7 +55,9 @@ public class GraphSaveUtility
                     GUID = linkNode.GUID,
                     DisplayName = linkNode.title,
                     position = linkNode.GetPosition(),
-                    container = linkNode.container
+                    container = linkNode.container,
+                    IsEntryPoint = linkNode.IsEntryPoint,
+                    NodeContainer = container
                 });
             }
             foreach (var port in node.outputContainer.Children())
@@ -85,7 +90,7 @@ public class GraphSaveUtility
         Dictionary<string, BaseNode> nodeDict = new Dictionary<string, BaseNode>();
         foreach (LevelNodeData nodeData in levelNodeDatas)
         {
-            var levelNode = _targetGraphView.CreateAndAddLevelNode(nodeData.DisplayName, nodeData.GUID, nodeData.position, nodeData.anchorList);
+            var levelNode = _targetGraphView.CreateAndAddLevelNode(nodeData.DisplayName, nodeData.GUID, nodeData.position, nodeData.anchorList, nodeData.YRotation);
             nodeDict.Add(nodeData.GUID, levelNode);
         }
         foreach (DecisionNodeData nodeData in decisionNodeDatas)
@@ -95,7 +100,7 @@ public class GraphSaveUtility
         }
         foreach (LinkNodeData nodeData in linkNodeDatas)
         {
-            var linkNode = _targetGraphView.CreateAndAddLinkNode(nodeData.DisplayName, nodeData.GUID, nodeData.position, nodeData.container);
+            var linkNode = _targetGraphView.CreateAndAddLinkNode(nodeData.DisplayName, nodeData.GUID, nodeData.position, nodeData.container, nodeData.IsEntryPoint);
             nodeDict.Add(nodeData.GUID, linkNode);
         }
         foreach (BaseNode node in nodeDict.Values)
