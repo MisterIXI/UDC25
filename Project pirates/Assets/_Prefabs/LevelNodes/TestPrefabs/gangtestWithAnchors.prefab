@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6201130580141842296}
   - component: {fileID: 6201130580141842297}
+  - component: {fileID: 839268419974173510}
   m_Layer: 0
   m_Name: gangtestWithAnchors
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6201130580141842298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.4485774, y: 6.091154, z: 2.6628842}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48,6 +49,30 @@ MonoBehaviour:
   <anchors>k__BackingField:
   - {fileID: 6201130579961546414}
   - {fileID: 6201130579961546415}
+  LevelNodeData:
+    DisplayName: 
+    GUID: 
+    position:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    NodeContainer: {fileID: 0}
+    anchorList: {fileID: 0}
+--- !u!65 &839268419974173510
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6201130580141842298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.6, y: 0.73, z: 13.97}
+  m_Center: {x: 0.36, y: -1.56, z: 5.72}
 --- !u!1001 &6201130579961546403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63,17 +88,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a12125733bb988e4d93c8c4f6ceac6b6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.4485774
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a12125733bb988e4d93c8c4f6ceac6b6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.091154
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a12125733bb988e4d93c8c4f6ceac6b6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.6628842
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a12125733bb988e4d93c8c4f6ceac6b6,
         type: 3}
@@ -123,6 +148,31 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6201130579961546403}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &5648043294078059035
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3250144375117044307}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.62, y: 7.11, z: 6.33}
+  m_Center: {x: -4.34, y: 0, z: 0}
+--- !u!114 &2838448496711466065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3250144375117044307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f774df24d46af4947abfe3c7a18c2673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6201130579961546414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,12 +189,38 @@ MonoBehaviour:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 1.65, y: 1.2, z: 1.05}
   <DrawBoundGizmo>k__BackingField: 1
+  AnchorList: {fileID: 0}
 --- !u!1 &3351148916212390354 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -536074283811741839, guid: a12125733bb988e4d93c8c4f6ceac6b6,
     type: 3}
   m_PrefabInstance: {fileID: 6201130579961546403}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &2910652887791064499
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3351148916212390354}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.55, y: 6.59, z: 5.25}
+  m_Center: {x: 0, y: 0, z: 4.46}
+--- !u!114 &4026115052520536543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3351148916212390354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f774df24d46af4947abfe3c7a18c2673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6201130579961546415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +237,7 @@ MonoBehaviour:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.99, y: 1.2, z: 1.45}
   <DrawBoundGizmo>k__BackingField: 1
+  AnchorList: {fileID: 0}
 --- !u!4 &5873940851257172296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a12125733bb988e4d93c8c4f6ceac6b6,

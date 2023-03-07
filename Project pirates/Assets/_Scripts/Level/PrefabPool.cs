@@ -25,7 +25,7 @@ public class PrefabPool : MonoBehaviour
         DiscoverAndSpawnAllNodeContainerPrefabs();
     }
 
-    public static AnchorList SpawnAnchorListAtPosition(string guid, Vector3 position)
+    public static AnchorList SpawnAnchorListAtPosition(string guid, string portName, Vector3 position)
     {
         var prefabPool = Instance._prefabPool;
         if (!prefabPool.ContainsKey(guid))
@@ -35,11 +35,12 @@ public class PrefabPool : MonoBehaviour
         }
         if (prefabPool[guid].gameObject.activeSelf)
         {
-            Debug.LogWarning("Tried spawning already active object");
+            Debug.LogWarning($"Tried spawning already active object: {guid} on port {portName}");
             return null;
         }
         AnchorList anchorList = prefabPool[guid];
-        anchorList.transform.position = position;
+        Vector3 offset = anchorList.anchors.First(x => x.name == portName).transform.localPosition;
+        anchorList.transform.position = position - offset;
         anchorList.gameObject.SetActive(true);
         return anchorList;
     }
@@ -52,6 +53,7 @@ public class PrefabPool : MonoBehaviour
             Debug.LogError("GUID not found in prefab pool");
             return;
         }
+        Debug.Log($"Despawning {guid}");
         prefabPool[guid].gameObject.SetActive(false);
     }
 
@@ -60,25 +62,37 @@ public class PrefabPool : MonoBehaviour
         HashSet<BaseNodeData> visitedNodes = new HashSet<BaseNodeData>();
         Queue<BaseNodeData> nodesToVisit = new Queue<BaseNodeData>();
         nodesToVisit.Enqueue(LevelOrchestrator.Instance.StartContainer.GetEntryNode());
+        LevelNodeData EntryLevelNode = LevelOrchestrator.Instance.StartContainer.GetEntryNode().TryGetConnectedNode(LevelOrchestrator.Instance.StartContainer);
         while (nodesToVisit.Count > 0)
         {
             BaseNodeData currentNodeData = nodesToVisit.Dequeue();
             if (visitedNodes.Contains(currentNodeData))
                 continue;
             visitedNodes.Add(currentNodeData);
-            if (currentNodeData is LevelNodeData)
+            if (currentNodeData is LevelNodeData levelNodeData)
             {
-                if (!_prefabPool.ContainsKey(currentNodeData.GUID))
+                if (EntryLevelNode == currentNodeData)
                 {
-                    LevelNodeData levelNodeData = currentNodeData as LevelNodeData;
+                    Debug.Log("Entry node found");
+                    _prefabPool.Add(currentNodeData.GUID, LevelOrchestrator.Instance.CurrentAnchorList);
+                    _prefabPool[currentNodeData.GUID].LevelNodeData = levelNodeData;
+                }
+                else if (!_prefabPool.ContainsKey(currentNodeData.GUID))
+                {
                     var spawnedObject = Instantiate(levelNodeData.anchorList);
                     spawnedObject.gameObject.SetActive(false);
+                    spawnedObject.LevelNodeData = levelNodeData;
                     _prefabPool.Add(levelNodeData.GUID, spawnedObject);
                 }
                 else
                 {
                     Debug.LogError("Duplicate GUID detected");
                 }
+            }
+            List<BaseNodeData> connectedNodes = currentNodeData.GetConnectedNodes();
+            foreach (BaseNodeData connectedNode in connectedNodes)
+            {
+                nodesToVisit.Enqueue(connectedNode);
             }
         }
     }

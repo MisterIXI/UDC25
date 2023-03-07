@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(GeometryAnchor))]
 public class FrustumCullingOnAnchor : FrustumCulling
 {
-    private GeometryAnchor _geometryAnchor;
+    protected GeometryAnchor _geometryAnchor;
 
     protected override void Start()
     {
@@ -16,7 +16,6 @@ public class FrustumCullingOnAnchor : FrustumCulling
     }
     protected override void Update()
     {
-        base.Update();
         UpdateFrustumState(_geometryAnchor.AnchorBounds, _camera);
     }
 }

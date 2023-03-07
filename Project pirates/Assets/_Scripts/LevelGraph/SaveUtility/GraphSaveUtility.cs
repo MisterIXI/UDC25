@@ -30,7 +30,8 @@ public class GraphSaveUtility
                     GUID = levelNode.GUID,
                     DisplayName = levelNode.title,
                     position = levelNode.GetPosition(),
-                    anchorList = levelNode.anchorList
+                    anchorList = levelNode.anchorList,
+                    NodeContainer = container
                 });
             }
             else if (node is DecisionNode)
@@ -41,7 +42,8 @@ public class GraphSaveUtility
                     GUID = decisionNode.GUID,
                     DisplayName = decisionNode.title,
                     position = decisionNode.GetPosition(),
-                    flagName = decisionNode.flagName
+                    flagName = decisionNode.flagName,
+                    NodeContainer = container
                 });
             }
             else if (node is LinkNode)
@@ -53,7 +55,8 @@ public class GraphSaveUtility
                     DisplayName = linkNode.title,
                     position = linkNode.GetPosition(),
                     container = linkNode.container,
-                    IsEntryPoint = linkNode.IsEntryPoint
+                    IsEntryPoint = linkNode.IsEntryPoint,
+                    NodeContainer = container
                 });
             }
             foreach (var port in node.outputContainer.Children())
