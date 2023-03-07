@@ -31,10 +31,10 @@ public class LevelOrchestrator : MonoBehaviour
             Debug.LogError("AnchorList not found, please add the entrypoint to the scene");
         CurrentNode = StartContainer.GetEntryNode().TryGetConnectedNode(StartContainer);
         CurrentContainer = CurrentNode.NodeContainer;
-        UpdateSubscriptions();
     }
     private void Start()
     {
+        UpdateSubscriptions();
         FlagManager.OnFlagSet += OnFlagsChanged;
     }
     public static void SetNewAnchorList(AnchorList anchorList, FrustumCulling frustumCulling)
@@ -64,6 +64,10 @@ public class LevelOrchestrator : MonoBehaviour
     {
         UnsubscribeFromAnchors();
         SubscribeToAnchors(CurrentAnchorList);
+        foreach (var frustumCulling in subscribedCullingObjects)
+        {
+            CheckNodeForSpawn(frustumCulling);
+        }
     }
     private void OnFrustumCullingChange(FrustumCulling frustumCulling, bool visible)
     {
