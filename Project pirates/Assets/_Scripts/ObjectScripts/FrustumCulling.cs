@@ -4,17 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 public abstract class FrustumCulling : MonoBehaviour
 {
-    public bool IsInCameraFrustum { get; private set; }
+    public bool IsCurrentlyVisible { get; protected set; }
     public event Action OnEnterCameraFrustum;
-    public event Action<FrustumCulling> OnEnterCameraFrustumWithSelf;
     public event Action OnExitCameraFrustum;
-    public event Action<FrustumCulling> OnExitCameraFrustumWithSelf;
+    public event Action<FrustumCulling, bool> OnCameraFrustumStatusChangedWithSelf;
     protected Camera _camera;
     protected virtual void Start()
     {
         _camera = Camera.main;
-        OnEnterCameraFrustum += () => OnEnterCameraFrustumWithSelf?.Invoke(this);
-        OnExitCameraFrustum += () => OnExitCameraFrustumWithSelf?.Invoke(this);
+        OnEnterCameraFrustum += () => OnCameraFrustumStatusChangedWithSelf?.Invoke(this, true);
+        OnExitCameraFrustum += () => OnCameraFrustumStatusChangedWithSelf?.Invoke(this, false);
     }
 
     protected virtual void Update()
@@ -25,10 +24,10 @@ public abstract class FrustumCulling : MonoBehaviour
     protected virtual void UpdateFrustumState(Bounds bounds, Camera camera)
     {
         bool frustumState = CheckBoundsForCameraFrustum(bounds, camera);
-        if (frustumState != IsInCameraFrustum)
+        if (frustumState != IsCurrentlyVisible)
         {
-            IsInCameraFrustum = frustumState;
-            if (IsInCameraFrustum)
+            IsCurrentlyVisible = frustumState;
+            if (IsCurrentlyVisible)
                 OnEnterCameraFrustum?.Invoke();
             else
                 OnExitCameraFrustum?.Invoke();
