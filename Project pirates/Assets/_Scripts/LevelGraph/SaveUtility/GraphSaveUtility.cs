@@ -31,7 +31,8 @@ public class GraphSaveUtility
                     DisplayName = levelNode.title,
                     position = levelNode.GetPosition(),
                     anchorList = levelNode.anchorList,
-                    NodeContainer = container
+                    NodeContainer = container,
+                    YRotation = levelNode.YRotation
                 });
             }
             else if (node is DecisionNode)
@@ -89,7 +90,7 @@ public class GraphSaveUtility
         Dictionary<string, BaseNode> nodeDict = new Dictionary<string, BaseNode>();
         foreach (LevelNodeData nodeData in levelNodeDatas)
         {
-            var levelNode = _targetGraphView.CreateAndAddLevelNode(nodeData.DisplayName, nodeData.GUID, nodeData.position, nodeData.anchorList);
+            var levelNode = _targetGraphView.CreateAndAddLevelNode(nodeData.DisplayName, nodeData.GUID, nodeData.position, nodeData.anchorList, nodeData.YRotation);
             nodeDict.Add(nodeData.GUID, levelNode);
         }
         foreach (DecisionNodeData nodeData in decisionNodeDatas)
