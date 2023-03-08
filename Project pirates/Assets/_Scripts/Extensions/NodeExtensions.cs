@@ -5,27 +5,29 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 public static class NodeExtensions
 {
-    public static LevelNodeData TryGetConnectedNode(this LinkNodeData linkNode, NodeContainer nodeContainer)
+    public static LevelNodeData TryGetConnectedNode(this LinkNodeData linkNode)
     {
-        BaseNodeData baseNode = nodeContainer.GetConnectedNodes(linkNode).FirstOrDefault();
+        BaseNodeData baseNode = linkNode.NodeContainer.GetConnectedNodes(linkNode).FirstOrDefault();
         Debug.Log("(First entry node call) TryGetConnectedNode: " + baseNode);
-        if (baseNode != null && baseNode is LevelNodeData levelNode)
+        if (baseNode == null || baseNode is not LevelNodeData levelNode)
         {
-            return levelNode;
+            Debug.LogError("No node entry found. Invalid nodecontainer!");
+            return null;
         }
-        return null;
+        return baseNode as LevelNodeData;
     }
-    public static BaseNodeData GetNodeDataByDecision(this DecisionNodeData decisionNode, NodeContainer nodeContainer)
+    public static NodeLinkData GetNodeLinkDataByDecision(this DecisionNodeData decisionNode)
     {
+        NodeContainer nodeContainer = decisionNode.NodeContainer;
         bool decision = FlagManager.GetFlag(decisionNode.flagName);
         var nodeLinks = decisionNode.GetOutGoingNodeLinks();
         if (decision)
         {
-            return nodeContainer.GetNodeDataByGUID(nodeLinks.FirstOrDefault(x => x.BasePortName == "True").TargetNodeGUID);
+            return nodeLinks.FirstOrDefault(x => x.BasePortName == "True");
         }
         else
         {
-            return nodeContainer.GetNodeDataByGUID(nodeLinks.FirstOrDefault(x => x.BasePortName == "False").TargetNodeGUID);
+            return nodeLinks.FirstOrDefault(x => x.BasePortName == "False");
         }
     }
     /// <summary>
@@ -43,40 +45,67 @@ public static class NodeExtensions
         List<NodeLinkData> nodeLinks = nodeContainer.NodeLinkData.Where(x => x.BaseNodeGUID == levelNode.GUID).ToList();
         foreach (NodeLinkData nodeLink in nodeLinks)
         {
-            var nextNode = levelNode.GetNextLevelNodeFromPortName(nodeLink.BasePortName);
+            var nextNodeGUID = levelNode.GetNodeLinkDataOfNextValidLevelNode(nodeLink.BasePortName);
+            var nextNode = nodeContainer.GetNodeDataByGUID(nextNodeGUID.TargetNodeGUID) as LevelNodeData;
             connectedNodes.Add(nodeLink.BasePortName, nextNode);
         }
         return connectedNodes;
     }
 
-    public static LevelNodeData GetNextLevelNodeFromPortName(this LevelNodeData levelNode, string portName)
+
+    public static NodeLinkData GetNodeLinkDataOfNextValidLevelNode(this LevelNodeData levelNode, String startPortName)
     {
         NodeContainer nodeContainer = levelNode.NodeContainer;
-        NodeLinkData nodeLink = nodeContainer.NodeLinkData.FirstOrDefault(x => x.BaseNodeGUID == levelNode.GUID && x.BasePortName == portName);
+        var nodeLink = nodeContainer.NodeLinkData.FirstOrDefault(x => x.BaseNodeGUID == levelNode.GUID && x.BasePortName == startPortName);
         if (nodeLink == null)
             return null;
         BaseNodeData currentNode = nodeContainer.GetNodeDataByGUID(nodeLink.TargetNodeGUID);
+        string targetPortName = nodeLink.TargetPortName;
         while (currentNode is not LevelNodeData)
         {
             if (currentNode is DecisionNodeData decisionNode)
             {
-                currentNode = decisionNode.GetNodeDataByDecision(nodeContainer);
+                nodeLink = decisionNode.GetNodeLinkDataByDecision();
+                targetPortName = nodeLink.TargetPortName;
+                currentNode = nodeContainer.GetNodeDataByGUID(nodeLink.TargetNodeGUID);
             }
             else if (currentNode is LinkNodeData linkNode)
             {
-                throw new NotImplementedException();
+                nodeContainer = linkNode.NodeContainer;
+                linkNode = nodeContainer.GetEntryNode();
+                nodeLink = linkNode.GetSingleNodeLink();
+                currentNode = linkNode.TryGetConnectedNode();
             }
         }
-        return (LevelNodeData)currentNode;
+        return nodeLink;
     }
+    public static List<NodeLinkData> GetOutGoingNodeLinks(this BaseNodeData node)
+    {
+        return node.NodeContainer.NodeLinkData.Where(x => x.BaseNodeGUID == node.GUID).ToList();
+    }
+
+    public static NodeLinkData GetSingleNodeLink(this LinkNodeData linkNode)
+    {
+        NodeLinkData nodeLink = linkNode.GetOutGoingNodeLinks().FirstOrDefault();
+        if (nodeLink == null)
+            nodeLink = linkNode.GetIncomingNodeLinks().FirstOrDefault();
+        if (nodeLink == null)
+        {
+            Debug.LogError("No node link found for link node: " + linkNode.GUID);
+            return null;
+        }
+        return nodeLink;
+    }
+
+    public static List<NodeLinkData> GetIncomingNodeLinks(this BaseNodeData node)
+    {
+        return node.NodeContainer.NodeLinkData.Where(x => x.TargetNodeGUID == node.GUID).ToList();
+    }
+
     public static List<BaseNodeData> GetConnectedNodes(this BaseNodeData baseNodeData)
     {
         return baseNodeData.NodeContainer.GetConnectedNodes(baseNodeData);
     }
-    public static List<NodeLinkData> GetOutGoingNodeLinks(this BaseNodeData node)
-    {
 
-        return node.NodeContainer.NodeLinkData.Where(x => x.BaseNodeGUID == node.GUID).ToList();
-    }
 }
 
