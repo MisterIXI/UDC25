@@ -22,7 +22,6 @@ public class PrefabPool : MonoBehaviour
 
     private void Start()
     {
-        DiscoverAndSpawnAllNodeContainerPrefabs();
     }
 
     public static AnchorList SpawnAnchorListAtPosition(string guid, string portName, Vector3 position)
@@ -80,12 +79,16 @@ public class PrefabPool : MonoBehaviour
         prefabPool[guid].gameObject.SetActive(false);
     }
 
-    private void DiscoverAndSpawnAllNodeContainerPrefabs()
+    public static void DiscoverAndBuildPrefabs(NodeContainer nodeContainer)
+    {
+        Instance.DiscoverAndSpawnAllNodeContainerPrefabs(nodeContainer);
+    }
+    private void DiscoverAndSpawnAllNodeContainerPrefabs(NodeContainer nodeContainer)
     {
         HashSet<BaseNodeData> visitedNodes = new HashSet<BaseNodeData>();
         Queue<BaseNodeData> nodesToVisit = new Queue<BaseNodeData>();
-        nodesToVisit.Enqueue(LevelOrchestrator.Instance.StartContainer.GetEntryNode());
-        LevelNodeData EntryLevelNode = LevelOrchestrator.Instance.StartContainer.GetEntryNode().TryGetConnectedNode(LevelOrchestrator.Instance.StartContainer);
+        LevelNodeData EntryLevelNode = nodeContainer.GetEntryNode().TryGetConnectedNode();
+        nodesToVisit.Enqueue(EntryLevelNode);
         while (nodesToVisit.Count > 0)
         {
             BaseNodeData currentNodeData = nodesToVisit.Dequeue();
