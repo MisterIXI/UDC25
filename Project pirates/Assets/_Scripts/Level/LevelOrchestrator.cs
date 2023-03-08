@@ -32,9 +32,11 @@ public class LevelOrchestrator : MonoBehaviour
     }
     private void Start()
     {
+        PrefabPool.DiscoverAndBuildPrefabs(StartContainer);
         SetAnchorListInitial(CurrentAnchorList);
         UpdateSubscriptions();
         FlagManager.OnFlagSet += OnFlagsChanged;
+
     }
     private void SetAnchorListInitial(AnchorList anchorList)
     {
@@ -89,7 +91,7 @@ public class LevelOrchestrator : MonoBehaviour
 
     private void CheckNodeForSpawn(FrustumCulling frustumCulling)
     {
-        LevelNodeData nextNode = CurrentAnchorList.LevelNodeData.GetNextLevelNodeFromPortName(frustumCulling.name);
+        LevelNodeData nextNode = CurrentAnchorList.LevelNodeData.GetNodeLinkDataOfNextValidLevelNode(frustumCulling.name).TargetNodeGUID.ConvertGuidStringToBaseNode(CurrentContainer) as LevelNodeData;
         if (nextNode == null)
             return;
         if (spawnedObjects.ContainsKey(frustumCulling))
@@ -99,7 +101,7 @@ public class LevelOrchestrator : MonoBehaviour
                 if (!frustumCulling.IsCurrentlyVisible)
                 { // if is allowed to switch objects
                     PrefabPool.DespawnAnchorList(spawnedObjects[frustumCulling]);
-                    string targetPortName = CurrentNode.GetOutGoingNodeLinks().First(x => x.BasePortName == frustumCulling.name).TargetPortName;
+                    string targetPortName = CurrentNode.GetNodeLinkDataOfNextValidLevelNode(frustumCulling.name).TargetPortName;
                     PrefabPool.SpawnAnchorListAtPosition(nextNode.GUID, targetPortName, frustumCulling.transform.position);
                     spawnedObjects[frustumCulling] = nextNode.GUID;
                 }
@@ -109,7 +111,7 @@ public class LevelOrchestrator : MonoBehaviour
         { // currently no object spawned here
             if (!frustumCulling.IsCurrentlyVisible)
             { // if is allowed to spawn object
-                string targetPortName = CurrentNode.GetOutGoingNodeLinks().First(x => x.BasePortName == frustumCulling.name).TargetPortName;
+                string targetPortName = CurrentNode.GetNodeLinkDataOfNextValidLevelNode(frustumCulling.name).TargetPortName;
                 PrefabPool.SpawnAnchorListAtPosition(nextNode.GUID, targetPortName, frustumCulling.transform.position);
                 spawnedObjects.Add(frustumCulling, nextNode.GUID);
             }
