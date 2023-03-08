@@ -28,24 +28,18 @@ public class FlagManager : MonoBehaviour
             Debug.LogError("Flags is null");
             return false;
         }
-        OnFlagSet?.Invoke(flagName, value);
         Debug.Log($"SetFlag {flagName} to {value}");
+        bool result;
         if (value)
-            if (Flags.Add(flagName))
-                return true;
-            else
-            {
-                Debug.LogError($"Flag {flagName} already set");
-                return false;
-            }
+            result = Flags.Add(flagName);
         else
-            if (Flags.Remove(flagName))
-            return true;
-        else
-        {
-            Debug.LogError($"Tried to remove non existing flag: {flagName}");
-            return false;
-        }
+            result = Flags.Remove(flagName);
+
+        if (!result)
+            Debug.LogError($"Error setting flag {flagName} to {value}");
+
+        OnFlagSet?.Invoke(flagName, value);
+        return result;
     }
     public static bool GetFlag(string flagName)
     {
