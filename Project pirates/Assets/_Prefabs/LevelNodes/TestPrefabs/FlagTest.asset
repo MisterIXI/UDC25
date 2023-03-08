@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6598f2667cc6c1a478f5fba0f197e895, type: 3}
+  m_Name: FlagTest
+  m_EditorClassIdentifier: 
+  levelNodeData:
+  - DisplayName: LevelNode
+    GUID: ea697811-1b96-44c1-9ab1-f7b4f8d2be91
+    position:
+      serializedVersion: 2
+      x: 438
+      y: 351
+      width: 235
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 6201130580141842297, guid: 78bbf92a9baccf740abdc8119787215c,
+      type: 3}
+    YRotation: 270
+  - DisplayName: LevelNode
+    GUID: ab56f536-72cc-4513-a6bd-d0e2d4a5f9fb
+    position:
+      serializedVersion: 2
+      x: 1812
+      y: 56
+      width: 267
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 400363216363873433, guid: ad4f4bd4d8005f347b188746c748da2b,
+      type: 3}
+    YRotation: 270
+  - DisplayName: LevelNode
+    GUID: 034df02e-fce8-4f16-9ee1-9f3bb36e4b4f
+    position:
+      serializedVersion: 2
+      x: 1449
+      y: 39
+      width: 267
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 400363216363873433, guid: ad4f4bd4d8005f347b188746c748da2b,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: 2af010c0-792c-458a-a59a-7f72121818cc
+    position:
+      serializedVersion: 2
+      x: 372
+      y: 5
+      width: 235
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 6201130580141842297, guid: 78bbf92a9baccf740abdc8119787215c,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: 8643c92b-095b-43aa-b579-bfc7136282eb
+    position:
+      serializedVersion: 2
+      x: 731
+      y: 60
+      width: 235
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 6201130580141842297, guid: 78bbf92a9baccf740abdc8119787215c,
+      type: 3}
+    YRotation: 90
+  - DisplayName: LevelNode
+    GUID: 5966cc2f-5610-4868-95c0-9116e66fed67
+    position:
+      serializedVersion: 2
+      x: 1771
+      y: 324
+      width: 267
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 400363216363873433, guid: ad4f4bd4d8005f347b188746c748da2b,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: 0ed73cc9-a8d3-4469-9d2b-03e39882ad29
+    position:
+      serializedVersion: 2
+      x: 1370
+      y: 242
+      width: 267
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 400363216363873433, guid: ad4f4bd4d8005f347b188746c748da2b,
+      type: 3}
+    YRotation: 90
+  - DisplayName: LevelNode
+    GUID: b8ea455b-7ffe-42fe-b740-b99701a2e024
+    position:
+      serializedVersion: 2
+      x: 752
+      y: 264
+      width: 235
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 6201130580141842297, guid: 78bbf92a9baccf740abdc8119787215c,
+      type: 3}
+    YRotation: 180
+  decisionNodeData:
+  - DisplayName: Decision
+    GUID: d5c4db28-7463-4524-9875-b0f252f51cad
+    position:
+      serializedVersion: 2
+      x: 1115
+      y: 344
+      width: 128
+      height: 121
+    NodeContainer: {fileID: 11400000}
+    flagName: DebugFlag2
+  - DisplayName: Decision
+    GUID: 618d443b-9ac4-4584-8e2d-9de6492a10b4
+    position:
+      serializedVersion: 2
+      x: 1067
+      y: 60
+      width: 128
+      height: 121
+    NodeContainer: {fileID: 11400000}
+    flagName: DebugFlag1
+  linkNodeData:
+  - DisplayName: Link
+    GUID: 6416d749-4782-48ac-93cc-1c0a8f7da7bb
+    position:
+      serializedVersion: 2
+      x: 47
+      y: 3
+      width: 191
+      height: 115
+    NodeContainer: {fileID: 11400000}
+    container: {fileID: 11400000}
+    IsEntryPoint: 1
+  NodeLinkData:
+  - BaseNodeGUID: ea697811-1b96-44c1-9ab1-f7b4f8d2be91
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 2af010c0-792c-458a-a59a-7f72121818cc
+    TargetPortName: EIngang.001
+  - BaseNodeGUID: ea697811-1b96-44c1-9ab1-f7b4f8d2be91
+    BasePortName: EIngang.001
+    TargetNodeGUID: b8ea455b-7ffe-42fe-b740-b99701a2e024
+    TargetPortName: Ausgang.001
+  - BaseNodeGUID: ab56f536-72cc-4513-a6bd-d0e2d4a5f9fb
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 5966cc2f-5610-4868-95c0-9116e66fed67
+    TargetPortName: EIngang.001
+  - BaseNodeGUID: ab56f536-72cc-4513-a6bd-d0e2d4a5f9fb
+    BasePortName: EIngang.001
+    TargetNodeGUID: 034df02e-fce8-4f16-9ee1-9f3bb36e4b4f
+    TargetPortName: Ausgang.001
+  - BaseNodeGUID: 034df02e-fce8-4f16-9ee1-9f3bb36e4b4f
+    BasePortName: Ausgang.001
+    TargetNodeGUID: ab56f536-72cc-4513-a6bd-d0e2d4a5f9fb
+    TargetPortName: EIngang.001
+  - BaseNodeGUID: 034df02e-fce8-4f16-9ee1-9f3bb36e4b4f
+    BasePortName: EIngang.001
+    TargetNodeGUID: 0ed73cc9-a8d3-4469-9d2b-03e39882ad29
+    TargetPortName: Ausgang.001
+  - BaseNodeGUID: 2af010c0-792c-458a-a59a-7f72121818cc
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 8643c92b-095b-43aa-b579-bfc7136282eb
+    TargetPortName: EIngang.001
+  - BaseNodeGUID: 2af010c0-792c-458a-a59a-7f72121818cc
+    BasePortName: EIngang.001
+    TargetNodeGUID: ea697811-1b96-44c1-9ab1-f7b4f8d2be91
+    TargetPortName: Ausgang.001
+  - BaseNodeGUID: 8643c92b-095b-43aa-b579-bfc7136282eb
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 618d443b-9ac4-4584-8e2d-9de6492a10b4
+    TargetPortName: Input
+  - BaseNodeGUID: 8643c92b-095b-43aa-b579-bfc7136282eb
+    BasePortName: EIngang.001
+    TargetNodeGUID: 2af010c0-792c-458a-a59a-7f72121818cc
+    TargetPortName: Ausgang.001
+  - BaseNodeGUID: d5c4db28-7463-4524-9875-b0f252f51cad
+    BasePortName: True
+    TargetNodeGUID: 8643c92b-095b-43aa-b579-bfc7136282eb
+    TargetPortName: Ausgang.001
+  - BaseNodeGUID: d5c4db28-7463-4524-9875-b0f252f51cad
+    BasePortName: False
+    TargetNodeGUID: 034df02e-fce8-4f16-9ee1-9f3bb36e4b4f
+    TargetPortName: EIngang.001
+  - BaseNodeGUID: 618d443b-9ac4-4584-8e2d-9de6492a10b4
+    BasePortName: True
+    TargetNodeGUID: 0ed73cc9-a8d3-4469-9d2b-03e39882ad29
+    TargetPortName: Ausgang.001
+  - BaseNodeGUID: 618d443b-9ac4-4584-8e2d-9de6492a10b4
+    BasePortName: False
+    TargetNodeGUID: b8ea455b-7ffe-42fe-b740-b99701a2e024
+    TargetPortName: EIngang.001
+  - BaseNodeGUID: 6416d749-4782-48ac-93cc-1c0a8f7da7bb
+    BasePortName: Link
+    TargetNodeGUID: 2af010c0-792c-458a-a59a-7f72121818cc
+    TargetPortName: Ausgang.001
+  - BaseNodeGUID: 5966cc2f-5610-4868-95c0-9116e66fed67
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 0ed73cc9-a8d3-4469-9d2b-03e39882ad29
+    TargetPortName: EIngang.001
+  - BaseNodeGUID: 5966cc2f-5610-4868-95c0-9116e66fed67
+    BasePortName: EIngang.001
+    TargetNodeGUID: ab56f536-72cc-4513-a6bd-d0e2d4a5f9fb
+    TargetPortName: Ausgang.001
+  - BaseNodeGUID: 0ed73cc9-a8d3-4469-9d2b-03e39882ad29
+    BasePortName: Ausgang.001
+    TargetNodeGUID: d5c4db28-7463-4524-9875-b0f252f51cad
+    TargetPortName: Input
+  - BaseNodeGUID: 0ed73cc9-a8d3-4469-9d2b-03e39882ad29
+    BasePortName: EIngang.001
+    TargetNodeGUID: 5966cc2f-5610-4868-95c0-9116e66fed67
+    TargetPortName: Ausgang.001
+  - BaseNodeGUID: b8ea455b-7ffe-42fe-b740-b99701a2e024
+    BasePortName: Ausgang.001
+    TargetNodeGUID: ea697811-1b96-44c1-9ab1-f7b4f8d2be91
+    TargetPortName: EIngang.001
+  - BaseNodeGUID: b8ea455b-7ffe-42fe-b740-b99701a2e024
+    BasePortName: EIngang.001
+    TargetNodeGUID: 8643c92b-095b-43aa-b579-bfc7136282eb
+    TargetPortName: Ausgang.001
