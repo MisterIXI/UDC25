@@ -65,9 +65,9 @@ public class PlayerController : MonoBehaviour
         }
         else if (_isMoving && _snappedToLadder)
         {
-            newPos = transform.TransformDirection(new Vector3(0, _moveInput.y,0));
+            newPos = transform.TransformDirection(new Vector3(0, _moveInput.y, 0));
         }
-        _rigidbody.MovePosition(transform.position + newPos * _playerSettings.MovementSpeed * Time.deltaTime);
+        _rigidbody.velocity = newPos * _playerSettings.MovementSpeed;
     }
     private void HandleLook()
     {
@@ -93,11 +93,14 @@ public class PlayerController : MonoBehaviour
             _lookInputDelta = Vector2.zero;
         }
     }
-    public Vector2 GetDelta(){
-        if(_lookInputDelta != null)
+    public Vector2 GetDelta()
+    {
+        if (_lookInputDelta != null)
         {
             return _lookInputDelta;
-        }else{
+        }
+        else
+        {
             return Vector2.zero;
         }
     }
