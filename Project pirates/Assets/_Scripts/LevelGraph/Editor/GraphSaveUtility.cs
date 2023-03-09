@@ -21,6 +21,7 @@ public class GraphSaveUtility
         var levelNodeDatas = new List<LevelNodeData>();
         var decisionNodeDatas = new List<DecisionNodeData>();
         var linkNodeDatas = new List<LinkNodeData>();
+        var labelNodeDatas = new List<LabelNodeData>();
         foreach (BaseNode node in _targetGraphView.nodes)
         {
             if (node is LevelNode)
@@ -61,6 +62,17 @@ public class GraphSaveUtility
                     NodeContainer = container
                 });
             }
+            else if (node is LabelNode)
+            {
+                var labelNode = node as LabelNode;
+                labelNodeDatas.Add(new LabelNodeData
+                {
+                    GUID = labelNode.GUID,
+                    DisplayName = labelNode.title,
+                    position = labelNode.GetPosition(),
+                    NodeContainer = container
+                });
+            }
             foreach (var port in node.outputContainer.Children())
             {
                 var outputPort = port as Port;
@@ -80,6 +92,7 @@ public class GraphSaveUtility
         container.decisionNodeData = decisionNodeDatas;
         container.linkNodeData = linkNodeDatas;
         container.NodeLinkData = NodeLinks;
+        container.LabelNodeData = labelNodeDatas;
         EditorUtility.SetDirty(container);
         AssetDatabase.SaveAssetIfDirty(container);
     }
@@ -122,6 +135,11 @@ public class GraphSaveUtility
                 tempEdge?.output.Connect(tempEdge);
                 _targetGraphView.Add(tempEdge);
             }
+        }
+        foreach (LabelNodeData nodeData in container.LabelNodeData)
+        {
+            var labelNode = _targetGraphView.CreateAndAddLabelNode(nodeData.DisplayName, nodeData.GUID, nodeData.position, nodeData.DisplayName);
+            nodeDict.Add(nodeData.GUID, labelNode);
         }
         foreach (BaseNode node in _targetGraphView.nodes.ToList())
         {
