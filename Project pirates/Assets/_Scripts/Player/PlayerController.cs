@@ -61,12 +61,13 @@ public class PlayerController : MonoBehaviour
         Vector3 newPos = Vector3.zero;
         if (_isMoving && !_snappedToLadder)
         {
-            newPos = transform.TransformDirection(new Vector3(_moveInput.x, 0, _moveInput.y));
+            newPos = transform.TransformDirection(new Vector3(_moveInput.x, -1, _moveInput.y));
         }
         else if (_isMoving && _snappedToLadder)
         {
             newPos = transform.TransformDirection(new Vector3(0, _moveInput.y, 0));
         }
+        Debug.Log(newPos);
         _rigidbody.velocity = newPos * _playerSettings.MovementSpeed;
     }
     private void HandleLook()
@@ -95,7 +96,7 @@ public class PlayerController : MonoBehaviour
     }
     public Vector2 GetDelta()
     {
-        Debug.Log("Delta: " + _lookInputDelta);
+        //Debug.Log("Delta: " + _lookInputDelta);
         if (_lookInputDelta != null)
         {
             return _lookInputDelta;
@@ -131,7 +132,6 @@ public class PlayerController : MonoBehaviour
             {
                 _rigidbody.useGravity = true;
             }
-            Debug.Log("snap to ladder: " + _snappedToLadder);
         }
     }
 
