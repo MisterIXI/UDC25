@@ -67,7 +67,6 @@ public class PlayerController : MonoBehaviour
         {
             newPos = transform.TransformDirection(new Vector3(0, _moveInput.y, 0));
         }
-        Debug.Log(newPos);
         _rigidbody.velocity = newPos * _playerSettings.MovementSpeed;
     }
     private void HandleLook()
