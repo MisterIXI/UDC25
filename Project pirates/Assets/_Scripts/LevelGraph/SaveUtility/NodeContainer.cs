@@ -11,4 +11,5 @@ public class NodeContainer : ScriptableObject
     public List<DecisionNodeData> decisionNodeData = new List<DecisionNodeData>();
     public List<LinkNodeData> linkNodeData = new List<LinkNodeData>();
     public List<NodeLinkData> NodeLinkData = new List<NodeLinkData>();
+    public List<LabelNodeData> LabelNodeData = new List<LabelNodeData>();
 }

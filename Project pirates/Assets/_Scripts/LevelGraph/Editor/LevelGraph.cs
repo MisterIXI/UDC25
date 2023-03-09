@@ -117,6 +117,11 @@ public class LevelGraph : EditorWindow
             value = null,
             allowSceneObjects = false
         };
+        var labelCreateButton = new Button(() => _graphView.CreateLabelNode())
+        {
+            text = "Create Label"
+        };
+        toolbar.Add(labelCreateButton);
         var fileField = new ObjectField("Source File")
         {
             objectType = typeof(NodeContainer),
@@ -138,11 +143,11 @@ public class LevelGraph : EditorWindow
             text = "Load"
         };
         toolbar.Add(loadButton);
-        var debugButton = new Button(() => _graphView.nodes.ToList().ForEach(n => { n.RefreshExpandedState(); n.RefreshPorts(); }))
+        var copyButton = new Button(() => _graphView.CopySelectedNodes())
         {
-            text = "Debug"
+            text = "Copy"
         };
-        toolbar.Add(debugButton);
+        toolbar.Add(copyButton);
         rootVisualElement.Add(toolbar);
     }
     private void GenerateMiniMap()
