@@ -54,6 +54,10 @@ public class LevelGraphView : GraphView
     {
         AddElement(CreateLinkNode("Link"));
     }
+    public void CreateLabelNode()
+    {
+        AddElement(CreateLabelNode("Label"));
+    }
     public LevelNode CreateAndAddLevelNode(string nodeName, string GUID, Rect position, AnchorList anchorList, float YRotation)
     {
         var levelNode = CreateLevelNode(nodeName, GUID);
@@ -80,7 +84,17 @@ public class LevelGraphView : GraphView
         AddElement(decisionNode);
         return decisionNode;
     }
-
+    public LabelNode CreateAndAddLabelNode(string nodeName, string GUID, Rect position, string labelText)
+    {
+        var labelNode = CreateLabelNode(nodeName, GUID);
+        labelNode.SetPosition(position);
+        labelNode.displayTitle = labelText;
+        labelNode.RefreshExpandedState();
+        labelNode.RefreshPorts();
+        labelNode.mainContainer.Q<TextField>().value = labelText;
+        AddElement(labelNode);
+        return labelNode;
+    }
     public LinkNode CreateAndAddLinkNode(string nodeName, string GUID, Rect position, NodeContainer container, bool isEntryPoint = false)
     {
         var linkNode = CreateLinkNode(nodeName, GUID);
@@ -125,6 +139,7 @@ public class LevelGraphView : GraphView
         {
             levelNode.YRotation = evt.newValue;
         });
+
         levelNode.mainContainer.Add(rotationField);
         levelNode.RefreshExpandedState();
         levelNode.RefreshPorts();
@@ -163,7 +178,30 @@ public class LevelGraphView : GraphView
         decisionNode.SetPosition(new Rect(viewPortCenter, defaultNodeSize));
         return decisionNode;
     }
-
+    private LabelNode CreateLabelNode(string nodeName, string GUID = null)
+    {
+        var labelNode = new LabelNode
+        {
+            title = nodeName,
+            GUID = GUID == null ? System.Guid.NewGuid().ToString() : GUID,
+            displayTitle = nodeName
+        };
+        var textField = new TextField
+        {
+            name = "LabelName",
+            value = nodeName
+        };
+        textField.RegisterValueChangedCallback(evt =>
+        {
+            labelNode.title = evt.newValue;
+            labelNode.displayTitle = evt.newValue;
+        });
+        labelNode.mainContainer.Add(textField);
+        labelNode.RefreshExpandedState();
+        labelNode.RefreshPorts();
+        labelNode.SetPosition(new Rect(viewPortCenter, defaultNodeSize));
+        return labelNode;
+    }
     private LinkNode CreateLinkNode(string nodeName, string GUID = null)
     {
         var linkNode = new LinkNode
@@ -206,6 +244,62 @@ public class LevelGraphView : GraphView
         linkNode.SetPosition(new Rect(viewPortCenter, defaultNodeSize));
         return linkNode;
     }
+    public void CopySelectedNodes()
+    {
+        var nodes = selection.OfType<BaseNode>().ToArray();
+        // unselect every in selection
+        foreach (var node in selection)
+        {
+            node.Unselect(contentContainer);
+        }
+        selection.Clear();
+        foreach (var node in nodes)
+        {
+            if (node is LinkNode linkNode)
+            {
+                var copy = CreateLinkNode(linkNode.title);
+                copy.SetPosition(new Rect(node.GetPosition().position - Vector2.one * 10f, node.GetPosition().size));
+                copy.container = linkNode.container;
+                copy.IsEntryPoint = linkNode.IsEntryPoint;
+                copy.mainContainer.Q<ObjectField>().value = linkNode.container;
+                copy.mainContainer.Q<Toggle>().value = linkNode.IsEntryPoint;
+                AddElement(copy);
+                selection.Add(copy);
+            }
+            else if (node is DecisionNode decision)
+            {
+                var copy = CreateDecisionNode(decision.title);
+                copy.SetPosition(new Rect(node.GetPosition().position - Vector2.one * 10f, node.GetPosition().size));
+                copy.flagName = decision.flagName;
+                copy.mainContainer.Q<TextField>().value = decision.flagName;
+                AddElement(copy);
+                selection.Add(copy);
+            }
+            else if (node is LevelNode level)
+            {
+                var copy = CreateLevelNode(level.title);
+                copy.SetPosition(new Rect(node.GetPosition().position - Vector2.one * 10f, node.GetPosition().size));
+                copy.anchorList = level.anchorList;
+                copy.YRotation = level.YRotation;
+                copy.mainContainer.Q<ObjectField>().value = level.anchorList;
+                copy.mainContainer.Q<FloatField>().value = level.YRotation;
+                AddElement(copy);
+                selection.Add(copy);
+                UpdateOutputCount(copy, ((LevelNode)node).anchorList);
+
+            }
+            else if (node is LabelNode label)
+            {
+                var copy = CreateLabelNode(label.title);
+                copy.SetPosition(new Rect(node.GetPosition().position - Vector2.one * 10f, node.GetPosition().size));
+                copy.mainContainer.Q<TextField>().value = label.title;
+                AddElement(copy);
+                selection.Add(copy);
+            }
+        }
+    }
+
+
     public void CreateGridBackground()
     {
         var grid = new GridBackground();
