@@ -15,6 +15,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] GameObject pickedObject;
     [SerializeField] float moveForce;
     [SerializeField] Transform parentHold;
+    Vector3 holdPos;
     Ray _ray;
     // private GameObject ui;
     // private TMP_Text text;
@@ -25,6 +26,7 @@ public class PlayerInteract : MonoBehaviour
     void Start() 
     {
         mainCamera = Camera.main;
+        holdPos = parentHold.position;
 
         // ui = GameObject.FindGameObjectWithTag("UI_Interact");
         // text = ui.GetComponentInChildren<TMP_Text>();
@@ -112,7 +114,6 @@ public class PlayerInteract : MonoBehaviour
     private void CheckForPickable()
     {
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-
         if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
         {
             if (hit.collider.tag.Equals("Pickable"))
@@ -133,6 +134,6 @@ public class PlayerInteract : MonoBehaviour
         objRig.useGravity = false;
         objRig.drag = 10;
         objRig.transform.parent = parentHold;
-        pickedObject.transform.position = parentHold.position;
+        pickedObject.transform.position = holdPos;
     }
 }
