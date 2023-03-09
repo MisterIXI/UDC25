@@ -996,6 +996,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: takeCube
       objectReference: {fileID: 0}
+    - target: {fileID: 2466903200266700203, guid: 49fe192162de0bf40866723820d6bded,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pickable
+      objectReference: {fileID: 0}
     - target: {fileID: 2466903200266700214, guid: 49fe192162de0bf40866723820d6bded,
         type: 3}
       propertyPath: m_RootOrder
@@ -2138,6 +2143,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: takeCapsule
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068916481895032037, guid: 44707da07c5fddd4f977b44302dad21b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pickable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44707da07c5fddd4f977b44302dad21b, type: 3}
