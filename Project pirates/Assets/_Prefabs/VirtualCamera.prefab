@@ -68,8 +68,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6368791032227502821}
   - component: {fileID: 6368791032227502820}
-  - component: {fileID: 6368791032227502826}
   - component: {fileID: 160378985}
+  - component: {fileID: 7077013274863711315}
   m_Layer: 0
   m_Name: VirtualCamera
   m_TagString: Untagged
@@ -131,21 +131,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 6368791032142397756}
---- !u!114 &6368791032227502826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6368791032227502822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d7f038e6692e2b46bce11de9732b822, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalSpeed: 15
-  verticalSpeed: 15
-  clampAngle: 40
 --- !u!114 &160378985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,3 +143,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4f0f4ea40835c40a879a66f5793186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7077013274863711315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6368791032227502822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1871fd4f128e7994f9019f5a111ac2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingRotation: {x: 0, y: 0, z: 0}
+  horizontalSpeed: 0
+  verticalSpeed: 0
+  clampAngleUp: 0
+  clampAngleDown: 0
+  IsKeyboardAndMouseActive: 0
