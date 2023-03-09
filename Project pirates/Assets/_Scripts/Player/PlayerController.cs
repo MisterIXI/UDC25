@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     {
         InputManager.OnLook += OnLookInput;
         InputManager.OnMove += OnMoveInput;
-        InputManager.OnClimb += OnClimbInput;
+        InputManager.OnInteract += OnInteractInput;
     }
     private void FixedUpdate()
     {
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         InputManager.OnLook -= OnLookInput;
         InputManager.OnMove -= OnMoveInput;
-        InputManager.OnClimb -= OnClimbInput;
+        InputManager.OnInteract -= OnInteractInput;
     }
     private void OnLookInput(InputAction.CallbackContext context)
     {
@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnClimbInput(InputAction.CallbackContext context)
+    private void OnInteractInput(InputAction.CallbackContext context)
     {
         if (context.performed && _isOnLadder)
         {

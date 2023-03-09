@@ -24,3 +24,8 @@ MonoBehaviour:
   <MovementSnapSpeed>k__BackingField: 1
   <CameraClampAngleUp>k__BackingField: 80
   <CameraClampAngleDown>k__BackingField: -80
+  <HoldObjectMaxDistance>k__BackingField: 3
+  <HoldObjectMaxSpeedMagnitude>k__BackingField: 1500
+  <InteractMaxDistance>k__BackingField: 3
+  <InteractMoveForce>k__BackingField: 100
+  <InteractThrowMagnitude>k__BackingField: 10
