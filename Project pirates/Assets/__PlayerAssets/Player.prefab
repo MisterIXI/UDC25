@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979146134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 2}
+  m_LocalPosition: {x: -0.52, y: 0, z: 0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -122,7 +122,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5176867541221419695}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b5f43792c1694ee4bb76d14ef7030718, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 5176867542112129153}
   - component: {fileID: 3869732135578740036}
   - component: {fileID: 1456420647}
+  - component: {fileID: 180823691}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -202,14 +203,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5176867542112129158}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e1c325843a44554ebf09f49d94a4df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destItemRotation: {x: 0, y: 0, z: 0}
-  rubberbandForce: 0
-  rotationSpeed: 0
+  destItemRotation: {x: 90, y: 0, z: 0}
+  rubberbandForce: 100
+  rotationSpeed: 3
 --- !u!114 &1456420647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,12 +218,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5176867542112129158}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad2947b811da64742abc16071ebf86d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRange: 2
-  pickedObject: {fileID: 0}
-  moveForce: 200
-  parentHold: {fileID: 979146135}
+  _drawDebugGizmos: 1
+  _interactObjectHoldPosition: {fileID: 979146135}
+--- !u!114 &180823691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5176867542112129158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ed2447b290c244c8c8739fd354807d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <_drawDebugGizmos>k__BackingField: 0

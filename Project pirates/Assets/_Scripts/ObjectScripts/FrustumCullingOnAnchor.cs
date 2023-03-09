@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(GeometryAnchor))]
+// [RequireComponent(typeof(GeometryAnchor))]
 public class FrustumCullingOnAnchor : FrustumCulling
 {
     protected GeometryAnchor _geometryAnchor;

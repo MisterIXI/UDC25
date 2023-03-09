@@ -15,6 +15,7 @@ public class MenuSettings : MenuBase
         base.Initialize();
         AddListeners();
         SetValuesFromSettings();
+        SubscribeToChanges();
     }
     private void SetValuesFromSettings()
     {
@@ -36,6 +37,16 @@ public class MenuSettings : MenuBase
         _sliderMouseSense.onValueChanged.AddListener(OnSliderMouseSense);
         _sliderGamepadSense.onValueChanged.AddListener(OnSliderGamepadSense);
     }
+
+    private void SubscribeToChanges()
+    {
+        SettingsManager.OnMasterVolumeChanged += OnMasterVolumeChanged;
+        SettingsManager.OnMusicVolumeChanged += OnMusicVolumeChanged;
+        SettingsManager.OnSFXVolumeChanged += OnSFXVolumeChanged;
+        SettingsManager.OnMouseLookSensitivityChanged += OnMouseLookSensitivityChanged;
+        SettingsManager.OnGamepadLookSensitivityChanged += OnGamepadLookSensitivityChanged;
+        SettingsManager.OnInvertYAxisChanged += OnInvertYAxisChanged;
+    }
     public override void SetSelection()
     {
         _sliderMasterVolume.Select();
@@ -48,37 +59,69 @@ public class MenuSettings : MenuBase
     private void OnSliderMaster(float value)
     {
         // set master volume
-        SettingsManager.PlayerSettings.MasterVolume = value;
+        SettingsManager.SetMasterVolume(value);
     }
 
     private void OnSliderMusic(float value)
     {
         // set music volume
-        SettingsManager.PlayerSettings.MusicVolume = value;
+        SettingsManager.SetMusicVolume(value);
     }
 
     private void OnSliderSFX(float value)
     {
         // set sfx volume
-        SettingsManager.PlayerSettings.SfxVolume = value;
+        SettingsManager.SetSFXVolume(value);
     }
 
     private void OnToggleYInvert(bool value)
     {
         // set y invert
-        SettingsManager.PlayerSettings.InvertYAxis = value;
+        SettingsManager.SetInvertYAxis(value);
     }
 
     private void OnSliderMouseSense(float value)
     {
         // set mouse sense
-        SettingsManager.PlayerSettings.MouseLookSensitivity = value;
+        SettingsManager.SetMouseLookSensitivity(value);
     }
 
     private void OnSliderGamepadSense(float value)
     {
         // set gamepad sense
-        SettingsManager.PlayerSettings.GamepadLookSensitivity = value;
+        SettingsManager.SetGamepadLookSensitivity(value);
     }
+
+    private void OnMasterVolumeChanged(float value)
+    {
+        _sliderMasterVolume.SetValueWithoutNotify(value);
+    }
+
+    private void OnMusicVolumeChanged(float value)
+    {
+        _sliderMusicVolume.SetValueWithoutNotify(value);
+    }
+
+    private void OnSFXVolumeChanged(float value)
+    {
+        _sliderSFXVolume.SetValueWithoutNotify(value);
+    }
+
+    private void OnMouseLookSensitivityChanged(float value)
+    {
+        _sliderMouseSense.SetValueWithoutNotify(value);
+    }
+
+    private void OnGamepadLookSensitivityChanged(float value)
+    {
+        _sliderGamepadSense.SetValueWithoutNotify(value);
+    }
+
+    private void OnInvertYAxisChanged(bool value)
+    {
+        _toggleYInvert.SetIsOnWithoutNotify(value);
+    }
+
+
 }
 
