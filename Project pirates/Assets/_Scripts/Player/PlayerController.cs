@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour
     }
     public Vector2 GetDelta()
     {
+        Debug.Log("Delta: " + _lookInputDelta);
         if (_lookInputDelta != null)
         {
             return _lookInputDelta;

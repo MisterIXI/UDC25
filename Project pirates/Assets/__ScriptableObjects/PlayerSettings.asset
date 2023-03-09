@@ -16,10 +16,11 @@ MonoBehaviour:
   <MasterVolume>k__BackingField: 0.3
   <MusicVolume>k__BackingField: 1
   <SfxVolume>k__BackingField: 1
-  <MouseLookSensitivity>k__BackingField: 1
-  <GamepadLookSensitivity>k__BackingField: 1
+  <MouseLookSensitivity>k__BackingField: 0.5
+  <GamepadLookSensitivity>k__BackingField: 0.5
   <InvertYAxis>k__BackingField: 0
+  <SensitivityMultiplier>k__BackingField: 20
   <MovementSpeed>k__BackingField: 5.86
   <MovementSnapSpeed>k__BackingField: 1
-  <CameraMinX>k__BackingField: 1
-  <CameraMaxX>k__BackingField: 1
+  <CameraClampAngleUp>k__BackingField: 80
+  <CameraClampAngleDown>k__BackingField: -80

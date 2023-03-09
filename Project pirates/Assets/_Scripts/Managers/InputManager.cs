@@ -18,16 +18,20 @@ public class InputManager : MonoBehaviour
         Instance = this;
 
         _playerInput = GetComponent<PlayerInput>();
+        _playerInput.onControlsChanged += OnSchemeChange;
         SubscribeToInput();
     }
-
+    public static event Action OnControlSchemeChanged;
     public static event Action<CallbackContext> OnLook;
     public static event Action<CallbackContext> OnMove;
     public static event Action<CallbackContext> OnInteract;
     public static event Action<CallbackContext> OnPauseGame;
     public static event Action<CallbackContext> OnClimb;
 
-
+    private void OnSchemeChange(PlayerInput playerInput)
+    {
+        OnControlSchemeChanged?.Invoke();
+    }
 
     private void OnLookInput(CallbackContext context)
     {
