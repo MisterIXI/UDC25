@@ -59,13 +59,15 @@ public class PlayerController : MonoBehaviour
     private void HandleMove()
     {
         Vector3 newPos = Vector3.zero;
+
+        _moveVector = Vector3.MoveTowards(_moveVector, _moveInput, _playerSettings.MovementSpeed * Time.deltaTime / _playerSettings.MovementSnapSeconds);
         if (_isMoving && !_snappedToLadder)
         {
-            newPos = transform.TransformDirection(new Vector3(_moveInput.x, -1, _moveInput.y));
+            newPos = transform.TransformDirection(new Vector3(_moveVector.x, -1, _moveVector.y));
         }
         else if (_isMoving && _snappedToLadder)
         {
-            newPos = transform.TransformDirection(new Vector3(0, _moveInput.y, 0));
+            newPos = transform.TransformDirection(new Vector3(0, _moveVector.y, 0));
         }
         _rigidbody.velocity = newPos * _playerSettings.MovementSpeed;
     }
