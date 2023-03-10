@@ -13,7 +13,7 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     private bool riddleSolved = false;
     private bool firstSequenceFinish = false;
-    private Vector3 newPos = new Vector3(0, -0.02f, 0);
+    private Vector3 newPos = new Vector3(0, 0.695f, 0);
     private Quaternion newRot = Quaternion.Euler(6, 0, 0);
     private Vector3 drawerPos = new Vector3(0, 0.5413046f, 0.2431f);
 
