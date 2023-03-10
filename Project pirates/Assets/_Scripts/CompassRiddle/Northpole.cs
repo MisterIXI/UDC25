@@ -47,7 +47,7 @@ public class Northpole : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if(inventory.Item.name  == "Compass")
+            if(inventory.Item != null && inventory.Item.name  == "Compass")
             {
                 posCount += 1;
             }
