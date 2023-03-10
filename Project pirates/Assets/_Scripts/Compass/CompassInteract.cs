@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Compass : MonoBehaviour, IInteractable
+public class CompassInteract : MonoBehaviour, IInteractable
 {
     private PlayerInventory inventory;
 
