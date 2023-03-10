@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerInteract : MonoBehaviour
 {
     [field: SerializeField] private bool _drawDebugGizmos;
-    public static event Action currentInteractableObjectChanged;
+    public static event Action OnInteractableTargetChanged;
     public static IInteractable PossibleInteractableObject { get; private set; }
     public static IInteractable CurrentInteractableObject { get; private set; }
     private Camera _mainCamera;
@@ -44,7 +44,7 @@ public class PlayerInteract : MonoBehaviour
             if (PossibleInteractableObject != interactableObject)
             {
                 PossibleInteractableObject = interactableObject;
-                currentInteractableObjectChanged?.Invoke();
+                OnInteractableTargetChanged?.Invoke();
             }
         }
         else
@@ -52,7 +52,7 @@ public class PlayerInteract : MonoBehaviour
             if (PossibleInteractableObject != null)
             {
                 PossibleInteractableObject = null;
-                currentInteractableObjectChanged?.Invoke();
+                OnInteractableTargetChanged?.Invoke();
             }
         }
     }
