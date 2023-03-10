@@ -41,4 +41,6 @@ public class PlayerSettings : ScriptableObject
     [field: SerializeField] public Vector3 InvItemPosition { get; set; } = new Vector3(-0.6f, -0.2f, 1.2f);
     [field: SerializeField] public float InvRubberbandForce { get; set; } = 100f;
     [field: SerializeField] public float InvRotationSpeed { get; set; } = 3f;
+    [field: Header("Compass Riddle")]
+    [field: SerializeField][field: Range(0f, 0.1f)] public float FogDensity { get; set; } = 0.06f;
 }
