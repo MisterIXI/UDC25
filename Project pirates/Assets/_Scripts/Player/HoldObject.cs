@@ -24,9 +24,9 @@ public class HoldObject : MonoBehaviour
             //raycast to see if we can pick up an object
             if (Physics.Raycast(_cameraTransform.position, _cameraTransform.forward, out var hit, _playerSettings.HoldObjectMaxDistance))
             {
-                if (hit.collider.TryGetComponent(out Rigidbody rigidbody))
+                if (hit.rigidbody != null)
                 {
-                    PotentialRigidbody = rigidbody;
+                    PotentialRigidbody = hit.rigidbody;
                     OnPotentialRigidbodyChanged?.Invoke();
                 }
             }
@@ -49,6 +49,7 @@ public class HoldObject : MonoBehaviour
     {
         if (context.started)
         {
+            Debug.Log($"PotentialRigidbody: {PotentialRigidbody}");
             if (PotentialRigidbody != null)
             {
                 _currentRigidbody = PotentialRigidbody;
