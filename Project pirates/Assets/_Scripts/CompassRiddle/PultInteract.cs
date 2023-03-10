@@ -47,7 +47,7 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     public string Data()
     {
-        if(inventory.Item.name  == "Compass")
+        if(inventory.Item != null && inventory.Item.name  == "Compass")
         {
             return "Place compass on table.";
         }
@@ -60,7 +60,7 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if(inventory.Item.name  == "Compass")
+        if(inventory.Item != null && inventory.Item.name  == "Compass")
         {
             compass = inventory.Item;
 
