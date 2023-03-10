@@ -10,10 +10,12 @@ public class HoldObject : MonoBehaviour
     private Transform _cameraTransform;
     private PlayerSettings _playerSettings;
     private float _holdObjectDistance;
+    private PlayerInventory _playerInventory;
     [field: SerializeField] private bool _drawDebugGizmos { get; set; }
     private void Start()
     {
         _cameraTransform = Camera.main.transform;
+        _playerInventory = GetComponent<PlayerInventory>();
         _playerSettings = SettingsManager.PlayerSettings;
         InputManager.OnHoldObject += OnHoldObjectInput;
     }
@@ -24,7 +26,7 @@ public class HoldObject : MonoBehaviour
             //raycast to see if we can pick up an object
             if (Physics.Raycast(_cameraTransform.position, _cameraTransform.forward, out var hit, _playerSettings.HoldObjectMaxDistance))
             {
-                if (hit.rigidbody != null)
+                if (hit.rigidbody != null && hit.rigidbody.tag != "KeyItem")
                 {
                     PotentialRigidbody = hit.rigidbody;
                     OnPotentialRigidbodyChanged?.Invoke();
@@ -41,8 +43,8 @@ public class HoldObject : MonoBehaviour
             // move object to fixed point in front of camera
             Vector3 targetPoint = _cameraTransform.position + _cameraTransform.forward * _holdObjectDistance;
             Vector3 targetVelocity = targetPoint - _currentRigidbody.transform.position;
-            targetVelocity = Vector3.ClampMagnitude(targetVelocity, _playerSettings.HoldObjectMaxSpeedMagnitude);
-            _currentRigidbody.velocity = targetVelocity;
+            targetVelocity = targetVelocity * _playerSettings.HoldObjectMoveForce;
+            _currentRigidbody.AddForce(targetVelocity);
         }
     }
     private void OnHoldObjectInput(InputAction.CallbackContext context)
@@ -55,12 +57,28 @@ public class HoldObject : MonoBehaviour
                 _currentRigidbody = PotentialRigidbody;
                 IsHoldingObject = true;
                 _holdObjectDistance = Vector3.Distance(transform.position, _currentRigidbody.transform.position);
+                UpdateRigidbody(_currentRigidbody, true);
             }
         }
         else if (context.canceled)
         {
+            if (_currentRigidbody != null && _playerInventory.Item?.GetComponent<Rigidbody>() != _currentRigidbody)
+                UpdateRigidbody(_currentRigidbody, false);
             _currentRigidbody = null;
             IsHoldingObject = false;
+        }
+    }
+    private void UpdateRigidbody(Rigidbody rigidbody, bool isHeld)
+    {
+        if (isHeld)
+        {
+            rigidbody.useGravity = false;
+            rigidbody.drag = 10f;
+        }
+        else
+        {
+            rigidbody.useGravity = true;
+            rigidbody.drag = 1f;
         }
     }
     private void SubscribeToInput() { InputManager.OnHoldObject += OnHoldObjectInput; }
