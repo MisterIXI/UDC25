@@ -86,3 +86,6 @@ MonoBehaviour:
   <InvRubberbandForce>k__BackingField: 100
   <InvRotationSpeed>k__BackingField: 10
   <FogDensity>k__BackingField: 0.06
+  <UiTextCharacterTweening>k__BackingField: 0.006
+  <UiSideSlideTween>k__BackingField: 0.095
+  <UiVertSlideTween>k__BackingField: 0.06
