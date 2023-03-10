@@ -53,15 +53,17 @@ public class PlayerInventory : MonoBehaviour
         Item = newObj;
         foreach (Transform trans in inventory.transform)
         {
-            trans.gameObject.GetComponent<Collider>().enabled = true;
             Rigidbody transRB = trans.GetComponent<Rigidbody>();
             UpdateRigidbody(transRB, false);
             transRB.AddForce(mainCamera.transform.forward * _playerSettings.InteractThrowMagnitude, ForceMode.Impulse);
             // trans.position = item.transform.position;
             trans.SetParent(null);
         }
-        UpdateRigidbody(Item.GetComponent<Rigidbody>(), true);
-        Item.transform.SetParent(inventory.transform);
+        if(Item != null)
+        {
+            UpdateRigidbody(Item.GetComponent<Rigidbody>(), true);
+            Item.transform.SetParent(inventory.transform);
+        }
     }
 
     private void UpdateRigidbody(Rigidbody rb, bool value)
