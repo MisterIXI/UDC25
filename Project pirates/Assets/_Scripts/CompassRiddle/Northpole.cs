@@ -35,7 +35,7 @@ public class Northpole : MonoBehaviour
             OpenVoidDoor();
             gameObject.transform.localScale = new Vector3(0.1f,0.2f,0.1f);
         }
-        else if(posCount > 0)
+        else if(posCount == 1)
         {
             CloseVoidDoor();
             SwapRoomToCompassDeco();
