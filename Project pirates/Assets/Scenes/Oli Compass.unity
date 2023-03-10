@@ -5985,8 +5985,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265070013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 6.11, z: 1}
+  m_LocalPosition: {x: 0, y: 2.56, z: 0}
+  m_LocalScale: {x: 0.58, y: 4.08, z: 0.58}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2107705670}
@@ -8729,6 +8729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2107705670}
   - component: {fileID: 2107705671}
+  - component: {fileID: 2107705672}
   m_Layer: 0
   m_Name: CompassNorthpole
   m_TagString: Untagged
@@ -8744,8 +8745,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107705669}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 2, y: 3, z: 2}
+  m_LocalPosition: {x: 20.17, y: 2, z: 55}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1265070014}
@@ -8765,6 +8766,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2107705672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107705669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29dda02c9698dd9429df6edca190de5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voidDoor: {fileID: 1482297703}
+  CompassDecoration: {fileID: 1288537227}
+  SpyglassDecoration: {fileID: 1244522845}
+  spawnPoints:
+  - {x: 33, y: 2, z: 24}
+  - {x: -20, y: 2, z: 31}
+  - {x: -34, y: 2, z: 7}
+  - {x: 4, y: 2, z: -18}
+  - {x: 17, y: 2, z: 25}
+  - {x: 0, y: 2, z: 55}
 --- !u!1001 &1732274149666324389
 PrefabInstance:
   m_ObjectHideFlags: 0
