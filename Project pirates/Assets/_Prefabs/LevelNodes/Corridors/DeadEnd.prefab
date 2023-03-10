@@ -223,11 +223,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7325526484049257092, guid: 035a5536714bbaa41ad69c894f9e33e7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: -6888817677310151143, guid: 035a5536714bbaa41ad69c894f9e33e7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 919132149155446097, guid: 035a5536714bbaa41ad69c894f9e33e7,
         type: 3}
       propertyPath: m_Name
       value: DeadEnd_Corridor
       objectReference: {fileID: 0}
+    - target: {fileID: 6221413156815912322, guid: 035a5536714bbaa41ad69c894f9e33e7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 035a5536714bbaa41ad69c894f9e33e7, type: 3}
 --- !u!1 &557088505693007202 stripped
