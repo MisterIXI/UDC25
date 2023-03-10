@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 6101276376880960776}
   m_Layer: 0
   m_Name: Compass
-  m_TagString: Untagged
+  m_TagString: KeyItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

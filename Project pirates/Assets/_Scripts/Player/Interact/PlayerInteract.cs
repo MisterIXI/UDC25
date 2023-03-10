@@ -11,7 +11,6 @@ public class PlayerInteract : MonoBehaviour
     public static event Action currentInteractableObjectChanged;
     public static IInteractable PossibleInteractableObject { get; private set; }
     public static IInteractable CurrentInteractableObject { get; private set; }
-    private Rigidbody _currentInteractRigidbody;
     private Camera _mainCamera;
     private PlayerInventory _playerInventory;
     private PlayerSettings _playerSettings;
@@ -67,8 +66,6 @@ public class PlayerInteract : MonoBehaviour
     {
         ((MonoBehaviour)CurrentInteractableObject).transform.parent = null;
         CurrentInteractableObject = null;
-        _currentInteractRigidbody = null;
-
     }
     private void OnInteract(InputAction.CallbackContext context)
     {

@@ -7,7 +7,7 @@ TagManager:
   - Ladder
   - Pickable
   - Inventory
-  - Compass
+  - KeyItem
   layers:
   - Default
   - TransparentFX

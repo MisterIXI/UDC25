@@ -30,8 +30,8 @@ public class PlayerSettings : ScriptableObject
     [field: SerializeField][field: Range(0.01f, 89.99f)] public float CameraClampAngleUp { get; set; } = 80f;
     [field: SerializeField][field: Range(0.01f, -89.99f)] public float CameraClampAngleDown { get; set; } = -80f;
     [field: Header("HoldObject")]
+    [field: SerializeField] public float HoldObjectMoveForce { get; set; } = 100f;
     [field: SerializeField] public float HoldObjectMaxDistance { get; set; } = 3f;
-    [field: SerializeField] public float HoldObjectMaxSpeedMagnitude { get; set; } = 3f;
     [field: Header("Interact")]
     [field: SerializeField] public float InteractMaxDistance { get; set; } = 3f;
     [field: SerializeField] public float InteractMoveForce { get; set; } = 100f;
