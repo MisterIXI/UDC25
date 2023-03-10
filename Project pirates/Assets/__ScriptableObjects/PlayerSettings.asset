@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b55601880db35409e72ec10367d879, type: 3}
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
-  <CloneScriptableObjectOnStart>k__BackingField: 1
+  <CloneScriptableObjectOnStart>k__BackingField: 0
   <MasterVolume>k__BackingField: 0.3
   <MusicVolume>k__BackingField: 1
   <SfxVolume>k__BackingField: 1
@@ -22,6 +22,58 @@ MonoBehaviour:
   <SensitivityMultiplier>k__BackingField: 20
   <MovementSpeed>k__BackingField: 5.86
   <MovementSnapSeconds>k__BackingField: 0.358
+  <StepLength>k__BackingField: 2.5
+  <CameraVerticalOffset>k__BackingField: 0.5
+  <CameraBobbingMultX>k__BackingField: 0.067
+  <CameraBobbingMultY>k__BackingField: 0.063
+  <CameraBobbingCurveX>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.3
+      inSlope: 0.29027143
+      outSlope: 0.29027143
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.09476459
+    - serializedVersion: 3
+      time: 1
+      value: 0.3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 0
+    m_PostInfinity: 0
+    m_RotationOrder: 4
+  <CameraBobbingCurveY>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.3
+      inSlope: 0.55960757
+      outSlope: 0.55960757
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.2654337
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 0
+    m_PostInfinity: 0
+    m_RotationOrder: 4
   <CameraClampAngleUp>k__BackingField: 80
   <CameraClampAngleDown>k__BackingField: -80
   <HoldObjectMaxDistance>k__BackingField: 3
