@@ -15,11 +15,11 @@ public class PlayerInteract : MonoBehaviour
     private Camera _mainCamera;
     private PlayerInventory _playerInventory;
     private PlayerSettings _playerSettings;
-    [field: SerializeField] private Transform _interactObjectHoldPosition;
 
     private void SubscribeToInput() { InputManager.OnInteract += OnInteract; }
     private void UnsubscribeToInput() { InputManager.OnInteract -= OnInteract; }
-    private void Awake() {
+    private void Awake()
+    {
         _playerInventory = GetComponent<PlayerInventory>();
     }
     void Start()
@@ -35,40 +35,32 @@ public class PlayerInteract : MonoBehaviour
     void FixedUpdate()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, _mainCamera.transform.forward, out hit, _playerSettings.InteractMaxDistance))
+        if (Physics.Raycast(_mainCamera.transform.position, _mainCamera.transform.forward, out hit, _playerSettings.InteractMaxDistance))
         {
-            if (hit.collider.TryGetComponent(out IInteractable interactableObject))
+            IInteractable interactableObject = null;
+            if (hit.rigidbody != null)
+                interactableObject = hit.rigidbody.GetComponent<IInteractable>();
+            else if (interactableObject == null)
+                interactableObject = hit.collider.GetComponent<IInteractable>();
+            if (PossibleInteractableObject != interactableObject)
             {
                 PossibleInteractableObject = interactableObject;
                 currentInteractableObjectChanged?.Invoke();
             }
-            else
+        }
+        else
+        {
+            if (PossibleInteractableObject != null)
             {
                 PossibleInteractableObject = null;
                 currentInteractableObjectChanged?.Invoke();
             }
         }
-        if (CurrentInteractableObject != null)
-        {
-            Vector3 moveVector = _interactObjectHoldPosition.position - ((MonoBehaviour)CurrentInteractableObject).transform.position;
-            if(moveVector.magnitude > 0.1f)
-            {
-                _currentInteractRigidbody.AddForce(moveVector * _playerSettings.InteractMoveForce);
-            }
-        }
     }
 
-
-
-    private void PickupObject(IInteractable interactableObject)
+    private void InteractWithObject(IInteractable interactableObject)
     {
-        if (CurrentInteractableObject != null)
-        {
-            _currentInteractRigidbody.AddForce(_mainCamera.transform.forward * _playerSettings.InteractThrowMagnitude, ForceMode.Impulse);
-        }
-        CurrentInteractableObject = PossibleInteractableObject;
-        _playerInventory.TakeObject(((MonoBehaviour)CurrentInteractableObject).gameObject);
-        _currentInteractRigidbody = ((MonoBehaviour)CurrentInteractableObject).GetComponent<Rigidbody>();
+        interactableObject?.Interact();
     }
 
     public void DropObject()
@@ -76,7 +68,7 @@ public class PlayerInteract : MonoBehaviour
         ((MonoBehaviour)CurrentInteractableObject).transform.parent = null;
         CurrentInteractableObject = null;
         _currentInteractRigidbody = null;
-        
+
     }
     private void OnInteract(InputAction.CallbackContext context)
     {
@@ -84,7 +76,7 @@ public class PlayerInteract : MonoBehaviour
         {
             if (PossibleInteractableObject != null)
             {
-                PickupObject(PossibleInteractableObject);
+                InteractWithObject(PossibleInteractableObject);
             }
         }
     }
@@ -101,8 +93,7 @@ public class PlayerInteract : MonoBehaviour
             if (_playerSettings != null && _mainCamera != null)
             {
                 Gizmos.color = Color.yellow;
-                Gizmos.DrawWireCube(_interactObjectHoldPosition.position, Vector3.one * 0.4f);
-                Gizmos.DrawLine(transform.position, transform.position + _mainCamera.transform.forward * _playerSettings.InteractMaxDistance);
+                Gizmos.DrawLine(_mainCamera.transform.position, _mainCamera.transform.position + _mainCamera.transform.forward * _playerSettings.InteractMaxDistance);
             }
         }
     }

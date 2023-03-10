@@ -17,6 +17,7 @@ public class CompassInteract : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        Debug.Log("Compass picked up");
         inventory.TakeObject(gameObject);
     }
 }

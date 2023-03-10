@@ -81,3 +81,7 @@ MonoBehaviour:
   <InteractMaxDistance>k__BackingField: 3
   <InteractMoveForce>k__BackingField: 100
   <InteractThrowMagnitude>k__BackingField: 10
+  <InvItemRotation>k__BackingField: {x: -70, y: -10, z: -20}
+  <InvItemPosition>k__BackingField: {x: -0.6, y: -0.2, z: 1.2}
+  <InvRubberbandForce>k__BackingField: 100
+  <InvRotationSpeed>k__BackingField: 3
