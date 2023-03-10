@@ -30,7 +30,7 @@ public class Northpole : MonoBehaviour
     {
         UpdateSpawn();
 
-        if(posCount - spawnPoints.Length >= -1)
+        if(posCount - spawnPoints.Length >= -2)
         {
             OpenVoidDoor();
             gameObject.transform.localScale = new Vector3(0.1f,0.2f,0.1f);
