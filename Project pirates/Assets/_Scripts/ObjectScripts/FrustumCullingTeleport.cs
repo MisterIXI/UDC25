@@ -26,11 +26,11 @@ public class FrustumCullingTeleport : MonoBehaviour
     public void FrustumTeleport()
     {
         currentPos = newPos;
-        transform.position = currentPos;
+        transform.localPosition = currentPos;
         while (_frustumCulling.IsCurrentlyInCameraFrustum())
         {
             currentPos = newPos;
-            transform.position = currentPos;
+            transform.localPosition = currentPos;
             SelectNextTeleportPos();
         }
     }
