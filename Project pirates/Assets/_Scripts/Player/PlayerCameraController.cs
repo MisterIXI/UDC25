@@ -25,7 +25,12 @@ public class PlayerCameraController : MonoBehaviour
     private void Start()
     {
         _playerTransform = PlayerController.Instance.transform;
-        _virtualCamera.Follow = PlayerController.Instance.transform;
+        _virtualCamera.Follow = _playerTransform.GetComponentInChildren<CameraBobbing>().transform;
+        if (_virtualCamera.Follow == null)
+        {
+            Debug.LogWarning("CameraBobbing not found in children of player. Falling back to player transform.");
+            _virtualCamera.Follow = _playerTransform;
+        }
     }
 
     private void FixedUpdate()
