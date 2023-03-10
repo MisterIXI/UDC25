@@ -21,7 +21,7 @@ MonoBehaviour:
   <InvertYAxis>k__BackingField: 0
   <SensitivityMultiplier>k__BackingField: 20
   <MovementSpeed>k__BackingField: 5.86
-  <MovementSnapSpeed>k__BackingField: 1
+  <MovementSnapSeconds>k__BackingField: 0.358
   <CameraClampAngleUp>k__BackingField: 80
   <CameraClampAngleDown>k__BackingField: -80
   <HoldObjectMaxDistance>k__BackingField: 3
