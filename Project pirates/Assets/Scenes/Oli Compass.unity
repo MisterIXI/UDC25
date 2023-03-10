@@ -1202,7 +1202,7 @@ GameObject:
   - component: {fileID: 220712223}
   - component: {fileID: 220712222}
   m_Layer: 0
-  m_Name: WallSign Replace Later (2)
+  m_Name: WallSign Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5971,12 +5971,12 @@ GameObject:
   - component: {fileID: 1265070016}
   - component: {fileID: 1265070015}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: LittleHelperForJournalists
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1265070014
 Transform:
   m_ObjectHideFlags: 0
@@ -6830,7 +6830,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cbe1404ad2a557b498f5c143dac801f3, type: 2}
+  - {fileID: 2100000, guid: 90b12112c91d72d4c94d1f9a8217a583, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7243,13 +7243,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51c7c515d6756b045a3559b81a4854f9,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51c7c515d6756b045a3559b81a4854f9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2750001
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51c7c515d6756b045a3559b81a4854f9,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51c7c515d6756b045a3559b81a4854f9,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.019
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51c7c515d6756b045a3559b81a4854f9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0359505
+      value: -0.986
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51c7c515d6756b045a3559b81a4854f9,
         type: 3}
@@ -7290,6 +7305,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51c7c515d6756b045a3559b81a4854f9,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5977472279245345324, guid: 51c7c515d6756b045a3559b81a4854f9,
         type: 3}
@@ -7336,7 +7356,7 @@ GameObject:
   - component: {fileID: 1651007270}
   - component: {fileID: 1651007269}
   m_Layer: 0
-  m_Name: WallSign Replace Later (3)
+  m_Name: WallSign Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
