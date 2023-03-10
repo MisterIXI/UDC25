@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class HoldObject : MonoBehaviour
 {
     private Rigidbody _currentRigidbody;
-    public Rigidbody PotentialRigidbody { get; private set; }
+    public static Rigidbody PotentialRigidbody { get; private set; }
     public static event Action OnPotentialRigidbodyChanged;
     public static bool IsHoldingObject;
     private Transform _cameraTransform;
@@ -28,14 +28,28 @@ public class HoldObject : MonoBehaviour
             {
                 if (hit.rigidbody != null && hit.rigidbody.tag != "KeyItem")
                 {
-                    PotentialRigidbody = hit.rigidbody;
-                    OnPotentialRigidbodyChanged?.Invoke();
+                    if (PotentialRigidbody != hit.rigidbody)
+                    {
+                        PotentialRigidbody = hit.rigidbody;
+                        OnPotentialRigidbodyChanged?.Invoke();
+                    }
+                }
+                else
+                {
+                    if (PotentialRigidbody != null)
+                    {
+                        PotentialRigidbody = null;
+                        OnPotentialRigidbodyChanged?.Invoke();
+                    }
                 }
             }
             else
             {
-                PotentialRigidbody = null;
-                OnPotentialRigidbodyChanged?.Invoke();
+                if (PotentialRigidbody != null)
+                {
+                    PotentialRigidbody = null;
+                    OnPotentialRigidbodyChanged?.Invoke();
+                }
             }
         }
         else
@@ -51,13 +65,13 @@ public class HoldObject : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log($"PotentialRigidbody: {PotentialRigidbody}");
             if (PotentialRigidbody != null)
             {
                 _currentRigidbody = PotentialRigidbody;
                 IsHoldingObject = true;
                 _holdObjectDistance = Vector3.Distance(transform.position, _currentRigidbody.transform.position);
                 UpdateRigidbody(_currentRigidbody, true);
+                OnPotentialRigidbodyChanged?.Invoke();
             }
         }
         else if (context.canceled)
@@ -66,6 +80,8 @@ public class HoldObject : MonoBehaviour
                 UpdateRigidbody(_currentRigidbody, false);
             _currentRigidbody = null;
             IsHoldingObject = false;
+            OnPotentialRigidbodyChanged?.Invoke();
+
         }
     }
     private void UpdateRigidbody(Rigidbody rigidbody, bool isHeld)

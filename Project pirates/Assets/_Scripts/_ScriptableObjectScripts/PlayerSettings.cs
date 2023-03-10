@@ -43,4 +43,8 @@ public class PlayerSettings : ScriptableObject
     [field: SerializeField] public float InvRotationSpeed { get; set; } = 3f;
     [field: Header("Compass Riddle")]
     [field: SerializeField][field: Range(0f, 0.1f)] public float FogDensity { get; set; } = 0.06f;
+    [field: Header("UI")]
+    [field: SerializeField][field: Range(0f, 0.1f)] public float UiTextCharacterTweening { get; set; } = 0.025f;
+    [field: SerializeField][field: Range(0f, 1f)] public float UiSideSlideTween { get; set; } = 0.5f;
+    [field: SerializeField][field: Range(0f, 1f)] public float UiVertSlideTween { get; set; } = 1f;
 }
