@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b55601880db35409e72ec10367d879, type: 3}
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
-  <CloneScriptableObjectOnStart>k__BackingField: 1
+  <CloneScriptableObjectOnStart>k__BackingField: 0
   <MasterVolume>k__BackingField: 0.3
   <MusicVolume>k__BackingField: 1
   <SfxVolume>k__BackingField: 1
@@ -76,12 +76,12 @@ MonoBehaviour:
     m_RotationOrder: 4
   <CameraClampAngleUp>k__BackingField: 80
   <CameraClampAngleDown>k__BackingField: -80
+  <HoldObjectMoveForce>k__BackingField: 100
   <HoldObjectMaxDistance>k__BackingField: 3
-  <HoldObjectMaxSpeedMagnitude>k__BackingField: 1500
   <InteractMaxDistance>k__BackingField: 3
   <InteractMoveForce>k__BackingField: 100
   <InteractThrowMagnitude>k__BackingField: 10
   <InvItemRotation>k__BackingField: {x: -70, y: -10, z: -20}
   <InvItemPosition>k__BackingField: {x: -0.6, y: -0.2, z: 1.2}
   <InvRubberbandForce>k__BackingField: 100
-  <InvRotationSpeed>k__BackingField: 3
+  <InvRotationSpeed>k__BackingField: 10
