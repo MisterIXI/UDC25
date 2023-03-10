@@ -27,9 +27,9 @@ public class PlayerInventory : MonoBehaviour
             MoveObject();
             Vector3 startRot = Item.transform.localEulerAngles;
             Vector3 currentAngle = new Vector3(
-    Mathf.LerpAngle(startRot.x, _playerSettings.InvItemRotation.x, Time.fixedDeltaTime * _playerSettings.InvRotationSpeed),
-    Mathf.LerpAngle(startRot.y, _playerSettings.InvItemRotation.y, Time.fixedDeltaTime * _playerSettings.InvRotationSpeed),
-    Mathf.LerpAngle(startRot.z, _playerSettings.InvItemRotation.z, Time.fixedDeltaTime * _playerSettings.InvRotationSpeed));
+            Mathf.LerpAngle(startRot.x, _playerSettings.InvItemRotation.x, Time.fixedDeltaTime * _playerSettings.InvRotationSpeed),
+            Mathf.LerpAngle(startRot.y, _playerSettings.InvItemRotation.y, Time.fixedDeltaTime * _playerSettings.InvRotationSpeed),
+            Mathf.LerpAngle(startRot.z, _playerSettings.InvItemRotation.z, Time.fixedDeltaTime * _playerSettings.InvRotationSpeed));
             Item.transform.localEulerAngles = currentAngle;
         }
     }

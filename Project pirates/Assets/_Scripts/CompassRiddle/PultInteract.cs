@@ -13,7 +13,7 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     private bool riddleSolved = false;
     private bool firstSequenceFinish = false;
-    private Vector3 newPos = new Vector3(0, 0.7f, 0);
+    private Vector3 newPos = new Vector3(0, -0.02f, 0);
     private Quaternion newRot = Quaternion.Euler(6, 0, 0);
     private Vector3 drawerPos = new Vector3(0, 0.5413046f, 0.2431f);
 
@@ -49,11 +49,11 @@ public class PultInteract : MonoBehaviour, IInteractable
     {
         if(inventory.Item != null && inventory.Item.name  == "Compass")
         {
-            return "Place compass on table.";
+            return "Place Compass on Table";
         }
         else
         {
-            return "Compass is missing.";
+            return "Compass is Missing";
         }
     }
 
