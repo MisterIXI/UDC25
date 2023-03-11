@@ -20,7 +20,7 @@ public class PultInteract : MonoBehaviour, IInteractable
     private Quaternion newRot = Quaternion.Euler(6, 0, 0);
     private Vector3 drawerPos = new Vector3(0, 0.5413046f, 0.2431f);
 
-    private Vector3 voidDoorPos = new Vector3(0, 0, 7.780003f);
+    private Vector3 grammophoneVoidDoorPos = new Vector3(0, 0, 7.367f);
 
 
     private void Start() 
@@ -141,9 +141,9 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     private void CloseVoidDoor()
     {
-        if(Vector3.Distance(voidDoor.transform.localPosition, voidDoorPos) > 0.01f)
+        if(Vector3.Distance(voidDoor.transform.localPosition, grammophoneVoidDoorPos) > 0.01f)
         {
-            voidDoor.transform.localPosition = Vector3.Lerp(voidDoor.transform.localPosition, voidDoorPos, Time.deltaTime * 5);
+            voidDoor.transform.localPosition = Vector3.Lerp(voidDoor.transform.localPosition, grammophoneVoidDoorPos, Time.deltaTime * 5);
         }
     }
 
