@@ -7,13 +7,14 @@ public class Northpole : MonoBehaviour
     public GameObject voidDoor;
     public GameObject CompassDecoration;
     public GameObject SpyglassDecoration;
+    public GameObject sword;
     public Vector3[] spawnPoints;
 
     private PlayerInventory inventory;
 
     private int posCount = 0;
 
-    private Vector3 voidDoorClosed = new Vector3(0, 2, 49.94f);
+    private Vector3 voidDoorClosed = new Vector3(0, 0, 7.780003f);
     private Vector3 voidDoorOpend;
 
 
@@ -37,6 +38,7 @@ public class Northpole : MonoBehaviour
         else if(posCount - spawnPoints.Length == -1)
         {
             gameObject.transform.localScale = new Vector3(0.1f,0.2f,0.1f);
+            sword.SetActive(false);
         }
         else if(posCount == 1)
         {
@@ -52,7 +54,10 @@ public class Northpole : MonoBehaviour
         {
             if(inventory.Item != null && inventory.Item.name  == "Compass")
             {
-                posCount += 1;
+                if(posCount - spawnPoints.Length < -1)
+                {
+                    posCount += 1;
+                }
             }
         }
     }
