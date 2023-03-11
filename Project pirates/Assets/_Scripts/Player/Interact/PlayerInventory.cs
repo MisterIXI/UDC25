@@ -9,6 +9,19 @@ public class PlayerInventory : MonoBehaviour
     private Camera mainCamera;
     public GameObject Item { get; private set; }
     private PlayerSettings _playerSettings;
+    public static PlayerInventory Instance;
+    private void Awake()
+    {
+        if(Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
+
+
     private void Start()
     {
         _playerSettings = SettingsManager.PlayerSettings;
