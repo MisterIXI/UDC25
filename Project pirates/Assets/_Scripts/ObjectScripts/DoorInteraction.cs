@@ -55,16 +55,14 @@ public class DoorInteraction : MonoBehaviour, IInteractable
         StopAllCoroutines();
     }
 
-
     public IEnumerator OpenDoor()
     {
-
         float duration = 0f;
         float startRotation = transform.rotation.eulerAngles.y; 
         while (duration < timeToOpen)
         {
             float currentAngle = Mathf.Lerp(startRotation, openAngle, doorAnimationCurve.Evaluate(duration/timeToOpen));
-            transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y + currentAngle, transform.rotation.z);
+            transform.eulerAngles = new Vector3(transform.rotation.x, currentAngle, transform.rotation.z);
             duration += Time.deltaTime;
             yield return null;
         }
@@ -78,7 +76,7 @@ public class DoorInteraction : MonoBehaviour, IInteractable
         while (duration < timeToOpen)
         {
             float currentAngle = Mathf.Lerp(startRotation, 0, doorAnimationCurve.Evaluate(duration / timeToOpen));
-            transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y + currentAngle, transform.rotation.z);
+            transform.eulerAngles = new Vector3(transform.rotation.x, currentAngle, transform.rotation.z);
             duration += Time.deltaTime;
             yield return null;
         }
