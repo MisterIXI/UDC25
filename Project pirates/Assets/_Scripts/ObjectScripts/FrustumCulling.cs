@@ -16,9 +16,12 @@ public abstract class FrustumCulling : MonoBehaviour
     private const int CORNERBUFFERMAXSIZE = 1 + 8 + 8 + 12;
     public int CornerBufferSize => (_useCenterForOcclusion ? 1 : 0) + (_useCornersForOcclusion ? 8 : 0) + (_extraPointsInMiddle ? 8 : 0) + (_extraPointsOnEdges ? 12 : 0);
     private Vector3[] _cornerBuffer = new Vector3[CORNERBUFFERMAXSIZE];
-    protected virtual void Start()
+    private void Awake()
     {
         _camera = Camera.main;
+    }
+    protected virtual void Start()
+    {
         OnEnterCameraFrustum += () => OnCameraFrustumStatusChangedWithSelf?.Invoke(this, true);
         OnExitCameraFrustum += () => OnCameraFrustumStatusChangedWithSelf?.Invoke(this, false);
 

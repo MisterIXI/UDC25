@@ -43,6 +43,7 @@ public class LevelOrchestrator : MonoBehaviour
     {
         CurrentAnchorList = anchorList;
         CurrentNode = CurrentAnchorList.LevelNodeData;
+        OnCurrentNodeChanged?.Invoke();
         CurrentContainer = CurrentNode.NodeContainer;
         UpdateSubscriptions();
     }
@@ -58,6 +59,7 @@ public class LevelOrchestrator : MonoBehaviour
         List<string> oldGUIDs = spawnedObjects.Values.Where(x => x != guid && x != anchorList.LevelNodeData.GUID).ToList();
         CurrentAnchorList = anchorList;
         CurrentNode = CurrentAnchorList.LevelNodeData;
+        OnCurrentNodeChanged?.Invoke();
         CurrentContainer = CurrentNode.NodeContainer;
         UnsubscribeFromAnchors();
         spawnedObjects.Add(frustumCulling, guid);
@@ -92,6 +94,11 @@ public class LevelOrchestrator : MonoBehaviour
 
     private void CheckNodeForSpawn(FrustumCulling frustumCulling)
     {
+        if (!CurrentAnchorList.anchors.Any(x => x.FrustumCulling == frustumCulling))
+        {
+            Debug.LogWarning($"FrustumCulling {frustumCulling.name} not found in AnchorList {CurrentAnchorList.name}");
+            return;
+        }
         NodeLinkData nextNodeLink = CurrentAnchorList.LevelNodeData.GetNodeLinkDataOfNextValidLevelNode(frustumCulling.name);
         LevelNodeData nextNode = nextNodeLink.TargetNodeGUID.ConvertGuidStringToBaseNode(nextNodeLink.NodeContainer) as LevelNodeData;
         if (nextNode == null)
