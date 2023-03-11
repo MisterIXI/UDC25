@@ -9,6 +9,7 @@ public class DoorInteraction : MonoBehaviour, IInteractable
     [SerializeField] bool isKeyNeeded;
     [SerializeField] AnimationCurve doorAnimationCurve;
     [SerializeField] int lockID;
+
     bool hasInteracted;
     public string Data()
     {
@@ -50,19 +51,38 @@ public class DoorInteraction : MonoBehaviour, IInteractable
             StartCoroutine(OpenDoor());
     }
 
+    public void StopAllDoorCoroutines()
+    {
+        StopAllCoroutines();
+    }
 
-    IEnumerator OpenDoor()
+
+    public IEnumerator OpenDoor()
     {
 
         float duration = 0f;
-        float startRotation = transform.parent.rotation.eulerAngles.y;
+        float startRotation = transform.rotation.eulerAngles.y; 
         while (duration < timeToOpen)
         {
             float currentAngle = Mathf.Lerp(startRotation, openAngle, doorAnimationCurve.Evaluate(duration/timeToOpen));
-            transform.parent.eulerAngles = new Vector3(transform.parent.rotation.x, transform.parent.rotation.y + currentAngle, transform.parent.rotation.z);
+            transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y + currentAngle, transform.rotation.z);
             duration += Time.deltaTime;
             yield return null;
         }
         hasInteracted = true;
+    }
+
+    public IEnumerator CloseDoor()
+    {
+        float duration = 0f;
+        float startRotation = transform.rotation.eulerAngles.y;
+        while (duration < timeToOpen)
+        {
+            float currentAngle = Mathf.Lerp(startRotation, 0, doorAnimationCurve.Evaluate(duration / timeToOpen));
+            transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y + currentAngle, transform.rotation.z);
+            duration += Time.deltaTime;
+            yield return null;
+        }
+        hasInteracted = false;
     }
 }
