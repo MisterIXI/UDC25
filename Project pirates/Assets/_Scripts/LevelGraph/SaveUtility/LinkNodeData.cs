@@ -4,6 +4,6 @@ using UnityEngine;
 [Serializable]
 public class LinkNodeData : BaseNodeData
 {
-    public NodeContainer container;
+    public NodeContainer linkedContainer;
     public bool IsEntryPoint;
 }

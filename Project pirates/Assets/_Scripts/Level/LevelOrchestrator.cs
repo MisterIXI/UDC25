@@ -4,11 +4,12 @@ using System.Linq;
 using UnityEngine;
 public class LevelOrchestrator : MonoBehaviour
 {
+    public static Action OnCurrentNodeChanged;
     [field: SerializeField] public NodeContainer StartContainer { get; private set; }
     public static LevelOrchestrator Instance { get; private set; }
     public AnchorList CurrentAnchorList { get; private set; }
     public NodeContainer CurrentContainer { get; private set; }
-    private LevelNodeData CurrentNode;
+    public LevelNodeData CurrentNode { get; private set; }
     private HashSet<FrustumCulling> subscribedCullingObjects = new HashSet<FrustumCulling>();
     private Dictionary<FrustumCulling, string> spawnedObjects = new Dictionary<FrustumCulling, string>();
     private HashSet<string> GUIDsWaitingForDespawn = new HashSet<string>();
@@ -52,7 +53,7 @@ public class LevelOrchestrator : MonoBehaviour
     }
     private void SetNewAnchorListPrivate(AnchorList anchorList, FrustumCulling frustumCulling)
     {
-        Debug.Log($"SetNewAnchorListPrivate {anchorList.name} from {frustumCulling.name}");
+        // Debug.Log($"SetNewAnchorListPrivate {anchorList.name} from {frustumCulling.name}");
         string guid = CurrentAnchorList.LevelNodeData.GUID;
         List<string> oldGUIDs = spawnedObjects.Values.Where(x => x != guid && x != anchorList.LevelNodeData.GUID).ToList();
         CurrentAnchorList = anchorList;
@@ -91,7 +92,8 @@ public class LevelOrchestrator : MonoBehaviour
 
     private void CheckNodeForSpawn(FrustumCulling frustumCulling)
     {
-        LevelNodeData nextNode = CurrentAnchorList.LevelNodeData.GetNodeLinkDataOfNextValidLevelNode(frustumCulling.name).TargetNodeGUID.ConvertGuidStringToBaseNode(CurrentContainer) as LevelNodeData;
+        NodeLinkData nextNodeLink = CurrentAnchorList.LevelNodeData.GetNodeLinkDataOfNextValidLevelNode(frustumCulling.name);
+        LevelNodeData nextNode = nextNodeLink.TargetNodeGUID.ConvertGuidStringToBaseNode(nextNodeLink.NodeContainer) as LevelNodeData;
         if (nextNode == null)
             return;
         if (spawnedObjects.ContainsKey(frustumCulling))
