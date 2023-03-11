@@ -5,6 +5,7 @@ public class GramophoneFollowNoise : MonoBehaviour
     [field: SerializeField] private LevelNodeData _currentNodeData;
 
     [field: SerializeField] private GramophoneMarker _currentTarget;
+    private bool _isFinalized;
     private GramophoneSettings _gramophoneSettings;
     private void OnEnable()
     {
@@ -16,7 +17,19 @@ public class GramophoneFollowNoise : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        LerpToCurrentTarget();
+        if (!_isFinalized)
+            LerpToCurrentTarget();
+        else
+            LerpToFinalPosition();
+    }
+    private void LerpToFinalPosition()
+    {
+        transform.localPosition = Vector3.MoveTowards(transform.localPosition, Vector3.zero, Time.fixedDeltaTime * _gramophoneSettings.GramoFollowSpeed);
+        if (transform.localPosition == Vector3.zero)
+        {
+            gameObject.AddComponent<GramophoneBackwardsNoise>();
+            Destroy(this);
+        }
     }
     private void LerpToCurrentTarget()
     {
@@ -33,8 +46,22 @@ public class GramophoneFollowNoise : MonoBehaviour
         {
             Debug.LogError("No GramophoneMarker found in anchorlist");
         }
+        if (_currentTarget.IsFinalMarker)
+            FinalizeGramophone();
     }
 
+    private void FinalizeGramophone()
+    {
+        Debug.Log("FinalizeGramophone");
+        _isFinalized = true;
+        LevelOrchestrator.OnCurrentNodeChanged -= ChangeCurrentTarget;
+        transform.parent = Camera.main.transform;
+        transform.localPosition = Vector3.zero;
+    }
+    private void OnDestroy()
+    {
+        LevelOrchestrator.OnCurrentNodeChanged -= ChangeCurrentTarget;
+    }
     private void OnDrawGizmos()
     {
         if (_gramophoneSettings && _gramophoneSettings.DrawDebugGizmos)
