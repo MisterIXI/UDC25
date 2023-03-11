@@ -38,16 +38,15 @@ public class DoorInteraction : MonoBehaviour, IInteractable
                 StartCoroutine(OpenDoor());
             else
             {
-                //implement logic for interaction if key is equipped
                 CheckKey();
             }
         }
     }
 
     void CheckKey()
-    {
-        GameObject playerItem = PlayerInventory.Instance.Item;
-        if (playerItem.GetComponent<Key>() && playerItem.GetComponent<Key>().KeyID == lockID)
+    {   
+        Key key = PlayerInventory.Instance.Item?.GetComponent<Key>();
+        if (key?.KeyID == lockID)
             StartCoroutine(OpenDoor());
     }
 
