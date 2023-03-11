@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PultInteract : MonoBehaviour, IInteractable
 {
+    public GameObject voidRoom;
     public GameObject voidDoor;
     public GameObject drawer;
+    
 
     private GameObject compass;
     private PlayerInventory inventory;
@@ -17,7 +19,7 @@ public class PultInteract : MonoBehaviour, IInteractable
     private Quaternion newRot = Quaternion.Euler(6, 0, 0);
     private Vector3 drawerPos = new Vector3(0, 0.5413046f, 0.2431f);
 
-    private Vector3 voidDoorPos = new Vector3(0, 2, 49.94f);
+    private Vector3 voidDoorPos = new Vector3(0, 0, 7.780003f);
 
 
     private void Start() 
@@ -38,6 +40,7 @@ public class PultInteract : MonoBehaviour, IInteractable
             {
                 if(OpenDrawer())
                 {
+                    voidRoom.SetActive(false);
                     Destroy(this);
                 }
             }
@@ -47,7 +50,7 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     public string Data()
     {
-        if(inventory.Item != null && inventory.Item.name  == "Compass")
+        if((inventory.Item != null && inventory.Item.name  == "Compass") || riddleSolved)
         {
             return "Place Compass on Table";
         }
