@@ -8,14 +8,17 @@ public class TextTweening : MonoBehaviour
     private bool _isDeleting = true;
     private bool _isTweening = false;
     private PlayerSettings _playerSettings;
-    private void Start()
+    private void Awake()
     {
         _textMesh = GetComponent<TextMeshProUGUI>();
+    }
+    private void Start()
+    {
         _playerSettings = SettingsManager.PlayerSettings;
     }
     public void SetText(string text)
     {
-        if (_textMesh.text == text)
+        if (text == null || _textMesh.text == text)
             return;
         Text = text;
         _isDeleting = _textMesh.text.Length > 0;
@@ -35,6 +38,11 @@ public class TextTweening : MonoBehaviour
             }
             else
             {
+                if (Text.Length == 0)
+                {
+                    _isTweening = false;
+                    return;
+                }
                 _textMesh.text += Text[_textMesh.text.Length];
                 _isTweening = _textMesh.text.Length != Text.Length;
             }
