@@ -8,11 +8,26 @@ public class DoorInteraction : MonoBehaviour, IInteractable
     [SerializeField] float openAngle;
     [SerializeField] bool isKeyNeeded;
     [SerializeField] AnimationCurve doorAnimationCurve;
+    [SerializeField] int lockID;
     bool hasInteracted;
     public string Data()
     {
-        return null;
+        return KeyString();
     }
+
+    string KeyString()
+    {
+        Key key = PlayerInventory.Instance.Item?.GetComponent<Key>();
+
+        if (isKeyNeeded && key == null)
+            return "Door Locked";
+        else if(isKeyNeeded && key.KeyID != lockID)
+            return "Wrong Key";
+        else if (isKeyNeeded && key.KeyID == lockID)
+            return "Unlock Door";
+        return "Open Door";
+    }
+
 
     public void Interact()
     {
@@ -23,9 +38,18 @@ public class DoorInteraction : MonoBehaviour, IInteractable
             else
             {
                 //implement logic for interaction if key is equipped
+                CheckKey();
             }
         }
     }
+
+    void CheckKey()
+    {
+        GameObject playerItem = PlayerInventory.Instance.Item;
+        if (playerItem.GetComponent<Key>() && playerItem.GetComponent<Key>().KeyID == lockID)
+            StartCoroutine(OpenDoor());
+    }
+
 
     IEnumerator OpenDoor()
     {
