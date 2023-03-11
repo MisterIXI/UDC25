@@ -6350,7 +6350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToOpen: 0.5
-  openAngle: 80
+  openAngle: 95
   isKeyNeeded: 1
   doorAnimationCurve:
     serializedVersion: 2
