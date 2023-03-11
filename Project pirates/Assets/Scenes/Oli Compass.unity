@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0061917743, g: 0.0054250574, b: 0.0011561029, a: 1}
+  m_IndirectSpecularColor: {r: 0.005033684, g: 0.004410398, b: 0.00093982776, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -993,6 +993,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2198613726619073086, guid: f74a41b045e38f64ba4ee86da03cfdaf,
+        type: 3}
+      propertyPath: isKeyNeeded
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011737363706674262, guid: f74a41b045e38f64ba4ee86da03cfdaf,
+        type: 3}
+      propertyPath: _extraPointsOnEdges
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011737363706674262, guid: f74a41b045e38f64ba4ee86da03cfdaf,
+        type: 3}
+      propertyPath: _extraPointsInMiddle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3998417938523775588, guid: f74a41b045e38f64ba4ee86da03cfdaf,
         type: 3}
       propertyPath: m_RootOrder
@@ -1053,7 +1068,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: CompassRiddle
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6161818200148252056, guid: f74a41b045e38f64ba4ee86da03cfdaf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161818200148252056, guid: f74a41b045e38f64ba4ee86da03cfdaf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161818200148252056, guid: f74a41b045e38f64ba4ee86da03cfdaf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161818200148252056, guid: f74a41b045e38f64ba4ee86da03cfdaf,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161818200148252056, guid: f74a41b045e38f64ba4ee86da03cfdaf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2198613726619073086, guid: f74a41b045e38f64ba4ee86da03cfdaf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f74a41b045e38f64ba4ee86da03cfdaf, type: 3}
 --- !u!1001 &1972709902
 PrefabInstance:
