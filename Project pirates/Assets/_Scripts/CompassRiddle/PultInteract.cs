@@ -10,6 +10,7 @@ public class PultInteract : MonoBehaviour, IInteractable
     
 
     private GameObject compass;
+    private GameObject particles;
     private Light sun;
     private PlayerInventory inventory;
     private PlayerSettings _playerSettings;
@@ -43,6 +44,7 @@ public class PultInteract : MonoBehaviour, IInteractable
                 DisableVoidRoom();
                 if(OpenDrawer())
                 {
+                    particles.SetActive(false);
                     Destroy(this);
                 }
             }
@@ -68,6 +70,7 @@ public class PultInteract : MonoBehaviour, IInteractable
         if(inventory.Item != null && inventory.Item.name  == "Compass")
         {
             compass = inventory.Item;
+            particles = compass.transform.Find("SocketInEffect").gameObject;
 
             inventory.TakeObject(null);
             compass.transform.SetParent(gameObject.transform);
@@ -96,6 +99,7 @@ public class PultInteract : MonoBehaviour, IInteractable
         {            
             if(Vector3.Distance(compass.transform.localPosition, newPos) > 0.01f)
             {
+                particles.SetActive(true);
                 compass.transform.localPosition = Vector3.Lerp(compass.transform.localPosition, newPos, Time.deltaTime);
                 compass.transform.localRotation = Quaternion.Lerp(compass.transform.localRotation, newRot, Time.deltaTime * 10);
                 return false;
