@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class GramophoneMarker : MonoBehaviour
 {
-    [field: SerializeField] public bool ShowMesh { get; private set; }
 
     private GramophoneSettings _gramophoneSettings;
     private void Start()

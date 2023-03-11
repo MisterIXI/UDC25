@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class GramophoneFollowNoise : MonoBehaviour
 {
-    [field: SerializeField] private MeshRenderer _gramophoneMesh;
-    [field: SerializeField] private MeshRenderer _plateMesh;
     [field: SerializeField] private LevelNodeData _currentNodeData;
 
     [field: SerializeField] private GramophoneMarker _currentTarget;
@@ -35,33 +33,8 @@ public class GramophoneFollowNoise : MonoBehaviour
         {
             Debug.LogError("No GramophoneMarker found in anchorlist");
         }
-        CheckVisibility();
     }
-    private void CheckVisibility()
-    {
-        if (_currentTarget != null && _currentTarget.ShowMesh)
-        {
-            if (!_gramophoneMesh)
-                Debug.LogWarning("No Gramophone Mesh found");
-            else
-                _gramophoneMesh.enabled = true;
-            if (!_plateMesh)
-                Debug.LogWarning("No Plate Mesh found");
-            else
-                _plateMesh.enabled = true;
-        }
-        else
-        {
-            if (!_gramophoneMesh)
-                Debug.LogWarning("No Gramophone Mesh found");
-            else
-                _gramophoneMesh.enabled = false;
-            if (!_plateMesh)
-                Debug.LogWarning("No Plate Mesh found");
-            else
-                _plateMesh.enabled = false;
-        }
-    }
+
     private void OnDrawGizmos()
     {
         if (_gramophoneSettings && _gramophoneSettings.DrawDebugGizmos)
