@@ -2,13 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinManager
+public class CoinManager : MonoBehaviour
 {
-    // INSTANCING TO GAME
-    // PUBLIC COIN CLASS 
-    // GET PRIVATE SET
-    // NEW COIN TO INVENTORY
-    // PUBLIC VOID DROP COIN
-    // SHOW HIDE ALL COINS TO ORBIT AROUND PLAYER
-    // INTERACT WITH TAKE COIN SCRIPT AND INVENTORY
+    [SerializeField] CoinObject coinObject = null;
+    public void AddCoin(GameObject other) {
+        if(other.CompareTag("Coin") && other != null)
+        {
+            coinObject.UpdateCoins(coinObject.GetCoins+1);
+            Destroy(other,1);
+            // ParticleEffect Play
+        }
+
+    }
+    public void DropCoin()
+    {
+        coinObject.UpdateCoins(coinObject.GetCoins-1);
+        // Instantiate Coin and add force
+    }
+    public void OpenCoinList()
+    {
+        // show all collected coins
+    }
+
 }
