@@ -4,11 +4,13 @@ public class GramophoneFollowNoise : MonoBehaviour
 {
     [field: SerializeField] private MeshRenderer _gramophoneMesh;
     [field: SerializeField] private MeshRenderer _plateMesh;
-    private LevelNodeData _currentNodeData;
-    private GramophoneMarker _currentTarget;
+    [field: SerializeField] private LevelNodeData _currentNodeData;
+
+    [field: SerializeField] private GramophoneMarker _currentTarget;
     private GramophoneSettings _gramophoneSettings;
     private void OnEnable()
     {
+        Debug.Log($"Gameobject active: {gameObject.activeInHierarchy}");
         _gramophoneSettings = SettingsManager.GramophoneSettings;
         transform.parent = null;
         LevelOrchestrator.OnCurrentNodeChanged += ChangeCurrentTarget;
@@ -17,7 +19,6 @@ public class GramophoneFollowNoise : MonoBehaviour
     private void FixedUpdate()
     {
         LerpToCurrentTarget();
-
     }
     private void LerpToCurrentTarget()
     {
@@ -29,7 +30,7 @@ public class GramophoneFollowNoise : MonoBehaviour
     private void ChangeCurrentTarget()
     {
         _currentNodeData = LevelOrchestrator.Instance.CurrentNode;
-        _currentTarget = _currentNodeData.anchorList.GetComponentInChildren<GramophoneMarker>();
+        _currentTarget = PrefabPool.GetInstantiatedAnchorList(_currentNodeData.GUID).GetComponentInChildren<GramophoneMarker>();
         if (_currentTarget == null)
         {
             Debug.LogError("No GramophoneMarker found in anchorlist");
@@ -40,26 +41,38 @@ public class GramophoneFollowNoise : MonoBehaviour
     {
         if (_currentTarget != null && _currentTarget.ShowMesh)
         {
-            _gramophoneMesh.enabled = true;
-            _plateMesh.enabled = true;
+            if (!_gramophoneMesh)
+                Debug.LogWarning("No Gramophone Mesh found");
+            else
+                _gramophoneMesh.enabled = true;
+            if (!_plateMesh)
+                Debug.LogWarning("No Plate Mesh found");
+            else
+                _plateMesh.enabled = true;
         }
         else
         {
-            _gramophoneMesh.enabled = false;
-            _plateMesh.enabled = false;
+            if (!_gramophoneMesh)
+                Debug.LogWarning("No Gramophone Mesh found");
+            else
+                _gramophoneMesh.enabled = false;
+            if (!_plateMesh)
+                Debug.LogWarning("No Plate Mesh found");
+            else
+                _plateMesh.enabled = false;
         }
     }
     private void OnDrawGizmos()
     {
-        if (_gramophoneSettings.DrawDebugGizmos)
+        if (_gramophoneSettings && _gramophoneSettings.DrawDebugGizmos)
         {
             Gizmos.color = Color.white;
-            Gizmos.DrawWireSphere(transform.position, 0.1f);
+            Gizmos.DrawWireCube(transform.position, Vector3.one * 0.4f);
             if (_currentTarget != null)
             {
-                Gizmos.color = Color.blue;
+                Gizmos.color = Color.yellow;
                 Gizmos.DrawLine(transform.position, _currentTarget.transform.position);
-                Gizmos.DrawSphere(_currentTarget.transform.position, 0.15f);
+                Gizmos.DrawWireCube(_currentTarget.transform.position, Vector3.one * 0.5f);
             }
         }
     }

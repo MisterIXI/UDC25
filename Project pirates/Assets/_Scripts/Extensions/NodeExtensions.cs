@@ -54,6 +54,7 @@ public static class NodeExtensions
 
     public static NodeLinkData GetNodeLinkDataOfNextValidLevelNode(this LevelNodeData levelNode, String startPortName)
     {
+        // Debug.Log($"GetNodeLinkDataOfNextValidLevelNode: {levelNode.GUID} {startPortName}");
         NodeContainer nodeContainer = levelNode.NodeContainer;
         var nodeLink = nodeContainer.NodeLinkData.FirstOrDefault(x => x.BaseNodeGUID == levelNode.GUID && x.BasePortName == startPortName);
         if (nodeLink == null)

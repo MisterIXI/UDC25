@@ -22,7 +22,12 @@ public class PrefabPool : MonoBehaviour
     private void Start()
     {
     }
-
+    public static AnchorList GetInstantiatedAnchorList(string guid)
+    {
+        if (Instance._prefabPool.ContainsKey(guid))
+            return Instance._prefabPool[guid];
+        return null;
+    }
     public static AnchorList SpawnAnchorListAtPosition(string guid, string portName, Vector3 position)
     {
         var prefabPool = Instance._prefabPool;

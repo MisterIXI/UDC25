@@ -60,7 +60,7 @@ public class GeometryAnchor : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Player entered {AnchorName}");
+        // Debug.Log($"Player entered {AnchorName}");
         // Player is now completely on own LevelNode/Anchorlist -> tell the LevelOrchestrator
         if (other.CompareTag("Player"))
         {
