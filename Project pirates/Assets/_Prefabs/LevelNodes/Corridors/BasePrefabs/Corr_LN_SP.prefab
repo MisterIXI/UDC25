@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 4083629624149413512}
   - component: {fileID: 6490503563042401630}
   m_Layer: 0
-  m_Name: LongEingang
+  m_Name: LongNaked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -617,7 +617,7 @@ GameObject:
   - component: {fileID: 5329304972028823694}
   - component: {fileID: 6640276794625518667}
   m_Layer: 0
-  m_Name: Corridor_LE_SA
+  m_Name: Corr_LN_SP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -762,7 +762,7 @@ GameObject:
   - component: {fileID: 2603408657880653333}
   - component: {fileID: 3882016845078787513}
   m_Layer: 0
-  m_Name: ShortAusgang
+  m_Name: ShortPillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

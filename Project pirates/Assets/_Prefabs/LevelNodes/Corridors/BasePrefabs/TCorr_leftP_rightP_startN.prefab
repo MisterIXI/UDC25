@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 6572503792160158384}
   - component: {fileID: 4350401448075551823}
   m_Layer: 0
-  m_Name: AusgangR.001
+  m_Name: RightPillars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 8368311303356750158}
   - component: {fileID: 3448149631631980646}
   m_Layer: 0
-  m_Name: Eingang.003
+  m_Name: StartNaked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 8093864471559201023}
   - component: {fileID: 2213884582379298131}
   m_Layer: 0
-  m_Name: AusgangL.001
+  m_Name: LeftPillars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1036,7 +1036,7 @@ GameObject:
   - component: {fileID: 4763375669622974549}
   - component: {fileID: 2038647147356758748}
   m_Layer: 0
-  m_Name: TCorridor
+  m_Name: TCorr_leftP_rightP_startN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
