@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    [field: SerializeField] private AudioClips _audioClips;
+    public static AudioClips AudioClips => Instance._audioClips;
     [SerializeField] int amountOfAudioEntities;
     [SerializeField] GameObject audioEntity;
     List<GameObject> audioEntities;
-
+    private PlayerSettings _playerSettings;
     public static SoundManager Instance;
     private void Awake()
     {
-        if(Instance != null)
+        if (Instance != null)
         {
             Destroy(gameObject);
         }
@@ -21,6 +23,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
+        _playerSettings = SettingsManager.PlayerSettings;
         audioEntities = new List<GameObject>();
         for (int i = 0; i < amountOfAudioEntities; i++)
         {
@@ -41,9 +44,9 @@ public class SoundManager : MonoBehaviour
                 break;
             }
         }
-        if(entityFound == null)
-        { 
-            entityFound = Instantiate(audioEntity,transform);
+        if (entityFound == null)
+        {
+            entityFound = Instantiate(audioEntity, transform);
             audioEntities.Add(entityFound);
         }
         entityFound.SetActive(true);
@@ -53,7 +56,7 @@ public class SoundManager : MonoBehaviour
     IEnumerator DisableEntity(GameObject entity, AudioClip clip, Vector3 position)
     {
         entity.transform.position = position;
-        entity.GetComponent<AudioSource>().PlayOneShot(clip);
+        entity.GetComponent<AudioSource>().PlayOneShot(clip, _playerSettings.SfxVolume);
         yield return new WaitForSeconds(clip.length);
         entity.SetActive(false);
     }
