@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 public class SettingsManager : MonoBehaviour
 {
+    [field: SerializeField] private GramophoneSettings _gramophoneSettings;
+    public static GramophoneSettings GramophoneSettings => Instance._gramophoneSettings;
     [SerializeField] private PlayerSettings _playerSettingsDefaults;
     public static PlayerSettings PlayerSettings { get; private set; }
     public static SettingsManager Instance { get; private set; }
