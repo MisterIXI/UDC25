@@ -21,12 +21,12 @@ public class FrustumCullingTest : MonoBehaviour
     private void OnEnterCameraFrustum()
     {
         Debug.Log("OnEnterCameraFrustum");
-        // _meshRenderer.material.color = Color.green;
+        _meshRenderer.material.color = Color.green;
     }
 
     private void OnExitCameraFrustum()
     {
         Debug.Log("OnExitCameraFrustum");
-        // _meshRenderer.material.color = Color.red;
+        _meshRenderer.material.color = Color.red;
     }
 }
