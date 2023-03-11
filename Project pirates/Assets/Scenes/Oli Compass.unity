@@ -1008,6 +1008,11 @@ PrefabInstance:
       propertyPath: _extraPointsInMiddle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3998417937569957943, guid: f74a41b045e38f64ba4ee86da03cfdaf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3998417938523775588, guid: f74a41b045e38f64ba4ee86da03cfdaf,
         type: 3}
       propertyPath: m_RootOrder
