@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PultInteract : MonoBehaviour, IInteractable
 {
+    public GameObject voidRoom;
     public GameObject voidDoor;
     public GameObject drawer;
+    
 
     private GameObject compass;
+    private Light sun;
     private PlayerInventory inventory;
     private PlayerSettings _playerSettings;
 
@@ -17,7 +20,7 @@ public class PultInteract : MonoBehaviour, IInteractable
     private Quaternion newRot = Quaternion.Euler(6, 0, 0);
     private Vector3 drawerPos = new Vector3(0, 0.5413046f, 0.2431f);
 
-    private Vector3 voidDoorPos = new Vector3(0, 2, 49.94f);
+    private Vector3 voidDoorPos = new Vector3(0, 0, 7.780003f);
 
 
     private void Start() 
@@ -25,6 +28,7 @@ public class PultInteract : MonoBehaviour, IInteractable
         _playerSettings = SettingsManager.PlayerSettings;
 
         inventory = PlayerController.Instance.GetComponent<PlayerInventory>();
+        sun = voidRoom.GetComponentInChildren<Light>();
     }
 
 
@@ -36,6 +40,7 @@ public class PultInteract : MonoBehaviour, IInteractable
             FogOff();               // only works when grammohone room is turned off (the table has fogOn scrip)
             if(PlaceCompass())
             {
+                DisableVoidRoom();
                 if(OpenDrawer())
                 {
                     Destroy(this);
@@ -47,7 +52,7 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     public string Data()
     {
-        if(inventory.Item != null && inventory.Item.name  == "Compass")
+        if((inventory.Item != null && inventory.Item.name  == "Compass") || riddleSolved)
         {
             return "Place Compass on Table";
         }
@@ -139,6 +144,19 @@ public class PultInteract : MonoBehaviour, IInteractable
         if(Vector3.Distance(voidDoor.transform.localPosition, voidDoorPos) > 0.01f)
         {
             voidDoor.transform.localPosition = Vector3.Lerp(voidDoor.transform.localPosition, voidDoorPos, Time.deltaTime * 5);
+        }
+    }
+
+
+    private void DisableVoidRoom()
+    {
+        if (sun.intensity != 0)
+        {
+            sun.intensity = Mathf.Lerp(sun.intensity, 0, Time.deltaTime);
+        }
+        else
+        {
+            voidRoom.SetActive(false);
         }
     }
 }
