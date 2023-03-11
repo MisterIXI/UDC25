@@ -70,7 +70,7 @@ public static class NodeExtensions
             }
             else if (currentNode is LinkNodeData linkNode)
             {
-                nodeContainer = linkNode.NodeContainer;
+                nodeContainer = linkNode.linkedContainer;
                 linkNode = nodeContainer.GetEntryNode();
                 nodeLink = linkNode.GetSingleNodeLink();
                 currentNode = linkNode.TryGetConnectedNode();

@@ -114,6 +114,14 @@ public class PrefabPool : MonoBehaviour
                     Debug.LogError("Duplicate GUID detected");
                 }
             }
+            else if (currentNodeData is DecisionNodeData decisionNodeData)
+            {
+                // do nothing
+            }
+            else if (currentNodeData is LinkNodeData linkNodeData)
+            {
+                nodesToVisit.Enqueue(linkNodeData.linkedContainer.GetEntryNode());
+            }
             List<BaseNodeData> connectedNodes = currentNodeData.GetConnectedNodes();
             foreach (BaseNodeData connectedNode in connectedNodes)
             {
