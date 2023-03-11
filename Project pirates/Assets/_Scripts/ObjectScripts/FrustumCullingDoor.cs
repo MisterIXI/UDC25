@@ -25,14 +25,14 @@ public class FrustumCullingDoor : MonoBehaviour
     private void OnEnterCameraFrustum()
     {
         _doorInteraction.StopAllDoorCoroutines();
-        StartCoroutine(_doorInteraction.CloseDoor());
+        _doorInteraction.StartCoroutine(_doorInteraction.CloseDoor());
         // _meshRenderer.material.color = Color.green;
     }
 
     private void OnExitCameraFrustum()
     {
         _doorInteraction.StopAllDoorCoroutines();
-        StartCoroutine(_doorInteraction.OpenDoor());
+        _doorInteraction.StartCoroutine(_doorInteraction.OpenDoor());
         // _meshRenderer.material.color = Color.red;
     }
 }
