@@ -40,13 +40,6 @@ public class SliderSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler,
         }
     }
 
-    private void OnEnable() {
-        if (_slider.name != "Slider_MasterVolume")
-        {
-            _slider.Select();
-        }
-    }
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         _slider.Select();
