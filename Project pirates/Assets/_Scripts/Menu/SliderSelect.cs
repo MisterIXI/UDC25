@@ -6,7 +6,7 @@ using TMPro;
 
 public class SliderSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IDeselectHandler {
 
-    private Button _slider;
+    private Slider _slider;
 
     private RectTransform backgroundTransform;
     public Vector2 backgroundStartSize = new Vector2(0f, 0f);
@@ -19,7 +19,7 @@ public class SliderSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler,
     private bool selected;
 
     private void Awake() {
-        _slider = GetComponent<Button>();
+        _slider = GetComponent<Slider>();
 
         backgroundTransform = transform.Find("Background").GetComponent<RectTransform>();
         backgroundTransform.sizeDelta = backgroundStartSize;
