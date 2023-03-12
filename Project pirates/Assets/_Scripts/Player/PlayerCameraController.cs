@@ -37,4 +37,9 @@ public class PlayerCameraController : MonoBehaviour
     {
         _playerTransform.forward = Vector3.ProjectOnPlane(_cameraTransform.forward, Vector3.up);
     }
+
+    private void OnDestroy() {
+        if (Instance == this)
+            Instance = null;
+    }
 }

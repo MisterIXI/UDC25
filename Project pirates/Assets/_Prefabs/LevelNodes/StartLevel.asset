@@ -453,273 +453,339 @@ MonoBehaviour:
       serializedVersion: 2
       x: -441
       y: -230
-      width: 199
+      width: 180
       height: 115
     NodeContainer: {fileID: 11400000}
-    container: {fileID: 11400000}
+    linkedContainer: {fileID: 0}
     IsEntryPoint: 1
   NodeLinkData:
-  - BaseNodeGUID: 057223d9-bee4-459b-90fc-6468378954eb
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 057223d9-bee4-459b-90fc-6468378954eb
     BasePortName: EIngang.001
     TargetNodeGUID: 5f4c84d4-5af6-45ae-8a1e-4b15c0d893ab
     TargetPortName: DoorConnector
-  - BaseNodeGUID: 057223d9-bee4-459b-90fc-6468378954eb
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 057223d9-bee4-459b-90fc-6468378954eb
     BasePortName: Ausgang.001
     TargetNodeGUID: 9715a768-a653-4a9d-93c2-ce75443668f4
     TargetPortName: EIngang.001
-  - BaseNodeGUID: 5f4c84d4-5af6-45ae-8a1e-4b15c0d893ab
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 5f4c84d4-5af6-45ae-8a1e-4b15c0d893ab
     BasePortName: DoorConnector
     TargetNodeGUID: 057223d9-bee4-459b-90fc-6468378954eb
     TargetPortName: EIngang.001
-  - BaseNodeGUID: 9715a768-a653-4a9d-93c2-ce75443668f4
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 9715a768-a653-4a9d-93c2-ce75443668f4
     BasePortName: Ausgang.001
     TargetNodeGUID: a10442bc-b64b-4afa-9298-374f32bef0bc
     TargetPortName: EIngang.001
-  - BaseNodeGUID: 9715a768-a653-4a9d-93c2-ce75443668f4
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 9715a768-a653-4a9d-93c2-ce75443668f4
     BasePortName: EIngang.001
     TargetNodeGUID: 057223d9-bee4-459b-90fc-6468378954eb
     TargetPortName: Ausgang.001
-  - BaseNodeGUID: 7139f935-c9a4-4105-8e6e-71abb15b1929
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 7139f935-c9a4-4105-8e6e-71abb15b1929
     BasePortName: Ausgang.001
     TargetNodeGUID: 9af9ebea-3b3c-4222-b176-256a7ad258c4
     TargetPortName: EIngang.001
-  - BaseNodeGUID: 7139f935-c9a4-4105-8e6e-71abb15b1929
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 7139f935-c9a4-4105-8e6e-71abb15b1929
     BasePortName: EIngang.001
     TargetNodeGUID: e5c71185-10b2-4fbd-9c82-2547569ed0b8
     TargetPortName: EIngang.002
-  - BaseNodeGUID: 56719844-e7ad-4438-ad13-ee6c0aac9c78
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 56719844-e7ad-4438-ad13-ee6c0aac9c78
     BasePortName: Ausgang.001
     TargetNodeGUID: 02ff8fe1-18c3-4d3a-88e5-1550a0b2f987
     TargetPortName: Ausgang.001
-  - BaseNodeGUID: 56719844-e7ad-4438-ad13-ee6c0aac9c78
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 56719844-e7ad-4438-ad13-ee6c0aac9c78
     BasePortName: EIngang.001
     TargetNodeGUID: 6e2e3001-6c01-43ee-815d-f0e2aba41fac
     TargetPortName: EIngang.002
-  - BaseNodeGUID: 02ff8fe1-18c3-4d3a-88e5-1550a0b2f987
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 02ff8fe1-18c3-4d3a-88e5-1550a0b2f987
     BasePortName: Ausgang.001
     TargetNodeGUID: 56719844-e7ad-4438-ad13-ee6c0aac9c78
     TargetPortName: Ausgang.001
-  - BaseNodeGUID: 02ff8fe1-18c3-4d3a-88e5-1550a0b2f987
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 02ff8fe1-18c3-4d3a-88e5-1550a0b2f987
     BasePortName: EIngang.001
     TargetNodeGUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
     TargetPortName: Eingang.003
-  - BaseNodeGUID: b05e64f0-9412-4e94-9fe4-fbff8d40e314
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b05e64f0-9412-4e94-9fe4-fbff8d40e314
     BasePortName: EIngang.002
     TargetNodeGUID: eef58634-36b8-456f-a4bb-8026742de565
     TargetPortName: Ausgang.001
-  - BaseNodeGUID: a10442bc-b64b-4afa-9298-374f32bef0bc
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: a10442bc-b64b-4afa-9298-374f32bef0bc
     BasePortName: Ausgang.001
     TargetNodeGUID: b05e64f0-9412-4e94-9fe4-fbff8d40e314
     TargetPortName: EIngang.002
-  - BaseNodeGUID: a10442bc-b64b-4afa-9298-374f32bef0bc
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: a10442bc-b64b-4afa-9298-374f32bef0bc
     BasePortName: EIngang.001
     TargetNodeGUID: 652e8f38-c0b8-41d8-9b2b-aea60db7bffa
     TargetPortName: EIngang.002
-  - BaseNodeGUID: a69d4796-b06d-470e-963e-2c23bab9a1c4
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: a69d4796-b06d-470e-963e-2c23bab9a1c4
     BasePortName: Ausgang.001
     TargetNodeGUID: b26ee7f6-0f9b-47c9-bb68-76827ad62adf
     TargetPortName: EIngang.001
-  - BaseNodeGUID: a69d4796-b06d-470e-963e-2c23bab9a1c4
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: a69d4796-b06d-470e-963e-2c23bab9a1c4
     BasePortName: EIngang.001
     TargetNodeGUID: e5c71185-10b2-4fbd-9c82-2547569ed0b8
     TargetPortName: EIngang.002
-  - BaseNodeGUID: b26ee7f6-0f9b-47c9-bb68-76827ad62adf
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b26ee7f6-0f9b-47c9-bb68-76827ad62adf
     BasePortName: Ausgang.001
     TargetNodeGUID: b6ef333e-55ca-41b6-b9d3-ecbc51629486
     TargetPortName: EIngang.001
-  - BaseNodeGUID: b26ee7f6-0f9b-47c9-bb68-76827ad62adf
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b26ee7f6-0f9b-47c9-bb68-76827ad62adf
     BasePortName: EIngang.001
     TargetNodeGUID: 6e2e3001-6c01-43ee-815d-f0e2aba41fac
     TargetPortName: EIngang.002
-  - BaseNodeGUID: eef58634-36b8-456f-a4bb-8026742de565
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: eef58634-36b8-456f-a4bb-8026742de565
     BasePortName: Ausgang.001
     TargetNodeGUID: 082da51a-ab59-4c39-b4d1-25c4a4c8adde
     TargetPortName: EIngang.001
-  - BaseNodeGUID: eef58634-36b8-456f-a4bb-8026742de565
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: eef58634-36b8-456f-a4bb-8026742de565
     BasePortName: EIngang.001
     TargetNodeGUID: 652e8f38-c0b8-41d8-9b2b-aea60db7bffa
     TargetPortName: EIngang.002
-  - BaseNodeGUID: 652e8f38-c0b8-41d8-9b2b-aea60db7bffa
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 652e8f38-c0b8-41d8-9b2b-aea60db7bffa
     BasePortName: EIngang.002
     TargetNodeGUID: eef58634-36b8-456f-a4bb-8026742de565
     TargetPortName: EIngang.001
-  - BaseNodeGUID: 268d5192-1799-4628-8f4f-7cd822899f0d
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 268d5192-1799-4628-8f4f-7cd822899f0d
     BasePortName: EIngang.002
     TargetNodeGUID: 17abc06d-9159-4619-8144-9627407c8dec
     TargetPortName: EIngang.001
-  - BaseNodeGUID: 9039ab36-ee0e-45bc-b495-321cb78908a8
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 9039ab36-ee0e-45bc-b495-321cb78908a8
     BasePortName: EIngang.002
     TargetNodeGUID: 9af9ebea-3b3c-4222-b176-256a7ad258c4
     TargetPortName: EIngang.001
-  - BaseNodeGUID: e5c71185-10b2-4fbd-9c82-2547569ed0b8
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: e5c71185-10b2-4fbd-9c82-2547569ed0b8
     BasePortName: EIngang.002
     TargetNodeGUID: 7139f935-c9a4-4105-8e6e-71abb15b1929
     TargetPortName: EIngang.001
-  - BaseNodeGUID: b6ef333e-55ca-41b6-b9d3-ecbc51629486
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b6ef333e-55ca-41b6-b9d3-ecbc51629486
     BasePortName: Ausgang.001
     TargetNodeGUID: 082da51a-ab59-4c39-b4d1-25c4a4c8adde
     TargetPortName: EIngang.001
-  - BaseNodeGUID: b6ef333e-55ca-41b6-b9d3-ecbc51629486
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b6ef333e-55ca-41b6-b9d3-ecbc51629486
     BasePortName: EIngang.001
     TargetNodeGUID: 268d5192-1799-4628-8f4f-7cd822899f0d
     TargetPortName: EIngang.002
-  - BaseNodeGUID: 17abc06d-9159-4619-8144-9627407c8dec
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 17abc06d-9159-4619-8144-9627407c8dec
     BasePortName: Ausgang.001
     TargetNodeGUID: 56719844-e7ad-4438-ad13-ee6c0aac9c78
     TargetPortName: EIngang.001
-  - BaseNodeGUID: 17abc06d-9159-4619-8144-9627407c8dec
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 17abc06d-9159-4619-8144-9627407c8dec
     BasePortName: EIngang.001
     TargetNodeGUID: 268d5192-1799-4628-8f4f-7cd822899f0d
     TargetPortName: EIngang.002
-  - BaseNodeGUID: 9af9ebea-3b3c-4222-b176-256a7ad258c4
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 9af9ebea-3b3c-4222-b176-256a7ad258c4
     BasePortName: Ausgang.001
     TargetNodeGUID: 17abc06d-9159-4619-8144-9627407c8dec
     TargetPortName: EIngang.001
-  - BaseNodeGUID: 9af9ebea-3b3c-4222-b176-256a7ad258c4
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 9af9ebea-3b3c-4222-b176-256a7ad258c4
     BasePortName: EIngang.001
     TargetNodeGUID: 9039ab36-ee0e-45bc-b495-321cb78908a8
     TargetPortName: EIngang.002
-  - BaseNodeGUID: 082da51a-ab59-4c39-b4d1-25c4a4c8adde
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 082da51a-ab59-4c39-b4d1-25c4a4c8adde
     BasePortName: Ausgang.001
     TargetNodeGUID: a69d4796-b06d-470e-963e-2c23bab9a1c4
     TargetPortName: EIngang.001
-  - BaseNodeGUID: 082da51a-ab59-4c39-b4d1-25c4a4c8adde
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 082da51a-ab59-4c39-b4d1-25c4a4c8adde
     BasePortName: EIngang.001
     TargetNodeGUID: 9039ab36-ee0e-45bc-b495-321cb78908a8
     TargetPortName: EIngang.002
-  - BaseNodeGUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
     BasePortName: AusgangL.001
     TargetNodeGUID: 22d2ffd9-e85d-4757-becc-73beefc03f07
     TargetPortName: Ausgang.001
-  - BaseNodeGUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
     BasePortName: AusgangR.001
     TargetNodeGUID: ec327e4d-7d64-45d8-a60d-29a4971bba15
     TargetPortName: Ausgang.001
-  - BaseNodeGUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
     BasePortName: Eingang.003
     TargetNodeGUID: 02ff8fe1-18c3-4d3a-88e5-1550a0b2f987
     TargetPortName: EIngang.001
-  - BaseNodeGUID: 22d2ffd9-e85d-4757-becc-73beefc03f07
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 22d2ffd9-e85d-4757-becc-73beefc03f07
     BasePortName: Ausgang.001
     TargetNodeGUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
     TargetPortName: AusgangL.001
-  - BaseNodeGUID: 22d2ffd9-e85d-4757-becc-73beefc03f07
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 22d2ffd9-e85d-4757-becc-73beefc03f07
     BasePortName: EIngang.001
     TargetNodeGUID: cf789534-a64a-4c78-b1aa-c95d553ac77f
     TargetPortName: EIngang.001
-  - BaseNodeGUID: dfa36947-ec62-463c-9f96-4cebe00e691a
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: dfa36947-ec62-463c-9f96-4cebe00e691a
     BasePortName: Ausgang.001
     TargetNodeGUID: af77f091-785d-4715-a7d4-40108bfe4d96
     TargetPortName: Eingang.003
-  - BaseNodeGUID: dfa36947-ec62-463c-9f96-4cebe00e691a
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: dfa36947-ec62-463c-9f96-4cebe00e691a
     BasePortName: EIngang.001
     TargetNodeGUID: ec327e4d-7d64-45d8-a60d-29a4971bba15
     TargetPortName: EIngang.001
-  - BaseNodeGUID: cf789534-a64a-4c78-b1aa-c95d553ac77f
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: cf789534-a64a-4c78-b1aa-c95d553ac77f
     BasePortName: Ausgang.001
     TargetNodeGUID: af77f091-785d-4715-a7d4-40108bfe4d96
     TargetPortName: Eingang.003
-  - BaseNodeGUID: cf789534-a64a-4c78-b1aa-c95d553ac77f
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: cf789534-a64a-4c78-b1aa-c95d553ac77f
     BasePortName: EIngang.001
     TargetNodeGUID: 22d2ffd9-e85d-4757-becc-73beefc03f07
     TargetPortName: EIngang.001
-  - BaseNodeGUID: ec327e4d-7d64-45d8-a60d-29a4971bba15
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: ec327e4d-7d64-45d8-a60d-29a4971bba15
     BasePortName: Ausgang.001
     TargetNodeGUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
     TargetPortName: AusgangR.001
-  - BaseNodeGUID: ec327e4d-7d64-45d8-a60d-29a4971bba15
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: ec327e4d-7d64-45d8-a60d-29a4971bba15
     BasePortName: EIngang.001
     TargetNodeGUID: dfa36947-ec62-463c-9f96-4cebe00e691a
     TargetPortName: EIngang.001
-  - BaseNodeGUID: 6e2e3001-6c01-43ee-815d-f0e2aba41fac
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 6e2e3001-6c01-43ee-815d-f0e2aba41fac
     BasePortName: EIngang.002
     TargetNodeGUID: 56719844-e7ad-4438-ad13-ee6c0aac9c78
     TargetPortName: EIngang.001
-  - BaseNodeGUID: 108f9455-50f3-484e-8e3d-385b3f984d25
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 108f9455-50f3-484e-8e3d-385b3f984d25
     BasePortName: Ausgang.001
     TargetNodeGUID: d65c9bbf-d6a1-452b-b70d-8b358ee8bbde
     TargetPortName: EIngang.001
-  - BaseNodeGUID: 108f9455-50f3-484e-8e3d-385b3f984d25
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 108f9455-50f3-484e-8e3d-385b3f984d25
     BasePortName: EIngang.001
     TargetNodeGUID: dd6f915a-a339-48c4-94b1-5ba42bfc5e7e
     TargetPortName: EIngang.001
-  - BaseNodeGUID: 102b7e90-e02f-40f6-b180-44f3521653ac
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 102b7e90-e02f-40f6-b180-44f3521653ac
     BasePortName: Ausgang.001
     TargetNodeGUID: 9dd225ea-ec81-4f12-8a15-532fcb4d9103
     TargetPortName: EIngang.002
-  - BaseNodeGUID: 102b7e90-e02f-40f6-b180-44f3521653ac
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 102b7e90-e02f-40f6-b180-44f3521653ac
     BasePortName: EIngang.001
     TargetNodeGUID: 48af2c1c-1efc-48aa-a3ee-4aa3b2bd4459
     TargetPortName: EIngang.002
-  - BaseNodeGUID: 9dd225ea-ec81-4f12-8a15-532fcb4d9103
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 9dd225ea-ec81-4f12-8a15-532fcb4d9103
     BasePortName: EIngang.002
     TargetNodeGUID: 102b7e90-e02f-40f6-b180-44f3521653ac
     TargetPortName: Ausgang.001
-  - BaseNodeGUID: 48af2c1c-1efc-48aa-a3ee-4aa3b2bd4459
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 48af2c1c-1efc-48aa-a3ee-4aa3b2bd4459
     BasePortName: EIngang.002
     TargetNodeGUID: d6bffcbe-29d9-4daf-b1bb-928e90585d64
     TargetPortName: EIngang.002
-  - BaseNodeGUID: d6bffcbe-29d9-4daf-b1bb-928e90585d64
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: d6bffcbe-29d9-4daf-b1bb-928e90585d64
     BasePortName: EIngang.002
     TargetNodeGUID: 48af2c1c-1efc-48aa-a3ee-4aa3b2bd4459
     TargetPortName: EIngang.002
-  - BaseNodeGUID: d65c9bbf-d6a1-452b-b70d-8b358ee8bbde
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: d65c9bbf-d6a1-452b-b70d-8b358ee8bbde
     BasePortName: Ausgang.001
     TargetNodeGUID: 62e81449-e94c-466b-bd47-b1f4ce871bf4
     TargetPortName: EIngang.001
-  - BaseNodeGUID: d65c9bbf-d6a1-452b-b70d-8b358ee8bbde
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: d65c9bbf-d6a1-452b-b70d-8b358ee8bbde
     BasePortName: EIngang.001
     TargetNodeGUID: 108f9455-50f3-484e-8e3d-385b3f984d25
     TargetPortName: Ausgang.001
-  - BaseNodeGUID: dd6f915a-a339-48c4-94b1-5ba42bfc5e7e
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: dd6f915a-a339-48c4-94b1-5ba42bfc5e7e
     BasePortName: Ausgang.001
     TargetNodeGUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
     TargetPortName: Eingang.003
-  - BaseNodeGUID: dd6f915a-a339-48c4-94b1-5ba42bfc5e7e
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: dd6f915a-a339-48c4-94b1-5ba42bfc5e7e
     BasePortName: EIngang.001
     TargetNodeGUID: 108f9455-50f3-484e-8e3d-385b3f984d25
     TargetPortName: EIngang.001
-  - BaseNodeGUID: 0afeeeda-a23f-4713-af95-e10b17bacef4
-    BasePortName: Link
-    TargetNodeGUID: 5f4c84d4-5af6-45ae-8a1e-4b15c0d893ab
-    TargetPortName: DoorConnector
-  - BaseNodeGUID: af77f091-785d-4715-a7d4-40108bfe4d96
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: af77f091-785d-4715-a7d4-40108bfe4d96
     BasePortName: AusgangL.001
     TargetNodeGUID: 62e81449-e94c-466b-bd47-b1f4ce871bf4
     TargetPortName: Ausgang.001
-  - BaseNodeGUID: af77f091-785d-4715-a7d4-40108bfe4d96
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: af77f091-785d-4715-a7d4-40108bfe4d96
     BasePortName: AusgangR.001
     TargetNodeGUID: f7cfdaab-502e-4ed7-8441-53a7776ab706
     TargetPortName: EIngang.001
-  - BaseNodeGUID: af77f091-785d-4715-a7d4-40108bfe4d96
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: af77f091-785d-4715-a7d4-40108bfe4d96
     BasePortName: Eingang.003
     TargetNodeGUID: cf789534-a64a-4c78-b1aa-c95d553ac77f
     TargetPortName: Ausgang.001
-  - BaseNodeGUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
     BasePortName: AusgangL.001
     TargetNodeGUID: 62e81449-e94c-466b-bd47-b1f4ce871bf4
     TargetPortName: Ausgang.001
-  - BaseNodeGUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
     BasePortName: AusgangR.001
     TargetNodeGUID: f7cfdaab-502e-4ed7-8441-53a7776ab706
     TargetPortName: EIngang.001
-  - BaseNodeGUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
     BasePortName: Eingang.003
     TargetNodeGUID: 102b7e90-e02f-40f6-b180-44f3521653ac
     TargetPortName: Ausgang.001
-  - BaseNodeGUID: f7cfdaab-502e-4ed7-8441-53a7776ab706
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: f7cfdaab-502e-4ed7-8441-53a7776ab706
     BasePortName: Ausgang.001
     TargetNodeGUID: d65c9bbf-d6a1-452b-b70d-8b358ee8bbde
     TargetPortName: Ausgang.001
-  - BaseNodeGUID: f7cfdaab-502e-4ed7-8441-53a7776ab706
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: f7cfdaab-502e-4ed7-8441-53a7776ab706
     BasePortName: EIngang.001
     TargetNodeGUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
     TargetPortName: AusgangR.001
-  - BaseNodeGUID: 62e81449-e94c-466b-bd47-b1f4ce871bf4
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 62e81449-e94c-466b-bd47-b1f4ce871bf4
     BasePortName: Ausgang.001
     TargetNodeGUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
     TargetPortName: AusgangL.001
-  - BaseNodeGUID: 62e81449-e94c-466b-bd47-b1f4ce871bf4
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 62e81449-e94c-466b-bd47-b1f4ce871bf4
     BasePortName: EIngang.001
     TargetNodeGUID: d65c9bbf-d6a1-452b-b70d-8b358ee8bbde
     TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 0afeeeda-a23f-4713-af95-e10b17bacef4
+    BasePortName: Link
+    TargetNodeGUID: 5f4c84d4-5af6-45ae-8a1e-4b15c0d893ab
+    TargetPortName: DoorConnector
