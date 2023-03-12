@@ -11,6 +11,8 @@ public class VolumeManager : MonoBehaviour
     private Bloom _bloom;
     private DepthOfField _depthOfField;
     private ColorAdjustments _colorAdjustments;
+    [field: SerializeField] private Light _sun { get; set; }
+    public static Light Sun => Instance._sun;
     private void Awake()
     {
         if (Instance != null)
@@ -99,5 +101,10 @@ public class VolumeManager : MonoBehaviour
         {
             Instance._colorAdjustments.active = status;
         }
+    }
+
+    public static void SetSunIntensity(float intensity)
+    {
+        Instance._sun.intensity = intensity;
     }
 }
