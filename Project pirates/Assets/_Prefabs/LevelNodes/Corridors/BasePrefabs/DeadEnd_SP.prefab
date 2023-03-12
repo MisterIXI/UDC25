@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 4267076539975032889}
   - component: {fileID: 907589760368930716}
   - component: {fileID: 3133554666793769814}
+  - component: {fileID: 4954022142378536809}
   m_Layer: 0
   m_Name: DeadEnd2
   m_TagString: Untagged
@@ -423,6 +424,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4954022142378536809
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493776459215747715}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4968101639558689288, guid: 9eb014e27c9f79f4bac0af37fb014485, type: 3}
 --- !u!1 &4783738339678911057
 GameObject:
   m_ObjectHideFlags: 0
