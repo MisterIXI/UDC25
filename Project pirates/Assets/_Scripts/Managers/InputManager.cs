@@ -20,6 +20,7 @@ public class InputManager : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();
         _playerInput.onControlsChanged += OnSchemeChange;
         SubscribeToInput();
+        DontDestroyOnLoad(gameObject);
     }
     public static event Action OnControlSchemeChanged;
     public static event Action<CallbackContext> OnLook;

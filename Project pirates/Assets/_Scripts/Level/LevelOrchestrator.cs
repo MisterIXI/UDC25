@@ -155,4 +155,10 @@ public class LevelOrchestrator : MonoBehaviour
         spawnedObjects.Clear();
         subscribedCullingObjects.Clear();
     }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
+    }
 }

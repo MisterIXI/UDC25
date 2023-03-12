@@ -31,6 +31,7 @@ public class SettingsManager : MonoBehaviour
         {
             PlayerSettings = _playerSettingsDefaults;
         }
+        DontDestroyOnLoad(gameObject);
     }
 
     public static void SetMasterVolume(float value)

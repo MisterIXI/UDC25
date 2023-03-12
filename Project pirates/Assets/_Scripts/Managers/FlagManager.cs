@@ -44,4 +44,10 @@ public class FlagManager : MonoBehaviour
     {
         return Flags.Contains(flagName);
     }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
+    }
 }
