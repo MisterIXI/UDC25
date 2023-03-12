@@ -126,6 +126,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: startGS_Corr_LDN_SPv
       objectReference: {fileID: 0}
+    - target: {fileID: 3575635030661212395, guid: 4a43f3664e9a11d469582d07e52d4f39,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3954871079208029928, guid: 4a43f3664e9a11d469582d07e52d4f39,
         type: 3}
       propertyPath: m_Name
@@ -135,6 +140,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShortPillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848947234954838716, guid: 4a43f3664e9a11d469582d07e52d4f39,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8261097422498912759, guid: 4a43f3664e9a11d469582d07e52d4f39,
         type: 3}
