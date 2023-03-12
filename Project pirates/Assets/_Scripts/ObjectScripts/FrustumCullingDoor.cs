@@ -4,10 +4,17 @@ using UnityEngine;
 
 [RequireComponent(typeof(FrustumCulling))]
 public class FrustumCullingDoor : MonoBehaviour
-{    
+{   
+    private AudioClips _audioClips;
     private FrustumCulling _frustumCulling;
     private DoorInteraction _doorInteraction;
     private MeshRenderer _meshRenderer;
+
+    void Start() 
+    {
+        _audioClips = SoundManager.AudioClips;
+    }
+
     private void Awake()
     {
         _frustumCulling = GetComponent<FrustumCulling>();
@@ -32,6 +39,7 @@ public class FrustumCullingDoor : MonoBehaviour
     private void OnExitCameraFrustum()
     {
         _doorInteraction.StopAllDoorCoroutines();
+        SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.DoorOpenShort, Camera.main.transform.position);
         _doorInteraction.StartCoroutine(_doorInteraction.OpenDoor());
         // _meshRenderer.material.color = Color.red;
     }
