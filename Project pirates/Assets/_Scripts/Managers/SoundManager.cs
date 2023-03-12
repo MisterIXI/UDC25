@@ -32,6 +32,10 @@ public class SoundManager : MonoBehaviour
             audioEntities.Add(spawnedEntity);
         }
     }
+    public void FadeToMusic(AudioClip clip, float fadeTime)
+    {
+        // StartCoroutine(FadeToMusicCoroutine(clip, fadeTime));
+    }
 
     public void PlayAudioOneShotAtPosition(AudioClip clip, Vector3 position)
     {
