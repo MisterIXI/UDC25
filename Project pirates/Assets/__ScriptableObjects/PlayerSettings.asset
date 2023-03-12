@@ -20,7 +20,7 @@ MonoBehaviour:
   <GamepadLookSensitivity>k__BackingField: 0.5
   <InvertYAxis>k__BackingField: 0
   <SensitivityMultiplier>k__BackingField: 20
-  <MovementSpeed>k__BackingField: 5
+  <MovementSpeed>k__BackingField: 20
   <MovementSnapSeconds>k__BackingField: 0.358
   <StepLength>k__BackingField: 2.5
   <StairPushForce>k__BackingField: 3.5
