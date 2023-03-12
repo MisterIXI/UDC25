@@ -14,4 +14,8 @@ public class rotating : MonoBehaviour
     {
         Rotate();
     }
+    public void SetSpeed(float value)
+    {
+        speed = value;
+    }
 }
