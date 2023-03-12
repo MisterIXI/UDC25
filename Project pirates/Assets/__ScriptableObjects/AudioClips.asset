@@ -19,6 +19,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2d234dab2858a4445b91f87e5100cd70, type: 3}
   - {fileID: 8300000, guid: ce4cf01e7de072d40abae26ffbbca6fa, type: 3}
   - {fileID: 8300000, guid: 65e0e6e5258b40044b9869f59b4cb355, type: 3}
+  <StepSoundsGrass>k__BackingField:
+  - {fileID: 8300000, guid: 56d07855aca73fb46874587f9d098bf0, type: 3}
+  - {fileID: 8300000, guid: 50777baa0d4ca7a40a944f70a97accae, type: 3}
+  - {fileID: 8300000, guid: e060ba9817baca04a9ca625d4baf64f1, type: 3}
+  - {fileID: 8300000, guid: 8bfa097486514c74c9f961d2d705015d, type: 3}
+  - {fileID: 8300000, guid: f6eba689621b0894da145aeb47abf435, type: 3}
+  - {fileID: 8300000, guid: eff9fec789b2714469811f5697475216, type: 3}
   <CollisionObject>k__BackingField: {fileID: 8300000, guid: f3a08e367c9773b43b0d2ddc59d9ce9f,
     type: 3}
   <DoorOpenLong>k__BackingField: {fileID: 8300000, guid: 50d9d574c6265cd4ba66ad195fbb3d91,
@@ -33,7 +40,11 @@ MonoBehaviour:
     type: 3}
   <SomethingHappend>k__BackingField: {fileID: 8300000, guid: 7ba75fda4a651e84c86d000fa971120f,
     type: 3}
+  <SomethingNotThatBigHappend>k__BackingField: {fileID: 8300000, guid: 5823145aba348fd47ae2ddba9d09f56e,
+    type: 3}
   <MenuMusic>k__BackingField: {fileID: 8300000, guid: 77518dd99a56f914d9d38441d4a115bb,
+    type: 3}
+  <CreditsMusic>k__BackingField: {fileID: 8300000, guid: a484e42109314c84b888d67a1f533d77,
     type: 3}
   <AmbientInside>k__BackingField: {fileID: 8300000, guid: bf02761c0855ac44bab800a664dbf634,
     type: 3}
