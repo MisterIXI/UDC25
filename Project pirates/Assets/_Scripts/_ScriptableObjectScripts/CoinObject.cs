@@ -1,20 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "Scriptable_Coins", menuName ="Scriptable_Coins")]
+[CreateAssetMenu(fileName = "CoinObject", menuName ="CoinObject")]
 public class CoinObject: ScriptableObject
 {
-    [SerializeField] int COINS = 0;
+    [field: Header("All Coins listed here:")]
+    [field: SerializeField] public List<int> CoinList { get; set; } = new List<int>();
 
-    public int GetCoins {get => COINS;}
-    public void UpdateCoins(int value){
-        COINS += value;
-    }
-    // INSTANCING TO GAME
-    // PUBLIC COIN CLASS 
-    // GET PRIVATE SET
-    // NEW COIN TO INVENTORY
-    // PUBLIC VOID DROP COIN
-    // SHOW HIDE ALL COINS TO ORBIT AROUND PLAYER
-    // INTERACT WITH TAKE COIN SCRIPT AND INVENTORY
+    [field: Header("CoinObjects:")]
+    [field: SerializeField] public GameObject BronzeObject { get; private set; }
+    [field: SerializeField] public GameObject SilverObject { get; private set; }
+    [field: SerializeField] public GameObject GoldObject { get; private set; }
+
+    
+    
 }
