@@ -9,7 +9,7 @@ public static class NodeContainerExtensions
 {
     public static LinkNodeData GetEntryNode(this NodeContainer nodeContainer)
     {
-        return nodeContainer.linkNodeData.FirstOrDefault(x => x.IsEntryPoint);
+        return nodeContainer.linkNodeData.First(x => x.IsEntryPoint);
     }
 
     public static List<BaseNodeData> GetConnectedNodes(this NodeContainer nodeContainer, BaseNodeData node)

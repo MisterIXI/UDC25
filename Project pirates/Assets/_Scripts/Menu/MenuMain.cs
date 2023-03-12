@@ -43,7 +43,7 @@ public class MenuMain : MenuBase
     }
     protected virtual void OnEnable()
     {
-        Debug.Log("MenuMain.OnEnable");
+        // Debug.Log("MenuMain.OnEnable");
         if (GameManager.CurrentGameState != GameState.MainMenu)
             GameManager.SwitchToGameState(GameState.MainMenu);
     }
