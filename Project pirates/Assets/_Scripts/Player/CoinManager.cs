@@ -7,8 +7,11 @@ public class CoinManager : MonoBehaviour
 {
     [SerializeField]private  CoinObject _coinObject;
     private List<GameObject> coinsSpawned= new List<GameObject>();
+    [field: SerializeField] public List<int> CoinList { get; private set; } = new List<int>();
     private float speed= 5.0f;
     private PlayerController playercontroller;
+    private Camera _mainCamera;
+    private PlayerSettings _playerSettings;
     public static CoinManager Instance; // SINGLETON
     private void Awake()
     {
@@ -21,12 +24,15 @@ public class CoinManager : MonoBehaviour
     }
     private void Start() {
         playercontroller = PlayerController.Instance;
+        CoinList.Clear();
+        _mainCamera = Camera.main;
+        _playerSettings = SettingsManager.PlayerSettings;
     }
     
     public void AddCoin(GameObject other) {
         if( other != null) // other.CompareTag("Coin") &&
         {
-            _coinObject.CoinList.Add(getCoinType(other.GetComponent<TakeCoin>().coinType));
+            CoinList.Add(getCoinType(other.GetComponent<TakeCoin>().coinType));
             
             Debug.Log("Add Coin type:"+ getCoinType(other.GetComponent<TakeCoin>().coinType));
             Destroy(other);
@@ -36,12 +42,12 @@ public class CoinManager : MonoBehaviour
     }
     public void DropCoin()
     {
-        if(_coinObject.CoinList[0] >0){
-            Debug.Log("Removed Coin type:"+ _coinObject.CoinList[0]);
-            GameObject instance = Instantiate(getCoinObject(_coinObject.CoinList[0]), transform.position, transform.rotation);
-            _coinObject.CoinList.Remove(_coinObject.CoinList[0]);
+        if(CoinList[0] >0){
+            Debug.Log("Removed Coin type:"+ CoinList[0]);
+            GameObject instance = Instantiate(getCoinObject(CoinList[0]), transform.position, transform.rotation);
+            CoinList.Remove(CoinList[0]);
             Vector2 deltaInput = playercontroller.GetDelta();
-            instance.GetComponent<Rigidbody>().AddForce((deltaInput) * speed);
+            instance.GetComponent<Rigidbody>().AddForce(_mainCamera.transform.forward * _playerSettings.InteractThrowMagnitude, ForceMode.Impulse);
         }
 
     }
@@ -56,12 +62,12 @@ public class CoinManager : MonoBehaviour
     {
         Transform _motherRotate = new GameObject(gameObject.name + "Surrounder").transform;
         _motherRotate.position = gameObject.transform.position;
-        float angleStep = 360/ _coinObject.CoinList.Count;
+        float angleStep = 360/ CoinList.Count;
         // foreach coin in list spawn Gameobject around player with calc distance 360/ count new Prefab
-        for (int i = 0; i < _coinObject.CoinList.Count; i++)
+        for (int i = 0; i < CoinList.Count; i++)
         {
            
-            GameObject _obj = Instantiate(getCoinObject(_coinObject.CoinList[i]));
+            GameObject _obj = Instantiate(getCoinObject(CoinList[i]));
             coinsSpawned.Add(_obj);
             _obj.transform.RotateAround(gameObject.transform.position, Vector3.up, angleStep*i);
             _obj.transform.SetParent(_motherRotate);
