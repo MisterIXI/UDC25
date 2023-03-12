@@ -89,12 +89,12 @@ MonoBehaviour:
     GUID: ff56dc9e-e4ad-4304-a631-7d04af67bd70
     position:
       serializedVersion: 2
-      x: 726
-      y: 262
-      width: 278
+      x: 751
+      y: 213
+      width: 252
       height: 141
     NodeContainer: {fileID: 11400000}
-    anchorList: {fileID: 7914297459481789512, guid: d5d085f2edd85e64782137faf29aad2e,
+    anchorList: {fileID: 7488144712759767502, guid: 461dd4f439b442e45af26aeff60f3cdf,
       type: 3}
     YRotation: 180
   decisionNodeData:
@@ -173,16 +173,6 @@ MonoBehaviour:
     TargetNodeGUID: d319b6f0-3510-4838-8ecf-5c416ce520fa
     TargetPortName: Link
   - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: ff56dc9e-e4ad-4304-a631-7d04af67bd70
-    BasePortName: ShortNaked
-    TargetNodeGUID: 0eaf7042-5d76-4a5c-8883-56a41936367a
-    TargetPortName: ShortPillar
-  - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: ff56dc9e-e4ad-4304-a631-7d04af67bd70
-    BasePortName: LongDoorNaked
-    TargetNodeGUID: f6d362f7-647e-47b7-a703-2119c1828af5
-    TargetPortName: DoorExitNaked
-  - NodeContainer: {fileID: 11400000}
     BaseNodeGUID: 0c4e661b-a4a1-48d9-b538-b495e724f0ed
     BasePortName: True
     TargetNodeGUID: ff56dc9e-e4ad-4304-a631-7d04af67bd70
@@ -197,3 +187,13 @@ MonoBehaviour:
     BasePortName: Link
     TargetNodeGUID: eaa6664f-0f82-4ed2-819c-7ce6cd19f190
     TargetPortName: ShortPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: ff56dc9e-e4ad-4304-a631-7d04af67bd70
+    BasePortName: ShortNaked
+    TargetNodeGUID: 0eaf7042-5d76-4a5c-8883-56a41936367a
+    TargetPortName: ShortPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: ff56dc9e-e4ad-4304-a631-7d04af67bd70
+    BasePortName: LongDoorNaked
+    TargetNodeGUID: f6d362f7-647e-47b7-a703-2119c1828af5
+    TargetPortName: DoorExitNaked

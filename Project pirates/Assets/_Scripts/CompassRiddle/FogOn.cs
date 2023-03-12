@@ -21,6 +21,9 @@ public class FogOn : MonoBehaviour
         {
             RenderSettings.fogDensity = Mathf.Lerp(RenderSettings.fogDensity, _playerSettings.FogDensity, Time.deltaTime);
         }
+        if (VolumeManager.Sun.intensity < _playerSettings.SunIntensity)
+        {
+            VolumeManager.SetSunIntensity(Mathf.Lerp(VolumeManager.Sun.intensity, _playerSettings.SunIntensity, Time.deltaTime));
+        }
     }
 }
- 
