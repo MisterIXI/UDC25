@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 1998168046586555543, guid: c7de1cd87c6178d479fa051a1a761bae,
         type: 3}
       propertyPath: m_Name
-      value: Corridor_LDN_SN Variant Variant
+      value: Corr_LDN_SN_MIRR
+      objectReference: {fileID: 0}
+    - target: {fileID: 5100557138201560768, guid: c7de1cd87c6178d479fa051a1a761bae,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6377253254172220811, guid: c7de1cd87c6178d479fa051a1a761bae,
         type: 3}
