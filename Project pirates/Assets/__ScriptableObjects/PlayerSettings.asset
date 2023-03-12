@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b55601880db35409e72ec10367d879, type: 3}
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
-  <CloneScriptableObjectOnStart>k__BackingField: 1
+  <CloneScriptableObjectOnStart>k__BackingField: 0
   <MasterVolume>k__BackingField: 0.3
   <MusicVolume>k__BackingField: 1
   <SfxVolume>k__BackingField: 1
@@ -23,7 +23,7 @@ MonoBehaviour:
   <MovementSpeed>k__BackingField: 9.55
   <MovementSnapSeconds>k__BackingField: 0.358
   <StepLength>k__BackingField: 2.5
-  <CameraVerticalOffset>k__BackingField: 0.5
+  <CameraVerticalOffset>k__BackingField: 1
   <CameraBobbingMultX>k__BackingField: 0.06
   <CameraBobbingMultY>k__BackingField: 0.06
   <CameraBobbingCurveX>k__BackingField:
