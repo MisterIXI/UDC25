@@ -277,18 +277,6 @@ MonoBehaviour:
     anchorList: {fileID: 5522335757413886361, guid: 8ae6fbee2f68a164c9382f91edc27021,
       type: 3}
     YRotation: 270
-  - DisplayName: LevelNode
-    GUID: ba62aa2b-3b43-43b2-8699-be52234bd2d9
-    position:
-      serializedVersion: 2
-      x: 728
-      y: 1303
-      width: 243
-      height: 141
-    NodeContainer: {fileID: 11400000}
-    anchorList: {fileID: 7264336638929755681, guid: 9836f8cc9daf4434795121b37c02bc9c,
-      type: 3}
-    YRotation: 180
   decisionNodeData: []
   linkNodeData:
   - DisplayName: Link
@@ -308,10 +296,10 @@ MonoBehaviour:
       serializedVersion: 2
       x: 1052
       y: 1303
-      width: 204
+      width: 228
       height: 115
     NodeContainer: {fileID: 11400000}
-    linkedContainer: {fileID: 11400000, guid: e485b66698c334b43a3810875b295f29, type: 2}
+    linkedContainer: {fileID: 11400000, guid: c4213bd6d0306764da832272c56dc369, type: 2}
     IsEntryPoint: 0
   NodeLinkData:
   - NodeContainer: {fileID: 11400000}
@@ -467,8 +455,8 @@ MonoBehaviour:
   - NodeContainer: {fileID: 11400000}
     BaseNodeGUID: 4f2b7496-ae84-40ea-9fc8-401c9a299bf7
     BasePortName: LongNaked
-    TargetNodeGUID: ba62aa2b-3b43-43b2-8699-be52234bd2d9
-    TargetPortName: ShortPillar
+    TargetNodeGUID: e88fc62f-e7e3-4b6d-a009-b3fe0bccfa5a
+    TargetPortName: Link
   - NodeContainer: {fileID: 11400000}
     BaseNodeGUID: 919d9ce4-b200-4f9a-a913-9756db2109d6
     BasePortName: ShortPillar
@@ -524,13 +512,3 @@ MonoBehaviour:
     BasePortName: Link
     TargetNodeGUID: e9010897-0bc8-4f12-8c10-07091bf85c71
     TargetPortName: FrontDoorPillar
-  - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: ba62aa2b-3b43-43b2-8699-be52234bd2d9
-    BasePortName: ShortPillar
-    TargetNodeGUID: 4f2b7496-ae84-40ea-9fc8-401c9a299bf7
-    TargetPortName: LongNaked
-  - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: ba62aa2b-3b43-43b2-8699-be52234bd2d9
-    BasePortName: LongDoorNaked
-    TargetNodeGUID: e88fc62f-e7e3-4b6d-a009-b3fe0bccfa5a
-    TargetPortName: Link

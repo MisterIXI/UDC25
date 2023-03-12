@@ -1,0 +1,199 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6598f2667cc6c1a478f5fba0f197e895, type: 3}
+  m_Name: CompassPuzzle
+  m_EditorClassIdentifier: 
+  levelNodeData:
+  - DisplayName: LevelNode
+    GUID: 27e5ce44-ca6c-46f7-b279-ed29394ba7ec
+    position:
+      serializedVersion: 2
+      x: -339
+      y: -184
+      width: 249
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 958520860377029846, guid: c65788ea03400b64496d877177ee026e,
+      type: 3}
+    YRotation: 90
+  - DisplayName: LevelNode
+    GUID: f68a3b67-135d-4ee2-a950-f1408cba34a8
+    position:
+      serializedVersion: 2
+      x: 110
+      y: 294
+      width: 251
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 9055256992631995478, guid: 55935d70a44489345bf070b85d05edfd,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: 351b4dab-499e-43c3-9e10-f76f2ec45240
+    position:
+      serializedVersion: 2
+      x: 335
+      y: 26
+      width: 275
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 3606985904590384348, guid: f74a41b045e38f64ba4ee86da03cfdaf,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: eaa6664f-0f82-4ed2-819c-7ce6cd19f190
+    position:
+      serializedVersion: 2
+      x: -90
+      y: 127
+      width: 277
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 6482361008729329761, guid: 6f3e1b49ea1f6f744990d790b22b1903,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: f6d362f7-647e-47b7-a703-2119c1828af5
+    position:
+      serializedVersion: 2
+      x: 335
+      y: 473
+      width: 258
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 6225295128637646118, guid: 5ab60a0c03022c24f9f8ffd905f50c4d,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: 0eaf7042-5d76-4a5c-8883-56a41936367a
+    position:
+      serializedVersion: 2
+      x: 1077
+      y: 403
+      width: 251
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 294288629400147849, guid: ad92b527650cbad4bb904e19852313cf,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: ff56dc9e-e4ad-4304-a631-7d04af67bd70
+    position:
+      serializedVersion: 2
+      x: 751
+      y: 213
+      width: 252
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 7488144712759767502, guid: 461dd4f439b442e45af26aeff60f3cdf,
+      type: 3}
+    YRotation: 180
+  decisionNodeData:
+  - DisplayName: Decision
+    GUID: 0c4e661b-a4a1-48d9-b538-b495e724f0ed
+    position:
+      serializedVersion: 2
+      x: 464
+      y: 197
+      width: 150
+      height: 121
+    NodeContainer: {fileID: 11400000}
+    flagName: CompassPuzzleSolved
+  linkNodeData:
+  - DisplayName: Link
+    GUID: d0d481e2-f90d-4788-a65d-67d6a1c19a7f
+    position:
+      serializedVersion: 2
+      x: -379
+      y: -13
+      width: 228
+      height: 115
+    NodeContainer: {fileID: 11400000}
+    linkedContainer: {fileID: 11400000}
+    IsEntryPoint: 1
+  - DisplayName: Link
+    GUID: d319b6f0-3510-4838-8ecf-5c416ce520fa
+    position:
+      serializedVersion: 2
+      x: 1426
+      y: 435
+      width: 247
+      height: 115
+    NodeContainer: {fileID: 11400000}
+    linkedContainer: {fileID: 11400000, guid: b6ac19d5ffa78504c89c638e96875857, type: 2}
+    IsEntryPoint: 0
+  NodeLinkData:
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 27e5ce44-ca6c-46f7-b279-ed29394ba7ec
+    BasePortName: Entry_N
+    TargetNodeGUID: eaa6664f-0f82-4ed2-819c-7ce6cd19f190
+    TargetPortName: ShortPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: f68a3b67-135d-4ee2-a950-f1408cba34a8
+    BasePortName: DoorExitNaked
+    TargetNodeGUID: 351b4dab-499e-43c3-9e10-f76f2ec45240
+    TargetPortName: EingangDoorNaked
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 351b4dab-499e-43c3-9e10-f76f2ec45240
+    BasePortName: EingangDoorNaked
+    TargetNodeGUID: 0c4e661b-a4a1-48d9-b538-b495e724f0ed
+    TargetPortName: Input
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: eaa6664f-0f82-4ed2-819c-7ce6cd19f190
+    BasePortName: ShortPillar
+    TargetNodeGUID: 27e5ce44-ca6c-46f7-b279-ed29394ba7ec
+    TargetPortName: Entry_N
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: eaa6664f-0f82-4ed2-819c-7ce6cd19f190
+    BasePortName: LongDoorNaked
+    TargetNodeGUID: 351b4dab-499e-43c3-9e10-f76f2ec45240
+    TargetPortName: EingangDoorNaked
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: f6d362f7-647e-47b7-a703-2119c1828af5
+    BasePortName: DoorExitNaked
+    TargetNodeGUID: ff56dc9e-e4ad-4304-a631-7d04af67bd70
+    TargetPortName: LongDoorNaked
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 0eaf7042-5d76-4a5c-8883-56a41936367a
+    BasePortName: ShortPillar
+    TargetNodeGUID: ff56dc9e-e4ad-4304-a631-7d04af67bd70
+    TargetPortName: ShortNaked
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 0eaf7042-5d76-4a5c-8883-56a41936367a
+    BasePortName: LongDoorNaked
+    TargetNodeGUID: d319b6f0-3510-4838-8ecf-5c416ce520fa
+    TargetPortName: Link
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 0c4e661b-a4a1-48d9-b538-b495e724f0ed
+    BasePortName: True
+    TargetNodeGUID: ff56dc9e-e4ad-4304-a631-7d04af67bd70
+    TargetPortName: LongDoorNaked
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 0c4e661b-a4a1-48d9-b538-b495e724f0ed
+    BasePortName: False
+    TargetNodeGUID: f68a3b67-135d-4ee2-a950-f1408cba34a8
+    TargetPortName: DoorExitNaked
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: d0d481e2-f90d-4788-a65d-67d6a1c19a7f
+    BasePortName: Link
+    TargetNodeGUID: eaa6664f-0f82-4ed2-819c-7ce6cd19f190
+    TargetPortName: ShortPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: ff56dc9e-e4ad-4304-a631-7d04af67bd70
+    BasePortName: ShortNaked
+    TargetNodeGUID: 0eaf7042-5d76-4a5c-8883-56a41936367a
+    TargetPortName: ShortPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: ff56dc9e-e4ad-4304-a631-7d04af67bd70
+    BasePortName: LongDoorNaked
+    TargetNodeGUID: f6d362f7-647e-47b7-a703-2119c1828af5
+    TargetPortName: DoorExitNaked
