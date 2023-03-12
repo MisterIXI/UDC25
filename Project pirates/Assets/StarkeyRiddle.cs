@@ -35,6 +35,7 @@ public class StarkeyRiddle : MonoBehaviour
                 }
             }
         }
+        Debug.DrawRay(_mainCamera.transform.position, _mainCamera.transform.forward * 100, Color.red);
     }
 
     private void OnTriggerExit(Collider other) {
