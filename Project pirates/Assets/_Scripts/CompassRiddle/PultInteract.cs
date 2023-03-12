@@ -7,11 +7,10 @@ public class PultInteract : MonoBehaviour, IInteractable
     public GameObject voidRoom;
     public GameObject voidDoor;
     public GameObject drawer;
-    
+
 
     private GameObject compass;
     private GameObject particles;
-    private Light sun;
     private PlayerInventory inventory;
     private PlayerSettings _playerSettings;
 
@@ -24,27 +23,27 @@ public class PultInteract : MonoBehaviour, IInteractable
     private Vector3 grammophoneVoidDoorPos = new Vector3(0, 0, 7.367f);
 
 
-    private void Start() 
+    private void Start()
     {
         _playerSettings = SettingsManager.PlayerSettings;
 
         inventory = PlayerController.Instance.GetComponent<PlayerInventory>();
-        sun = voidRoom.GetComponentInChildren<Light>();
     }
 
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
-        if(riddleSolved == true)
+        if (riddleSolved == true)
         {
             CloseVoidDoor();
             FogOff();               // only works when grammohone room is turned off (the table has fogOn scrip)
-            if(PlaceCompass())
+            if (PlaceCompass())
             {
                 DisableVoidRoom();
-                if(OpenDrawer())
+                if (OpenDrawer())
                 {
                     particles.SetActive(false);
+                    FlagManager.SetFlag("CompassPuzzleSolved", true);
                     Destroy(this);
                 }
             }
@@ -54,7 +53,7 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     public string Data()
     {
-        if((inventory.Item != null && inventory.Item.name  == "Compass") || riddleSolved)
+        if ((inventory.Item != null && inventory.Item.name == "Compass") || riddleSolved)
         {
             return "Place Compass on Table";
         }
@@ -67,7 +66,7 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if(inventory.Item != null && inventory.Item.name  == "Compass")
+        if (inventory.Item != null && inventory.Item.name == "Compass")
         {
             compass = inventory.Item;
             particles = compass.transform.Find("SocketInEffect").gameObject;
@@ -85,7 +84,7 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     private bool PlaceCompass()  // Animates the compass ontop of table
     {
-        if(Vector3.Distance(compass.transform.localPosition, new Vector3(newPos.x, newPos.y + 0.3f, newPos.z)) > 0.05f && !(firstSequenceFinish))
+        if (Vector3.Distance(compass.transform.localPosition, new Vector3(newPos.x, newPos.y + 0.3f, newPos.z)) > 0.05f && !(firstSequenceFinish))
         {
             compass.transform.localPosition = Vector3.Lerp(compass.transform.localPosition, new Vector3(newPos.x, newPos.y + 0.3f, newPos.z), Time.deltaTime);
             compass.transform.localRotation = Quaternion.Lerp(compass.transform.localRotation, newRot, Time.deltaTime * 10);
@@ -95,9 +94,9 @@ public class PultInteract : MonoBehaviour, IInteractable
             firstSequenceFinish = true;
         }
 
-        if(firstSequenceFinish)
-        {            
-            if(Vector3.Distance(compass.transform.localPosition, newPos) > 0.01f)
+        if (firstSequenceFinish)
+        {
+            if (Vector3.Distance(compass.transform.localPosition, newPos) > 0.01f)
             {
                 particles.SetActive(true);
                 compass.transform.localPosition = Vector3.Lerp(compass.transform.localPosition, newPos, Time.deltaTime);
@@ -118,7 +117,7 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     private bool OpenDrawer()
     {
-        if(Vector3.Distance(drawer.transform.localPosition, drawerPos) > 0.005f)
+        if (Vector3.Distance(drawer.transform.localPosition, drawerPos) > 0.005f)
         {
             drawer.transform.localPosition = Vector3.Lerp(drawer.transform.localPosition, drawerPos, Time.deltaTime);
             return false;
@@ -145,18 +144,17 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     private void CloseVoidDoor()
     {
-        if(Vector3.Distance(voidDoor.transform.localPosition, grammophoneVoidDoorPos) > 0.01f)
+        if (Vector3.Distance(voidDoor.transform.localPosition, grammophoneVoidDoorPos) > 0.01f)
         {
             voidDoor.transform.localPosition = Vector3.Lerp(voidDoor.transform.localPosition, grammophoneVoidDoorPos, Time.deltaTime * 5);
         }
     }
 
-
     private void DisableVoidRoom()
     {
-        if (sun.intensity != 0)
+        if (VolumeManager.Sun.intensity != 0)
         {
-            sun.intensity = Mathf.Lerp(sun.intensity, 0, Time.deltaTime);
+            VolumeManager.SetSunIntensity(Mathf.Lerp(VolumeManager.Sun.intensity, 0, Time.deltaTime));
         }
         else
         {
