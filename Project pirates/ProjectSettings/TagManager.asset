@@ -9,6 +9,7 @@ TagManager:
   - Inventory
   - KeyItem
   - Coin
+  - Stair
   layers:
   - Default
   - TransparentFX

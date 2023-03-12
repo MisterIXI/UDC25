@@ -20,9 +20,10 @@ MonoBehaviour:
   <GamepadLookSensitivity>k__BackingField: 0.5
   <InvertYAxis>k__BackingField: 0
   <SensitivityMultiplier>k__BackingField: 20
-  <MovementSpeed>k__BackingField: 9.55
+  <MovementSpeed>k__BackingField: 5
   <MovementSnapSeconds>k__BackingField: 0.358
   <StepLength>k__BackingField: 2.5
+  <StairPushForce>k__BackingField: 3.5
   <CameraVerticalOffset>k__BackingField: 1
   <CameraBobbingMultX>k__BackingField: 0.06
   <CameraBobbingMultY>k__BackingField: 0.06
@@ -86,6 +87,7 @@ MonoBehaviour:
   <InvRubberbandForce>k__BackingField: 100
   <InvRotationSpeed>k__BackingField: 10
   <FogDensity>k__BackingField: 0.06
+  <SunIntensity>k__BackingField: 1
   <UiTextCharacterTweening>k__BackingField: 0.006
   <UiSideSlideTween>k__BackingField: 0.095
   <UiVertSlideTween>k__BackingField: 0.06
