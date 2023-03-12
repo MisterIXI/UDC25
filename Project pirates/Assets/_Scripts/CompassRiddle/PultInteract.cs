@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PultInteract : MonoBehaviour, IInteractable
 {
+    private AudioClips _audioClips;
+    private bool sound = false;
+
     public GameObject voidRoom;
     public GameObject voidDoor;
     public GameObject drawer;
@@ -25,6 +28,8 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        _audioClips = SoundManager.AudioClips;
+
         _playerSettings = SettingsManager.PlayerSettings;
 
         inventory = PlayerController.Instance.GetComponent<PlayerInventory>();
@@ -40,6 +45,11 @@ public class PultInteract : MonoBehaviour, IInteractable
             if (PlaceCompass())
             {
                 DisableVoidRoom();
+                if((!sound))
+                {
+                    SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.SomethingNotThatBigHappend, Camera.main.transform.position);
+                    sound = true;
+                }
                 if (OpenDrawer())
                 {
                     particles.SetActive(false);
