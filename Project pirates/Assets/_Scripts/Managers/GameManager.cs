@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
             case GameState.MainMenu:
                 Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 1;
+                SoundManager.FadeToMusic(SoundManager.AudioClips.MenuMusic);
                 break;
             case GameState.Paused:
             case GameState.GameOver:

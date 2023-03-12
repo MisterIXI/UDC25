@@ -378,6 +378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6043159028214117544}
   - component: {fileID: 5838848955141062014}
+  - component: {fileID: 1086710855}
   m_Layer: 0
   m_Name: CameraBobbingTarget
   m_TagString: Untagged
@@ -416,3 +417,15 @@ MonoBehaviour:
   _bobbingValue: 1
   _bobbingLeft: 1
   _bobbingAccumulator: 0
+--- !u!114 &1086710855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7903861169099434038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ff7bbf0621b9e40be9b36419fe775a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
