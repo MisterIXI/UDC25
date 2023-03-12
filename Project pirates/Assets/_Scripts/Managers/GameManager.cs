@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 break;
             case GameState.MainMenu:
+                Cursor.lockState = CursorLockMode.None;
+                Time.timeScale = 1;
+                break;
             case GameState.Paused:
             case GameState.GameOver:
                 Cursor.lockState = CursorLockMode.None;
