@@ -19,6 +19,8 @@ public class AudioClips : ScriptableObject
     [field: SerializeField] public AudioClip GrammophonMusic { get; private set; }
     [field: SerializeField] public AudioClip SomethingHappend { get; private set; }
     [field: SerializeField] public AudioClip SomethingNotThatBigHappend { get; private set; }
+    [field: SerializeField] public AudioClip CompassAnimation { get; private set; }
+    [field: SerializeField] public AudioClip CompassReadjusting { get; private set; }
 
     [field: Header("Music and Ambient")]
     [field: SerializeField] public AudioClip MenuMusic { get; private set; }
