@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PultInteract : MonoBehaviour, IInteractable
 {
+    private AudioClips _audioClips;
+
     public GameObject voidRoom;
     public GameObject voidDoor;
     public GameObject drawer;
@@ -25,6 +27,8 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        _audioClips = SoundManager.AudioClips;
+
         _playerSettings = SettingsManager.PlayerSettings;
 
         inventory = PlayerController.Instance.GetComponent<PlayerInventory>();
@@ -42,6 +46,8 @@ public class PultInteract : MonoBehaviour, IInteractable
                 DisableVoidRoom();
                 if (OpenDrawer())
                 {
+                    SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.SomethingHappend, Camera.main.transform.position);
+
                     particles.SetActive(false);
                     FlagManager.SetFlag("CompassPuzzleSolved", true);
                     Destroy(this);

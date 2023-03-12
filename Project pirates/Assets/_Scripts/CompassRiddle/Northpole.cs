@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Northpole : MonoBehaviour
 {
+    private AudioClips _audioClips;
+
     public GameObject voidDoor;
     public GameObject CompassDecoration;
     public GameObject SpyglassDecoration;
@@ -24,6 +26,7 @@ public class Northpole : MonoBehaviour
         voidDoorOpend = voidDoor.transform.localPosition;
 
         transform.localPosition = spawnPoints[0];
+        _audioClips = SoundManager.AudioClips;
     }
 
 
@@ -56,6 +59,7 @@ public class Northpole : MonoBehaviour
             {
                 if(posCount - spawnPoints.Length < -1)
                 {
+                    SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.SomethingNotThatBigHappend, Camera.main.transform.position);
                     posCount += 1;
                 }
             }
