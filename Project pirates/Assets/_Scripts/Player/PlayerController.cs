@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,10 @@ public class PlayerController : MonoBehaviour
             _isMoving = value;
         }
     }
+
+    [SerializeField] Transform groundCheck;
+    [SerializeField] float stepHeight = 0.5f;
+
     Ladder ladder;
 
     private void Awake()
@@ -44,6 +49,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _lookVector = Vector2.zero;
+
     }
     private void SubscribeToInput()
     {
@@ -72,7 +78,20 @@ public class PlayerController : MonoBehaviour
             newPos = transform.TransformDirection(new Vector3(0, _moveVector.y, 0));
         }
         _rigidbody.velocity = newPos * _playerSettings.MovementSpeed;
+        StepClimb();
     }
+
+    private void StepClimb()
+    {
+        if (Physics.Raycast(groundCheck.position, Vector3.down, out RaycastHit hit, 0.2f))
+        {
+            if (_isMoving && hit.transform.gameObject.layer == LayerMask.NameToLayer("Stairs"))
+            {
+                _rigidbody.position -= new Vector3(0, -stepHeight, 0);
+            }
+        }
+    }
+
     private void HandleLook()
     {
 
