@@ -31,7 +31,7 @@ public class StarKey : MonoBehaviour, IInteractable
         float currentTime = 0f;
         Vector3 startPosition = transform.position;
         while(currentTime < duration && Vector3.Distance(transform.position, player.position) > 2f){
-            transform.position = Vector3.Lerp(startPosition, player.position, currentTime / duration);
+            transform.position = Vector3.Lerp(startPosition, new Vector3(player.position.x,player.position.y + 1,player.position.z), currentTime / duration);
             currentTime += Time.deltaTime;
             yield return null;
         }
