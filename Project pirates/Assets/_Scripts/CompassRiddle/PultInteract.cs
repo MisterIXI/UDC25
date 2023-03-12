@@ -5,7 +5,7 @@ using UnityEngine;
 public class PultInteract : MonoBehaviour, IInteractable
 {
     private AudioClips _audioClips;
-    private bool sound = false;
+    private bool sound1 = false;
 
     public GameObject voidRoom;
     public GameObject voidDoor;
@@ -45,11 +45,13 @@ public class PultInteract : MonoBehaviour, IInteractable
             if (PlaceCompass())
             {
                 DisableVoidRoom();
-                if((!sound))
+                if((!sound1))
                 {
+                    SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.CompassReadjusting, Camera.main.transform.position);
                     SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.SomethingNotThatBigHappend, Camera.main.transform.position);
-                    sound = true;
+                    sound1 = true;
                 }
+
                 if (OpenDrawer())
                 {
                     particles.SetActive(false);
@@ -87,6 +89,7 @@ public class PultInteract : MonoBehaviour, IInteractable
             compass.GetComponent<Rigidbody>().isKinematic = true;
             compass.GetComponentInChildren<Collider>().enabled = false;
 
+            SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.CompassAnimation, Camera.main.transform.position);
             riddleSolved = true;
         }
     }
@@ -101,6 +104,7 @@ public class PultInteract : MonoBehaviour, IInteractable
         }
         else
         {
+            SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.CompassAnimation, Camera.main.transform.position);
             firstSequenceFinish = true;
         }
 
