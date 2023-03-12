@@ -49,7 +49,7 @@ public class CoinManager : MonoBehaviour
     {
         // show all collected coins and Rotate around the player
         SpawnCoins();
-        UpdatePattern();
+        // UpdatePattern();
     }
 
     private void SpawnCoins()
