@@ -6,6 +6,8 @@ using TMPro;
 
 public class SliderSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IDeselectHandler {
 
+    private AudioClips _audioClips;
+
     private Slider _slider;
 
     private RectTransform backgroundTransform;
@@ -17,6 +19,13 @@ public class SliderSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler,
     public Vector2 fillSelectSize = new Vector2(10f, 3f);
 
     private bool selected;
+
+
+    private void Start() 
+    {
+        _audioClips = SoundManager.AudioClips;
+    }
+
 
     private void Awake() {
         _slider = GetComponent<Slider>();
@@ -48,6 +57,8 @@ public class SliderSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler,
     public void OnSelect(BaseEventData eventData)
     {
         selected = true;
+
+        SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.ButtonHover, Camera.main.transform.position);
     }
 
     public void OnDeselect(BaseEventData eventData)
