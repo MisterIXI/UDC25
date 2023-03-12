@@ -8,9 +8,11 @@ public class SoundManager : MonoBehaviour
     public static AudioClips AudioClips => Instance._audioClips;
     [SerializeField] int amountOfAudioEntities;
     [SerializeField] GameObject audioEntity;
+    private AudioSource _cameraAudioSource;
     List<GameObject> audioEntities;
     private PlayerSettings _playerSettings;
     public static SoundManager Instance;
+    public static AudioClip CurrentMusic;
     private void Awake()
     {
         if (Instance != null)
@@ -19,8 +21,12 @@ public class SoundManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    }
 
+    }
+    private void OnMusicVolumeChanged(float newVolume)
+    {
+        _cameraAudioSource.volume = newVolume;
+    }
     private void Start()
     {
         _playerSettings = SettingsManager.PlayerSettings;
@@ -31,10 +37,34 @@ public class SoundManager : MonoBehaviour
             spawnedEntity.SetActive(false);
             audioEntities.Add(spawnedEntity);
         }
+        _cameraAudioSource = Camera.main.gameObject.AddComponent<AudioSource>();
+        _cameraAudioSource.loop = true;
+        _cameraAudioSource.volume = _playerSettings.MusicVolume;
     }
-    public void FadeToMusic(AudioClip clip, float fadeTime)
+    public static void FadeToMusic(AudioClip clip)
     {
-        // StartCoroutine(FadeToMusicCoroutine(clip, fadeTime));
+        Instance.StopAllCoroutines();
+        CurrentMusic = clip;
+        Instance.StartCoroutine(Instance.FadeToMusicCoroutine(clip));
+    }
+
+    private IEnumerator FadeToMusicCoroutine(AudioClip clip)
+    {
+        yield return null;
+        float startMusicVolume = _cameraAudioSource.volume;
+        while (_cameraAudioSource.volume > 0)
+        {
+            _cameraAudioSource.volume -= startMusicVolume * Time.deltaTime;
+            yield return null;
+        }
+        _cameraAudioSource.Stop();
+        _cameraAudioSource.clip = clip;
+        _cameraAudioSource.Play();
+        while (_cameraAudioSource.volume < _playerSettings.MusicVolume)
+        {
+            _cameraAudioSource.volume += _playerSettings.MusicVolume * Time.deltaTime;
+            yield return null;
+        }
     }
 
     public void PlayAudioOneShotAtPosition(AudioClip clip, Vector3 position)
