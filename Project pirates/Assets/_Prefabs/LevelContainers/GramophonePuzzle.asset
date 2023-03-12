@@ -265,6 +265,102 @@ MonoBehaviour:
     anchorList: {fileID: 692880891495647888, guid: 2ed95fe37c149d245b46f9e6edb1b139,
       type: 3}
     YRotation: 0
+  - DisplayName: LevelNode
+    GUID: 78d8cab5-eb6a-4119-8512-56af14f00e55
+    position:
+      serializedVersion: 2
+      x: 666
+      y: 637
+      width: 247
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 2727744270038439357, guid: 070a33fdbd5b281429b2821cbf945077,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: 8ab58817-036e-444a-ae2a-a7b2a9c82c35
+    position:
+      serializedVersion: 2
+      x: 679
+      y: 418
+      width: 247
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 2727744270038439357, guid: 070a33fdbd5b281429b2821cbf945077,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: 1df973db-bb8f-49c0-8d28-073e36eef358
+    position:
+      serializedVersion: 2
+      x: 313
+      y: 551
+      width: 242
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 4537210757304511840, guid: 02e10294df30e4c4aa3147784da893cc,
+      type: 3}
+    YRotation: 90
+  - DisplayName: LevelNode
+    GUID: e4415709-2a0d-4069-afde-0c8020f2d564
+    position:
+      serializedVersion: 2
+      x: -264
+      y: 862
+      width: 247
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 2727744270038439357, guid: 070a33fdbd5b281429b2821cbf945077,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: b3d6fb0d-7798-48eb-be1c-02ff8d3de3d8
+    position:
+      serializedVersion: 2
+      x: 0
+      y: 721
+      width: 242
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 4537210757304511840, guid: 02e10294df30e4c4aa3147784da893cc,
+      type: 3}
+    YRotation: 270
+  - DisplayName: LevelNode
+    GUID: a53f1a34-a836-4f65-9698-3c3ba3f862a6
+    position:
+      serializedVersion: 2
+      x: 324
+      y: 741
+      width: 242
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 4537210757304511840, guid: 02e10294df30e4c4aa3147784da893cc,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: 87707395-c831-4293-8caa-d721896b3968
+    position:
+      serializedVersion: 2
+      x: 20
+      y: 551
+      width: 242
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 4537210757304511840, guid: 02e10294df30e4c4aa3147784da893cc,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: 7d23a71b-acf3-47f1-84bf-6245019768d1
+    position:
+      serializedVersion: 2
+      x: -309
+      y: 551
+      width: 247
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 2727744270038439357, guid: 070a33fdbd5b281429b2821cbf945077,
+      type: 3}
+    YRotation: 180
   decisionNodeData: []
   linkNodeData:
   - DisplayName: Link
@@ -430,11 +526,6 @@ MonoBehaviour:
     TargetNodeGUID: 728de58b-127f-4006-b06a-80cce0cfbf76
     TargetPortName: LongPillar
   - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: 8612fd6f-32da-4662-91d5-f2eeb2496a28
-    BasePortName: Link
-    TargetNodeGUID: b38f5058-d571-4c62-acc2-fe2e070eb136
-    TargetPortName: DoorExitPillar
-  - NodeContainer: {fileID: 11400000}
     BaseNodeGUID: 6342bda1-49b2-43d8-bded-ab52608fc266
     BasePortName: LeftPillars
     TargetNodeGUID: 018b9142-cd25-4a0f-8244-256556025c4a
@@ -479,3 +570,8 @@ MonoBehaviour:
     BasePortName: ShortPillar
     TargetNodeGUID: 9d06ac79-8833-49a3-b29b-eedbe78c627b
     TargetPortName: ExitDoorNaked
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 8612fd6f-32da-4662-91d5-f2eeb2496a28
+    BasePortName: Link
+    TargetNodeGUID: b38f5058-d571-4c62-acc2-fe2e070eb136
+    TargetPortName: DoorExitPillar
