@@ -35,7 +35,7 @@ public class ButtonSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler,
     }
 
     private void OnEnable() {
-        if (_button.name != "Button_Play")
+        if (_button != null && _button.name != "Button_Play")
         {
             _button.Select();
         }
