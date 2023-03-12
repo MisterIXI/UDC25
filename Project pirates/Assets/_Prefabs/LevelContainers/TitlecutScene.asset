@@ -127,15 +127,15 @@ MonoBehaviour:
     BaseNodeGUID: ab524df2-1814-439e-8366-4dfc6e9b8018
     BasePortName: Link
     TargetNodeGUID: eaf0f297-1236-47aa-a570-f201ca07d8b2
-    TargetPortName: FrontDoor
+    TargetPortName: FrontDoorPillar
   - NodeContainer: {fileID: 11400000}
     BaseNodeGUID: eaf0f297-1236-47aa-a570-f201ca07d8b2
-    BasePortName: FrontDoor
+    BasePortName: FrontDoorPillar
     TargetNodeGUID: 1c0fb100-3d9a-4381-8f8b-b661cd992f55
     TargetPortName: LongDoorNaked
   - NodeContainer: {fileID: 11400000}
     BaseNodeGUID: eaf0f297-1236-47aa-a570-f201ca07d8b2
-    BasePortName: BackDoor
+    BasePortName: BackDoorPillar
     TargetNodeGUID: 422023c2-eb0c-434f-a282-bb60e15e91cd
     TargetPortName: DoorExitNaked
   - NodeContainer: {fileID: 11400000}
@@ -147,7 +147,7 @@ MonoBehaviour:
     BaseNodeGUID: 1c0fb100-3d9a-4381-8f8b-b661cd992f55
     BasePortName: LongDoorNaked
     TargetNodeGUID: eaf0f297-1236-47aa-a570-f201ca07d8b2
-    TargetPortName: FrontDoor
+    TargetPortName: FrontDoorPillar
   - NodeContainer: {fileID: 11400000}
     BaseNodeGUID: e9786026-7a7f-41f6-9906-ccc96793d6c6
     BasePortName: ShortNaked
@@ -177,7 +177,7 @@ MonoBehaviour:
     BaseNodeGUID: 422023c2-eb0c-434f-a282-bb60e15e91cd
     BasePortName: DoorExitNaked
     TargetNodeGUID: eaf0f297-1236-47aa-a570-f201ca07d8b2
-    TargetPortName: BackDoor
+    TargetPortName: BackDoorPillar
   - NodeContainer: {fileID: 11400000}
     BaseNodeGUID: 89cf811f-2e62-48e3-8b83-37c20e30c591
     BasePortName: Entry_N
