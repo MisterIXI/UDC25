@@ -12,7 +12,7 @@ public class PlayerInventory : MonoBehaviour
     public static PlayerInventory Instance;
     private void Awake()
     {
-        if(Instance != null)
+        if (Instance != null)
         {
             Destroy(gameObject);
             return;
@@ -72,7 +72,7 @@ public class PlayerInventory : MonoBehaviour
             // trans.position = item.transform.position;
             trans.SetParent(null);
         }
-        if(Item != null)
+        if (Item != null)
         {
             UpdateRigidbody(Item.GetComponent<Rigidbody>(), true);
             Item.transform.SetParent(inventory.transform);
@@ -85,5 +85,9 @@ public class PlayerInventory : MonoBehaviour
         rb.drag = value ? 10 : 1;
         rb.angularDrag = value ? 3 : 0.05f;
     }
-
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
+    }
 }

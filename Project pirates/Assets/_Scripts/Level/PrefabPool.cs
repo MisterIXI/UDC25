@@ -134,5 +134,8 @@ public class PrefabPool : MonoBehaviour
             }
         }
     }
-
+    private void OnDestroy() {
+        if (Instance == this)
+            Instance = null;
+    }
 }

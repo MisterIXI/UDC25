@@ -101,6 +101,7 @@ public class HoldObject : MonoBehaviour
     private void UnsubscribeToInput() { InputManager.OnHoldObject -= OnHoldObjectInput; }
     private void OnDestroy()
     {
+        IsHoldingObject = false;
         UnsubscribeToInput();
     }
     private void OnDrawGizmos()
