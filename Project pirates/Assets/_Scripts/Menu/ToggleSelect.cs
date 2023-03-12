@@ -6,20 +6,28 @@ using TMPro;
 
 public class ToggleSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IDeselectHandler {
 
-    private Toggle _slider;
-    private RectTransform _sliderTransform;
+    private AudioClips _audioClips;
+
+    private Toggle _toggle;
+    private RectTransform _toggleTransform;
 
     public Vector2 startSize = new Vector2(50f, 50f);
     public Vector2 selectSize = new Vector2(55f, 55f);
 
     private bool selected;
 
-    private void Awake() {
-        _slider = GetComponent<Toggle>();
-        _sliderTransform = GetComponent<RectTransform>();
 
-        // startSize = _sliderTransform.sizeDelta;
-        _sliderTransform.sizeDelta = startSize;
+    private void Start() 
+    {
+        _audioClips = SoundManager.AudioClips;
+    }
+    
+    private void Awake() {
+        _toggle = GetComponent<Toggle>();
+        _toggleTransform = GetComponent<RectTransform>();
+
+        // startSize = _toggleTransform.sizeDelta;
+        _toggleTransform.sizeDelta = startSize;
     }
 
     void Update() 
@@ -35,24 +43,22 @@ public class ToggleSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler,
     }
 
     private void OnEnable() {
-        if (_slider != null && _slider.name != "Button_Play")
+        if (_toggle != null && _toggle.name != "Button_Play")
         {
             selected = false;
-        }
-        else
-        {
-            _slider.Select();
         }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _slider.Select();
+        _toggle.Select();
     }
 
     public void OnSelect(BaseEventData eventData)
     {
         selected = true;
+
+        SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.ButtonHover, Camera.main.transform.position);
     }
 
     public void OnDeselect(BaseEventData eventData)
@@ -63,17 +69,17 @@ public class ToggleSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler,
 
     private void StyleSelected()
     {
-        if(_sliderTransform.sizeDelta != selectSize)
+        if(_toggleTransform.sizeDelta != selectSize)
         {
-            _sliderTransform.sizeDelta = Vector2.MoveTowards(_sliderTransform.sizeDelta, selectSize, 200f * Time.unscaledDeltaTime);
+            _toggleTransform.sizeDelta = Vector2.MoveTowards(_toggleTransform.sizeDelta, selectSize, 200f * Time.unscaledDeltaTime);
         }
     }
 
     private void StyleNormal()
     {
-        if(_sliderTransform.sizeDelta != startSize)
+        if(_toggleTransform.sizeDelta != startSize)
         {
-            _sliderTransform.sizeDelta = Vector2.MoveTowards(_sliderTransform.sizeDelta, startSize, 200f * Time.unscaledDeltaTime);
+            _toggleTransform.sizeDelta = Vector2.MoveTowards(_toggleTransform.sizeDelta, startSize, 200f * Time.unscaledDeltaTime);
         }
     }
 }
