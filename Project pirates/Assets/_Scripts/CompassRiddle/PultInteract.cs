@@ -5,6 +5,7 @@ using UnityEngine;
 public class PultInteract : MonoBehaviour, IInteractable
 {
     private AudioClips _audioClips;
+    private bool sound = false;
 
     public GameObject voidRoom;
     public GameObject voidDoor;
@@ -44,10 +45,13 @@ public class PultInteract : MonoBehaviour, IInteractable
             if (PlaceCompass())
             {
                 DisableVoidRoom();
+                if((!sound))
+                {
+                    SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.SomethingNotThatBigHappend, Camera.main.transform.position);
+                    sound = true;
+                }
                 if (OpenDrawer())
                 {
-                    SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.SomethingHappend, Camera.main.transform.position);
-
                     particles.SetActive(false);
                     FlagManager.SetFlag("CompassPuzzleSolved", true);
                     Destroy(this);
