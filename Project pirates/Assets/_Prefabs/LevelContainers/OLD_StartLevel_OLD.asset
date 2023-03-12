@@ -1,0 +1,791 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6598f2667cc6c1a478f5fba0f197e895, type: 3}
+  m_Name: OLD_StartLevel_OLD
+  m_EditorClassIdentifier: 
+  levelNodeData:
+  - DisplayName: LevelNode
+    GUID: 057223d9-bee4-459b-90fc-6468378954eb
+    position:
+      serializedVersion: 2
+      x: 164
+      y: -199
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 7229935677476562337, guid: e73c27165fb3a4b489c0ced3b8d27973,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: 5f4c84d4-5af6-45ae-8a1e-4b15c0d893ab
+    position:
+      serializedVersion: 2
+      x: -136
+      y: -257
+      width: 233
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 3947232879646745069, guid: bb96e34cbdcaf0b45ab54449489aabaa,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: 9715a768-a653-4a9d-93c2-ce75443668f4
+    position:
+      serializedVersion: 2
+      x: 473
+      y: -191
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 414888592598186068, guid: def45e15eed49cb43bc87b88b93934a4,
+      type: 3}
+    YRotation: 90
+  - DisplayName: LevelNode
+    GUID: 7139f935-c9a4-4105-8e6e-71abb15b1929
+    position:
+      serializedVersion: 2
+      x: 2456
+      y: -81
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 983099437784474119, guid: 1f1a2e4d0acd6514ea39063a7be11ea1,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: 56719844-e7ad-4438-ad13-ee6c0aac9c78
+    position:
+      serializedVersion: 2
+      x: 2456
+      y: 360
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 983099437784474119, guid: 1f1a2e4d0acd6514ea39063a7be11ea1,
+      type: 3}
+    YRotation: 90
+  - DisplayName: LevelNode
+    GUID: 02ff8fe1-18c3-4d3a-88e5-1550a0b2f987
+    position:
+      serializedVersion: 2
+      x: 2735
+      y: 320
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 414888592598186068, guid: def45e15eed49cb43bc87b88b93934a4,
+      type: 3}
+    YRotation: 90
+  - DisplayName: LevelNode
+    GUID: b05e64f0-9412-4e94-9fe4-fbff8d40e314
+    position:
+      serializedVersion: 2
+      x: 1131
+      y: -81
+      width: 205
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 832216467941470782, guid: 6d8a5960ca2669a4a9f3a0df92024644,
+      type: 3}
+    YRotation: 270
+  - DisplayName: LevelNode
+    GUID: a10442bc-b64b-4afa-9298-374f32bef0bc
+    position:
+      serializedVersion: 2
+      x: 842
+      y: -105
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 414888592598186068, guid: def45e15eed49cb43bc87b88b93934a4,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: a69d4796-b06d-470e-963e-2c23bab9a1c4
+    position:
+      serializedVersion: 2
+      x: 1760
+      y: 45
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 414888592598186068, guid: def45e15eed49cb43bc87b88b93934a4,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: b26ee7f6-0f9b-47c9-bb68-76827ad62adf
+    position:
+      serializedVersion: 2
+      x: 1760
+      y: 239
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 414888592598186068, guid: def45e15eed49cb43bc87b88b93934a4,
+      type: 3}
+    YRotation: 90
+  - DisplayName: LevelNode
+    GUID: eef58634-36b8-456f-a4bb-8026742de565
+    position:
+      serializedVersion: 2
+      x: 1051
+      y: 116
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 414888592598186068, guid: def45e15eed49cb43bc87b88b93934a4,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: 652e8f38-c0b8-41d8-9b2b-aea60db7bffa
+    position:
+      serializedVersion: 2
+      x: 714
+      y: 106
+      width: 205
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 832216467941470782, guid: 6d8a5960ca2669a4a9f3a0df92024644,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: 268d5192-1799-4628-8f4f-7cd822899f0d
+    position:
+      serializedVersion: 2
+      x: 1396
+      y: 454
+      width: 205
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 832216467941470782, guid: 6d8a5960ca2669a4a9f3a0df92024644,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: 9039ab36-ee0e-45bc-b495-321cb78908a8
+    position:
+      serializedVersion: 2
+      x: 1446
+      y: -129
+      width: 205
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 832216467941470782, guid: 6d8a5960ca2669a4a9f3a0df92024644,
+      type: 3}
+    YRotation: 90
+  - DisplayName: LevelNode
+    GUID: e5c71185-10b2-4fbd-9c82-2547569ed0b8
+    position:
+      serializedVersion: 2
+      x: 1813
+      y: -139
+      width: 205
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 832216467941470782, guid: 6d8a5960ca2669a4a9f3a0df92024644,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: b6ef333e-55ca-41b6-b9d3-ecbc51629486
+    position:
+      serializedVersion: 2
+      x: 1461
+      y: 239
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 414888592598186068, guid: def45e15eed49cb43bc87b88b93934a4,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: 17abc06d-9159-4619-8144-9627407c8dec
+    position:
+      serializedVersion: 2
+      x: 2128
+      y: 257
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 983099437784474119, guid: 1f1a2e4d0acd6514ea39063a7be11ea1,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: 9af9ebea-3b3c-4222-b176-256a7ad258c4
+    position:
+      serializedVersion: 2
+      x: 2128
+      y: 36
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 983099437784474119, guid: 1f1a2e4d0acd6514ea39063a7be11ea1,
+      type: 3}
+    YRotation: 270
+  - DisplayName: LevelNode
+    GUID: 082da51a-ab59-4c39-b4d1-25c4a4c8adde
+    position:
+      serializedVersion: 2
+      x: 1470
+      y: 45
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 414888592598186068, guid: def45e15eed49cb43bc87b88b93934a4,
+      type: 3}
+    YRotation: 270
+  - DisplayName: LevelNode
+    GUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
+    position:
+      serializedVersion: 2
+      x: 3033
+      y: 320
+      width: 223
+      height: 165
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 1496524642138899300, guid: 7e53abbfa60e7e64e806c7a7196cc735,
+      type: 3}
+    YRotation: 270
+  - DisplayName: LevelNode
+    GUID: 22d2ffd9-e85d-4757-becc-73beefc03f07
+    position:
+      serializedVersion: 2
+      x: 3323
+      y: 190
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 414888592598186068, guid: def45e15eed49cb43bc87b88b93934a4,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: dfa36947-ec62-463c-9f96-4cebe00e691a
+    position:
+      serializedVersion: 2
+      x: 3617
+      y: 465
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 983099437784474119, guid: 1f1a2e4d0acd6514ea39063a7be11ea1,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: cf789534-a64a-4c78-b1aa-c95d553ac77f
+    position:
+      serializedVersion: 2
+      x: 3617
+      y: 229
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 414888592598186068, guid: def45e15eed49cb43bc87b88b93934a4,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: ec327e4d-7d64-45d8-a60d-29a4971bba15
+    position:
+      serializedVersion: 2
+      x: 3323
+      y: 426
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 983099437784474119, guid: 1f1a2e4d0acd6514ea39063a7be11ea1,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: 6e2e3001-6c01-43ee-815d-f0e2aba41fac
+    position:
+      serializedVersion: 2
+      x: 1745
+      y: 442
+      width: 205
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 832216467941470782, guid: 6d8a5960ca2669a4a9f3a0df92024644,
+      type: 3}
+    YRotation: 270
+  - DisplayName: LevelNode
+    GUID: 108f9455-50f3-484e-8e3d-385b3f984d25
+    position:
+      serializedVersion: 2
+      x: 4806
+      y: -288
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 414888592598186068, guid: def45e15eed49cb43bc87b88b93934a4,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: 102b7e90-e02f-40f6-b180-44f3521653ac
+    position:
+      serializedVersion: 2
+      x: 4952
+      y: 438
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 414888592598186068, guid: def45e15eed49cb43bc87b88b93934a4,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: 9dd225ea-ec81-4f12-8a15-532fcb4d9103
+    position:
+      serializedVersion: 2
+      x: 4677
+      y: 561
+      width: 205
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 832216467941470782, guid: 6d8a5960ca2669a4a9f3a0df92024644,
+      type: 3}
+    YRotation: 270
+  - DisplayName: LevelNode
+    GUID: 48af2c1c-1efc-48aa-a3ee-4aa3b2bd4459
+    position:
+      serializedVersion: 2
+      x: 5332
+      y: 423
+      width: 205
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 832216467941470782, guid: 6d8a5960ca2669a4a9f3a0df92024644,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: d6bffcbe-29d9-4daf-b1bb-928e90585d64
+    position:
+      serializedVersion: 2
+      x: 5143
+      y: 654
+      width: 205
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 832216467941470782, guid: 6d8a5960ca2669a4a9f3a0df92024644,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: d65c9bbf-d6a1-452b-b70d-8b358ee8bbde
+    position:
+      serializedVersion: 2
+      x: 5029
+      y: -127
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 414888592598186068, guid: def45e15eed49cb43bc87b88b93934a4,
+      type: 3}
+    YRotation: 270
+  - DisplayName: LevelNode
+    GUID: dd6f915a-a339-48c4-94b1-5ba42bfc5e7e
+    position:
+      serializedVersion: 2
+      x: 4239
+      y: -56
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 983099437784474119, guid: 1f1a2e4d0acd6514ea39063a7be11ea1,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: af77f091-785d-4715-a7d4-40108bfe4d96
+    position:
+      serializedVersion: 2
+      x: 3933
+      y: 331
+      width: 223
+      height: 165
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 1496524642138899300, guid: 7e53abbfa60e7e64e806c7a7196cc735,
+      type: 3}
+    YRotation: 270
+  - DisplayName: LevelNode
+    GUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
+    position:
+      serializedVersion: 2
+      x: 4597
+      y: 341
+      width: 223
+      height: 165
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 1496524642138899300, guid: 7e53abbfa60e7e64e806c7a7196cc735,
+      type: 3}
+    YRotation: 270
+  - DisplayName: LevelNode
+    GUID: f7cfdaab-502e-4ed7-8441-53a7776ab706
+    position:
+      serializedVersion: 2
+      x: 4820
+      y: 101
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 983099437784474119, guid: 1f1a2e4d0acd6514ea39063a7be11ea1,
+      type: 3}
+    YRotation: 270
+  - DisplayName: LevelNode
+    GUID: 62e81449-e94c-466b-bd47-b1f4ce871bf4
+    position:
+      serializedVersion: 2
+      x: 4611
+      y: -40
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 414888592598186068, guid: def45e15eed49cb43bc87b88b93934a4,
+      type: 3}
+    YRotation: 0
+  decisionNodeData: []
+  linkNodeData:
+  - DisplayName: Link
+    GUID: 0afeeeda-a23f-4713-af95-e10b17bacef4
+    position:
+      serializedVersion: 2
+      x: -441
+      y: -230
+      width: 180
+      height: 115
+    NodeContainer: {fileID: 11400000}
+    linkedContainer: {fileID: 0}
+    IsEntryPoint: 1
+  NodeLinkData:
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 057223d9-bee4-459b-90fc-6468378954eb
+    BasePortName: EIngang.001
+    TargetNodeGUID: 5f4c84d4-5af6-45ae-8a1e-4b15c0d893ab
+    TargetPortName: DoorConnector
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 057223d9-bee4-459b-90fc-6468378954eb
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 9715a768-a653-4a9d-93c2-ce75443668f4
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 5f4c84d4-5af6-45ae-8a1e-4b15c0d893ab
+    BasePortName: DoorConnector
+    TargetNodeGUID: 057223d9-bee4-459b-90fc-6468378954eb
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 9715a768-a653-4a9d-93c2-ce75443668f4
+    BasePortName: Ausgang.001
+    TargetNodeGUID: a10442bc-b64b-4afa-9298-374f32bef0bc
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 9715a768-a653-4a9d-93c2-ce75443668f4
+    BasePortName: EIngang.001
+    TargetNodeGUID: 057223d9-bee4-459b-90fc-6468378954eb
+    TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 7139f935-c9a4-4105-8e6e-71abb15b1929
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 9af9ebea-3b3c-4222-b176-256a7ad258c4
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 7139f935-c9a4-4105-8e6e-71abb15b1929
+    BasePortName: EIngang.001
+    TargetNodeGUID: e5c71185-10b2-4fbd-9c82-2547569ed0b8
+    TargetPortName: EIngang.002
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 56719844-e7ad-4438-ad13-ee6c0aac9c78
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 02ff8fe1-18c3-4d3a-88e5-1550a0b2f987
+    TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 56719844-e7ad-4438-ad13-ee6c0aac9c78
+    BasePortName: EIngang.001
+    TargetNodeGUID: 6e2e3001-6c01-43ee-815d-f0e2aba41fac
+    TargetPortName: EIngang.002
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 02ff8fe1-18c3-4d3a-88e5-1550a0b2f987
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 56719844-e7ad-4438-ad13-ee6c0aac9c78
+    TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 02ff8fe1-18c3-4d3a-88e5-1550a0b2f987
+    BasePortName: EIngang.001
+    TargetNodeGUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
+    TargetPortName: Eingang.003
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b05e64f0-9412-4e94-9fe4-fbff8d40e314
+    BasePortName: EIngang.002
+    TargetNodeGUID: eef58634-36b8-456f-a4bb-8026742de565
+    TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: a10442bc-b64b-4afa-9298-374f32bef0bc
+    BasePortName: Ausgang.001
+    TargetNodeGUID: b05e64f0-9412-4e94-9fe4-fbff8d40e314
+    TargetPortName: EIngang.002
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: a10442bc-b64b-4afa-9298-374f32bef0bc
+    BasePortName: EIngang.001
+    TargetNodeGUID: 652e8f38-c0b8-41d8-9b2b-aea60db7bffa
+    TargetPortName: EIngang.002
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: a69d4796-b06d-470e-963e-2c23bab9a1c4
+    BasePortName: Ausgang.001
+    TargetNodeGUID: b26ee7f6-0f9b-47c9-bb68-76827ad62adf
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: a69d4796-b06d-470e-963e-2c23bab9a1c4
+    BasePortName: EIngang.001
+    TargetNodeGUID: e5c71185-10b2-4fbd-9c82-2547569ed0b8
+    TargetPortName: EIngang.002
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b26ee7f6-0f9b-47c9-bb68-76827ad62adf
+    BasePortName: Ausgang.001
+    TargetNodeGUID: b6ef333e-55ca-41b6-b9d3-ecbc51629486
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b26ee7f6-0f9b-47c9-bb68-76827ad62adf
+    BasePortName: EIngang.001
+    TargetNodeGUID: 6e2e3001-6c01-43ee-815d-f0e2aba41fac
+    TargetPortName: EIngang.002
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: eef58634-36b8-456f-a4bb-8026742de565
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 082da51a-ab59-4c39-b4d1-25c4a4c8adde
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: eef58634-36b8-456f-a4bb-8026742de565
+    BasePortName: EIngang.001
+    TargetNodeGUID: 652e8f38-c0b8-41d8-9b2b-aea60db7bffa
+    TargetPortName: EIngang.002
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 652e8f38-c0b8-41d8-9b2b-aea60db7bffa
+    BasePortName: EIngang.002
+    TargetNodeGUID: eef58634-36b8-456f-a4bb-8026742de565
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 268d5192-1799-4628-8f4f-7cd822899f0d
+    BasePortName: EIngang.002
+    TargetNodeGUID: 17abc06d-9159-4619-8144-9627407c8dec
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 9039ab36-ee0e-45bc-b495-321cb78908a8
+    BasePortName: EIngang.002
+    TargetNodeGUID: 9af9ebea-3b3c-4222-b176-256a7ad258c4
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: e5c71185-10b2-4fbd-9c82-2547569ed0b8
+    BasePortName: EIngang.002
+    TargetNodeGUID: 7139f935-c9a4-4105-8e6e-71abb15b1929
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b6ef333e-55ca-41b6-b9d3-ecbc51629486
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 082da51a-ab59-4c39-b4d1-25c4a4c8adde
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b6ef333e-55ca-41b6-b9d3-ecbc51629486
+    BasePortName: EIngang.001
+    TargetNodeGUID: 268d5192-1799-4628-8f4f-7cd822899f0d
+    TargetPortName: EIngang.002
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 17abc06d-9159-4619-8144-9627407c8dec
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 56719844-e7ad-4438-ad13-ee6c0aac9c78
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 17abc06d-9159-4619-8144-9627407c8dec
+    BasePortName: EIngang.001
+    TargetNodeGUID: 268d5192-1799-4628-8f4f-7cd822899f0d
+    TargetPortName: EIngang.002
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 9af9ebea-3b3c-4222-b176-256a7ad258c4
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 17abc06d-9159-4619-8144-9627407c8dec
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 9af9ebea-3b3c-4222-b176-256a7ad258c4
+    BasePortName: EIngang.001
+    TargetNodeGUID: 9039ab36-ee0e-45bc-b495-321cb78908a8
+    TargetPortName: EIngang.002
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 082da51a-ab59-4c39-b4d1-25c4a4c8adde
+    BasePortName: Ausgang.001
+    TargetNodeGUID: a69d4796-b06d-470e-963e-2c23bab9a1c4
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 082da51a-ab59-4c39-b4d1-25c4a4c8adde
+    BasePortName: EIngang.001
+    TargetNodeGUID: 9039ab36-ee0e-45bc-b495-321cb78908a8
+    TargetPortName: EIngang.002
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
+    BasePortName: AusgangL.001
+    TargetNodeGUID: 22d2ffd9-e85d-4757-becc-73beefc03f07
+    TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
+    BasePortName: AusgangR.001
+    TargetNodeGUID: ec327e4d-7d64-45d8-a60d-29a4971bba15
+    TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
+    BasePortName: Eingang.003
+    TargetNodeGUID: 02ff8fe1-18c3-4d3a-88e5-1550a0b2f987
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 22d2ffd9-e85d-4757-becc-73beefc03f07
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
+    TargetPortName: AusgangL.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 22d2ffd9-e85d-4757-becc-73beefc03f07
+    BasePortName: EIngang.001
+    TargetNodeGUID: cf789534-a64a-4c78-b1aa-c95d553ac77f
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: dfa36947-ec62-463c-9f96-4cebe00e691a
+    BasePortName: Ausgang.001
+    TargetNodeGUID: af77f091-785d-4715-a7d4-40108bfe4d96
+    TargetPortName: Eingang.003
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: dfa36947-ec62-463c-9f96-4cebe00e691a
+    BasePortName: EIngang.001
+    TargetNodeGUID: ec327e4d-7d64-45d8-a60d-29a4971bba15
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: cf789534-a64a-4c78-b1aa-c95d553ac77f
+    BasePortName: Ausgang.001
+    TargetNodeGUID: af77f091-785d-4715-a7d4-40108bfe4d96
+    TargetPortName: Eingang.003
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: cf789534-a64a-4c78-b1aa-c95d553ac77f
+    BasePortName: EIngang.001
+    TargetNodeGUID: 22d2ffd9-e85d-4757-becc-73beefc03f07
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: ec327e4d-7d64-45d8-a60d-29a4971bba15
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 3122c8d2-7dea-41ab-bec2-92bb1be546a2
+    TargetPortName: AusgangR.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: ec327e4d-7d64-45d8-a60d-29a4971bba15
+    BasePortName: EIngang.001
+    TargetNodeGUID: dfa36947-ec62-463c-9f96-4cebe00e691a
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 6e2e3001-6c01-43ee-815d-f0e2aba41fac
+    BasePortName: EIngang.002
+    TargetNodeGUID: 56719844-e7ad-4438-ad13-ee6c0aac9c78
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 108f9455-50f3-484e-8e3d-385b3f984d25
+    BasePortName: Ausgang.001
+    TargetNodeGUID: d65c9bbf-d6a1-452b-b70d-8b358ee8bbde
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 108f9455-50f3-484e-8e3d-385b3f984d25
+    BasePortName: EIngang.001
+    TargetNodeGUID: dd6f915a-a339-48c4-94b1-5ba42bfc5e7e
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 102b7e90-e02f-40f6-b180-44f3521653ac
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 9dd225ea-ec81-4f12-8a15-532fcb4d9103
+    TargetPortName: EIngang.002
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 102b7e90-e02f-40f6-b180-44f3521653ac
+    BasePortName: EIngang.001
+    TargetNodeGUID: 48af2c1c-1efc-48aa-a3ee-4aa3b2bd4459
+    TargetPortName: EIngang.002
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 9dd225ea-ec81-4f12-8a15-532fcb4d9103
+    BasePortName: EIngang.002
+    TargetNodeGUID: 102b7e90-e02f-40f6-b180-44f3521653ac
+    TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 48af2c1c-1efc-48aa-a3ee-4aa3b2bd4459
+    BasePortName: EIngang.002
+    TargetNodeGUID: d6bffcbe-29d9-4daf-b1bb-928e90585d64
+    TargetPortName: EIngang.002
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: d6bffcbe-29d9-4daf-b1bb-928e90585d64
+    BasePortName: EIngang.002
+    TargetNodeGUID: 48af2c1c-1efc-48aa-a3ee-4aa3b2bd4459
+    TargetPortName: EIngang.002
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: d65c9bbf-d6a1-452b-b70d-8b358ee8bbde
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 62e81449-e94c-466b-bd47-b1f4ce871bf4
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: d65c9bbf-d6a1-452b-b70d-8b358ee8bbde
+    BasePortName: EIngang.001
+    TargetNodeGUID: 108f9455-50f3-484e-8e3d-385b3f984d25
+    TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: dd6f915a-a339-48c4-94b1-5ba42bfc5e7e
+    BasePortName: Ausgang.001
+    TargetNodeGUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
+    TargetPortName: Eingang.003
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: dd6f915a-a339-48c4-94b1-5ba42bfc5e7e
+    BasePortName: EIngang.001
+    TargetNodeGUID: 108f9455-50f3-484e-8e3d-385b3f984d25
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: af77f091-785d-4715-a7d4-40108bfe4d96
+    BasePortName: AusgangL.001
+    TargetNodeGUID: 62e81449-e94c-466b-bd47-b1f4ce871bf4
+    TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: af77f091-785d-4715-a7d4-40108bfe4d96
+    BasePortName: AusgangR.001
+    TargetNodeGUID: f7cfdaab-502e-4ed7-8441-53a7776ab706
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: af77f091-785d-4715-a7d4-40108bfe4d96
+    BasePortName: Eingang.003
+    TargetNodeGUID: cf789534-a64a-4c78-b1aa-c95d553ac77f
+    TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
+    BasePortName: AusgangL.001
+    TargetNodeGUID: 62e81449-e94c-466b-bd47-b1f4ce871bf4
+    TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
+    BasePortName: AusgangR.001
+    TargetNodeGUID: f7cfdaab-502e-4ed7-8441-53a7776ab706
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
+    BasePortName: Eingang.003
+    TargetNodeGUID: 102b7e90-e02f-40f6-b180-44f3521653ac
+    TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: f7cfdaab-502e-4ed7-8441-53a7776ab706
+    BasePortName: Ausgang.001
+    TargetNodeGUID: d65c9bbf-d6a1-452b-b70d-8b358ee8bbde
+    TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: f7cfdaab-502e-4ed7-8441-53a7776ab706
+    BasePortName: EIngang.001
+    TargetNodeGUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
+    TargetPortName: AusgangR.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 62e81449-e94c-466b-bd47-b1f4ce871bf4
+    BasePortName: Ausgang.001
+    TargetNodeGUID: b8bc4432-ebae-416d-af71-fd5025f89fb8
+    TargetPortName: AusgangL.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 62e81449-e94c-466b-bd47-b1f4ce871bf4
+    BasePortName: EIngang.001
+    TargetNodeGUID: d65c9bbf-d6a1-452b-b70d-8b358ee8bbde
+    TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 0afeeeda-a23f-4713-af95-e10b17bacef4
+    BasePortName: Link
+    TargetNodeGUID: 5f4c84d4-5af6-45ae-8a1e-4b15c0d893ab
+    TargetPortName: DoorConnector
