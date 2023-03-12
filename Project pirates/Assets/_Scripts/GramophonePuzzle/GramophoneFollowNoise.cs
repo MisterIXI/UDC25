@@ -9,7 +9,7 @@ public class GramophoneFollowNoise : MonoBehaviour
     private GramophoneSettings _gramophoneSettings;
     private void OnEnable()
     {
-        Debug.Log($"Gameobject active: {gameObject.activeInHierarchy}");
+        // Debug.Log($"Gameobject active: {gameObject.activeInHierarchy}");
         _gramophoneSettings = SettingsManager.GramophoneSettings;
         transform.parent = null;
         LevelOrchestrator.OnCurrentNodeChanged += ChangeCurrentTarget;
