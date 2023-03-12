@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corr_LP_SP_MIRR
       objectReference: {fileID: 0}
+    - target: {fileID: 6463764173887428696, guid: d6d07e955d3f7f24ca683b038e84c911,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9ecba7eb92cb5274384a1dac5d0a07d6, type: 2}
     - target: {fileID: 7302813575089959452, guid: d6d07e955d3f7f24ca683b038e84c911,
         type: 3}
       propertyPath: m_RootOrder
