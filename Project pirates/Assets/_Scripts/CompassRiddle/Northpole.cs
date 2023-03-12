@@ -14,7 +14,7 @@ public class Northpole : MonoBehaviour
 
     private int posCount = 0;
 
-    private Vector3 voidDoorClosed = new Vector3(0, 0, 7.780003f);
+    private Vector3 voidDoorClosed = new Vector3(0f, 2f, 49.94f);
     private Vector3 voidDoorOpend;
 
 

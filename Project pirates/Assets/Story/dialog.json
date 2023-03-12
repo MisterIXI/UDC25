@@ -1,11 +1,22 @@
-{"Intro":[{
+{
+"Intro":[{
 "Text":"Just twentyfour hours we have sailing in our epochal plasma sailing carrier. And twentyfour hors have passed since I messed wit hthe boss and here I am sitting a shitty cell on this ship."
 },
 {
 "Text":"Honestly, I`m not even suprised. I stuff a few bites of the delicious deephexagon-carp into myself. Maybe I`ll burn the boss to the flagpole the next chance i get, I`m not going to take that, I´m supposed to give up half the treasure just so he doesn`t report us to galactic customs."
 }]
-}
-{"Gameplay":[{
+,
+"Hints":[{
+    "Text":"Don`t exept the way one side....."
+},
+{"Text": "There is not only one direction."
+},
+{"Text": "Use your enviroment as a tool."
+},
+{"Text": "Sequence of beautiful music."},
+{"Text": "Bad habits should always be kept in mind."}]
+,
+"Gameplay":[{
 "Text":"As I stared into the room, I saw somethings strange, was it a mirage, where are Hannes and Gregori, my trained academy pilots?"
 },
 {
@@ -13,9 +24,6 @@
 },
 {
 "Text":"At least the boss his golden boy will witness my big return, he`ll probably scold me like a little kid again. Malik is just too green behind the ears, he`s just not ready for this difficult adventure, I don`t even know if I`m ready, am I?"
-},
-{
-"Text":"Was that Hannes?..... No, I thought I saw him, where the hell are they all, I´m going crazy here."
 },
 {
 "Text":"My body stiffens, there are at least two objects that are sudenly somewhere else, I haven`t heard anything and haven`t seen anyone, what`s going on here ?"
@@ -57,9 +65,6 @@
 "Text":"Are all the crew lost? neutralised?"
 },
 {
-"Text":"Insider? Did someone on the crew know something, was going to happen and helped? The thought alone takes my breath away. I have to find someone."
-},
-{
 "Text":"My hands and feet are reacting even before my brain has properly gasped the words, it``s all to much for me."
 },
 {
@@ -67,9 +72,6 @@
 },
 {
 "Text":"Dam Pigs! They`ll just leave here and possibly go to Treasure Island."
-},
-{
-"Text":"There`s one coming?........."
 },
 {
 "Text":"My heart slips into my pants, I swallow harder, I try to calm down. But this room is frightening."
@@ -83,8 +85,7 @@
 {
 "Text":"A sharp pain chases through my head as I try to speak, so sharp I can even feel it in my teeth. I hold onto the wall until the pain subsides, hoping it won`t come back."
 }]
-}
-{"Ending":[{
+,"Ending":[{
 "Text":"I`am not alone."
-},]
+}]
 }
