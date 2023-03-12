@@ -62,10 +62,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7366103490965741816, guid: 1f7ccf251a387b846b530f9e67d46f27,
+        type: 3}
+      propertyPath: m_Name
+      value: FrontDoor
+      objectReference: {fileID: 0}
     - target: {fileID: 7503414855063295798, guid: 1f7ccf251a387b846b530f9e67d46f27,
         type: 3}
       propertyPath: m_Name
       value: SpaceShipNodev
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623562635929738296, guid: 1f7ccf251a387b846b530f9e67d46f27,
+        type: 3}
+      propertyPath: m_Name
+      value: BackDoor
       objectReference: {fileID: 0}
     - target: {fileID: 7985202875209239009, guid: 1f7ccf251a387b846b530f9e67d46f27,
         type: 3}
@@ -306,6 +316,39 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7121245332315503600, guid: 6041a4d8d7d30be4cb50c6821ca0dff7, type: 3}
+--- !u!1 &6782099126069986128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7503414855063295798, guid: 1f7ccf251a387b846b530f9e67d46f27,
+    type: 3}
+  m_PrefabInstance: {fileID: 3909026854476731494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &170137255860233234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6782099126069986128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0756a5b903e7b044a89614a994d8f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <anchors>k__BackingField:
+  - {fileID: 8482586594175159565}
+  - {fileID: 5337699006401801752}
+  LevelNodeData:
+    DisplayName: 
+    GUID: 
+    position:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    NodeContainer: {fileID: 0}
+    anchorList: {fileID: 0}
+    YRotation: 0
 --- !u!1 &6914136922113968222 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7623562635929738296, guid: 1f7ccf251a387b846b530f9e67d46f27,
