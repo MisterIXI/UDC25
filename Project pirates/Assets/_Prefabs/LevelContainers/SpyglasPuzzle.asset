@@ -12,7 +12,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6598f2667cc6c1a478f5fba0f197e895, type: 3}
   m_Name: SpyglasPuzzle
   m_EditorClassIdentifier: 
-  levelNodeData: []
+  levelNodeData:
+  - DisplayName: LevelNode
+    GUID: b2a99117-0247-4c1d-bc89-d988de82ba1a
+    position:
+      serializedVersion: 2
+      x: 235
+      y: 53
+      width: 264
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 5673194260537760650, guid: e78b3233c8758714b9b12a158e7ebbc4,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: 07570b77-7a23-4de5-af39-b309f2a1e421
+    position:
+      serializedVersion: 2
+      x: -110
+      y: -64
+      width: 268
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 4317505020018317865, guid: a396d099f8c8f00409233826784e60fd,
+      type: 3}
+    YRotation: 0
   decisionNodeData: []
-  linkNodeData: []
-  NodeLinkData: []
+  linkNodeData:
+  - DisplayName: Link
+    GUID: d05edf8a-9f58-480f-914c-59a31a1e03d4
+    position:
+      serializedVersion: 2
+      x: 600
+      y: 58
+      width: 247
+      height: 115
+    NodeContainer: {fileID: 11400000}
+    linkedContainer: {fileID: 11400000, guid: b6ac19d5ffa78504c89c638e96875857, type: 2}
+    IsEntryPoint: 0
+  - DisplayName: Link
+    GUID: 7620d2e3-7312-442f-8b01-e53a14dc0781
+    position:
+      serializedVersion: 2
+      x: -197
+      y: 79
+      width: 221
+      height: 115
+    NodeContainer: {fileID: 11400000}
+    linkedContainer: {fileID: 11400000}
+    IsEntryPoint: 1
+  NodeLinkData:
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 7620d2e3-7312-442f-8b01-e53a14dc0781
+    BasePortName: Link
+    TargetNodeGUID: b2a99117-0247-4c1d-bc89-d988de82ba1a
+    TargetPortName: BackDoorPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b2a99117-0247-4c1d-bc89-d988de82ba1a
+    BasePortName: BackDoorPillar
+    TargetNodeGUID: d05edf8a-9f58-480f-914c-59a31a1e03d4
+    TargetPortName: Link
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b2a99117-0247-4c1d-bc89-d988de82ba1a
+    BasePortName: FrontDoorPillar
+    TargetNodeGUID: 07570b77-7a23-4de5-af39-b309f2a1e421
+    TargetPortName: DoorExitNaked
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 07570b77-7a23-4de5-af39-b309f2a1e421
+    BasePortName: DoorExitNaked
+    TargetNodeGUID: b2a99117-0247-4c1d-bc89-d988de82ba1a
+    TargetPortName: FrontDoorPillar
