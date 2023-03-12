@@ -100,6 +100,11 @@ public class LevelOrchestrator : MonoBehaviour
             return;
         }
         NodeLinkData nextNodeLink = CurrentAnchorList.LevelNodeData.GetNodeLinkDataOfNextValidLevelNode(frustumCulling.name);
+        if (nextNodeLink == null)
+        {
+            Debug.LogWarning($"No valid NodeLink found for {frustumCulling.name} in {CurrentAnchorList.name}");
+            return;
+        }
         LevelNodeData nextNode = nextNodeLink.TargetNodeGUID.ConvertGuidStringToBaseNode(nextNodeLink.NodeContainer) as LevelNodeData;
         if (nextNode == null)
             return;
