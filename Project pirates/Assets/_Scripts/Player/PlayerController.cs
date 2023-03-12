@@ -83,15 +83,42 @@ public class PlayerController : MonoBehaviour
 
     private void StepClimb()
     {
-        if (Physics.Raycast(groundCheck.position, Vector3.down, out RaycastHit hit, 0.2f))
+        // if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 0.2f))
+        // {
+        //     if (_isMoving && hit.collider.tag == "Stair")
+        //     {
+        //         // _rigidbody.position -= new Vector3(0, -stepHeight, 0);
+        //         var velocity = _rigidbody.velocity;
+        //         velocity.y += _playerSettings.StairPushForce;
+        //         _rigidbody.velocity = velocity;
+        //     }
+        // }
+        if (_IsOnStairs)
         {
-            if (_isMoving && hit.transform.gameObject.layer == LayerMask.NameToLayer("Stairs"))
-            {
-                _rigidbody.position -= new Vector3(0, -stepHeight, 0);
-            }
+            var velocity = _rigidbody.velocity;
+            velocity.y += _playerSettings.StairPushForce;
+            _rigidbody.velocity = velocity;
+        }
+    }
+    private bool _IsOnStairs = false;
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Stair")
+        {
+            Debug.Log("Entered Stairs");
+
+            _IsOnStairs = true;
         }
     }
 
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Stair")
+        {
+            Debug.Log("Exited Stairs");
+            _IsOnStairs = false;
+        }
+    }
     private void HandleLook()
     {
 
@@ -102,14 +129,16 @@ public class PlayerController : MonoBehaviour
         this.ladder = ladder;
         _isOnLadder = isOnLadder;
         Debug.Log(isOnLadder);
-        if(isOnLadder){
+        if (isOnLadder)
+        {
             _snappedToLadder = true;
-            if(Vector3.Distance(transform.position, ladder.GetStartPoint().position) > Vector3.Distance(transform.position, ladder.GetEndPoint().position))
+            if (Vector3.Distance(transform.position, ladder.GetStartPoint().position) > Vector3.Distance(transform.position, ladder.GetEndPoint().position))
                 transform.position = ladder.GetEndPoint().position;
             else
                 transform.position = ladder.GetStartPoint().position;
         }
-        else{
+        else
+        {
             _snappedToLadder = false;
             _isOnLadder = false;
             _snappedToLadder = false;

@@ -21,6 +21,7 @@ public class PlayerSettings : ScriptableObject
     [field: SerializeField] public float MovementSpeed { get; set; } = 1f;
     [field: SerializeField][field: Range(0.01f, 1f)] public float MovementSnapSeconds { get; set; } = 1f;
     [field: SerializeField] public float StepLength { get; set; } = 50f;
+    [field: SerializeField] public float StairPushForce { get; set; } = 0.5f;
     [field: Header("Camera")]
     [field: SerializeField][field: Range(-1f, 2f)] public float CameraVerticalOffset { get; set; } = 0.5f;
     [field: SerializeField][field: Range(0f, 1f)] public float CameraBobbingMultX { get; set; } = 0.5f;
