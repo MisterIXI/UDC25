@@ -98,6 +98,21 @@ public class PrefabPool : MonoBehaviour
             BaseNodeData currentNodeData = nodesToVisit.Dequeue();
             if (visitedNodes.Contains(currentNodeData))
                 continue;
+            if (currentNodeData == null)
+            {
+                Debug.LogWarning("Skipped null node");
+
+                continue;
+            }
+            if (currentNodeData is LevelNodeData levelNodeDataTest)
+            {
+                if (levelNodeDataTest.anchorList == null)
+                {
+                    Debug.LogWarning($"Skipped level {levelNodeDataTest.GUID} node with null anchor list");
+                    continue;
+                }
+
+            }
             visitedNodes.Add(currentNodeData);
             if (currentNodeData is LevelNodeData levelNodeData)
             {
@@ -134,7 +149,8 @@ public class PrefabPool : MonoBehaviour
             }
         }
     }
-    private void OnDestroy() {
+    private void OnDestroy()
+    {
         if (Instance == this)
             Instance = null;
     }

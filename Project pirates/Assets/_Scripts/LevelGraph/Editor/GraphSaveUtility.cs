@@ -78,14 +78,22 @@ public class GraphSaveUtility
                 var outputPort = port as Port;
                 foreach (Edge edge in outputPort.connections)
                 {
-                    NodeLinks.Add(new NodeLinkData
+                    if (edge != null)
                     {
-                        BaseNodeGUID = node.GUID,
-                        BasePortName = outputPort.portName,
-                        TargetNodeGUID = ((BaseNode)edge.input.node).GUID,
-                        TargetPortName = ((Port)edge.input).portName,
-                        NodeContainer = container
-                    });
+                        NodeLinks.Add(new NodeLinkData
+                        {
+                            BaseNodeGUID = node.GUID,
+                            BasePortName = outputPort.portName,
+                            TargetNodeGUID = ((BaseNode)edge.input.node).GUID,
+                            TargetPortName = ((Port)edge.input).portName,
+                            NodeContainer = container
+                        });
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Edge is null, skipping...");
+                    }
+
                 }
             }
         }
@@ -96,6 +104,7 @@ public class GraphSaveUtility
         container.LabelNodeData = labelNodeDatas;
         EditorUtility.SetDirty(container);
         AssetDatabase.SaveAssetIfDirty(container);
+        Debug.Log("Saved graph to " + AssetDatabase.GetAssetPath(container));
     }
 
     public void LoadGraph(NodeContainer container)
