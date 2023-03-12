@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 3869732135578740036}
   - component: {fileID: 1456420647}
   - component: {fileID: 180823691}
+  - component: {fileID: 6515924778703852935}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -209,9 +210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1c325843a44554ebf09f49d94a4df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destItemRotation: {x: 90, y: 0, z: 0}
-  rubberbandForce: 100
-  rotationSpeed: 3
 --- !u!114 &1456420647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +223,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _drawDebugGizmos: 1
-  _interactObjectHoldPosition: {fileID: 979146135}
 --- !u!114 &180823691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +236,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <_drawDebugGizmos>k__BackingField: 0
+--- !u!114 &6515924778703852935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5176867542112129158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34458be8dba4a3f4d8d3622009b3954e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinObject: {fileID: 11400000, guid: 4c96b3dcfc5321d4ab438c851319eba7, type: 2}
 --- !u!1 &7903861169099434038
 GameObject:
   m_ObjectHideFlags: 0
