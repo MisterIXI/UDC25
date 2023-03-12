@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 public class ButtonSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IDeselectHandler {
+    private AudioClips _audioClips;
 
     private Button _button;
     private RectTransform _buttonTransform;
@@ -13,6 +14,11 @@ public class ButtonSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler,
     public Vector2 selectSize = new Vector2(330f, 93.5f);
 
     private bool selected;
+
+    private void Start() 
+    {
+        _audioClips = SoundManager.AudioClips;
+    }
 
     private void Awake() {
         _button = GetComponent<Button>();
@@ -41,7 +47,8 @@ public class ButtonSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler,
         }
         else
         {
-            _button.Select();
+            selected = true;
+            // _button.Select();
         }
     }
 
@@ -53,6 +60,8 @@ public class ButtonSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler,
     public void OnSelect(BaseEventData eventData)
     {
         selected = true;
+
+        SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.ButtonHover, Camera.main.transform.position);
     }
 
     public void OnDeselect(BaseEventData eventData)
