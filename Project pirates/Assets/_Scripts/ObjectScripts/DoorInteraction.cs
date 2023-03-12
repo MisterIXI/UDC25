@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DoorInteraction : MonoBehaviour, IInteractable
 {
+    private AudioClips _audioClips;
+
     [SerializeField] float timeToOpen;
     [SerializeField] float openAngle;
     [SerializeField] bool isKeyNeeded;
@@ -12,6 +14,13 @@ public class DoorInteraction : MonoBehaviour, IInteractable
     [SerializeField] float angleOffset;
 
     bool hasInteracted;
+
+    void Start() 
+    {
+        _audioClips = SoundManager.AudioClips;
+    }
+
+
     public string Data()
     {
         return KeyString();
@@ -27,6 +36,8 @@ public class DoorInteraction : MonoBehaviour, IInteractable
             return "Wrong Key";
         else if (isKeyNeeded && key.KeyID == lockID)
             return "Unlock Door";
+        else if (hasInteracted)
+            return "Door is Stuck";
         return "Open Door";
     }
 
@@ -36,7 +47,10 @@ public class DoorInteraction : MonoBehaviour, IInteractable
         if (!hasInteracted)
         {
             if(!isKeyNeeded)
-                StartCoroutine(OpenDoor());
+                {
+                    SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.DoorOpenShort, Camera.main.transform.position);
+                    StartCoroutine(OpenDoor());
+                }
             else
             {
                 CheckKey();
@@ -48,6 +62,7 @@ public class DoorInteraction : MonoBehaviour, IInteractable
     {   
         Key key = PlayerInventory.Instance.Item?.GetComponent<Key>();
         if (key?.KeyID == lockID)
+            SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.DoorOpenShort, Camera.main.transform.position);
             StartCoroutine(OpenDoor());
     }
 
@@ -67,6 +82,7 @@ public class DoorInteraction : MonoBehaviour, IInteractable
             duration += Time.deltaTime;
             yield return null;
         }
+        
         hasInteracted = true;
     }
 
