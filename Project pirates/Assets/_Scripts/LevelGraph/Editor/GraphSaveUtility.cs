@@ -57,7 +57,7 @@ public class GraphSaveUtility
                     GUID = linkNode.GUID,
                     DisplayName = linkNode.title,
                     position = linkNode.GetPosition(),
-                    container = linkNode.container,
+                    linkedContainer = linkNode.container,
                     IsEntryPoint = linkNode.IsEntryPoint,
                     NodeContainer = container
                 });
@@ -83,7 +83,8 @@ public class GraphSaveUtility
                         BaseNodeGUID = node.GUID,
                         BasePortName = outputPort.portName,
                         TargetNodeGUID = ((BaseNode)edge.input.node).GUID,
-                        TargetPortName = ((Port)edge.input).portName
+                        TargetPortName = ((Port)edge.input).portName,
+                        NodeContainer = container
                     });
                 }
             }
@@ -116,7 +117,7 @@ public class GraphSaveUtility
         }
         foreach (LinkNodeData nodeData in linkNodeDatas)
         {
-            var linkNode = _targetGraphView.CreateAndAddLinkNode(nodeData.DisplayName, nodeData.GUID, nodeData.position, nodeData.container, nodeData.IsEntryPoint);
+            var linkNode = _targetGraphView.CreateAndAddLinkNode(nodeData.DisplayName, nodeData.GUID, nodeData.position, nodeData.linkedContainer, nodeData.IsEntryPoint);
             nodeDict.Add(nodeData.GUID, linkNode);
         }
         foreach (BaseNode node in nodeDict.Values)

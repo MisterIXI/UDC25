@@ -80,6 +80,8 @@ public class PlayerInteract : MonoBehaviour
 
     private void OnDestroy()
     {
+        PossibleInteractableObject = null;
+        CurrentInteractableObject = null;
         UnsubscribeToInput();
     }
 

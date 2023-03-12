@@ -7,7 +7,7 @@ public class GeometryAnchorEditor : Editor
     [ExecuteInEditMode]
     private void OnEnable()
     {
-        Debug.Log("GeometryAnchorEditor.OnEnable");
+        // Debug.Log("GeometryAnchorEditor.OnEnable");
         SerializedObject gA_SO = new SerializedObject(target);
         SerializedProperty collider = gA_SO.FindProperty("_collider");
         if (collider.objectReferenceValue == null)

@@ -22,7 +22,12 @@ public class PrefabPool : MonoBehaviour
     private void Start()
     {
     }
-
+    public static AnchorList GetInstantiatedAnchorList(string guid)
+    {
+        if (Instance._prefabPool.ContainsKey(guid))
+            return Instance._prefabPool[guid];
+        return null;
+    }
     public static AnchorList SpawnAnchorListAtPosition(string guid, string portName, Vector3 position)
     {
         var prefabPool = Instance._prefabPool;
@@ -114,6 +119,14 @@ public class PrefabPool : MonoBehaviour
                     Debug.LogError("Duplicate GUID detected");
                 }
             }
+            else if (currentNodeData is DecisionNodeData decisionNodeData)
+            {
+                // do nothing
+            }
+            else if (currentNodeData is LinkNodeData linkNodeData)
+            {
+                nodesToVisit.Enqueue(linkNodeData.linkedContainer.GetEntryNode());
+            }
             List<BaseNodeData> connectedNodes = currentNodeData.GetConnectedNodes();
             foreach (BaseNodeData connectedNode in connectedNodes)
             {
@@ -121,5 +134,8 @@ public class PrefabPool : MonoBehaviour
             }
         }
     }
-
+    private void OnDestroy() {
+        if (Instance == this)
+            Instance = null;
+    }
 }

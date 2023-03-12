@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8fd5c700c559d478e406668cd9253f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gramophoneSettings: {fileID: 11400000, guid: 973d048c03e17514c9b989afd81ba170,
+    type: 2}
   _playerSettingsDefaults: {fileID: 11400000, guid: 0ebd86fd8093c0743813e212c3e16442,
     type: 2}
-  PlayerParameters: {fileID: 11400000, guid: e56b35dcb99bad3498a02f1f44d05d02, type: 2}
