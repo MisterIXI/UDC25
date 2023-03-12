@@ -10,6 +10,7 @@ public class PultInteract : MonoBehaviour, IInteractable
     
 
     private GameObject compass;
+    private GameObject particles;
     private Light sun;
     private PlayerInventory inventory;
     private PlayerSettings _playerSettings;
@@ -20,7 +21,7 @@ public class PultInteract : MonoBehaviour, IInteractable
     private Quaternion newRot = Quaternion.Euler(6, 0, 0);
     private Vector3 drawerPos = new Vector3(0, 0.5413046f, 0.2431f);
 
-    private Vector3 voidDoorPos = new Vector3(0, 0, 7.780003f);
+    private Vector3 grammophoneVoidDoorPos = new Vector3(0, 0, 7.367f);
 
 
     private void Start() 
@@ -43,6 +44,7 @@ public class PultInteract : MonoBehaviour, IInteractable
                 DisableVoidRoom();
                 if(OpenDrawer())
                 {
+                    particles.SetActive(false);
                     Destroy(this);
                 }
             }
@@ -68,6 +70,7 @@ public class PultInteract : MonoBehaviour, IInteractable
         if(inventory.Item != null && inventory.Item.name  == "Compass")
         {
             compass = inventory.Item;
+            particles = compass.transform.Find("SocketInEffect").gameObject;
 
             inventory.TakeObject(null);
             compass.transform.SetParent(gameObject.transform);
@@ -96,6 +99,7 @@ public class PultInteract : MonoBehaviour, IInteractable
         {            
             if(Vector3.Distance(compass.transform.localPosition, newPos) > 0.01f)
             {
+                particles.SetActive(true);
                 compass.transform.localPosition = Vector3.Lerp(compass.transform.localPosition, newPos, Time.deltaTime);
                 compass.transform.localRotation = Quaternion.Lerp(compass.transform.localRotation, newRot, Time.deltaTime * 10);
                 return false;
@@ -141,9 +145,9 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     private void CloseVoidDoor()
     {
-        if(Vector3.Distance(voidDoor.transform.localPosition, voidDoorPos) > 0.01f)
+        if(Vector3.Distance(voidDoor.transform.localPosition, grammophoneVoidDoorPos) > 0.01f)
         {
-            voidDoor.transform.localPosition = Vector3.Lerp(voidDoor.transform.localPosition, voidDoorPos, Time.deltaTime * 5);
+            voidDoor.transform.localPosition = Vector3.Lerp(voidDoor.transform.localPosition, grammophoneVoidDoorPos, Time.deltaTime * 5);
         }
     }
 
