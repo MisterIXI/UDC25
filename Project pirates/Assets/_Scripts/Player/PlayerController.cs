@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
             _isMoving = value;
         }
     }
+    Ladder ladder;
+
     private void Awake()
     {
         if (Instance != null)
@@ -76,6 +78,27 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void SetLadderSnap(bool isOnLadder, Ladder ladder)
+    {
+        this.ladder = ladder;
+        _isOnLadder = isOnLadder;
+        Debug.Log(isOnLadder);
+        if(isOnLadder){
+            _snappedToLadder = true;
+            if(Vector3.Distance(transform.position, ladder.GetStartPoint().position) > Vector3.Distance(transform.position, ladder.GetEndPoint().position))
+                transform.position = ladder.GetEndPoint().position;
+            else
+                transform.position = ladder.GetStartPoint().position;
+        }
+        else{
+            _snappedToLadder = false;
+            _isOnLadder = false;
+            _snappedToLadder = false;
+            _rigidbody.useGravity = true;
+            this.ladder.IsPlayerOnLadder(false);
+            this.ladder = null;
+        }
+    }
 
     private void UnsubscribeFromInput()
     {
@@ -143,19 +166,11 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag.Equals("Ladder"))
-        {
-            _isOnLadder = true;
-        }
-    }
-
     private void OnTriggerExit(Collider other)
     {
         if (other.tag.Equals("Ladder"))
         {
+            ladder = null;
             _isOnLadder = false;
             _snappedToLadder = false;
             _rigidbody.useGravity = true;
