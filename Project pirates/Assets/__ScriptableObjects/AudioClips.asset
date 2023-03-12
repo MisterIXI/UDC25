@@ -19,3 +19,23 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2d234dab2858a4445b91f87e5100cd70, type: 3}
   - {fileID: 8300000, guid: ce4cf01e7de072d40abae26ffbbca6fa, type: 3}
   - {fileID: 8300000, guid: 65e0e6e5258b40044b9869f59b4cb355, type: 3}
+  <CollisionObject>k__BackingField: {fileID: 8300000, guid: f3a08e367c9773b43b0d2ddc59d9ce9f,
+    type: 3}
+  <DoorOpenLong>k__BackingField: {fileID: 8300000, guid: 50d9d574c6265cd4ba66ad195fbb3d91,
+    type: 3}
+  <DoorOpenShort>k__BackingField: {fileID: 8300000, guid: b9c6284269103fe45b3e522a1b8d19d4,
+    type: 3}
+  <ButtonHover>k__BackingField: {fileID: 8300000, guid: 0e1d8136deb510f4ab7f13853cd6d0e0,
+    type: 3}
+  <ButtonPress>k__BackingField: {fileID: 8300000, guid: b29c6e02508c807488356c9ed851308a,
+    type: 3}
+  <GrammophonMusic>k__BackingField: {fileID: 8300000, guid: a433797aea0e6f94faf3459942a223f9,
+    type: 3}
+  <SomethingHappend>k__BackingField: {fileID: 8300000, guid: 7ba75fda4a651e84c86d000fa971120f,
+    type: 3}
+  <MenuMusic>k__BackingField: {fileID: 8300000, guid: 77518dd99a56f914d9d38441d4a115bb,
+    type: 3}
+  <AmbientInside>k__BackingField: {fileID: 8300000, guid: bf02761c0855ac44bab800a664dbf634,
+    type: 3}
+  <AmbientOutside>k__BackingField: {fileID: 8300000, guid: 246af98b3f47eb54eb92c0ff43409ecc,
+    type: 3}
