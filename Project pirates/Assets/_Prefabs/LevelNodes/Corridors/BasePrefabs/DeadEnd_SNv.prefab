@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entry_N
       objectReference: {fileID: 0}
+    - target: {fileID: 2807390675961131840, guid: 7e506a74747a32947aa3e8898888dc17,
+        type: 3}
+      propertyPath: m_text
+      value: Don`t expect that there is only one way.
+      objectReference: {fileID: 0}
     - target: {fileID: 4035906038235077348, guid: 7e506a74747a32947aa3e8898888dc17,
         type: 3}
       propertyPath: m_RootOrder
@@ -75,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 4783738339678911057, guid: 7e506a74747a32947aa3e8898888dc17,
         type: 3}
       propertyPath: m_Name
-      value: DeadEnd_SN_variant
+      value: DeadEnd_SNv
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e506a74747a32947aa3e8898888dc17, type: 3}
