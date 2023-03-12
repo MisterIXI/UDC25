@@ -4,16 +4,19 @@ using UnityEngine;
 [CustomEditor(typeof(FlagManager))]
 public class FlagManagerEditor : Editor
 {
+    public static string currentFlagNameEntry = "FlagName";
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
         // text input field
-        var flagName = EditorGUILayout.TextField("FlagName");
+        var flagName = EditorGUILayout.TextField(currentFlagNameEntry);
+        currentFlagNameEntry = flagName;
         // trigger button
         if (GUILayout.Button("Toggle Flag"))
         {
-            FlagManager.SetFlag(flagName, !FlagManager.GetFlag(flagName));
+            Debug.Log($"Toggle Flag: {currentFlagNameEntry}");
+            FlagManager.SetFlag(currentFlagNameEntry, !FlagManager.GetFlag(currentFlagNameEntry));
         }
         if (GUILayout.Button($"Quickflag: \"DebugFlag1\""))
         {

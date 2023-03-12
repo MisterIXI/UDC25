@@ -7,10 +7,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3039263632324148533, guid: ac7a084cdef29f644a1beca5ead7f8f4,
+        type: 3}
+      propertyPath: m_Name
+      value: LongDoorNaked
+      objectReference: {fileID: 0}
     - target: {fileID: 3265128957990247222, guid: ac7a084cdef29f644a1beca5ead7f8f4,
         type: 3}
       propertyPath: m_Name
       value: Corr_LDN_SPv
+      objectReference: {fileID: 0}
+    - target: {fileID: 4888729574827885076, guid: ac7a084cdef29f644a1beca5ead7f8f4,
+        type: 3}
+      propertyPath: m_Name
+      value: ShortPillar
       objectReference: {fileID: 0}
     - target: {fileID: 5374091182746045256, guid: ac7a084cdef29f644a1beca5ead7f8f4,
         type: 3}
