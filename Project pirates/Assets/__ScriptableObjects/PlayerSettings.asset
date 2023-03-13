@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b55601880db35409e72ec10367d879, type: 3}
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
-  <CloneScriptableObjectOnStart>k__BackingField: 0
-  <MasterVolume>k__BackingField: 0.21996711
+  <CloneScriptableObjectOnStart>k__BackingField: 1
+  <MasterVolume>k__BackingField: 0.2
   <MusicVolume>k__BackingField: 1
   <SfxVolume>k__BackingField: 1
   <MouseLookSensitivity>k__BackingField: 0.50456095
-  <GamepadLookSensitivity>k__BackingField: 0.9949999
+  <GamepadLookSensitivity>k__BackingField: 0.49999997
   <InvertYAxis>k__BackingField: 0
-  <MouseSensitivityMultiplier>k__BackingField: 10
-  <GamepadSensitivityMultiplier>k__BackingField: 30
-  <MovementSpeed>k__BackingField: 10
+  <MouseSensitivityMultiplier>k__BackingField: 20
+  <GamepadSensitivityMultiplier>k__BackingField: 350
+  <MovementSpeed>k__BackingField: 5
   <MovementSnapSeconds>k__BackingField: 0.358
   <StepLength>k__BackingField: 2.5
   <StairPushForce>k__BackingField: 3.5
