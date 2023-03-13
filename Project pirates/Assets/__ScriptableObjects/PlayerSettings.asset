@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
   <CloneScriptableObjectOnStart>k__BackingField: 0
-  <MasterVolume>k__BackingField: 0.3
+  <MasterVolume>k__BackingField: 0.21996711
   <MusicVolume>k__BackingField: 1
   <SfxVolume>k__BackingField: 1
-  <MouseLookSensitivity>k__BackingField: 0.5
-  <GamepadLookSensitivity>k__BackingField: 0.5
+  <MouseLookSensitivity>k__BackingField: 0.50456095
+  <GamepadLookSensitivity>k__BackingField: 0.9949999
   <InvertYAxis>k__BackingField: 0
-  <SensitivityMultiplier>k__BackingField: 20
-  <MovementSpeed>k__BackingField: 20
+  <MouseSensitivityMultiplier>k__BackingField: 10
+  <GamepadSensitivityMultiplier>k__BackingField: 30
+  <MovementSpeed>k__BackingField: 10
   <MovementSnapSeconds>k__BackingField: 0.358
   <StepLength>k__BackingField: 2.5
   <StairPushForce>k__BackingField: 3.5
@@ -82,7 +83,7 @@ MonoBehaviour:
   <InteractMaxDistance>k__BackingField: 3
   <InteractMoveForce>k__BackingField: 100
   <InteractThrowMagnitude>k__BackingField: 10
-  <InvItemRotation>k__BackingField: {x: -50, y: -20, z: -10}
+  <InvItemRotation>k__BackingField: {x: -36.1, y: 0, z: 0}
   <InvItemPosition>k__BackingField: {x: -0.44, y: -0.21, z: 0.86}
   <InvRubberbandForce>k__BackingField: 100
   <InvRotationSpeed>k__BackingField: 10

@@ -22,6 +22,7 @@ public class MenuManager : MonoBehaviour
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     private void Start()
     {
@@ -54,6 +55,7 @@ public class MenuManager : MonoBehaviour
 
     public void OnPauseGameInput(InputAction.CallbackContext context)
     {
+        Debug.Log("OnPauseGameInput" + " State: " + GameManager.CurrentGameState);
         if (context.performed)
         {
             if (GameManager.CurrentGameState == GameState.InGame)
@@ -115,7 +117,11 @@ public class MenuManager : MonoBehaviour
     }
     private void OnDestroy()
     {
-        UnsubscribeFromInput();
+        if (Instance == this)
+        {
+            Instance = null;
+            UnsubscribeFromInput();
+        }
     }
 }
 

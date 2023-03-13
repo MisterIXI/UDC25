@@ -44,7 +44,8 @@ MonoBehaviour:
     type: 3}
   <CompassAnimation>k__BackingField: {fileID: 8300000, guid: 585424e622078a148af2dc06ed8e272b,
     type: 3}
-  <CompassReadjusting>k__BackingField: {fileID: 0}
+  <CompassReadjusting>k__BackingField: {fileID: 8300000, guid: ab98152d48ddf834ba5b74812fca6ec9,
+    type: 3}
   <MenuMusic>k__BackingField: {fileID: 8300000, guid: 77518dd99a56f914d9d38441d4a115bb,
     type: 3}
   <CreditsMusic>k__BackingField: {fileID: 8300000, guid: a484e42109314c84b888d67a1f533d77,

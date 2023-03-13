@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
 public class PlayerInventory : MonoBehaviour
 {
     GameObject inventory;
@@ -10,6 +10,7 @@ public class PlayerInventory : MonoBehaviour
     public GameObject Item { get; private set; }
     private PlayerSettings _playerSettings;
     public static PlayerInventory Instance;
+
     private void Awake()
     {
         if (Instance != null)
@@ -18,6 +19,7 @@ public class PlayerInventory : MonoBehaviour
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
 
@@ -30,6 +32,7 @@ public class PlayerInventory : MonoBehaviour
         inventory.tag = "Inventory";
         inventory.transform.SetParent(mainCamera.transform);
         inventory.transform.localPosition = _playerSettings.InvItemPosition;
+        inventory.transform.localRotation = Quaternion.identity;
     }
 
 
@@ -76,6 +79,7 @@ public class PlayerInventory : MonoBehaviour
         {
             UpdateRigidbody(Item.GetComponent<Rigidbody>(), true);
             Item.transform.SetParent(inventory.transform);
+            Item.GetComponentsInChildren<Collider>().Any(x => x.enabled = false);
         }
     }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2138994078649104957}
   - component: {fileID: 3599363011037463554}
   - component: {fileID: 9080556347994217164}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AmbienceOutside
   m_TagString: Untagged
   m_Icon: {fileID: 0}

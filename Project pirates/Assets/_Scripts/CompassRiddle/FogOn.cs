@@ -5,10 +5,12 @@ using UnityEngine;
 public class FogOn : MonoBehaviour
 {
     private PlayerSettings _playerSettings;
-
+    public static bool KillFog = false;
 
     void Start()
     {
+        if (KillFog)
+            return;
         _playerSettings = SettingsManager.PlayerSettings;
         RenderSettings.fog = true;
         RenderSettings.fogDensity = 0f;
@@ -17,6 +19,8 @@ public class FogOn : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (KillFog)
+            return;
         if (RenderSettings.fogDensity != _playerSettings.FogDensity)
         {
             RenderSettings.fogDensity = Mathf.Lerp(RenderSettings.fogDensity, _playerSettings.FogDensity, Time.deltaTime);

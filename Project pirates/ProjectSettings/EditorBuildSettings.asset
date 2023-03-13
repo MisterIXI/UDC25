@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Robbi2Scene.unity
-    guid: dc59a28f0f481494bb267c37509b1fb0
+    path: Assets/Scenes/ShippingScenes/MenuScene.unity
+    guid: 782a9e64a7cefba499b9893999e78734
+  - enabled: 1
+    path: Assets/Scenes/ShippingScenes/PlayScene.unity
+    guid: a3f2176a665594c48ac9f9269543b328
   m_configObjects: {}

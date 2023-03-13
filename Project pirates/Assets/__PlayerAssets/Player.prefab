@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 101491376}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 979146135}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HoldPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 7588933282327956647}
   - component: {fileID: 3642678534051086419}
   - component: {fileID: 6217463104230709914}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ZoomOutPlayerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 5176867541221419691}
   - component: {fileID: 5176867541221419690}
   - component: {fileID: 5176867541221419689}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Capsule
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 1456420647}
   - component: {fileID: 180823691}
   - component: {fileID: 6515924778703852935}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10fb209dbc0f2614a824df03754d17f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <FollowTarget>k__BackingField: {fileID: 0}
+  <FollowTarget>k__BackingField: {fileID: 6043159028214117544}
   groundCheck: {fileID: 101491376}
   stepHeight: 0.75
 --- !u!54 &5176867542112129153
@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 6043159028214117544}
   - component: {fileID: 5838848955141062014}
   - component: {fileID: 1086710855}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraBobbingTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}

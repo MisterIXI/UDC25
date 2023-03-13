@@ -10,6 +10,7 @@ TagManager:
   - KeyItem
   - Coin
   - Stair
+  - GrasGround
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - Stairs
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Ground
+  - Player
+  - CollisionTriggerBoxes
   - 
   - 
   - 

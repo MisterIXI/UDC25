@@ -7,6 +7,7 @@ public class GramophoneFollowNoise : MonoBehaviour
     [field: SerializeField] private GramophoneMarker _currentTarget;
     private bool _isFinalized;
     private GramophoneSettings _gramophoneSettings;
+    private AudioSource _audioSource;
     private void OnEnable()
     {
         Debug.Log($"GramophoneFollowNoise enabled");
@@ -15,6 +16,12 @@ public class GramophoneFollowNoise : MonoBehaviour
         transform.parent = null;
         LevelOrchestrator.OnCurrentNodeChanged += ChangeCurrentTarget;
         ChangeCurrentTarget();
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.clip = SoundManager.AudioClips.GrammophonMusic;
+        _audioSource.loop = true;
+        _audioSource.Play();
+        // SettingsManager.OnSFXVolumeChanged += OnVolumeSettingsChanged;
+        // SettingsManager.OnMasterVolumeChanged += OnVolumeSettingsChanged;
     }
     private void FixedUpdate()
     {
@@ -25,7 +32,7 @@ public class GramophoneFollowNoise : MonoBehaviour
     }
     private void LerpToFinalPosition()
     {
-        transform.localPosition = Vector3.MoveTowards(transform.localPosition, Vector3.zero, Time.fixedDeltaTime * _gramophoneSettings.GramoFollowSpeed);
+        transform.localPosition = Vector3.MoveTowards(transform.localPosition, Vector3.zero, Time.fixedDeltaTime * _gramophoneSettings.GramoFollowSpeed * 0.3f);
         if (transform.localPosition == Vector3.zero)
         {
             gameObject.AddComponent<GramophoneBackwardsNoise>();
@@ -59,9 +66,15 @@ public class GramophoneFollowNoise : MonoBehaviour
         transform.parent = Camera.main.transform;
         transform.localPosition = Vector3.zero;
     }
+    private void OnVolumeSettingsChanged(float newVolume)
+    {
+        _audioSource.volume = SettingsManager.PlayerSettings.TotalMusicVolume;
+    }
     private void OnDestroy()
     {
         LevelOrchestrator.OnCurrentNodeChanged -= ChangeCurrentTarget;
+        // SettingsManager.OnSFXVolumeChanged -= OnVolumeSettingsChanged;
+        // SettingsManager.OnMasterVolumeChanged -= OnVolumeSettingsChanged;
     }
     private void OnDrawGizmos()
     {

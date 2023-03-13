@@ -18,6 +18,7 @@ public class FlagManager : MonoBehaviour
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public static bool SetFlag(string flagName, bool value)

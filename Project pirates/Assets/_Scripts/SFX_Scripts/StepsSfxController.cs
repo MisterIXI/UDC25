@@ -15,7 +15,27 @@ public class StepsSfxController : MonoBehaviour
     }
     private void OnStepTaken()
     {
-        AudioClip clip = _audioClips.StepSounds[Random.Range(0, _audioClips.StepSounds.Length)];
+        // raycast below
+        RaycastHit hit;
+        AudioClip clip = null;
+        // raycast on every layer except player
+
+
+        // if (Physics.Raycast(transform.position, Vector3.down, out hit, 10f))
+        // {
+        //     // Debug.Log("Steps raycast hit: " + hit.collider.name);
+        //     // if hit ground
+        //     if (hit.collider.CompareTag("GrasGround"))
+        //     {
+        //         clip = _audioClips.StepSoundsGrass[Random.Range(0, _audioClips.StepSoundsGrass.Length)];
+        //     }
+        //     else
+        //     {
+        //         clip = _audioClips.StepSounds[Random.Range(0, _audioClips.StepSounds.Length)];
+        //     }
+        // }
+                clip = _audioClips.StepSounds[Random.Range(0, _audioClips.StepSounds.Length)];
+
         SoundManager.Instance.PlayAudioOneShotAtPosition(clip, transform.position);
     }
 }

@@ -8,5 +8,9 @@ public class RaftRandomRotationImpulse : MonoBehaviour
         {
             rb.AddTorque(Random.insideUnitSphere / 2f, ForceMode.Impulse);
         }
+        // disable fog
+        RenderSettings.fog = false;
     }
+
+
 }

@@ -43,9 +43,9 @@ public class LevelOrchestrator : MonoBehaviour
     {
         CurrentAnchorList = anchorList;
         CurrentNode = CurrentAnchorList.LevelNodeData;
-        OnCurrentNodeChanged?.Invoke();
         CurrentContainer = CurrentNode.NodeContainer;
         UpdateSubscriptions();
+        OnCurrentNodeChanged?.Invoke();
     }
     public static void SetNewAnchorList(AnchorList anchorList, FrustumCulling frustumCulling)
     {
@@ -59,13 +59,13 @@ public class LevelOrchestrator : MonoBehaviour
         List<string> oldGUIDs = spawnedObjects.Values.Where(x => x != guid && x != anchorList.LevelNodeData.GUID).ToList();
         CurrentAnchorList = anchorList;
         CurrentNode = CurrentAnchorList.LevelNodeData;
-        OnCurrentNodeChanged?.Invoke();
         CurrentContainer = CurrentNode.NodeContainer;
         UnsubscribeFromAnchors();
         spawnedObjects.Add(frustumCulling, guid);
         UpdateSubscriptions();
         GUIDsWaitingForDespawn.UnionWith(oldGUIDs);
         CheckForNodeDespawn();
+        OnCurrentNodeChanged?.Invoke();
     }
     /// <summary>
     /// Discover all nodes from the currentNode and Link them in the cu
@@ -94,9 +94,9 @@ public class LevelOrchestrator : MonoBehaviour
 
     private void CheckNodeForSpawn(FrustumCulling frustumCulling)
     {
-        if (!CurrentAnchorList.anchors.Any(x => x.FrustumCulling == frustumCulling))
+        if (CurrentAnchorList == null || !CurrentAnchorList.anchors.Any(x => x != null && x.FrustumCulling == frustumCulling))
         {
-            Debug.LogWarning($"FrustumCulling {frustumCulling.name} not found in AnchorList {CurrentAnchorList.name}");
+            Debug.LogWarning($"FrustumCulling not found in AnchorList");
             return;
         }
         NodeLinkData nextNodeLink = CurrentAnchorList.LevelNodeData.GetNodeLinkDataOfNextValidLevelNode(frustumCulling.name);

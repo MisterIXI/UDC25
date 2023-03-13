@@ -18,7 +18,7 @@ public class Northpole : MonoBehaviour
 
     private Vector3 voidDoorClosed = new Vector3(0f, 2f, 49.94f);
     private Vector3 voidDoorOpend;
-
+    private float _timeSinceLastTrigger = 0f;
 
     void Start()
     {
@@ -34,34 +34,37 @@ public class Northpole : MonoBehaviour
     {
         UpdateSpawn();
 
-        if(posCount - spawnPoints.Length == -2)
+        if (posCount - spawnPoints.Length == -2)
         {
             OpenVoidDoor();
         }
-        else if(posCount - spawnPoints.Length == -1)
+        else if (posCount - spawnPoints.Length == -1)
         {
-            gameObject.transform.localScale = new Vector3(0.1f,0.2f,0.1f);
+            gameObject.transform.localScale = new Vector3(0.1f, 0.2f, 0.1f);
             sword.SetActive(false);
         }
-        else if(posCount == 1)
+        else if (posCount == 1)
         {
+            Debug.Log("Close Door");
             CloseVoidDoor();
             SwapRoomToCompassDeco();
         }
     }
 
 
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if(inventory.Item != null && inventory.Item.name  == "Compass")
+            if (inventory.Item != null && inventory.Item.name == "Compass")
             {
-                if(posCount - spawnPoints.Length < -1)
-                {
-                    SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.SomethingNotThatBigHappend, Camera.main.transform.position);
-                    posCount += 1;
-                }
+                if (Time.time - _timeSinceLastTrigger > 0.5f)
+                    if (posCount - spawnPoints.Length < -1)
+                    {
+                        SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.SomethingNotThatBigHappend, Camera.main.transform.position);
+                        posCount += 1;
+                        _timeSinceLastTrigger = Time.time;
+                    }
             }
         }
     }
@@ -69,7 +72,7 @@ public class Northpole : MonoBehaviour
 
     private void UpdateSpawn()
     {
-        if(posCount <= spawnPoints.Length -1)
+        if (posCount <= spawnPoints.Length - 1)
         {
             transform.localPosition = spawnPoints[posCount];
         }
@@ -78,18 +81,18 @@ public class Northpole : MonoBehaviour
 
     private void CloseVoidDoor()
     {
-        if(Vector3.Distance(voidDoor.transform.localPosition, voidDoorClosed) > 0.01f)
+        if (Vector3.Distance(voidDoor.transform.localPosition, voidDoorClosed) > 0.01f)
         {
-            voidDoor.transform.localPosition = Vector3.Lerp(voidDoor.transform.localPosition, voidDoorClosed, Time.deltaTime * 5);
+            voidDoor.transform.localPosition = Vector3.MoveTowards(voidDoor.transform.localPosition, voidDoorClosed, Time.fixedDeltaTime * 5);
         }
     }
 
 
     private void OpenVoidDoor()
     {
-        if(Vector3.Distance(voidDoor.transform.localPosition, voidDoorOpend) > 0.01f)
+        if (Vector3.Distance(voidDoor.transform.localPosition, voidDoorOpend) > 0.01f)
         {
-            voidDoor.transform.localPosition = Vector3.Lerp(voidDoor.transform.localPosition, voidDoorOpend, Time.deltaTime * 5);
+            voidDoor.transform.localPosition = Vector3.MoveTowards(voidDoor.transform.localPosition, voidDoorOpend, Time.fixedDeltaTime * 5);
         }
     }
 

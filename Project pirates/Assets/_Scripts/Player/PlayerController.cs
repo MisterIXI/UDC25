@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _lookVector = Vector2.zero;
-
+        PlayerCameraController.Instance.SetCameraTarget(FollowTarget);
     }
     private void SubscribeToInput()
     {

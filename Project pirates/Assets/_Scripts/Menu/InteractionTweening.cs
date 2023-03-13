@@ -94,6 +94,8 @@ public class InteractionTweening : MonoBehaviour
         if ((ShowInList && TweenProgress == 0f) || (!ShowInList && TweenProgress == 2f))
             IsTweening = false;
     }
-
-
+    private void OnDestroy()
+    {
+        InputManager.OnControlSchemeChanged -= SwapButtonPromptForLayout;
+    }
 }

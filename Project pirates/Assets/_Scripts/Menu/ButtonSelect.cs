@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 public class ButtonSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IDeselectHandler {
-    private AudioClips _audioClips;
+    private AudioClips _audioClips => SoundManager.AudioClips;
 
     private Button _button;
     private RectTransform _buttonTransform;
@@ -17,7 +17,6 @@ public class ButtonSelect : MonoBehaviour, IPointerEnterHandler, ISelectHandler,
 
     private void Start() 
     {
-        _audioClips = SoundManager.AudioClips;
     }
 
     private void Awake() {
