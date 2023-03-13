@@ -16,3 +16,4 @@ MonoBehaviour:
   <GramoFollowSpeed>k__BackingField: 15
   <GramoBackwardsNoiseTriggerDuration>k__BackingField: 5
   <GramoBackwardsMinimumNodeChanges>k__BackingField: 3
+  <GramoBackwardsNoiseTriggerChance>k__BackingField: 50
