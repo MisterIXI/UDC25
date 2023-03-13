@@ -1347,6 +1347,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3998417938736008901}
     m_Modifications:
+    - target: {fileID: 1525832386200057443, guid: 40a031eddf0dad04f924f965cfc5646d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525832386200057443, guid: 40a031eddf0dad04f924f965cfc5646d,
+        type: 3}
+      propertyPath: m_TagString
+      value: GrasGround
+      objectReference: {fileID: 0}
     - target: {fileID: 1525832387062974100, guid: 40a031eddf0dad04f924f965cfc5646d,
         type: 3}
       propertyPath: m_RootOrder
@@ -2465,7 +2475,7 @@ PrefabInstance:
     - target: {fileID: 1237190159486353458, guid: e5df724e8002cdf429490b4a5edfc2aa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.052
       objectReference: {fileID: 0}
     - target: {fileID: 4829404012307286318, guid: e5df724e8002cdf429490b4a5edfc2aa,
         type: 3}
@@ -2503,8 +2513,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.55, y: 2.09, z: 0.17}
-  m_Center: {x: 0, y: 0, z: 1.06}
+  m_Size: {x: 1.09, y: 1.55, z: 0.19}
+  m_Center: {x: 0, y: 0, z: 0.39}
 --- !u!114 &1966192550406052861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2520,7 +2530,7 @@ MonoBehaviour:
   _useCenterForOcclusion: 1
   _useCornersForOcclusion: 1
   _extraPointsInMiddle: 1
-  _extraPointsOnEdges: 0
+  _extraPointsOnEdges: 1
   _drawOcclusionRayGizmos: 0
 --- !u!114 &3086964954053817685
 MonoBehaviour:

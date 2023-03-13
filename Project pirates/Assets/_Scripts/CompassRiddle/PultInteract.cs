@@ -45,7 +45,7 @@ public class PultInteract : MonoBehaviour, IInteractable
             if (PlaceCompass())
             {
                 DisableVoidRoom();
-                if((!sound1))
+                if ((!sound1))
                 {
                     SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.CompassReadjusting, Camera.main.transform.position);
                     SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.SomethingNotThatBigHappend, Camera.main.transform.position);
@@ -55,8 +55,9 @@ public class PultInteract : MonoBehaviour, IInteractable
                 if (OpenDrawer())
                 {
                     particles.SetActive(false);
-                    FlagManager.SetFlag("CompassPuzzleSolved", true);
                     Destroy(this);
+                    enabled = false;
+                    FlagManager.SetFlag("CompassPuzzleSolved", true);
                 }
             }
         }
@@ -104,7 +105,8 @@ public class PultInteract : MonoBehaviour, IInteractable
         }
         else
         {
-            SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.CompassAnimation, Camera.main.transform.position);
+            if (!firstSequenceFinish)
+                SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.CompassAnimation, Camera.main.transform.position);
             firstSequenceFinish = true;
         }
 
@@ -145,6 +147,7 @@ public class PultInteract : MonoBehaviour, IInteractable
 
     private void FogOff()
     {
+        FogOn.KillFog = true;
         if (RenderSettings.fogDensity != 0)
         {
             RenderSettings.fogDensity = Mathf.Lerp(RenderSettings.fogDensity, 0, Time.deltaTime);
@@ -152,6 +155,7 @@ public class PultInteract : MonoBehaviour, IInteractable
         else
         {
             RenderSettings.fog = false;
+
         }
     }
 

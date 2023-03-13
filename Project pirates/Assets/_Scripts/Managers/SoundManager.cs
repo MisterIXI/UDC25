@@ -18,18 +18,10 @@ public class SoundManager : MonoBehaviour
         if (Instance != null)
         {
             Destroy(gameObject);
+            return;
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-    }
-    private void OnMusicVolumeChanged(float newVolume)
-    {
-        _cameraAudioSource.volume = newVolume;
-    }
-    private void Start()
-    {
-        _playerSettings = SettingsManager.PlayerSettings;
         audioEntities = new List<GameObject>();
         for (int i = 0; i < amountOfAudioEntities; i++)
         {
@@ -37,9 +29,20 @@ public class SoundManager : MonoBehaviour
             spawnedEntity.SetActive(false);
             audioEntities.Add(spawnedEntity);
         }
-        _cameraAudioSource = Camera.main.gameObject.AddComponent<AudioSource>();
+    }
+    private void OnMusicVolumeChanged(float newVolume)
+    {
+        _cameraAudioSource.volume = _playerSettings.TotalMusicVolume;
+    }
+    private void Start()
+    {
+        _playerSettings = SettingsManager.PlayerSettings;
+        _cameraAudioSource = Camera.main.GetComponent<AudioSource>();
+
         _cameraAudioSource.loop = true;
-        _cameraAudioSource.volume = _playerSettings.MusicVolume;
+        _cameraAudioSource.volume = _playerSettings.TotalMusicVolume;
+        SettingsManager.OnMasterVolumeChanged += OnMusicVolumeChanged;
+        SettingsManager.OnMusicVolumeChanged += OnMusicVolumeChanged;
     }
     public static void FadeToMusic(AudioClip clip)
     {
@@ -50,7 +53,9 @@ public class SoundManager : MonoBehaviour
 
     private IEnumerator FadeToMusicCoroutine(AudioClip clip)
     {
+
         yield return null;
+
         float startMusicVolume = _cameraAudioSource.volume;
         while (_cameraAudioSource.volume > 0)
         {
@@ -60,9 +65,9 @@ public class SoundManager : MonoBehaviour
         _cameraAudioSource.Stop();
         _cameraAudioSource.clip = clip;
         _cameraAudioSource.Play();
-        while (_cameraAudioSource.volume < _playerSettings.MusicVolume)
+        while (_cameraAudioSource.volume < _playerSettings.TotalMusicVolume)
         {
-            _cameraAudioSource.volume += _playerSettings.MusicVolume * Time.deltaTime;
+            _cameraAudioSource.volume += _playerSettings.TotalMusicVolume * Time.deltaTime;
             yield return null;
         }
     }
@@ -84,13 +89,16 @@ public class SoundManager : MonoBehaviour
             audioEntities.Add(entityFound);
         }
         entityFound.SetActive(true);
+        // Debug.Log($"Playing {clip.name} at {position} with entity {entityFound.name}");
         StartCoroutine(DisableEntity(entityFound, clip, position));
     }
 
     IEnumerator DisableEntity(GameObject entity, AudioClip clip, Vector3 position)
     {
         entity.transform.position = position;
-        entity.GetComponent<AudioSource>().PlayOneShot(clip, _playerSettings.SfxVolume);
+        // var audioSource = entity.GetComponent<AudioSource>();
+        // Debug.Log($"Playing {clip.name} at {position} with entity {entity.name} and audio source {audioSource.name}");
+        entity.GetComponent<AudioSource>()?.PlayOneShot(clip, _playerSettings.TotalSfxVolume);
         yield return new WaitForSeconds(clip.length);
         entity.SetActive(false);
     }
