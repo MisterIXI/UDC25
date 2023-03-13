@@ -15,7 +15,7 @@ public class DoorInteraction : MonoBehaviour, IInteractable
 
     bool hasInteracted;
 
-    void Start() 
+    void Start()
     {
         _audioClips = SoundManager.AudioClips;
     }
@@ -32,7 +32,7 @@ public class DoorInteraction : MonoBehaviour, IInteractable
 
         if (isKeyNeeded && key == null)
             return "Door Locked";
-        else if(isKeyNeeded && key.KeyID != lockID)
+        else if (isKeyNeeded && key.KeyID != lockID)
             return "Wrong Key";
         else if (isKeyNeeded && key.KeyID == lockID)
             return "Unlock Door";
@@ -46,11 +46,11 @@ public class DoorInteraction : MonoBehaviour, IInteractable
     {
         if (!hasInteracted)
         {
-            if(!isKeyNeeded)
-                {
-                    SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.DoorOpenShort, Camera.main.transform.position);
-                    StartCoroutine(OpenDoor());
-                }
+            if (!isKeyNeeded)
+            {
+                SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.DoorOpenShort, Camera.main.transform.position);
+                StartCoroutine(OpenDoor());
+            }
             else
             {
                 CheckKey();
@@ -59,11 +59,11 @@ public class DoorInteraction : MonoBehaviour, IInteractable
     }
 
     void CheckKey()
-    {   
+    {
         Key key = PlayerInventory.Instance.Item?.GetComponent<Key>();
         if (key?.KeyID == lockID)
             SoundManager.Instance.PlayAudioOneShotAtPosition(_audioClips.DoorOpenShort, Camera.main.transform.position);
-            StartCoroutine(OpenDoor());
+        StartCoroutine(OpenDoor());
     }
 
     public void StopAllDoorCoroutines()
@@ -74,26 +74,26 @@ public class DoorInteraction : MonoBehaviour, IInteractable
     public IEnumerator OpenDoor()
     {
         float duration = 0f;
-        float startRotation = transform.rotation.eulerAngles.y; 
+        float startRotation = transform.localEulerAngles.y;
         while (duration < timeToOpen)
         {
-            float currentAngle = Mathf.Lerp(startRotation, openAngle + angleOffset, doorAnimationCurve.Evaluate(duration/timeToOpen));
-            transform.eulerAngles = new Vector3(transform.rotation.x, currentAngle, transform.rotation.z);
+            float currentAngle = Mathf.Lerp(startRotation, openAngle, doorAnimationCurve.Evaluate(duration / timeToOpen));
+            transform.localEulerAngles = new Vector3(transform.rotation.x, currentAngle, transform.rotation.z);
             duration += Time.deltaTime;
             yield return null;
         }
-        
+
         hasInteracted = true;
     }
 
     public IEnumerator CloseDoor()
     {
         float duration = 0f;
-        float startRotation = transform.rotation.eulerAngles.y;
+        float startRotation = transform.localEulerAngles.y;
         while (duration < timeToOpen)
         {
-            float currentAngle = Mathf.Lerp(startRotation, 0  + angleOffset, doorAnimationCurve.Evaluate(duration / timeToOpen));
-            transform.eulerAngles = new Vector3(transform.rotation.x, currentAngle, transform.rotation.z);
+            float currentAngle = Mathf.Lerp(startRotation, 0, doorAnimationCurve.Evaluate(duration / timeToOpen));
+            transform.localEulerAngles = new Vector3(transform.rotation.x, currentAngle, transform.rotation.z);
             duration += Time.deltaTime;
             yield return null;
         }

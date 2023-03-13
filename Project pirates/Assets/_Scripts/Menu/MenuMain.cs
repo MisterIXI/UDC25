@@ -44,15 +44,16 @@ public class MenuMain : MenuBase
     protected virtual void OnEnable()
     {
         // Debug.Log("MenuMain.OnEnable");
-        if (GameManager.CurrentGameState != GameState.MainMenu)
-            GameManager.SwitchToGameState(GameState.MainMenu);
+        // if (GameManager.CurrentGameState != GameState.MainMenu)
+        //     GameManager.SwitchToGameState(GameState.MainMenu);
     }
     protected virtual void OnStartOrResume()
     {
         // start game
         //TODO: replace with actual start game
-        GameManager.SwitchToGameState(GameState.InGame);
         MenuManager.ShowMenu(MenuType.HUD);
+        GameManager.SwitchToGameState(GameState.InGame);
+        GameManager.LoadGameScene();
     }
 
     private void OnSettings()

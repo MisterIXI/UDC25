@@ -21,6 +21,7 @@ public class PlayerCameraController : MonoBehaviour
         _virtualCamera = GetComponent<CinemachineVirtualCamera>();
         _pov = GetComponent<CinemachinePOV>();
         _cameraTransform = Camera.main.transform;
+        DontDestroyOnLoad(gameObject);
     }
     private void Start()
     {
@@ -32,14 +33,20 @@ public class PlayerCameraController : MonoBehaviour
             _virtualCamera.Follow = _playerTransform;
         }
     }
-
+    public void SetCameraTarget(Transform target)
+    {
+        _virtualCamera.Follow = target;
+    }
     private void FixedUpdate()
     {
         _playerTransform.forward = Vector3.ProjectOnPlane(_cameraTransform.forward, Vector3.up);
     }
 
-    private void OnDestroy() {
+    private void OnDestroy()
+    {
         if (Instance == this)
+        {
             Instance = null;
+        }
     }
 }

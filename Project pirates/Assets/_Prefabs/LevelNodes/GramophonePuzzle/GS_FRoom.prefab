@@ -52,6 +52,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 620645929275351696, guid: 993ec1481497de74ca393e48037d1605,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 828769739316917370, guid: 993ec1481497de74ca393e48037d1605,
         type: 3}
       propertyPath: m_RootOrder
@@ -107,15 +112,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1680314660984537233, guid: 993ec1481497de74ca393e48037d1605,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602462255301343145, guid: 993ec1481497de74ca393e48037d1605,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.66853
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602462255301343145, guid: 993ec1481497de74ca393e48037d1605,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602462255301343145, guid: 993ec1481497de74ca393e48037d1605,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.74368525
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602462255301343145, guid: 993ec1481497de74ca393e48037d1605,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 96.093
+      objectReference: {fileID: 0}
     - target: {fileID: 4137985789700820332, guid: 993ec1481497de74ca393e48037d1605,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893150293221200971, guid: 993ec1481497de74ca393e48037d1605,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7917552647099077628, guid: 993ec1481497de74ca393e48037d1605,
         type: 3}
       propertyPath: m_Name
       value: GS_FRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963571660666985967, guid: 993ec1481497de74ca393e48037d1605,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 993ec1481497de74ca393e48037d1605, type: 3}

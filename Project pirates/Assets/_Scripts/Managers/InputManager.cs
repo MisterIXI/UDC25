@@ -107,7 +107,11 @@ public class InputManager : MonoBehaviour
     }
     private void OnDestroy()
     {
-        UnsubscribeFromInput();
+        if (Instance == this)
+        {
+            Instance = null;
+            UnsubscribeFromInput();
+        }
     }
 
     [ContextMenu("Debug print controlscheme")]

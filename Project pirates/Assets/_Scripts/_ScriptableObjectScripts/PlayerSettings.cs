@@ -12,11 +12,14 @@ public class PlayerSettings : ScriptableObject
     [field: SerializeField][field: Range(0.01f, 1)] public float MasterVolume { get; set; } = 0.3f;
     [field: SerializeField][field: Range(0.01f, 1)] public float MusicVolume { get; set; } = 1f;
     [field: SerializeField][field: Range(0.01f, 1)] public float SfxVolume { get; set; } = 1f;
+    public float TotalMusicVolume => MasterVolume * MusicVolume;
+    public float TotalSfxVolume => MasterVolume * SfxVolume;
     [field: Header("Controls")]
     [field: SerializeField][field: Range(0.01f, 1)] public float MouseLookSensitivity { get; set; } = 1f;
     [field: SerializeField][field: Range(0.01f, 1)] public float GamepadLookSensitivity { get; set; } = 1f;
     [field: SerializeField] public bool InvertYAxis { get; set; } = false;
-    [field: SerializeField] public float SensitivityMultiplier { get; set; } = 10f;
+    [field: SerializeField] public float MouseSensitivityMultiplier { get; set; } = 20f;
+    [field: SerializeField] public float GamepadSensitivityMultiplier { get; set; } = 35f;
     [field: Header("Movement")]
     [field: SerializeField] public float MovementSpeed { get; set; } = 1f;
     [field: SerializeField][field: Range(0.01f, 1f)] public float MovementSnapSeconds { get; set; } = 1f;
@@ -38,7 +41,7 @@ public class PlayerSettings : ScriptableObject
     [field: SerializeField] public float InteractMoveForce { get; set; } = 100f;
     [field: SerializeField] public float InteractThrowMagnitude { get; set; } = 5f;
     [field: Header("Inventory")]
-    [field: SerializeField] public Vector3 InvItemRotation { get; set; } = new Vector3(-70f, -10f, -20f);
+    [field: SerializeField] public Vector3 InvItemRotation { get; set; } = new Vector3(32f, 23f, 6f);
     [field: SerializeField] public Vector3 InvItemPosition { get; set; } = new Vector3(-0.6f, -0.2f, 1.2f);
     [field: SerializeField] public float InvRubberbandForce { get; set; } = 100f;
     [field: SerializeField] public float InvRotationSpeed { get; set; } = 3f;

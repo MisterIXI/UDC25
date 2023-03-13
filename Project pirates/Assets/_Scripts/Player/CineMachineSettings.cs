@@ -38,6 +38,7 @@ public class CineMachineSettings : CinemachineExtension
     private void OnControlSchemeChanged()
     {
         IsKeyboardAndMouseActive = InputManager.IsKeyboardAndMouse;
+        OnSensitivityChange(0);
     }
     private void OnInvertChanged(bool value)
     {
@@ -47,13 +48,13 @@ public class CineMachineSettings : CinemachineExtension
     {
         if (IsKeyboardAndMouseActive)
         {
-            horizontalSpeed = playerSettings.MouseLookSensitivity * playerSettings.SensitivityMultiplier;
-            verticalSpeed = playerSettings.MouseLookSensitivity * playerSettings.SensitivityMultiplier;
+            horizontalSpeed = playerSettings.MouseLookSensitivity * playerSettings.MouseSensitivityMultiplier;
+            verticalSpeed = playerSettings.MouseLookSensitivity * playerSettings.MouseSensitivityMultiplier;
         }
         else
         {
-            horizontalSpeed = playerSettings.GamepadLookSensitivity * playerSettings.SensitivityMultiplier;
-            verticalSpeed = playerSettings.GamepadLookSensitivity * playerSettings.SensitivityMultiplier;
+            horizontalSpeed = playerSettings.GamepadLookSensitivity * playerSettings.GamepadSensitivityMultiplier;
+            verticalSpeed = playerSettings.GamepadLookSensitivity * playerSettings.GamepadSensitivityMultiplier;
         }
     }
 
@@ -77,5 +78,9 @@ public class CineMachineSettings : CinemachineExtension
         }
     }
 
-
+    protected override void OnDestroy()
+    {
+        InputManager.OnControlSchemeChanged -= OnControlSchemeChanged;
+        base.OnDestroy();
+    }
 }
