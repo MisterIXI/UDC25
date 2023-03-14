@@ -4,51 +4,31 @@ using UnityEngine;
 
 public class StarKey : MonoBehaviour, IInteractable
 {
-    Transform player;
+    private PlayerInventory inventory;
 
-    bool isKeyObtained = false;
-    bool isKeyMovingToPlayer = false;
-    [SerializeField] float duration = 6f;
-    float currentTime = 0f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(isKeyObtained && !isKeyMovingToPlayer){
-            StartCoroutine(MoveKeyToPlayer());
-            isKeyMovingToPlayer = true;
-        }
-    }
-
-
-    IEnumerator MoveKeyToPlayer(){
-        float currentTime = 0f;
-        Vector3 startPosition = transform.position;
-        while(currentTime < duration && Vector3.Distance(transform.position, player.position) > 2f){
-            transform.position = Vector3.Lerp(startPosition, new Vector3(player.position.x,player.position.y + 1,player.position.z), currentTime / duration);
-            currentTime += Time.deltaTime;
-            yield return null;
-        }
-    }
-
-    public void IsKeyObtained(bool value){
-        isKeyObtained = value;
+    void Start() {
+        inventory = PlayerController.Instance.GetComponent<PlayerInventory>();
     }
 
     public string Data()
     {
-        return "Collect Key";
+        if (inventory.Item != null && inventory.Item.name == "Spyglass")
+        {
+            return "Look at the Star formation";
+        }
+        else
+        {
+            return "I must have forgotten the Spyglass";
+        } 
     }
 
     public void Interact()
     {
-        Destroy(GetComponent<SphereCollider>());
-        PlayerInventory.Instance.TakeObject(gameObject);
+        if (inventory.Item != null && inventory.Item.name == "Spyglass")
+        {
+            Destroy(GetComponent<SphereCollider>());
+            GetComponent<MeshRenderer>().enabled = true;
+            PlayerInventory.Instance.TakeObject(gameObject);
+        }
     }
 }

@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StarkeyRiddle : MonoBehaviour
+public class StarkeyRiddle : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject keyObject;
+    private PlayerInventory inventory;
 
     bool isPlayerInTrigger = false;
     Camera _mainCamera;
@@ -28,10 +29,8 @@ public class StarkeyRiddle : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(_mainCamera.transform.position, _mainCamera.transform.forward * 100, out hit)){
                 if(hit.collider.gameObject.Equals(keyObject)){
+                    // data nad interact here
                     isKeyObtained = true;
-                    keyObject.GetComponent<MeshRenderer>().enabled = true;
-                    keyObject.GetComponent<StarKey>().IsKeyObtained(true);
-                    keyObject.transform.SetParent(null);
                 }
             }
         }
@@ -45,8 +44,15 @@ public class StarkeyRiddle : MonoBehaviour
         }
     }
 
+    public string Data()
+    {
+        return "Look at the Star formation";
+    }
 
-    
-
+    public void Interact()
+    {
+        keyObject.SetActive(true);
+        keyObject.GetComponent<MeshRenderer>().enabled = true;
+        inventory.TakeObject(keyObject);
+    }
 }
-
