@@ -4,6 +4,7 @@ public class TweenerController : MonoBehaviour
 {
     [field: SerializeField] public InteractionTweening InteractTween { get; private set; }
     [field: SerializeField] public InteractionTweening HoldTween { get; private set; }
+    [field: SerializeField] public InteractionTweening CoinTween { get; private set; }
     [field: SerializeField] public InteractionTweening PauseTween { get; private set; }
 
     private void Start()
@@ -13,6 +14,7 @@ public class TweenerController : MonoBehaviour
         HoldObject.OnPotentialRigidbodyChanged += OnHoldTargetChanged;
         OnInteractTargetChanged();
         OnHoldTargetChanged();
+        OnCoinThrow();
     }
 
     public void OnInteractTargetChanged()
@@ -47,6 +49,22 @@ public class TweenerController : MonoBehaviour
             }
         }
     }
+
+
+    public void OnCoinThrow()
+    {
+        if (CoinManager.Instance.CoinList != null)
+        {
+            CoinTween.TextTweening.SetText("Drop Breadcrum");
+            CoinTween.ShowInList = true;
+        }
+        else
+        {
+            CoinTween.ShowInList = false;
+            CoinTween.TextTweening.SetText(" ");
+        }
+    }
+
 
     public void SetPauseTween()
     {
