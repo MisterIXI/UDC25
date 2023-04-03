@@ -45,7 +45,7 @@ public class Northpole : MonoBehaviour
         }
         else if (posCount == 1)
         {
-            Debug.Log("Close Door");
+            // Debug.Log("Close Door");
             CloseVoidDoor();
             SwapRoomToCompassDeco();
         }

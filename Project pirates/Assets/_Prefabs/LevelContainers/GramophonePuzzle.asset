@@ -14,18 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNodeData:
   - DisplayName: LevelNode
-    GUID: b38f5058-d571-4c62-acc2-fe2e070eb136
-    position:
-      serializedVersion: 2
-      x: 174
-      y: 92
-      width: 227
-      height: 117
-    NodeContainer: {fileID: 11400000}
-    anchorList: {fileID: 6430084528398542953, guid: 407235160ded4de49831244975da7ba7,
-      type: 3}
-    YRotation: 180
-  - DisplayName: LevelNode
     GUID: 3198f229-f93e-4196-a01a-68998ac73c71
     position:
       serializedVersion: 2
@@ -362,18 +350,6 @@ MonoBehaviour:
       type: 3}
     YRotation: 0
   - DisplayName: LevelNode
-    GUID: a4640232-a8d1-4b38-a5fe-ce32b71bfcd8
-    position:
-      serializedVersion: 2
-      x: 470
-      y: 92
-      width: 243
-      height: 141
-    NodeContainer: {fileID: 11400000}
-    anchorList: {fileID: 2293138143530786568, guid: 36f7694ba6f11e2468c0bf97ba800bd3,
-      type: 3}
-    YRotation: 0
-  - DisplayName: LevelNode
     GUID: 5ef61577-12d4-417d-bd4d-2171b83cd179
     position:
       serializedVersion: 2
@@ -433,6 +409,30 @@ MonoBehaviour:
     anchorList: {fileID: 6254894199106154812, guid: 7f6b0cd5b7415e04ead05ca53e2b403e,
       type: 3}
     YRotation: 90
+  - DisplayName: LevelNode
+    GUID: b38f5058-d571-4c62-acc2-fe2e070eb136
+    position:
+      serializedVersion: 2
+      x: 174
+      y: 54
+      width: 229
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 6068964107145031751, guid: cbce4b1590d405d4497f9d8ab05d4d41,
+      type: 3}
+    YRotation: 180
+  - DisplayName: LevelNode
+    GUID: a4640232-a8d1-4b38-a5fe-ce32b71bfcd8
+    position:
+      serializedVersion: 2
+      x: 475
+      y: 101
+      width: 240
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 2293138143530786568, guid: 36f7694ba6f11e2468c0bf97ba800bd3,
+      type: 3}
+    YRotation: 0
   decisionNodeData:
   - DisplayName: Decision
     GUID: c5bbca8e-cd64-4d26-9750-f89fa9adbf8c
@@ -509,11 +509,6 @@ MonoBehaviour:
     linkedContainer: {fileID: 11400000, guid: ed2362876c9992b498fb9e213d2819ee, type: 2}
     IsEntryPoint: 0
   NodeLinkData:
-  - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: b38f5058-d571-4c62-acc2-fe2e070eb136
-    BasePortName: DoorExitPillar
-    TargetNodeGUID: a4640232-a8d1-4b38-a5fe-ce32b71bfcd8
-    TargetPortName: LongDoorNaked
   - NodeContainer: {fileID: 11400000}
     BaseNodeGUID: 3198f229-f93e-4196-a01a-68998ac73c71
     BasePortName: ShortNaked
@@ -765,61 +760,6 @@ MonoBehaviour:
     TargetNodeGUID: 9d06ac79-8833-49a3-b29b-eedbe78c627b
     TargetPortName: ExitDoorNaked
   - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: a4640232-a8d1-4b38-a5fe-ce32b71bfcd8
-    BasePortName: ShortPillar
-    TargetNodeGUID: 3198f229-f93e-4196-a01a-68998ac73c71
-    TargetPortName: ShortNaked
-  - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: a4640232-a8d1-4b38-a5fe-ce32b71bfcd8
-    BasePortName: LongDoorNaked
-    TargetNodeGUID: b38f5058-d571-4c62-acc2-fe2e070eb136
-    TargetPortName: DoorExitPillar
-  - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: c5bbca8e-cd64-4d26-9750-f89fa9adbf8c
-    BasePortName: True
-    TargetNodeGUID: 5ef61577-12d4-417d-bd4d-2171b83cd179
-    TargetPortName: ShortPillar
-  - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: c5bbca8e-cd64-4d26-9750-f89fa9adbf8c
-    BasePortName: False
-    TargetNodeGUID: e4415709-2a0d-4069-afde-0c8020f2d564
-    TargetPortName: ShortPillar
-  - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: 735fc478-e760-453c-b8b8-1e463a845e3e
-    BasePortName: True
-    TargetNodeGUID: a71404a1-599b-49d4-9ffb-a0a434e5df68
-    TargetPortName: ShortPillar
-  - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: 735fc478-e760-453c-b8b8-1e463a845e3e
-    BasePortName: False
-    TargetNodeGUID: 7d23a71b-acf3-47f1-84bf-6245019768d1
-    TargetPortName: ShortPillar
-  - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: 50f32289-9e63-4f38-b8d4-5a8ee59af74d
-    BasePortName: True
-    TargetNodeGUID: 55a39df7-0faf-4adf-86d9-7bc93e11fe59
-    TargetPortName: ShortPillar
-  - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: 50f32289-9e63-4f38-b8d4-5a8ee59af74d
-    BasePortName: False
-    TargetNodeGUID: 78d8cab5-eb6a-4119-8512-56af14f00e55
-    TargetPortName: ShortPillar
-  - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: 59015887-e81e-4ced-a0a8-106ca9e2660b
-    BasePortName: True
-    TargetNodeGUID: 3eb92c1d-a3ef-4e61-8312-2ef0cfcbeeff
-    TargetPortName: ShortPillar
-  - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: 59015887-e81e-4ced-a0a8-106ca9e2660b
-    BasePortName: False
-    TargetNodeGUID: 8ab58817-036e-444a-ae2a-a7b2a9c82c35
-    TargetPortName: ShortPillar
-  - NodeContainer: {fileID: 11400000}
-    BaseNodeGUID: 8612fd6f-32da-4662-91d5-f2eeb2496a28
-    BasePortName: Link
-    TargetNodeGUID: b38f5058-d571-4c62-acc2-fe2e070eb136
-    TargetPortName: DoorExitPillar
-  - NodeContainer: {fileID: 11400000}
     BaseNodeGUID: 5ef61577-12d4-417d-bd4d-2171b83cd179
     BasePortName: ShortPillar
     TargetNodeGUID: a71404a1-599b-49d4-9ffb-a0a434e5df68
@@ -869,3 +809,63 @@ MonoBehaviour:
     BasePortName: LongNaked
     TargetNodeGUID: 3eb92c1d-a3ef-4e61-8312-2ef0cfcbeeff
     TargetPortName: ShortPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: b38f5058-d571-4c62-acc2-fe2e070eb136
+    BasePortName: DoorExitNaked
+    TargetNodeGUID: a4640232-a8d1-4b38-a5fe-ce32b71bfcd8
+    TargetPortName: LongDoorPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: a4640232-a8d1-4b38-a5fe-ce32b71bfcd8
+    BasePortName: ShortPillar
+    TargetNodeGUID: 3198f229-f93e-4196-a01a-68998ac73c71
+    TargetPortName: ShortNaked
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: a4640232-a8d1-4b38-a5fe-ce32b71bfcd8
+    BasePortName: LongDoorPillar
+    TargetNodeGUID: b38f5058-d571-4c62-acc2-fe2e070eb136
+    TargetPortName: DoorExitNaked
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: c5bbca8e-cd64-4d26-9750-f89fa9adbf8c
+    BasePortName: True
+    TargetNodeGUID: 5ef61577-12d4-417d-bd4d-2171b83cd179
+    TargetPortName: ShortPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: c5bbca8e-cd64-4d26-9750-f89fa9adbf8c
+    BasePortName: False
+    TargetNodeGUID: e4415709-2a0d-4069-afde-0c8020f2d564
+    TargetPortName: ShortPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 735fc478-e760-453c-b8b8-1e463a845e3e
+    BasePortName: True
+    TargetNodeGUID: a71404a1-599b-49d4-9ffb-a0a434e5df68
+    TargetPortName: ShortPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 735fc478-e760-453c-b8b8-1e463a845e3e
+    BasePortName: False
+    TargetNodeGUID: 7d23a71b-acf3-47f1-84bf-6245019768d1
+    TargetPortName: ShortPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 50f32289-9e63-4f38-b8d4-5a8ee59af74d
+    BasePortName: True
+    TargetNodeGUID: 55a39df7-0faf-4adf-86d9-7bc93e11fe59
+    TargetPortName: ShortPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 50f32289-9e63-4f38-b8d4-5a8ee59af74d
+    BasePortName: False
+    TargetNodeGUID: 78d8cab5-eb6a-4119-8512-56af14f00e55
+    TargetPortName: ShortPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 59015887-e81e-4ced-a0a8-106ca9e2660b
+    BasePortName: True
+    TargetNodeGUID: 3eb92c1d-a3ef-4e61-8312-2ef0cfcbeeff
+    TargetPortName: ShortPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 59015887-e81e-4ced-a0a8-106ca9e2660b
+    BasePortName: False
+    TargetNodeGUID: 8ab58817-036e-444a-ae2a-a7b2a9c82c35
+    TargetPortName: ShortPillar
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 8612fd6f-32da-4662-91d5-f2eeb2496a28
+    BasePortName: Link
+    TargetNodeGUID: b38f5058-d571-4c62-acc2-fe2e070eb136
+    TargetPortName: DoorExitNaked
