@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed1a7c5220a8e541ab3673c06ccebe0, type: 3}
+  m_Name: AudioClips
+  m_EditorClassIdentifier: 
+  <StepSounds>k__BackingField:
+  - {fileID: 8300000, guid: 51e44f579ec4ce04cab1c5f9715989f1, type: 3}
+  - {fileID: 8300000, guid: adeb73ba0b4797b43a7b98183cf9bfb1, type: 3}
+  - {fileID: 8300000, guid: cf9dedab415e25944a7ec98fa03261b6, type: 3}
+  - {fileID: 8300000, guid: 2d234dab2858a4445b91f87e5100cd70, type: 3}
+  - {fileID: 8300000, guid: ce4cf01e7de072d40abae26ffbbca6fa, type: 3}
+  - {fileID: 8300000, guid: 65e0e6e5258b40044b9869f59b4cb355, type: 3}
+  <StepSoundsGrass>k__BackingField:
+  - {fileID: 8300000, guid: 56d07855aca73fb46874587f9d098bf0, type: 3}
+  - {fileID: 8300000, guid: 50777baa0d4ca7a40a944f70a97accae, type: 3}
+  - {fileID: 8300000, guid: e060ba9817baca04a9ca625d4baf64f1, type: 3}
+  - {fileID: 8300000, guid: 8bfa097486514c74c9f961d2d705015d, type: 3}
+  - {fileID: 8300000, guid: f6eba689621b0894da145aeb47abf435, type: 3}
+  - {fileID: 8300000, guid: eff9fec789b2714469811f5697475216, type: 3}
+  <CollisionObject>k__BackingField: {fileID: 8300000, guid: f3a08e367c9773b43b0d2ddc59d9ce9f,
+    type: 3}
+  <DoorOpenLong>k__BackingField: {fileID: 8300000, guid: 50d9d574c6265cd4ba66ad195fbb3d91,
+    type: 3}
+  <DoorOpenShort>k__BackingField: {fileID: 8300000, guid: b9c6284269103fe45b3e522a1b8d19d4,
+    type: 3}
+  <ButtonHover>k__BackingField: {fileID: 8300000, guid: 0e1d8136deb510f4ab7f13853cd6d0e0,
+    type: 3}
+  <ButtonPress>k__BackingField: {fileID: 8300000, guid: b29c6e02508c807488356c9ed851308a,
+    type: 3}
+  <GrammophonMusic>k__BackingField: {fileID: 8300000, guid: a433797aea0e6f94faf3459942a223f9,
+    type: 3}
+  <SomethingHappend>k__BackingField: {fileID: 8300000, guid: 7ba75fda4a651e84c86d000fa971120f,
+    type: 3}
+  <SomethingNotThatBigHappend>k__BackingField: {fileID: 8300000, guid: 5823145aba348fd47ae2ddba9d09f56e,
+    type: 3}
+  <CompassAnimation>k__BackingField: {fileID: 8300000, guid: 585424e622078a148af2dc06ed8e272b,
+    type: 3}
+  <CompassReadjusting>k__BackingField: {fileID: 8300000, guid: ab98152d48ddf834ba5b74812fca6ec9,
+    type: 3}
+  <MenuMusic>k__BackingField: {fileID: 8300000, guid: 77518dd99a56f914d9d38441d4a115bb,
+    type: 3}
+  <CreditsMusic>k__BackingField: {fileID: 8300000, guid: a484e42109314c84b888d67a1f533d77,
+    type: 3}
+  <AmbientInside>k__BackingField: {fileID: 8300000, guid: bf02761c0855ac44bab800a664dbf634,
+    type: 3}
+  <AmbientOutside>k__BackingField: {fileID: 8300000, guid: 246af98b3f47eb54eb92c0ff43409ecc,
+    type: 3}

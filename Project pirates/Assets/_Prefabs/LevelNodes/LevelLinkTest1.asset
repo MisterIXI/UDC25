@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6598f2667cc6c1a478f5fba0f197e895, type: 3}
+  m_Name: LevelLinkTest1
+  m_EditorClassIdentifier: 
+  levelNodeData:
+  - DisplayName: LevelNode
+    GUID: d7eb2d40-f047-4687-923e-483af6fb0eda
+    position:
+      serializedVersion: 2
+      x: 375
+      y: 152
+      width: 233
+      height: 117
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 3947232879646745069, guid: bb96e34cbdcaf0b45ab54449489aabaa,
+      type: 3}
+    YRotation: 0
+  - DisplayName: LevelNode
+    GUID: ff99239c-be5b-4d2a-84f3-91424e6a09af
+    position:
+      serializedVersion: 2
+      x: 1112
+      y: 115
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 414888592598186068, guid: def45e15eed49cb43bc87b88b93934a4,
+      type: 3}
+    YRotation: 90
+  - DisplayName: LevelNode
+    GUID: 99c61618-d75b-4561-8c3d-23b2208453ba
+    position:
+      serializedVersion: 2
+      x: 730
+      y: 177
+      width: 209
+      height: 141
+    NodeContainer: {fileID: 11400000}
+    anchorList: {fileID: 7229935677476562337, guid: e73c27165fb3a4b489c0ced3b8d27973,
+      type: 3}
+    YRotation: 0
+  decisionNodeData: []
+  linkNodeData:
+  - DisplayName: Link
+    GUID: cf657be4-ae3e-4c8a-b3e1-97744f0f0b79
+    position:
+      serializedVersion: 2
+      x: 56
+      y: 95
+      width: 180
+      height: 115
+    NodeContainer: {fileID: 11400000}
+    linkedContainer: {fileID: 0}
+    IsEntryPoint: 1
+  - DisplayName: Link
+    GUID: 0ad86dd0-8ac2-4721-8dba-bf4dd313bb02
+    position:
+      serializedVersion: 2
+      x: 1448
+      y: 166
+      width: 224
+      height: 115
+    NodeContainer: {fileID: 11400000}
+    linkedContainer: {fileID: 11400000, guid: a8c0aff889778124ba9ebb9fab128c9c, type: 2}
+    IsEntryPoint: 0
+  NodeLinkData:
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: d7eb2d40-f047-4687-923e-483af6fb0eda
+    BasePortName: DoorConnector
+    TargetNodeGUID: 99c61618-d75b-4561-8c3d-23b2208453ba
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: ff99239c-be5b-4d2a-84f3-91424e6a09af
+    BasePortName: Ausgang.001
+    TargetNodeGUID: 0ad86dd0-8ac2-4721-8dba-bf4dd313bb02
+    TargetPortName: Link
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: ff99239c-be5b-4d2a-84f3-91424e6a09af
+    BasePortName: EIngang.001
+    TargetNodeGUID: 99c61618-d75b-4561-8c3d-23b2208453ba
+    TargetPortName: Ausgang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 99c61618-d75b-4561-8c3d-23b2208453ba
+    BasePortName: EIngang.001
+    TargetNodeGUID: d7eb2d40-f047-4687-923e-483af6fb0eda
+    TargetPortName: DoorConnector
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: 99c61618-d75b-4561-8c3d-23b2208453ba
+    BasePortName: Ausgang.001
+    TargetNodeGUID: ff99239c-be5b-4d2a-84f3-91424e6a09af
+    TargetPortName: EIngang.001
+  - NodeContainer: {fileID: 11400000}
+    BaseNodeGUID: cf657be4-ae3e-4c8a-b3e1-97744f0f0b79
+    BasePortName: Link
+    TargetNodeGUID: d7eb2d40-f047-4687-923e-483af6fb0eda
+    TargetPortName: DoorConnector
